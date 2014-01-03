@@ -1,13 +1,12 @@
-# Compiled Object files
 *.slo
 *.lo
 *.o
-
-# Compiled Dynamic libraries
 *.so
 *.dylib
-
-# Compiled Static libraries
 *.lai
 *.la
 *.a
+*~
+bullet.lisp
+cl-bullet2l_wrap.cxx
+bullet-clos.lisp

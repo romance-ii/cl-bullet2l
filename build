@@ -1,0 +1,12 @@
+( cd ../bullet2; 
+	if [ ! -f configure ] ; then
+		./autogen.sh --prefix=$(pwd)/ld || exit 1
+	fi
+	if [ ! -f Makefile ] ; then
+		./configure --prefix=$(pwd)/ld || exit 2
+	fi
+	make -j && exec make install )
+swig -c++ -Wall \
+	-I../bullet2/ld/include/bullet -I../bullet2/src \
+	-outcurrentdir \
+	-v -cffi cl-bullet2l.i
