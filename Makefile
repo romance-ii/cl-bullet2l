@@ -6,10 +6,23 @@ clean:
 bullet-physics-clos.lisp: $(shell find ../bullet2/ -name \*.h) cl-bullet2l.i
 	./build
 
+../bullet2/configure:	../bullet2/autogen.sh
+	cd ../bullet2; ./autogen.sh
+
+../bullet2/Makefile:	../bullet2/configure
+	cd ../bullet2; ./configure --prefix=$(pwd)/ld
+
+../bullet2/ld/lib/libBulletCollision.a: ../bullet2/Makefile
+	$(MAKE) -C ../bullet2
+	$(MAKE) -C ../bullet2 install
+
 cl-bullet2l_wrap.cxx: ../bullet2/ld/lib/libBulletCollision.a \
 	../bullet2/ld/lib/libBulletDynamics.a \
 	cl-bullet2l.i
-	./build
+	swig -c++ -Wall \
+		-I../bullet2/ld/include/bullet -I../bullet2/src \
+		-outcurrentdir \
+		-v -cffi cl-bullet2l.i
 
 CXXFLAGS += -I ../bullet2/ld/include/bullet
 CXXFLAGS += -I ../bullet2/src
@@ -24,7 +37,7 @@ libcl-bullet2l.so:	cl-bullet2l_wrap.o \
 		-L../bullet2/ld/lib/libBulletCollision.a \
 		-L../bullet2/ld/lib/libBulletDynamics.a \
 		-o $@
-		
+
 cl-bullet2l_wrap.o:	cl-bullet2l_wrap.cxx
 	$(CXX) $(CXXFLAGS) -c $^ -o $@
 
