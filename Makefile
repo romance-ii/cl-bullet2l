@@ -24,3 +24,7 @@ libcl-bullet2l.so:	cl-bullet2l_wrap.o \
 		-L../bullet2/ld/lib/libBulletCollision.a \
 		-L../bullet2/ld/lib/libBulletDynamics.a \
 		-o $@
+		
+cl-bullet2l_wrap.o:	cl-bullet2l_wrap.cxx
+	$(CXX) $(CXXFLAGS) -c $^ -o $@
+
