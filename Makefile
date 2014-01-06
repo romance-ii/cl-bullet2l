@@ -33,12 +33,16 @@ CXXFLAGS += -l ../bullet2/ld/lib
 CXXFLAGS += -fPIC
 
 libcl-bullet2l.so:	cl-bullet2l_wrap.o \
+	../bullet2/ld/lib/libLinearMath.a \
 	../bullet2/ld/lib/libBulletCollision.a \
-	../bullet2/ld/lib/libBulletDynamics.a
+	../bullet2/ld/lib/libBulletDynamics.a \
+	../bullet2/ld/lib/libBulletSoftBody.a
 	$(CXX) -shared \
 		cl-bullet2l_wrap.o \
+		-L../bullet2/ld/lib/libLinearMath.a \
 		-L../bullet2/ld/lib/libBulletCollision.a \
 		-L../bullet2/ld/lib/libBulletDynamics.a \
+		-L../bullet2/ld/lib/libBulletSoftBody.a \
 		-o $@
 
 cl-bullet2l_wrap.o:	cl-bullet2l_wrap.cxx
