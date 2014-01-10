@@ -2,7 +2,7 @@
 %module "bullet"
 
 %feature("export","1");
-%feature("intern_function","1"); /* "cl-bullet2l-lispify"); */
+%feature("intern_function","1");
 %feature("inline");
 
 // Fix up operator overrides
@@ -334,11 +334,18 @@ ContactResultCallback()
    (defun swig-lispify (identifier expression &optional (package cl:*package*))
     (when (and (equal (subseq identifier 0 4) "new_")
            (member expression (quote (function method))))
-     (setf identifier (concatenate (quote string) "make-" (subseq identifier 4))))
+     (setf identifier (concatenate (quote string) "make-" 
+                       (when (or (equal (subseq identifier 0 3) "bt_")
+                              (equal (subseq identifier 0 3) "BT_")
+                              (equal (subseq identifier 0 3) "bt-"))
+                        (subseq identifier 3))
+                       (when (equal (subseq identifier 0 2) "bt")
+                        (subseq identifier 2))(subseq identifier 4))))
     (when (or (equal (subseq identifier 0 2) "m_")
            (equal (subseq identifier 0 2) "m-"))
      (setf identifier (subseq identifier 2)))
     (when (or (equal (subseq identifier 0 3) "bt_")
+           (equal (subseq identifier 0 3) "BT_")
            (equal (subseq identifier 0 3) "bt-"))
      (setf identifier (subseq identifier 3)))
     (when (equal (subseq identifier 0 2) "bt")
@@ -348,27 +355,30 @@ ContactResultCallback()
                    (cl:cond
                     ((cl:null lst) rest)
                     ((cl:upper-case-p c) (helper (cl:cdr lst) (quote upper)
-                                                    (cl:case last
-                                                      ((lower digit) (cl:list* c #\- rest))
-                                                      (cl:t (cl:cons c rest)))))
+                                          (cl:case last
+                                           ((lower digit) (cl:list* c #\- rest))
+                                           (cl:t (cl:cons c rest)))))
                     ((cl:lower-case-p c) (helper (cl:cdr lst) (quote lower) (cl:cons (cl:char-upcase c) rest)))
                     ((cl:digit-char-p c) (helper (cl:cdr lst) (quote digit) 
-                                                    (cl:case last
-                                                      ((upper lower) (cl:list* c #\- rest))
-                                                      (cl:t (cl:cons c rest)))))
-                    ((or (cl:char-equal c #\_) (cl:char-equal c #\-)) (helper (cl:cdr lst) (quote _) (cl:cons #\/ rest)))
-                    (cl:t (cl:error "Invalid character: ~A" c)))))
-       (cl:let ((fix (cl:case flag
-                      ((constant enumvalue) "+")
-                      (variable "*")
-                      (cl:t ""))))
-        (cl:intern
-         (cl:concatenate
-          (quote cl:string)
-             fix
-          (cl:nreverse (helper (cl:concatenate (quote cl:list) name) cl:nil cl:nil))
-       fix)
-      package)))) identifier expression package)))
+                                          (cl:case last
+                                           ((upper lower) (cl:list* c #\- rest))
+                                           (cl:t (cl:cons c rest)))))
+                    ((or (cl:char-equal c #\_) (cl:char-equal c #\-)) 
+                     (helper (cl:cdr lst) (quote _)
+                      (cl:cons (cl:case flag ((constant enumvalue)
+                                              #\-) (t #\/)) rest)))
+                                              (cl:t (cl:error "Invalid character: ~A" c)))))
+                      (cl:let ((fix (cl:case flag
+                                     ((constant enumvalue) "+")
+                                     (variable "*")
+                                     (cl:t ""))))
+                       (cl:intern
+                        (cl:concatenate
+                         (quote cl:string)
+                         fix
+                         (cl:nreverse (helper (cl:concatenate (quote cl:list) name) cl:nil cl:nil))
+                         fix)
+                        package)))) identifier expression package))) 
       %}
 
 // C++ Header
@@ -436,7 +446,7 @@ typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
 %import "LinearMath/btQuickprof.h"
 %import "LinearMath/btIDebugDraw.h"
 %import "LinearMath/btSerializer.h"
-%import "btBulletCollisionCommon.h"
+%import "btBulletCollisionCommon.h" 
 %include "BulletDynamics/Dynamics/btDiscreteDynamicsWorld.h"
 %include "BulletDynamics/Dynamics/btSimpleDynamicsWorld.h"
 %import "BulletDynamics/Dynamics/btRigidBody.h"
