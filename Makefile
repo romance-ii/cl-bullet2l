@@ -2,6 +2,7 @@ all: bullet.lisp libcl-bullet2l.so
 
 clean:	
 	rm -f $(shell cat .gitignore)
+	$(MAKE) -C ../bullet2 clean
 
 bullet.lisp: $(shell find ../bullet2/ -name \*.h) cl-bullet2l.i
 	swig -c++ -Wall \
@@ -32,17 +33,17 @@ CXXFLAGS += -I ../bullet2/src
 CXXFLAGS += -l ../bullet2/ld/lib
 CXXFLAGS += -fPIC
 
-libcl-bullet2l.so:	cl-bullet2l_wrap.o \
-	../bullet2/ld/lib/libLinearMath.a \
-	../bullet2/ld/lib/libBulletCollision.a \
-	../bullet2/ld/lib/libBulletDynamics.a \
-	../bullet2/ld/lib/libBulletSoftBody.a
+libcl-bullet2l.so:	cl-bullet2l_wrap.o	\
+	../bullet2/ld/lib/libLinearMath.so	\
+	../bullet2/ld/lib/libBulletCollision.so	\
+	../bullet2/ld/lib/libBulletDynamics.so	\
+	../bullet2/ld/lib/libBulletSoftBody.so
+	cp -f	../bullet2/ld/lib/libLinearMath.so	\
+		../bullet2/ld/lib/libBulletCollision.so	\
+		../bullet2/ld/lib/libBulletDynamics.so	\
+		../bullet2/ld/lib/libBulletSoftBody.so	.
 	$(CXX) -shared \
 		cl-bullet2l_wrap.o \
-		-L../bullet2/ld/lib/libLinearMath.a \
-		-L../bullet2/ld/lib/libBulletCollision.a \
-		-L../bullet2/ld/lib/libBulletDynamics.a \
-		-L../bullet2/ld/lib/libBulletSoftBody.a \
 		-o $@
 
 cl-bullet2l_wrap.o:	cl-bullet2l_wrap.cxx

@@ -2,7 +2,7 @@
 %module "bullet"
 
 %feature("export","1");
-%feature("intern_function","1");
+%feature("intern_function","bullet-wrap::swig-lispify");
 %feature("inline");
 
 // Fix up operator overrides
@@ -296,89 +296,16 @@ ContactResultCallback()
 
 %insert ("lisphead")
 %{
-
 (defpackage bullet-physics
- (:use :cl :alexandria)
- (:nicknames bullet)
- (:documentation "Bullet is a Collision Detection and Rigid Body Dynamics
+  (:use :cl :alexandria)
+  (:nicknames bullet)
+  (:documentation "Bullet is a Collision Detection and Rigid Body Dynamics
  Library.  The Library is Open Source and free for commercial use, under the
  zlib.  The C++ documentation is at bulletphysics.org; this is a simple
  wrapper to make Bullet available to Common Lisp programs."))
 
 (in-package :bullet-physics)
 
-
-  (push (merge-pathnames "../bullet2/ld/lib/")
-   cffi:*FOREIGN-LIBRARY-DIRECTORIES*)
-  (push (merge-pathnames "./")
-   cffi:*FOREIGN-LIBRARY-DIRECTORIES*)
-
-  (cffi:define-foreign-library linear-math
-   (t (:default "libLinearMath")))
-
-  (cffi:define-foreign-library bullet2-collision
-   (t (:default "libBulletCollision")))
-
-  (cffi:define-foreign-library bullet2-dynamics
-   (t (:default "libBulletDynamics")))
-
-  (cffi:define-foreign-library bullet2-soft-body
-   (t (:default "libBulletSoftBody")))
-
-  (cffi:define-foreign-library bullet2l
-   (t (:default "libcl-bullet2l")))
-
-  (mapcar #'cffi:load-foreign-library '(linear-math bullet2-collision bullet2-dynamics bullet2-soft-body bullet2l))
-
-  (cl:eval-when (:compile-toplevel :load-toplevel)
-   (defun swig-lispify (identifier expression &optional (package cl:*package*))
-    (when (and (equal (subseq identifier 0 4) "new_")
-           (member expression (quote (function method))))
-     (setf identifier (concatenate (quote string) "make-" 
-                       (when (or (equal (subseq identifier 0 3) "bt_")
-                              (equal (subseq identifier 0 3) "BT_")
-                              (equal (subseq identifier 0 3) "bt-"))
-                        (subseq identifier 3))
-                       (when (equal (subseq identifier 0 2) "bt")
-                        (subseq identifier 2))(subseq identifier 4))))
-    (when (or (equal (subseq identifier 0 2) "m_")
-           (equal (subseq identifier 0 2) "m-"))
-     (setf identifier (subseq identifier 2)))
-    (when (or (equal (subseq identifier 0 3) "bt_")
-           (equal (subseq identifier 0 3) "BT_")
-           (equal (subseq identifier 0 3) "bt-"))
-     (setf identifier (subseq identifier 3)))
-    (when (equal (subseq identifier 0 2) "bt")
-     (setf identifier (subseq identifier 2)))
-    ((lambda (name flag cl:&optional (package cl:*package*))
-      (cl:labels ((helper (lst last rest cl:&aux (c (cl:car lst)))
-                   (cl:cond
-                    ((cl:null lst) rest)
-                    ((cl:upper-case-p c) (helper (cl:cdr lst) (quote upper)
-                                          (cl:case last
-                                           ((lower digit) (cl:list* c #\- rest))
-                                           (cl:t (cl:cons c rest)))))
-                    ((cl:lower-case-p c) (helper (cl:cdr lst) (quote lower) (cl:cons (cl:char-upcase c) rest)))
-                    ((cl:digit-char-p c) (helper (cl:cdr lst) (quote digit) 
-                                          (cl:case last
-                                           ((upper lower) (cl:list* c #\- rest))
-                                           (cl:t (cl:cons c rest)))))
-                    ((or (cl:char-equal c #\_) (cl:char-equal c #\-)) 
-                     (helper (cl:cdr lst) (quote _)
-                      (cl:cons (cl:case flag ((constant enumvalue)
-                                              #\-) (t #\/)) rest)))
-                                              (cl:t (cl:error "Invalid character: ~A" c)))))
-                      (cl:let ((fix (cl:case flag
-                                     ((constant enumvalue) "+")
-                                     (variable "*")
-                                     (cl:t ""))))
-                       (cl:intern
-                        (cl:concatenate
-                         (quote cl:string)
-                         fix
-                         (cl:nreverse (helper (cl:concatenate (quote cl:list) name) cl:nil cl:nil))
-                         fix)
-                        package)))) identifier expression package))) 
       %}
 
 // C++ Header
