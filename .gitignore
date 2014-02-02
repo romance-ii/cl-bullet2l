@@ -9,7 +9,5 @@
 *.fasl
 
 *~
-bullet.lisp
 cl-bullet2l_wrap.cxx
-bullet-clos.lisp
 
