@@ -6,19 +6,44 @@
 %feature("inline");
 
 // Fix up operator overrides
-%rename (set) *::operator =;
-%rename (equals) *::operator ==;
-%rename (lessThanP) *::operator <;
-%rename (greaterThanP) *::operator >;
-%rename (minus) *::operator -;
+%rename (assignValue) *::operator =;
+
+%rename (isEqual) *::operator ==;
+%rename (isLessThan) *::operator <;
+%rename (isGreaterThan) *::operator >;
+%rename (isNotMoreThan) *::operator <=;
+%rename (isNotLessThan) *::operator >=;
 %rename (notEquals) *::operator !=;                         
-%rename (plus) *::operator +;
+
+%rename (add) *::operator +;
+%rename (subtract) *::operator -;
 %rename (multiply) *::operator *;
 %rename (divide) *::operator /;
+%rename (modulo) *::operator %;
+
 %rename (increment) *::operator +=;
 %rename (decrement) *::operator -=;
-%rename (multiplyAndSet) *::operator *=;
-%rename (divideAndSet) *::operator /=;
+%rename (multiplyAndAssign) *::operator *=;
+%rename (divideAndAssign) *::operator /=;
+%rename (moduloAndAssign) *::operator %=;
+
+%rename (makeCPlusPlusInstance) *::operator new;
+%rename (deleteCPlusPlusInstance) *::operator delete;
+%rename (makeCPlusArray) *::operator new[];
+%rename (deleteCPlusArray) *::operator delete[];
+
+
+// Ignore pure abstract class constructors
+
+%ignore btMultiSapBroadphase (int, btOverlappingPairCache*);
+%ignore btMultiSapBroadphase (int);
+%ignore btMultiSapBroadphase ();
+
+// resizeNoInitialize seems friendlier for now
+%ignore btAlignedObjectArray< btWheelInfo >::expand ();
+%ignore btAlignedObjectArray< btWheelInfo >::resize ();
+%ignore btAlignedObjectArray< btWheelInfo >::resize (int);
+
 
 // Inner Class Work-arounds
 
@@ -315,6 +340,7 @@ ContactResultCallback()
 #include "btBulletCollisionCommon.h"
 #include "btBulletDynamicsCommon.h"
 
+
 /* We've fooled SWIG into thinking that Inner is a global class, so now we need
  *  to trick the C++ compiler into understanding this apparent global type. */
 
@@ -331,62 +357,69 @@ typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
 
 %ignore btAlignedAllocator::rebind;
 
-%import "LinearMath/btScalar.h"
-%import "LinearMath/btMinMax.h"
-%import "LinearMath/btAlignedAllocator.h"
-%import "LinearMath/btVector3.h"
-%import "LinearMath/btQuaternion.h"
-%import "LinearMath/btMatrix3x3.h"
-%import "LinearMath/btTransform.h"
-%import "LinearMath/btMotionState.h"
-%import "LinearMath/btAlignedAllocator.h"
-%import "LinearMath/btAlignedObjectArray.h"
+%include "LinearMath/btScalar.h"
+%include "LinearMath/btMinMax.h"
+%include "LinearMath/btAlignedAllocator.h"
+%include "LinearMath/btVector3.h"
+%include "LinearMath/btQuaternion.h"
+%include "LinearMath/btMatrix3x3.h"
+%include "LinearMath/btTransform.h"
+%include "LinearMath/btMotionState.h"
+%include "LinearMath/btAlignedAllocator.h"
+%include "LinearMath/btAlignedObjectArray.h"
 %include "BulletCollision/CollisionDispatch/btCollisionWorld.h"
 %include "BulletCollision/CollisionDispatch/btCollisionObject.h"
-%import "BulletCollision/CollisionShapes/btBoxShape.h"
-%import "BulletCollision/CollisionShapes/btSphereShape.h"
-%import "BulletCollision/CollisionShapes/btCapsuleShape.h"
-%import "BulletCollision/CollisionShapes/btCylinderShape.h"
-%import "BulletCollision/CollisionShapes/btConeShape.h"
-%import "BulletCollision/CollisionShapes/btStaticPlaneShape.h"
-%import "BulletCollision/CollisionShapes/btConvexHullShape.h"
-%import "BulletCollision/CollisionShapes/btTriangleMesh.h"
-%import "BulletCollision/CollisionShapes/btConvexTriangleMeshShape.h"
-%import "BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h"
-%import "BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h"
-%import "BulletCollision/CollisionShapes/btTriangleMeshShape.h"
-%import "BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h"
-%import "BulletCollision/CollisionShapes/btCompoundShape.h"
-%import "BulletCollision/CollisionShapes/btTetrahedronShape.h"
-%import "BulletCollision/CollisionShapes/btEmptyShape.h"
-%import "BulletCollision/CollisionShapes/btMultiSphereShape.h"
-%import "BulletCollision/CollisionShapes/btUniformScalingShape.h"
-%import "BulletCollision/CollisionDispatch/btSphereSphereCollisionAlgorithm.h"
-%import "BulletCollision/CollisionDispatch/btDefaultCollisionConfiguration.h"
-%import "BulletCollision/CollisionDispatch/btCollisionDispatcher.h"
-%import "BulletCollision/BroadphaseCollision/btSimpleBroadphase.h"
-%import "BulletCollision/BroadphaseCollision/btAxisSweep3.h"
-%import "BulletCollision/BroadphaseCollision/btMultiSapBroadphase.h"
-%import "BulletCollision/BroadphaseCollision/btDbvtBroadphase.h"
-%import "LinearMath/btQuaternion.h"
-%import "LinearMath/btDefaultMotionState.h"
-%import "LinearMath/btQuickprof.h"
-%import "LinearMath/btIDebugDraw.h"
-%import "LinearMath/btSerializer.h"
-%import "btBulletCollisionCommon.h" 
+%include "BulletCollision/CollisionShapes/btBoxShape.h"
+%include "BulletCollision/CollisionShapes/btSphereShape.h"
+%include "BulletCollision/CollisionShapes/btCapsuleShape.h"
+%include "BulletCollision/CollisionShapes/btCylinderShape.h"
+%include "BulletCollision/CollisionShapes/btConeShape.h"
+%include "BulletCollision/CollisionShapes/btStaticPlaneShape.h"
+%include "BulletCollision/CollisionShapes/btConvexHullShape.h"
+%include "BulletCollision/CollisionShapes/btTriangleMesh.h"
+%include "BulletCollision/CollisionShapes/btConvexTriangleMeshShape.h"
+%include "BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h"
+%include "BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h"
+%include "BulletCollision/CollisionShapes/btTriangleMeshShape.h"
+%include "BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h"
+%include "BulletCollision/CollisionShapes/btCompoundShape.h"
+%include "BulletCollision/CollisionShapes/btTetrahedronShape.h"
+%include "BulletCollision/CollisionShapes/btEmptyShape.h"
+%include "BulletCollision/CollisionShapes/btMultiSphereShape.h"
+%include "BulletCollision/CollisionShapes/btUniformScalingShape.h"
+%include "BulletCollision/CollisionDispatch/btSphereSphereCollisionAlgorithm.h"
+%include "BulletCollision/CollisionDispatch/btDefaultCollisionConfiguration.h"
+%include "BulletCollision/CollisionDispatch/btCollisionDispatcher.h"
+%include "BulletCollision/BroadphaseCollision/btSimpleBroadphase.h"
+%include "BulletCollision/BroadphaseCollision/btAxisSweep3.h"
+%include "BulletCollision/BroadphaseCollision/btMultiSapBroadphase.h"
+%include "BulletCollision/BroadphaseCollision/btDbvtBroadphase.h"
+%include "LinearMath/btQuaternion.h"
+%include "LinearMath/btDefaultMotionState.h"
+%include "LinearMath/btQuickprof.h"
+%include "LinearMath/btIDebugDraw.h"
+%include "LinearMath/btSerializer.h"
+%include "btBulletCollisionCommon.h" 
 %include "BulletDynamics/Dynamics/btDiscreteDynamicsWorld.h"
 %include "BulletDynamics/Dynamics/btSimpleDynamicsWorld.h"
-%import "BulletDynamics/Dynamics/btRigidBody.h"
-%import "BulletDynamics/ConstraintSolver/btPoint2PointConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btHingeConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btConeTwistConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btSliderConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btUniversalConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btHinge2Constraint.h"
-%import "BulletDynamics/ConstraintSolver/btGearConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btFixedConstraint.h"
-%import "BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.h"
-%import "BulletDynamics/Vehicle/btRaycastVehicle.h"
+%include "BulletDynamics/Dynamics/btRigidBody.h"
+%include "BulletDynamics/ConstraintSolver/btTypedConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btPoint2PointConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btHingeConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btConeTwistConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btGeneric6DofConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btSliderConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btGeneric6DofSpringConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btUniversalConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btHinge2Constraint.h"
+%include "BulletDynamics/ConstraintSolver/btGearConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btFixedConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.h"
+/* %include "BulletDynamics/Vehicle/btWheelInfo.h" */
+/* %include "BulletDynamics/Vehicle/btVehicleRaycaster.h" */
+/* %include "BulletDynamics/Vehicle/btRaycastVehicle.h" */
+
+/*    // Template instantiations */
+/*    %template(alignedWheelInfoArray) btAlignedObjectArray< btWheelInfo >; */
+
 
