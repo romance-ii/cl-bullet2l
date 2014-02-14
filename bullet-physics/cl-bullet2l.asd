@@ -1,14 +1,17 @@
 (asdf:defsystem :cl-bullet2l
   :description "Bullet Physics 2 Common Lisp bindings"
   :author "Bruce-Robert Fenn Pocock"
-  :licence "Bullet"
+  :licence "CC-0 (Public Domain)"
 
   :depends-on (:alexandria :cffi)
 
   :encoding :utf-8
 
+  :serial t
+  
   :components
   ((:file "bullet-package")
+   (:file "bt-load-libs")
    (:file "bt-classes")
    (:file "bt-structs")
    (:file "bt-generics")
@@ -25,6 +28,5 @@
    (:file "bt-wrap-d")
    (:file "bt-wrap-e")
    (:file "bt-wrap-f")
-   (:file "bt-wrap-g")
-   (:file "bt-load-libs")))
+   (:file "bt-wrap-g")))
 
