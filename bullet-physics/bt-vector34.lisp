@@ -3,379 +3,379 @@
 (define-constant +VECTOR3-DATA-NAME+
     "btVector3FloatData"
   :test 'equal)
-(declaim (inline VECTOR3/MAKE-c++-INSTANCE))
-(cffi:defcfun ("_wrap_btVector3_makeCPlusPlusInstance__SWIG_0"
+
+(defcfun ("_wrap_btVector3_makeCPlusPlusInstance__SWIG_0"
                VECTOR3/MAKE-c++-INSTANCE) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
-(declaim (inline VECTOR3/DELETE-c++-INSTANCE))
-(cffi:defcfun ("_wrap_btVector3_deleteCPlusPlusInstance__SWIG_0"
+
+(defcfun ("_wrap_btVector3_deleteCPlusPlusInstance__SWIG_0"
                VECTOR3/DELETE-c++-INSTANCE) :void
   (self :pointer)
   (ptr :pointer))
-(declaim (inline VECTOR3/MAKE-c++-INSTANCE))
-(cffi:defcfun ("_wrap_btVector3_makeCPlusPlusInstance__SWIG_1"
+
+(defcfun ("_wrap_btVector3_makeCPlusPlusInstance__SWIG_1"
                VECTOR3/MAKE-c++-INSTANCE+ARG1) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
-(declaim (inline VECTOR3/DELETE-c++-INSTANCE))
-(cffi:defcfun ("_wrap_btVector3_deleteCPlusPlusInstance__SWIG_1"
+
+(defcfun ("_wrap_btVector3_deleteCPlusPlusInstance__SWIG_1"
                VECTOR3/DELETE-c++-INSTANCE+ARG2+ARG3) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
-(declaim (inline VECTOR3/MAKE-c++-ARRAY))
-(cffi:defcfun ("_wrap_btVector3_makeCPlusArray__SWIG_0"
+
+(defcfun ("_wrap_btVector3_makeCPlusArray__SWIG_0"
                VECTOR3/MAKE-c++-ARRAY) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
-(declaim (inline VECTOR3/DELETE-c++-ARRAY))
-(cffi:defcfun ("_wrap_btVector3_deleteCPlusArray__SWIG_0"
+
+(defcfun ("_wrap_btVector3_deleteCPlusArray__SWIG_0"
                VECTOR3/DELETE-c++-ARRAY) :void
   (self :pointer)
   (ptr :pointer))
-(declaim (inline VECTOR3/MAKE-c++-ARRAY))
-(cffi:defcfun ("_wrap_btVector3_makeCPlusArray__SWIG_1"
+
+(defcfun ("_wrap_btVector3_makeCPlusArray__SWIG_1"
                VECTOR3/MAKE-c++-ARRAY+ARG1) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
-(declaim (inline VECTOR3/DELETE-c++-ARRAY))
-(cffi:defcfun ("_wrap_btVector3_deleteCPlusArray__SWIG_1"
+
+(defcfun ("_wrap_btVector3_deleteCPlusArray__SWIG_1"
                VECTOR3/DELETE-c++-ARRAY+arg1+arg2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
-(declaim (inline VECTOR3/FLOATS/SET))
-(cffi:defcfun ("_wrap_btVector3_m_floats_set"
+
+(defcfun ("_wrap_btVector3_m_floats_set"
                VECTOR3/FLOATS/SET) :void
   (self :pointer)
   (m_floats :pointer))
-(declaim (inline VECTOR3/FLOATS/GET))
-(cffi:defcfun ("_wrap_btVector3_m_floats_get"
+
+(defcfun ("_wrap_btVector3_m_floats_get"
                VECTOR3/FLOATS/GET) :pointer
   (self :pointer))
-(declaim (inline make-vector3/naked))
-(cffi:defcfun ("_wrap_new_btVector3__SWIG_0"
+
+(defcfun ("_wrap_new_btVector3__SWIG_0"
                make-vector3/naked) :pointer)
-(declaim (inline make-vector3/x&y&z))
-(cffi:defcfun ("_wrap_new_btVector3__SWIG_1"
+
+(defcfun ("_wrap_new_btVector3__SWIG_1"
                make-vector3/x&y&z) :pointer
   (x :pointer)
   (y :pointer)
   (z :pointer))
-(declaim (inline make-vector3))
+
 (defun make-vector3 (&optional (x nil x?) y (z nil z?))
   (cond
     (z? (make-vector3/x&y&z x y z))
     (x? (error "MAKE-VECTOR3 requires either 0 or 3 arguments"))
     (t (make-vector3/naked))))
-(declaim (inline VECTOR3/INCREMENT))
-(cffi:defcfun ("_wrap_btVector3_increment"
+
+(defcfun ("_wrap_btVector3_increment"
                VECTOR3/INCREMENT) :pointer
   (self :pointer)
   (v :pointer))
-(declaim (inline VECTOR3/DECREMENT))
-(cffi:defcfun ("_wrap_btVector3_decrement"
+
+(defcfun ("_wrap_btVector3_decrement"
                VECTOR3/DECREMENT) :pointer
   (self :pointer)
   (v :pointer))
-(declaim (inline VECTOR3/MULTIPLY-AND-ASSIGN))
-(cffi:defcfun ("_wrap_btVector3_multiplyAndAssign__SWIG_0"
+
+(defcfun ("_wrap_btVector3_multiplyAndAssign__SWIG_0"
                VECTOR3/MULTIPLY-AND-ASSIGN/iwth-s) :pointer
   (self :pointer)
   (s :pointer))
-(declaim (inline VECTOR3/DIVIDE-AND-ASSIGN))
-(cffi:defcfun ("_wrap_btVector3_divideAndAssign"
+
+(defcfun ("_wrap_btVector3_divideAndAssign"
                VECTOR3/DIVIDE-AND-ASSIGN) :pointer
   (self :pointer)
   (s :pointer))
-(declaim (inline VECTOR3/LENGTH-2))
-(cffi:defcfun ("_wrap_btVector3_length2"
+
+(defcfun ("_wrap_btVector3_length2"
                VECTOR3/LENGTH-2) :float
   (self :pointer))
-(declaim (inline VECTOR3/LENGTH))
-(cffi:defcfun ("_wrap_btVector3_length"
+
+(defcfun ("_wrap_btVector3_length"
                VECTOR3/LENGTH) :float
   (self :pointer))
-(declaim (inline VECTOR3/NORM))
-(cffi:defcfun ("_wrap_btVector3_norm"
+
+(defcfun ("_wrap_btVector3_norm"
                VECTOR3/NORM) :float
   (self :pointer))
-(declaim (inline VECTOR3/DISTANCE-2))
-(cffi:defcfun ("_wrap_btVector3_distance2"
+
+(defcfun ("_wrap_btVector3_distance2"
                VECTOR3/DISTANCE-2) :float
   (self :pointer)
   (v :pointer))
-(declaim (inline VECTOR3/DISTANCE))
-(cffi:defcfun ("_wrap_btVector3_distance"
+
+(defcfun ("_wrap_btVector3_distance"
                VECTOR3/DISTANCE) :float
   (self :pointer)
   (v :pointer))
-(declaim (inline VECTOR3/SAFE-NORMALIZE))
-(cffi:defcfun ("_wrap_btVector3_safeNormalize"
+
+(defcfun ("_wrap_btVector3_safeNormalize"
                VECTOR3/SAFE-NORMALIZE) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/NORMALIZE))
-(cffi:defcfun ("_wrap_btVector3_normalize"
+
+(defcfun ("_wrap_btVector3_normalize"
                VECTOR3/NORMALIZE) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/NORMALIZED))
-(cffi:defcfun ("_wrap_btVector3_normalized"
+
+(defcfun ("_wrap_btVector3_normalized"
                VECTOR3/NORMALIZED) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/ROTATE))
-(cffi:defcfun ("_wrap_btVector3_rotate"
+
+(defcfun ("_wrap_btVector3_rotate"
                VECTOR3/ROTATE) :pointer
   (self :pointer)
   (wAxis :pointer)
   (angle :float))
-(declaim (inline VECTOR3/ANGLE))
-(cffi:defcfun ("_wrap_btVector3_angle"
+
+(defcfun ("_wrap_btVector3_angle"
                VECTOR3/ANGLE) :float
   (self :pointer)
   (v :pointer))
-(declaim (inline VECTOR3/ABSOLUTE))
-(cffi:defcfun ("_wrap_btVector3_absolute"
+
+(defcfun ("_wrap_btVector3_absolute"
                VECTOR3/ABSOLUTE) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/CROSS))
-(cffi:defcfun ("_wrap_btVector3_cross"
+
+(defcfun ("_wrap_btVector3_cross"
                VECTOR3/CROSS) :pointer
   (self :pointer)
   (v :pointer))
-(declaim (inline VECTOR3/TRIPLE))
-(cffi:defcfun ("_wrap_btVector3_triple"
+
+(defcfun ("_wrap_btVector3_triple"
                VECTOR3/TRIPLE) :float
   (self :pointer)
   (v1 :pointer)
   (v2 :pointer))
-(declaim (inline VECTOR3/MIN-AXIS))
-(cffi:defcfun ("_wrap_btVector3_minAxis"
+
+(defcfun ("_wrap_btVector3_minAxis"
                VECTOR3/MIN-AXIS) :int
   (self :pointer))
-(declaim (inline VECTOR3/MAX-AXIS))
-(cffi:defcfun ("_wrap_btVector3_maxAxis"
+
+(defcfun ("_wrap_btVector3_maxAxis"
                VECTOR3/MAX-AXIS) :int
   (self :pointer))
-(declaim (inline VECTOR3/FURTHEST-AXIS))
-(cffi:defcfun ("_wrap_btVector3_furthestAxis"
+
+(defcfun ("_wrap_btVector3_furthestAxis"
                VECTOR3/FURTHEST-AXIS) :int
   (self :pointer))
-(declaim (inline VECTOR3/CLOSEST-AXIS))
-(cffi:defcfun ("_wrap_btVector3_closestAxis"
+
+(defcfun ("_wrap_btVector3_closestAxis"
                VECTOR3/CLOSEST-AXIS) :int
   (self :pointer))
-(declaim (inline VECTOR3/SET-INTERPOLATE-3))
-(cffi:defcfun ("_wrap_btVector3_setInterpolate3"
+
+(defcfun ("_wrap_btVector3_setInterpolate3"
                VECTOR3/SET-INTERPOLATE-3) :void
   (self :pointer)
   (v0 :pointer)
   (v1 :pointer)
   (rt :float))
-(declaim (inline vector3/lerp))
-(cffi:defcfun ("_wrap_btVector3_lerp"
+
+(defcfun ("_wrap_btVector3_lerp"
                vector3/lerp) :pointer
   (self :pointer)
   (v :pointer)
   (t_arg2 :pointer))
-(declaim (inline VECTOR3/MULTIPLY-AND-ASSIGN))
-(cffi:defcfun ("_wrap_btVector3_multiplyAndAssign__SWIG_1"
+
+(defcfun ("_wrap_btVector3_multiplyAndAssign__SWIG_1"
                VECTOR3/MULTIPLY-AND-ASSIGN/with-v) :pointer
   (self :pointer)
   (v :pointer))
 
-(declaim (inline VECTOR3/GET-X))
-(cffi:defcfun ("_wrap_btVector3_getX"
+
+(defcfun ("_wrap_btVector3_getX"
                VECTOR3/GET-X) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/GET-Y))
-(cffi:defcfun ("_wrap_btVector3_getY"
+
+(defcfun ("_wrap_btVector3_getY"
                VECTOR3/GET-Y) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/GET-Z))
-(cffi:defcfun ("_wrap_btVector3_getZ"
+
+(defcfun ("_wrap_btVector3_getZ"
                VECTOR3/GET-Z) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/SET-X))
-(cffi:defcfun ("_wrap_btVector3_setX"
+
+(defcfun ("_wrap_btVector3_setX"
                VECTOR3/SET-X) :void
   (self :pointer)
   (_x :float))
-(declaim (inline VECTOR3/SET-Y))
-(cffi:defcfun ("_wrap_btVector3_setY"
+
+(defcfun ("_wrap_btVector3_setY"
                VECTOR3/SET-Y) :void
   (self :pointer)
   (_y :float))
-(declaim (inline VECTOR3/SET-Z))
-(cffi:defcfun ("_wrap_btVector3_setZ"
+
+(defcfun ("_wrap_btVector3_setZ"
                VECTOR3/SET-Z) :void
   (self :pointer)
   (_z :float))
-(declaim (inline VECTOR3/SET-W))
-(cffi:defcfun ("_wrap_btVector3_setW"
+
+(defcfun ("_wrap_btVector3_setW"
                VECTOR3/SET-W) :void
   (self :pointer)
   (_w :float))
-(declaim (inline VECTOR3/X))
-(cffi:defcfun ("_wrap_btVector3_x"
+
+(defcfun ("_wrap_btVector3_x"
                VECTOR3/X) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/Y))
-(cffi:defcfun ("_wrap_btVector3_y"
+
+(defcfun ("_wrap_btVector3_y"
                VECTOR3/Y) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/Z))
-(cffi:defcfun ("_wrap_btVector3_z"
+
+(defcfun ("_wrap_btVector3_z"
                VECTOR3/Z) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/W))
-(cffi:defcfun ("_wrap_btVector3_w"
+
+(defcfun ("_wrap_btVector3_w"
                VECTOR3/W) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/IS-EQUAL))
-(cffi:defcfun ("_wrap_btVector3_isEqual"
+
+(defcfun ("_wrap_btVector3_isEqual"
                VECTOR3/IS-EQUAL) :pointer
   (self :pointer)
   (other :pointer))
-(declaim (inline VECTOR3/NOT-EQUALS))
-(cffi:defcfun ("_wrap_btVector3_notEquals"
+
+(defcfun ("_wrap_btVector3_notEquals"
                VECTOR3/NOT-EQUALS) :pointer
   (self :pointer)
   (other :pointer))
-(declaim (inline VECTOR3/SET-MAX))
-(cffi:defcfun ("_wrap_btVector3_setMax"
+
+(defcfun ("_wrap_btVector3_setMax"
                VECTOR3/SET-MAX) :void
   (self :pointer)
   (other :pointer))
-(declaim (inline VECTOR3/SET-MIN))
-(cffi:defcfun ("_wrap_btVector3_setMin"
+
+(defcfun ("_wrap_btVector3_setMin"
                VECTOR3/SET-MIN) :void
   (self :pointer)
   (other :pointer))
-(declaim (inline VECTOR3/SET-VALUE))
-(cffi:defcfun ("_wrap_btVector3_setValue"
+
+(defcfun ("_wrap_btVector3_setValue"
                VECTOR3/SET-VALUE) :void
   (self :pointer)
   (x :pointer)                          ; FIXME: Pointer???
   (y :pointer)
   (z :pointer))
-(declaim (inline VECTOR3/GET-SKEW-SYMMETRIC-MATRIX))
-(cffi:defcfun ("_wrap_btVector3_getSkewSymmetricMatrix"
+
+(defcfun ("_wrap_btVector3_getSkewSymmetricMatrix"
                VECTOR3/GET-SKEW-SYMMETRIC-MATRIX) :void
   (self :pointer)
   (v0 :pointer)
   (v1 :pointer)
   (v2 :pointer))
-(declaim (inline VECTOR3/SET-ZERO))
-(cffi:defcfun ("_wrap_btVector3_setZero"
+
+(defcfun ("_wrap_btVector3_setZero"
                VECTOR3/SET-ZERO) :void
   (self :pointer))
-(declaim (inline VECTOR3/IS-ZERO))
-(cffi:defcfun ("_wrap_btVector3_isZero"
+
+(defcfun ("_wrap_btVector3_isZero"
                VECTOR3/IS-ZERO) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/FUZZY-ZERO))
-(cffi:defcfun ("_wrap_btVector3_fuzzyZero"
+
+(defcfun ("_wrap_btVector3_fuzzyZero"
                VECTOR3/FUZZY-ZERO) :pointer
   (self :pointer))
-(declaim (inline VECTOR3/SERIALIZE))
-(cffi:defcfun ("_wrap_btVector3_serialize"
+
+(defcfun ("_wrap_btVector3_serialize"
                VECTOR3/SERIALIZE) :void
   (self :pointer)
   (dataOut :pointer))
-(declaim (inline VECTOR3/DE-SERIALIZE))
-(cffi:defcfun ("_wrap_btVector3_deSerialize"
+
+(defcfun ("_wrap_btVector3_deSerialize"
                VECTOR3/DE-SERIALIZE) :void
   (self :pointer)
   (dataIn :pointer))
-(declaim (inline VECTOR3/SERIALIZE-FLOAT))
-(cffi:defcfun ("_wrap_btVector3_serializeFloat"
+
+(defcfun ("_wrap_btVector3_serializeFloat"
                VECTOR3/SERIALIZE-FLOAT) :void
   (self :pointer)
   (dataOut :pointer))
-(declaim (inline VECTOR3/DE-SERIALIZE-FLOAT))
-(cffi:defcfun ("_wrap_btVector3_deSerializeFloat"
+
+(defcfun ("_wrap_btVector3_deSerializeFloat"
                VECTOR3/DE-SERIALIZE-FLOAT) :void
   (self :pointer)
   (dataIn :pointer))
-(declaim (inline VECTOR3/SERIALIZE-DOUBLE))
-(cffi:defcfun ("_wrap_btVector3_serializeDouble"
+
+(defcfun ("_wrap_btVector3_serializeDouble"
                VECTOR3/SERIALIZE-DOUBLE) :void
   (self :pointer)
   (dataOut :pointer))
-(declaim (inline VECTOR3/DE-SERIALIZE-DOUBLE))
-(cffi:defcfun ("_wrap_btVector3_deSerializeDouble"
+
+(defcfun ("_wrap_btVector3_deSerializeDouble"
                VECTOR3/DE-SERIALIZE-DOUBLE) :void
   (self :pointer)
   (dataIn :pointer))
-(declaim (inline VECTOR3/MAX-DOT))
-(cffi:defcfun ("_wrap_btVector3_maxDot"
+
+(defcfun ("_wrap_btVector3_maxDot"
                VECTOR3/MAX-DOT) :long
   (self :pointer)
   (array :pointer)
   (array_count :long)
   (dotOut :pointer))
-(declaim (inline VECTOR3/MIN-DOT))
-(cffi:defcfun ("_wrap_btVector3_minDot"
+
+(defcfun ("_wrap_btVector3_minDot"
                VECTOR3/MIN-DOT) :long
   (self :pointer)
   (array :pointer)
   (array_count :long)
   (dotOut :pointer))
-(declaim (inline VECTOR3/DOT-3))
-(cffi:defcfun ("_wrap_btVector3_dot3"
+
+(defcfun ("_wrap_btVector3_dot3"
                VECTOR3/DOT-3) :pointer
   (self :pointer)
   (v0 :pointer)
   (v1 :pointer)
   (v2 :pointer))
-(declaim (inline DELETE/BT-VECTOR3))
-(cffi:defcfun ("_wrap_delete_btVector3"
+
+(defcfun ("_wrap_delete_btVector3"
                DELETE/BT-VECTOR3) :void
   (self :pointer))
-(cffi:defcfun ("_wrap_btVector3_dot"
+(defcfun ("_wrap_btVector3_dot"
                VECTOR3/DOT/self*other) :float
   (self :pointer)
   (v :pointer))
-(cffi:defcfun ("_wrap_btDot"
+(defcfun ("_wrap_btDot"
                vector3/dot/v*v) :float
   (v1 :pointer)
   (v2 :pointer))
 
-(declaim (inline SWAP-VECTOR3-ENDIAN))
-(cffi:defcfun ("_wrap_btSwapVector3Endian"
+
+(defcfun ("_wrap_btSwapVector3Endian"
                SWAP-VECTOR3-ENDIAN) :void
   (sourceVec :pointer)
   (destVec :pointer))
-(declaim (inline UN-SWAP-VECTOR3-ENDIAN))
-(cffi:defcfun ("_wrap_btUnSwapVector3Endian"
+
+(defcfun ("_wrap_btUnSwapVector3Endian"
                UN-SWAP-VECTOR3-ENDIAN) :void
   (vector :pointer))
 
-(declaim (inline make-quaternion/naked))
-(cffi:defcfun ("_wrap_new_btQuaternion__SWIG_0"
+
+(defcfun ("_wrap_new_btQuaternion__SWIG_0"
                make-quaternion/naked) :pointer)
-(declaim (inline  make-quaternion/x&y&z&w))
-(cffi:defcfun ("_wrap_new_btQuaternion__SWIG_1"
+
+(defcfun ("_wrap_new_btQuaternion__SWIG_1"
                make-quaternion/x&y&z&w) :pointer
   (x :pointer)
   (y :pointer)
   (z :pointer)
   (w :pointer))
-(declaim (inline make-quaternion/axis&angle))
-(cffi:defcfun ("_wrap_new_btQuaternion__SWIG_2"
+
+(defcfun ("_wrap_new_btQuaternion__SWIG_2"
                make-quaternion/axis&angle) :pointer
   (_axis :pointer)
   (_angle :pointer))
-(declaim (inline make-quaternion/yaw&pitch&roll))
-(cffi:defcfun ("_wrap_new_btQuaternion__SWIG_3"
+
+(defcfun ("_wrap_new_btQuaternion__SWIG_3"
                make-quaternion/yaw&pitch&roll) :pointer
   (yaw :pointer)
   (pitch :pointer)
   (roll :pointer))
-(declaim (inline make-quaternion))
+
 (defun make-quaternion  (&optional
                            (x/axis/yaw nil x?)
                            (y/angle/pitch nil y?)
@@ -387,182 +387,182 @@
     (y? (make-quaternion/axis&angle      x/axis/yaw y/angle/pitch))
     (x? (error "MAKE-QUATERNION needs 0 args or 2 (axis&angle) or 3 (yaw&pitch&roll) or 4 (x&y&z&w)"))
     (t (make-quaternion/naked))))
-(declaim (inline QUATERNION/SET-ROTATION))
-(cffi:defcfun ("_wrap_btQuaternion_setRotation"
+
+(defcfun ("_wrap_btQuaternion_setRotation"
                QUATERNION/SET-ROTATION) :void
   (self :pointer)
   (axis :pointer)
   (_angle :pointer))
-(declaim (inline QUATERNION/SET-EULER))
-(cffi:defcfun ("_wrap_btQuaternion_setEuler"
+
+(defcfun ("_wrap_btQuaternion_setEuler"
                QUATERNION/SET-EULER) :void
   (self :pointer)
   (yaw :pointer)
   (pitch :pointer)
   (roll :pointer))
-(declaim (inline QUATERNION/SET-EULER-ZYX))
-(cffi:defcfun ("_wrap_btQuaternion_setEulerZYX"
+
+(defcfun ("_wrap_btQuaternion_setEulerZYX"
                QUATERNION/SET-EULER-ZYX) :void
   (self :pointer)
   (yaw :pointer)
   (pitch :pointer)
   (roll :pointer))
-(declaim (inline QUATERNION/INCREMENT))
-(cffi:defcfun ("_wrap_btQuaternion_increment"
+
+(defcfun ("_wrap_btQuaternion_increment"
                QUATERNION/INCREMENT) :pointer
   (self :pointer)
   (q :pointer))
-(declaim (inline QUATERNION/DECREMENT))
-(cffi:defcfun ("_wrap_btQuaternion_decrement"
+
+(defcfun ("_wrap_btQuaternion_decrement"
                QUATERNION/DECREMENT) :pointer
   (self :pointer)
   (q :pointer))
-  (declaim (inline QUATERNION/MULTIPLY-AND-ASSIGN))
-  (cffi:defcfun ("_wrap_btQuaternion_multiplyAndAssign__SWIG_0"
+  
+  (defcfun ("_wrap_btQuaternion_multiplyAndAssign__SWIG_0"
                  QUATERNION/MULTIPLY-AND-ASSIGN/s) :pointer
     (self :pointer)
     (s :pointer))
 
-  (declaim (inline QUATERNION/MULTIPLY-AND-ASSIGN))
-  (cffi:defcfun ("_wrap_btQuaternion_multiplyAndAssign__SWIG_1"
+  
+  (defcfun ("_wrap_btQuaternion_multiplyAndAssign__SWIG_1"
                  QUATERNION/MULTIPLY-AND-ASSIGN/q) :pointer
     (self :pointer)
     (q :pointer))
-(declaim (inline QUATERNION/DOT))
-(cffi:defcfun ("_wrap_btQuaternion_dot"
+
+(defcfun ("_wrap_btQuaternion_dot"
                QUATERNION/DOT) :float
   (self :pointer)
   (q :pointer))
-(declaim (inline QUATERNION/LENGTH-2))
-(cffi:defcfun ("_wrap_btQuaternion_length2"
+
+(defcfun ("_wrap_btQuaternion_length2"
                QUATERNION/LENGTH-2) :float
   (self :pointer))
-(declaim (inline QUATERNION/LENGTH))
-(cffi:defcfun ("_wrap_btQuaternion_length"
+
+(defcfun ("_wrap_btQuaternion_length"
                QUATERNION/LENGTH) :float
   (self :pointer))
-(declaim (inline QUATERNION/NORMALIZE))
-(cffi:defcfun ("_wrap_btQuaternion_normalize"
+
+(defcfun ("_wrap_btQuaternion_normalize"
                QUATERNION/NORMALIZE) :pointer
   (self :pointer))
-(declaim (inline QUATERNION/MULTIPLY))
-(cffi:defcfun ("_wrap_btQuaternion_multiply"
+
+(defcfun ("_wrap_btQuaternion_multiply"
                QUATERNION/MULTIPLY) :pointer
   (self :pointer)
   (s :pointer))
-(declaim (inline QUATERNION/DIVIDE))
-(cffi:defcfun ("_wrap_btQuaternion_divide"
+
+(defcfun ("_wrap_btQuaternion_divide"
                QUATERNION/DIVIDE) :pointer
   (self :pointer)
   (s :pointer))
-(declaim (inline QUATERNION/DIVIDE-AND-ASSIGN))
-(cffi:defcfun ("_wrap_btQuaternion_divideAndAssign"
+
+(defcfun ("_wrap_btQuaternion_divideAndAssign"
                QUATERNION/DIVIDE-AND-ASSIGN) :pointer
   (self :pointer)
   (s :pointer))
-(declaim (inline QUATERNION/NORMALIZED))
-(cffi:defcfun ("_wrap_btQuaternion_normalized"
+
+(defcfun ("_wrap_btQuaternion_normalized"
                QUATERNION/NORMALIZED) :pointer
   (self :pointer))
-(declaim (inline QUATERNION/ANGLE))
-(cffi:defcfun ("_wrap_btQuaternion_angle"
+
+(defcfun ("_wrap_btQuaternion_angle"
                QUATERNION/ANGLE/self&q) :float
   (self :pointer)
   (q :pointer))
-(declaim (inline QUATERNION/ANGLE-SHORTEST-PATH))
-(cffi:defcfun ("_wrap_btQuaternion_angleShortestPath"
+
+(defcfun ("_wrap_btQuaternion_angleShortestPath"
                QUATERNION/ANGLE-SHORTEST-PATH) :float
   (self :pointer)
   (q :pointer))
-(declaim (inline QUATERNION/GET-ANGLE))
-(cffi:defcfun ("_wrap_btQuaternion_getAngle"
+
+(defcfun ("_wrap_btQuaternion_getAngle"
                QUATERNION/GET-ANGLE) :float
   (self :pointer))
-(declaim (inline QUATERNION/GET-ANGLE-SHORTEST-PATH))
-(cffi:defcfun ("_wrap_btQuaternion_getAngleShortestPath"
+
+(defcfun ("_wrap_btQuaternion_getAngleShortestPath"
                QUATERNION/GET-ANGLE-SHORTEST-PATH) :float
   (self :pointer))
-(declaim (inline QUATERNION/GET-AXIS))
-(cffi:defcfun ("_wrap_btQuaternion_getAxis"
+
+(defcfun ("_wrap_btQuaternion_getAxis"
                QUATERNION/GET-AXIS) :pointer
   (self :pointer))
-(declaim (inline QUATERNION/INVERSE))
-(cffi:defcfun ("_wrap_btQuaternion_inverse"
+
+(defcfun ("_wrap_btQuaternion_inverse"
                QUATERNION/INVERSE) :pointer
   (self :pointer))
-(declaim (inline QUATERNION/ADD))
-(cffi:defcfun ("_wrap_btQuaternion_add"
+
+(defcfun ("_wrap_btQuaternion_add"
                QUATERNION/ADD) :pointer
   (self :pointer)
   (q2 :pointer))
-(declaim (inline QUATERNION/SUBTRACT))
-(cffi:defcfun ("_wrap_btQuaternion_subtract"
+
+(defcfun ("_wrap_btQuaternion_subtract"
                QUATERNION/SUBTRACT) :pointer
   (self :pointer)
   (q2 :pointer))
-(declaim (inline QUATERNION///NEG//))
-(cffi:defcfun ("_wrap_btQuaternion___neg__"
+
+(defcfun ("_wrap_btQuaternion___neg__"
                QUATERNION///NEG//) :pointer
   (self :pointer))
-(declaim (inline QUATERNION/FARTHEST))
-(cffi:defcfun ("_wrap_btQuaternion_farthest"
+
+(defcfun ("_wrap_btQuaternion_farthest"
                QUATERNION/FARTHEST) :pointer
   (self :pointer)
   (qd :pointer))
-(declaim (inline QUATERNION/NEAREST))
-(cffi:defcfun ("_wrap_btQuaternion_nearest"
+
+(defcfun ("_wrap_btQuaternion_nearest"
                QUATERNION/NEAREST) :pointer
   (self :pointer)
   (qd :pointer))
-(declaim (inline QUATERNION/SLERP))
-(cffi:defcfun ("_wrap_btQuaternion_slerp"
+
+(defcfun ("_wrap_btQuaternion_slerp"
                QUATERNION/SLERP) :pointer
   (self :pointer)
   (q :pointer)
   (t_arg2 :pointer))
-(declaim (inline QUATERNION/GET-IDENTITY))
-(cffi:defcfun ("_wrap_btQuaternion_getIdentity"
+
+(defcfun ("_wrap_btQuaternion_getIdentity"
                QUATERNION/GET-IDENTITY) :pointer)
-(declaim (inline QUATERNION/GET-W))
-(cffi:defcfun ("_wrap_btQuaternion_getW"
+
+(defcfun ("_wrap_btQuaternion_getW"
                QUATERNION/GET-W) :pointer
   (self :pointer))
-(declaim (inline DELETE/BT-QUATERNION))
-(cffi:defcfun ("_wrap_delete_btQuaternion"
+
+(defcfun ("_wrap_delete_btQuaternion"
                DELETE/BT-QUATERNION) :void
   (self :pointer))
-(declaim (inline dot))
-(cffi:defcfun ("_wrap_dot"
+
+(defcfun ("_wrap_dot"
                dot) :float
   (q1 :pointer)
   (q2 :pointer))
-(declaim (inline qlength))
-(cffi:defcfun ("_wrap_length"
+
+(defcfun ("_wrap_length"
                qlength) :float
   (q :pointer))
-(declaim (inline quaternion/angle/q1&q2))
-(cffi:defcfun ("_wrap_btAngle__SWIG_1"
+
+(defcfun ("_wrap_btAngle__SWIG_1"
                quaternion/angle/q1&q2) :float
   (q1 :pointer)
   (q2 :pointer))
 
-(cffi:defcfun ("_wrap_slerp"
+(defcfun ("_wrap_slerp"
                SLERP/qqt) :pointer
   (q1 :pointer)
   (q2 :pointer)
   (t_arg2 :pointer))
-(declaim (inline QUAT-ROTATE))
-(cffi:defcfun ("_wrap_quatRotate"
+
+(defcfun ("_wrap_quatRotate"
                QUAT-ROTATE) :pointer
   (rotation :pointer)
   (v :pointer))
-(declaim (inline SHORTEST-ARC-QUAT))
-(cffi:defcfun ("_wrap_shortestArcQuat"
+
+(defcfun ("_wrap_shortestArcQuat"
                SHORTEST-ARC-QUAT) :pointer
   (v0 :pointer)
   (v1 :pointer))
-(declaim (inline SHORTEST-ARC-QUAT-NORMALIZE-2))
-(cffi:defcfun ("_wrap_shortestArcQuatNormalize2"
+
+(defcfun ("_wrap_shortestArcQuatNormalize2"
                SHORTEST-ARC-QUAT-NORMALIZE-2) :pointer
   (v0 :pointer)
   (v1 :pointer))
@@ -655,7 +655,7 @@
 (defmethod ROTATE-3D ((self VECTOR3) (wAxis VECTOR3) (angle number))
   (VECTOR3/ROTATE (ff-pointer self) (ff-pointer wAxis) angle))
 
-(declaim (inline angle))
+
 
 (defgeneric angle (a b)
   (:method ((a vector3) (b vector3))
@@ -788,53 +788,53 @@
 (defmethod DOT-3 ((self VECTOR3) (v0 VECTOR3) (v1 VECTOR3) (v2 VECTOR3))
   (VECTOR3/DOT-3 (ff-pointer self) (ff-pointer v0) (ff-pointer v1) (ff-pointer v2)))
 
-(declaim (inline ALIGNED-ALLOC-INTERNAL))
-(cffi:defcfun ("_wrap_btAlignedAllocInternal"
+
+(defcfun ("_wrap_btAlignedAllocInternal"
                ALIGNED-ALLOC-INTERNAL) :pointer
   (size :pointer)
   (alignment :int))
-(declaim (inline ALIGNED-FREE-INTERNAL))
-(cffi:defcfun ("_wrap_btAlignedFreeInternal"
+
+(defcfun ("_wrap_btAlignedFreeInternal"
                ALIGNED-FREE-INTERNAL) :void
   (ptr :pointer))
-(declaim (inline ALIGNED-ALLOC-SET-CUSTOM))
-(cffi:defcfun ("_wrap_btAlignedAllocSetCustom"
+
+(defcfun ("_wrap_btAlignedAllocSetCustom"
                ALIGNED-ALLOC-SET-CUSTOM) :void
   (allocFunc :pointer)
   (freeFunc :pointer))
-(declaim (inline ALIGNED-ALLOC-SET-CUSTOM-ALIGNED))
-(cffi:defcfun ("_wrap_btAlignedAllocSetCustomAligned"
+
+(defcfun ("_wrap_btAlignedAllocSetCustomAligned"
                ALIGNED-ALLOC-SET-CUSTOM-ALIGNED) :void
   (allocFunc :pointer)
   (freeFunc :pointer))
-(declaim (inline DISTANCE-2))
-(cffi:defcfun ("_wrap_btDistance2"
+
+(defcfun ("_wrap_btDistance2"
                DISTANCE-2) :float
   (v1 :pointer)
   (v2 :pointer))
-(declaim (inline DISTANCE))
-(cffi:defcfun ("_wrap_btDistance"
+
+(defcfun ("_wrap_btDistance"
                DISTANCE) :float
   (v1 :pointer)
   (v2 :pointer))
-(declaim (inline vector/angle))
-(cffi:defcfun ("_wrap_btAngle__SWIG_0"
+
+(defcfun ("_wrap_btAngle__SWIG_0"
                vector/angle) :float
   (v1 :pointer)
   (v2 :pointer))
-(declaim (inline CROSS))
-(cffi:defcfun ("_wrap_btCross"
+
+(defcfun ("_wrap_btCross"
                CROSS*/v&v) :pointer
   (v1 :pointer)
   (v2 :pointer))
-(declaim (inline TRIPLE))
-(cffi:defcfun ("_wrap_btTriple"
+
+(defcfun ("_wrap_btTriple"
                TRIPLE/v1-3b) :float
   (v1 :pointer)
   (v2 :pointer)
   (v3 :pointer))
-(declaim (inline VLERP))
-(cffi:defcfun ("_wrap_lerp"
+
+(defcfun ("_wrap_lerp"
                VLERP/v&v&t) :pointer
   (v1 :pointer)
   (v2 :pointer)

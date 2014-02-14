@@ -1,96 +1,85 @@
 (in-package #:bullet-physics)
-#+i-am-emacs
-(progn
-  (defun eval-lispify ()
-    (interactive)
-    (execute-kbd-macro [?\C-s ?# ?. ?\( ?l ?i ?s ?p ?i ?f ?y ?\C-m ?\C-\M-b ?\C-\M-b ?\C-\M-  ?\C-w ?\C-? ?\C-? f8 ?\C-y ?\C-m ])
-    (sleep-for .75)
-    (execute-kbd-macro [?\C-\M-b ?\C-\M-b ?\C-\M-  ?\M-w ?\C-x ?o ?\C-y]))
-  (defun eval-lispify-all ()
-    (interactive)
-    (dotimes (i 10000)
-      (eval-lispify))))
 
-(declaim (inline MAKE-COLLISION-WORLD))
-(cffi:defcfun ("_wrap_new_btCollisionWorld"
+
+(defcfun ("_wrap_new_btCollisionWorld"
                MAKE-COLLISION-WORLD) :pointer
   (dispatcher :pointer)
   (broadphasePairCache :pointer)
   (collisionConfiguration :pointer))
-(declaim (inline DELETE/BT-COLLISION-WORLD))
-(cffi:defcfun ("_wrap_delete_btCollisionWorld"
+
+(defcfun ("_wrap_delete_btCollisionWorld"
                DELETE/BT-COLLISION-WORLD) :void
   (self :pointer))
-(declaim (inline COLLISION-WORLD/SET-BROADPHASE))
-(cffi:defcfun ("_wrap_btCollisionWorld_setBroadphase"
+
+(defcfun ("_wrap_btCollisionWorld_setBroadphase"
                COLLISION-WORLD/SET-BROADPHASE) :void
   (self :pointer)
   (pairCache :pointer))
-(declaim (inline COLLISION-WORLD/GET-BROADPHASE))
-(cffi:defcfun ("_wrap_btCollisionWorld_getBroadphase__SWIG_0"
+
+(defcfun ("_wrap_btCollisionWorld_getBroadphase__SWIG_0"
                COLLISION-WORLD/GET-BROADPHASE) :pointer
   (self :pointer))
 #+ (or)
 (progn
-  (declaim (inline COLLISION-WORLD/GET-BROADPHASE))
-  (cffi:defcfun ("_wrap_btCollisionWorld_getBroadphase__SWIG_1"
+  
+  (defcfun ("_wrap_btCollisionWorld_getBroadphase__SWIG_1"
                  COLLISION-WORLD/GET-BROADPHASE) :pointer
     (self :pointer))
   )
-(declaim (inline COLLISION-WORLD/GET-PAIR-CACHE))
-(cffi:defcfun ("_wrap_btCollisionWorld_getPairCache"
+
+(defcfun ("_wrap_btCollisionWorld_getPairCache"
                COLLISION-WORLD/GET-PAIR-CACHE) :pointer
   (self :pointer))
-(declaim (inline COLLISION-WORLD/GET-DISPATCHER))
-(cffi:defcfun ("_wrap_btCollisionWorld_getDispatcher__SWIG_0"
+
+(defcfun ("_wrap_btCollisionWorld_getDispatcher__SWIG_0"
                COLLISION-WORLD/GET-DISPATCHER) :pointer
   (self :pointer))
 #+ (or)
 (progn
-  (declaim (inline COLLISION-WORLD/GET-DISPATCHER))
-  (cffi:defcfun ("_wrap_btCollisionWorld_getDispatcher__SWIG_1"
+  
+  (defcfun ("_wrap_btCollisionWorld_getDispatcher__SWIG_1"
                  COLLISION-WORLD/GET-DISPATCHER) :pointer
     (self :pointer))
   )
-(declaim (inline COLLISION-WORLD/UPDATE-SINGLE-AABB))
-(cffi:defcfun ("_wrap_btCollisionWorld_updateSingleAabb"
+
+(defcfun ("_wrap_btCollisionWorld_updateSingleAabb"
                COLLISION-WORLD/UPDATE-SINGLE-AABB) :void
   (self :pointer)
   (colObj :pointer))
-(declaim (inline COLLISION-WORLD/UPDATE-AABBS))
-(cffi:defcfun ("_wrap_btCollisionWorld_updateAabbs"
+
+(defcfun ("_wrap_btCollisionWorld_updateAabbs"
                COLLISION-WORLD/UPDATE-AABBS) :void
   (self :pointer))
-(declaim (inline COLLISION-WORLD/COMPUTE-OVERLAPPING-PAIRS))
-(cffi:defcfun ("_wrap_btCollisionWorld_computeOverlappingPairs"
+
+(defcfun ("_wrap_btCollisionWorld_computeOverlappingPairs"
                COLLISION-WORLD/COMPUTE-OVERLAPPING-PAIRS) :void
   (self :pointer))
-(declaim (inline COLLISION-WORLD/SET-DEBUG-DRAWER))
-(cffi:defcfun ("_wrap_btCollisionWorld_setDebugDrawer"
+
+(defcfun ("_wrap_btCollisionWorld_setDebugDrawer"
                COLLISION-WORLD/SET-DEBUG-DRAWER) :void
   (self :pointer)
   (debugDrawer :pointer))
-(declaim (inline COLLISION-WORLD/GET-DEBUG-DRAWER))
-(cffi:defcfun ("_wrap_btCollisionWorld_getDebugDrawer"
+
+(defcfun ("_wrap_btCollisionWorld_getDebugDrawer"
                COLLISION-WORLD/GET-DEBUG-DRAWER) :pointer
   (self :pointer))
-(declaim (inline COLLISION-WORLD/DEBUG-DRAW-WORLD))
-(cffi:defcfun ("_wrap_btCollisionWorld_debugDrawWorld"
+
+(defcfun ("_wrap_btCollisionWorld_debugDrawWorld"
                COLLISION-WORLD/DEBUG-DRAW-WORLD) :void
   (self :pointer))
-(declaim (inline COLLISION-WORLD/DEBUG-DRAW-OBJECT))
-(cffi:defcfun ("_wrap_btCollisionWorld_debugDrawObject"
+
+(defcfun ("_wrap_btCollisionWorld_debugDrawObject"
                COLLISION-WORLD/DEBUG-DRAW-OBJECT) :void
   (self :pointer)
   (worldTransform :pointer)
   (shape :pointer)
   (color :pointer))
-(declaim (inline COLLISION-WORLD/GET-NUM-COLLISION-OBJECTS))
-(cffi:defcfun ("_wrap_btCollisionWorld_getNumCollisionObjects"
+
+(defcfun ("_wrap_btCollisionWorld_getNumCollisionObjects"
                COLLISION-WORLD/GET-NUM-COLLISION-OBJECTS) :int
   (self :pointer))
-(declaim (inline COLLISION-WORLD/RAY-TEST))
-(cffi:defcfun ("_wrap_btCollisionWorld_rayTest"
+
+(defcfun ("_wrap_btCollisionWorld_rayTest"
                COLLISION-WORLD/RAY-TEST) :void
   (self :pointer)
   (rayFromWorld :pointer)
@@ -98,7 +87,7 @@
   (resultCallback :pointer))
 (declaim (inline
           COLLISION-WORLD/CONVEX-SWEEP-TEST/WITH-CCD-PENETRATION))
-(cffi:defcfun ("_wrap_btCollisionWorld_convexSweepTest__SWIG_0"
+(defcfun ("_wrap_btCollisionWorld_convexSweepTest__SWIG_0"
                COLLISION-WORLD/CONVEX-SWEEP-TEST/WITH-CCD-PENETRATION) :void
   (self :pointer)
   (castShape :pointer)
@@ -108,7 +97,7 @@
   (allowedCcdPenetration :float))
 (declaim (inline
           COLLISION-WORLD/CONVEX-SWEEP-TEST/WITHOUT-CCD-PENETRATION))
-(cffi:defcfun ("_wrap_btCollisionWorld_convexSweepTest__SWIG_1"
+(defcfun ("_wrap_btCollisionWorld_convexSweepTest__SWIG_1"
                COLLISION-WORLD/CONVEX-SWEEP-TEST/WITHOUT-CCD-PENETRATION) :void
   (self :pointer)
   (castShape :pointer)
@@ -119,25 +108,25 @@
     (self cast-shape from to result-callback
      &key (allowed-ccd-penetration nil allowed-?))
   (if allowed-?
-      (COLLISION-WORLD/CONVEX-SWEEP-TEST/WITH-CCD-PENETRATION
+      (collision-world/convex-sweep-test/with-ccd-penetration
        self cast-shape from to result-callback allowed-ccd-penetration)
-      (COLLISION-WORLD/CONVEX-SWEEP-TEST/WITHOUT-CCD-PENETRATION
+      (collision-world/convex-sweep-test/without-ccd-penetration
        self cast-shape from to result-callback)))
-(declaim (inline COLLISION-WORLD/CONTACT-TEST))
-(cffi:defcfun ("_wrap_btCollisionWorld_contactTest"
+
+(defcfun ("_wrap_btCollisionWorld_contactTest"
                COLLISION-WORLD/CONTACT-TEST) :void
   (self :pointer)
   (colObj :pointer)
   (resultCallback :pointer))
-(declaim (inline COLLISION-WORLD/CONTACT-PAIR-TEST))
-(cffi:defcfun ("_wrap_btCollisionWorld_contactPairTest"
+
+(defcfun ("_wrap_btCollisionWorld_contactPairTest"
                COLLISION-WORLD/CONTACT-PAIR-TEST) :void
   (self :pointer)
   (colObjA :pointer)
   (colObjB :pointer)
   (resultCallback :pointer))
-(declaim (inline COLLISION-WORLD/RAY-TEST-SINGLE))
-(cffi:defcfun ("_wrap_btCollisionWorld_rayTestSingle"
+
+(defcfun ("_wrap_btCollisionWorld_rayTestSingle"
                COLLISION-WORLD/RAY-TEST-SINGLE) :void
   (rayFromTrans :pointer)
   (rayToTrans :pointer)
@@ -145,15 +134,15 @@
   (collisionShape :pointer)
   (colObjWorldTransform :pointer)
   (resultCallback :pointer))
-(declaim (inline COLLISION-WORLD/RAY-TEST-SINGLE-INTERNAL))
-(cffi:defcfun ("_wrap_btCollisionWorld_rayTestSingleInternal"
+
+(defcfun ("_wrap_btCollisionWorld_rayTestSingleInternal"
                COLLISION-WORLD/RAY-TEST-SINGLE-INTERNAL) :void
   (rayFromTrans :pointer)
   (rayToTrans :pointer)
   (collisionObjectWrap :pointer)
   (resultCallback :pointer))
-(declaim (inline COLLISION-WORLD/OBJECT-QUERY-SINGLE))
-(cffi:defcfun ("_wrap_btCollisionWorld_objectQuerySingle"
+
+(defcfun ("_wrap_btCollisionWorld_objectQuerySingle"
                COLLISION-WORLD/OBJECT-QUERY-SINGLE) :void
   (castShape :pointer)
   (rayFromTrans :pointer)
@@ -163,8 +152,8 @@
   (colObjWorldTransform :pointer)
   (resultCallback :pointer)
   (allowedPenetration :float))
-(declaim (inline COLLISION-WORLD/OBJECT-QUERY-SINGLE-INTERNAL))
-(cffi:defcfun ("_wrap_btCollisionWorld_objectQuerySingleInternal"
+
+(defcfun ("_wrap_btCollisionWorld_objectQuerySingleInternal"
                COLLISION-WORLD/OBJECT-QUERY-SINGLE-INTERNAL) :void
   (castShape :pointer)
   (convexFromTrans :pointer)
@@ -172,25 +161,25 @@
   (colObjWrap :pointer)
   (resultCallback :pointer)
   (allowedPenetration :float))
-(declaim (inline COLLISION-WORLD/ADD-COLLISION-OBJECT/with-filter-group&mask))
-(cffi:defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_0"
+
+(defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_0"
                COLLISION-WORLD/ADD-COLLISION-OBJECT/with-filter-group&mask) :void
   (self :pointer)
   (collisionObject :pointer)
   (collisionFilterGroup :short)
   (collisionFilterMask :short))
-(declaim (inline COLLISION-WORLD/ADD-COLLISION-OBJECT/with-filter-group))
-(cffi:defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_1"
+
+(defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_1"
                COLLISION-WORLD/ADD-COLLISION-OBJECT/with-filter-group) :void
   (self :pointer)
   (collisionObject :pointer)
   (collisionFilterGroup :short))
-(declaim (inline COLLISION-WORLD/ADD-COLLISION-OBJECT/simple))
-(cffi:defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_2"
+
+(defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_2"
                COLLISION-WORLD/ADD-COLLISION-OBJECT/simple) :void
   (self :pointer)
   (collisionObject :pointer))
-(declaim (inline COLLISION-WORLD/ADD-COLLISION-OBJECT))
+
 (defun COLLISION-WORLD/ADD-COLLISION-OBJECT
     (self collision-object &key
                              (filter-group  nil filter-group-?)
@@ -202,49 +191,49 @@
                      self collision-object filter-group))
     (t (COLLISION-WORLD/ADD-COLLISION-OBJECT/simple
         self collision-object))))
-(declaim (inline COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY))
-(cffi:defcfun ("_wrap_btCollisionWorld_getCollisionObjectArray__SWIG_0"
+
+(defcfun ("_wrap_btCollisionWorld_getCollisionObjectArray__SWIG_0"
                COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY) :pointer
   (self :pointer))
 #+ (or)
 (progn
-  (declaim (inline COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY))
-  (cffi:defcfun ("_wrap_btCollisionWorld_getCollisionObjectArray__SWIG_1"
+  
+  (defcfun ("_wrap_btCollisionWorld_getCollisionObjectArray__SWIG_1"
                  COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY) :pointer
     (self :pointer))
 
   )
-(declaim (inline COLLISION-WORLD/REMOVE-COLLISION-OBJECT))
-(cffi:defcfun ("_wrap_btCollisionWorld_removeCollisionObject"
+
+(defcfun ("_wrap_btCollisionWorld_removeCollisionObject"
                COLLISION-WORLD/REMOVE-COLLISION-OBJECT) :void
   (self :pointer)
   (collisionObject :pointer))
-(declaim (inline COLLISION-WORLD/PERFORM-DISCRETE-COLLISION-DETECTION))
-(cffi:defcfun ("_wrap_btCollisionWorld_performDiscreteCollisionDetection"
+
+(defcfun ("_wrap_btCollisionWorld_performDiscreteCollisionDetection"
                COLLISION-WORLD/PERFORM-DISCRETE-COLLISION-DETECTION) :void
   (self :pointer))
-(declaim (inline COLLISION-WORLD/GET-DISPATCH-INFO))
-(cffi:defcfun ("_wrap_btCollisionWorld_getDispatchInfo__SWIG_0"
+
+(defcfun ("_wrap_btCollisionWorld_getDispatchInfo__SWIG_0"
                COLLISION-WORLD/GET-DISPATCH-INFO) :pointer
   (self :pointer))
 #+ (or)
 (progn
-  (declaim (inline COLLISION-WORLD/GET-DISPATCH-INFO))
-  (cffi:defcfun ("_wrap_btCollisionWorld_getDispatchInfo__SWIG_1"
+  
+  (defcfun ("_wrap_btCollisionWorld_getDispatchInfo__SWIG_1"
                  COLLISION-WORLD/GET-DISPATCH-INFO) :pointer
     (self :pointer))
   )
-(declaim (inline COLLISION-WORLD/GET-FORCE-UPDATE-ALL-AABBS))
-(cffi:defcfun ("_wrap_btCollisionWorld_getForceUpdateAllAabbs"
+
+(defcfun ("_wrap_btCollisionWorld_getForceUpdateAllAabbs"
                COLLISION-WORLD/GET-FORCE-UPDATE-ALL-AABBS) :pointer
   (self :pointer))
-(declaim (inline COLLISION-WORLD/SET-FORCE-UPDATE-ALL-AABBS))
-(cffi:defcfun ("_wrap_btCollisionWorld_setForceUpdateAllAabbs"
+
+(defcfun ("_wrap_btCollisionWorld_setForceUpdateAllAabbs"
                COLLISION-WORLD/SET-FORCE-UPDATE-ALL-AABBS) :void
   (self :pointer)
   (forceUpdateAllAabbs :pointer))
-(declaim (inline COLLISION-WORLD/SERIALIZE))
-(cffi:defcfun ("_wrap_btCollisionWorld_serialize"
+
+(defcfun ("_wrap_btCollisionWorld_serialize"
                COLLISION-WORLD/SERIALIZE) :void
   (self :pointer)
   (serializer :pointer))
@@ -430,216 +419,216 @@
   (COLLISION-WORLD/SERIALIZE (ff-pointer self) serializer))
 
 (define-constant +BULLET-VERSION+ 282)
-(declaim (inline GET-VERSION))
-(cffi:defcfun ("_wrap_btGetVersion"
+
+(defcfun ("_wrap_btGetVersion"
                GET-VERSION) :int)
 (define-constant +LARGE-FLOAT+ 1d18)
 (cffi:defcvar ("btInfinityMask"
                *INFINITY-MASK*)
     :int)
-(declaim (inline GET-INFINITY-MASK))
-(cffi:defcfun ("_wrap_btGetInfinityMask"
+
+(defcfun ("_wrap_btGetInfinityMask"
                GET-INFINITY-MASK) :int)
-(declaim (inline square-root))
-(cffi:defcfun ("_wrap_btSqrt"
+
+(defcfun ("_wrap_btSqrt"
                square-root) :float
   (y :float))
-(declaim (inline FABS))
-(cffi:defcfun ("_wrap_btFabs"
+
+(defcfun ("_wrap_btFabs"
                FABS) :float
   (x :float))
-(declaim (inline cosine))
-(cffi:defcfun ("_wrap_btCos"
+
+(defcfun ("_wrap_btCos"
                cosine) :float
   (x :float))
-(declaim (inline sine))
-(cffi:defcfun ("_wrap_btSin"
+
+(defcfun ("_wrap_btSin"
                sine) :float
   (x :float))
-(declaim (inline tangent))
-(cffi:defcfun ("_wrap_btTan"
+
+(defcfun ("_wrap_btTan"
                tangent) :float
   (x :float))
-(declaim (inline arc-cosine))
-(cffi:defcfun ("_wrap_btAcos"
+
+(defcfun ("_wrap_btAcos"
                arc-cosine) :float
   (x :float))
-(declaim (inline arc-sine))
-(cffi:defcfun ("_wrap_btAsin"
+
+(defcfun ("_wrap_btAsin"
                arc-sine) :float
   (x :float))
-(declaim (inline arc-tangent))
-(cffi:defcfun ("_wrap_btAtan"
+
+(defcfun ("_wrap_btAtan"
                arc-tangent) :float
   (x :float))
-(declaim (inline ATAN-2))
-(cffi:defcfun ("_wrap_btAtan2"
+
+(defcfun ("_wrap_btAtan2"
                ATAN-2) :float
   (x :float)
   (y :float))
-(declaim (inline exponent))
-(cffi:defcfun ("_wrap_btExp"
+
+(defcfun ("_wrap_btExp"
                exponent) :float
   (x :float))
-(declaim (inline logarithm))
-(cffi:defcfun ("_wrap_btLog"
+
+(defcfun ("_wrap_btLog"
                logarithm) :float
   (x :float))
-(declaim (inline power))
-(cffi:defcfun ("_wrap_btPow"
+
+(defcfun ("_wrap_btPow"
                power) :float
   (x :float)
   (y :float))
-(declaim (inline FMOD))
-(cffi:defcfun ("_wrap_btFmod"
+
+(defcfun ("_wrap_btFmod"
                FMOD) :float
   (x :float)
   (y :float))
-(declaim (inline ATAN-2-FAST))
-(cffi:defcfun ("_wrap_btAtan2Fast"
+
+(defcfun ("_wrap_btAtan2Fast"
                ATAN-2-FAST) :float
   (y :float)
   (x :float))
-(declaim (inline FUZZY-ZERO))
-(cffi:defcfun ("_wrap_btFuzzyZero"
+
+(defcfun ("_wrap_btFuzzyZero"
                FUZZY-ZERO) :pointer
   (x :float))
-(declaim (inline equals))
-(cffi:defcfun ("_wrap_btEqual"
+
+(defcfun ("_wrap_btEqual"
                equals) :pointer
   (a :float)
   (eps :float))
-(declaim (inline GREATER-EQUAL))
-(cffi:defcfun ("_wrap_btGreaterEqual"
+
+(defcfun ("_wrap_btGreaterEqual"
                GREATER-EQUAL) :pointer
   (a :float)
   (eps :float))
-(declaim (inline IS-NEGATIVE))
-(cffi:defcfun ("_wrap_btIsNegative"
+
+(defcfun ("_wrap_btIsNegative"
                IS-NEGATIVE) :int
   (x :float))
-(declaim (inline RADIANS))
-(cffi:defcfun ("_wrap_btRadians"
+
+(defcfun ("_wrap_btRadians"
                RADIANS) :float
   (x :float))
-(declaim (inline DEGREES))
-(cffi:defcfun ("_wrap_btDegrees"
+
+(defcfun ("_wrap_btDegrees"
                DEGREES) :float
   (x :float))
-(declaim (inline FSEL))
-(cffi:defcfun ("_wrap_btFsel"
+
+(defcfun ("_wrap_btFsel"
                FSEL) :float
   (a :float)
   (b :float)
   (c :float))
-(declaim (inline MACHINE-IS-LITTLE-ENDIAN))
-(cffi:defcfun ("_wrap_btMachineIsLittleEndian"
+
+(defcfun ("_wrap_btMachineIsLittleEndian"
                MACHINE-IS-LITTLE-ENDIAN) :pointer)
 #+ need-funky-select-forms
 (progn
-  (declaim (inline SELECT))
-  (cffi:defcfun ("_wrap_btSelect__SWIG_0"
+  
+  (defcfun ("_wrap_btSelect__SWIG_0"
                  SELECT) :unsigned-int
     (condition :unsigned-int)
     (valueIfConditionNonZero :unsigned-int)
     (valueIfConditionZero :unsigned-int))
 
-  (declaim (inline SELECT))
-  (cffi:defcfun ("_wrap_btSelect__SWIG_1"
+  
+  (defcfun ("_wrap_btSelect__SWIG_1"
                  SELECT) :int
     (condition :unsigned-int)
     (valueIfConditionNonZero :int)
     (valueIfConditionZero :int))
 
-  (declaim (inline SELECT))
-  (cffi:defcfun ("_wrap_btSelect__SWIG_2"
+  
+  (defcfun ("_wrap_btSelect__SWIG_2"
                  SELECT) :float
     (condition :unsigned-int)
     (valueIfConditionNonZero :float)
     (valueIfConditionZero :float))
 
   )
-(declaim (inline SWAP-ENDIAN))
-(cffi:defcfun ("_wrap_btSwapEndian__SWIG_0"
+
+(defcfun ("_wrap_btSwapEndian__SWIG_0"
                SWAP-ENDIAN) :unsigned-int
   (val :unsigned-int))
-(declaim (inline SWAP-ENDIAN))
-(cffi:defcfun ("_wrap_btSwapEndian__SWIG_1"
+
+(defcfun ("_wrap_btSwapEndian__SWIG_1"
                swap-endian/unsigned-short) :unsigned-short
   (val :unsigned-short))
-(declaim (inline SWAP-ENDIAN))
-(cffi:defcfun ("_wrap_btSwapEndian__SWIG_2"
+
+(defcfun ("_wrap_btSwapEndian__SWIG_2"
                swap-endian/int) :unsigned-int
   (val :int))
-(declaim (inline SWAP-ENDIAN))
-(cffi:defcfun ("_wrap_btSwapEndian__SWIG_3"
+
+(defcfun ("_wrap_btSwapEndian__SWIG_3"
                swap-endian/short)
     :unsigned-short
   (val :short))
-(declaim (inline SWAP-ENDIAN-FLOAT))
-(cffi:defcfun ("_wrap_btSwapEndianFloat"
+
+(defcfun ("_wrap_btSwapEndianFloat"
                swap-endian/float) :unsigned-int
   (d :float))
-(declaim (inline UNSWAP-ENDIAN-FLOAT))
-(cffi:defcfun ("_wrap_btUnswapEndianFloat"
+
+(defcfun ("_wrap_btUnswapEndianFloat"
                unswap-endian/float) :float
   (a :unsigned-int))
-(declaim (inline SWAP-ENDIAN-DOUBLE))
-(cffi:defcfun ("_wrap_btSwapEndianDouble"
+
+(defcfun ("_wrap_btSwapEndianDouble"
                swap-endian/double) :void
   (d :double)
   (dst :pointer))
-(declaim (inline UNSWAP-ENDIAN-DOUBLE))
-(cffi:defcfun ("_wrap_btUnswapEndianDouble"
+
+(defcfun ("_wrap_btUnswapEndianDouble"
                unswap-endian/double) :double
   (src :pointer))
-(declaim (inline LARGE-DOT))
-(cffi:defcfun ("_wrap_btLargeDot"
+
+(defcfun ("_wrap_btLargeDot"
                LARGE-DOT) :float
   (a :pointer)
   (b :pointer)
   (n :int))
-(declaim (inline NORMALIZE-ANGLE))
-(cffi:defcfun ("_wrap_btNormalizeAngle"
+
+(defcfun ("_wrap_btNormalizeAngle"
                NORMALIZE-ANGLE) :float
   (angleInRadians :float))
 
-(declaim (inline SWAP-SCALAR-ENDIAN))
-(cffi:defcfun ("_wrap_btSwapScalarEndian"
+
+(defcfun ("_wrap_btSwapScalarEndian"
                SWAP-SCALAR-ENDIAN) :void
   (sourceVal :pointer)
   (destVal :pointer))
-(declaim (inline INVERSE))
-(cffi:defcfun ("_wrap_inverse"
+
+(defcfun ("_wrap_inverse"
                INVERSE) :pointer
   (q :pointer))
 
-(declaim (inline MAKE-TRANSFORM/naked))
-(cffi:defcfun ("_wrap_new_btTransform__SWIG_0"
+
+(defcfun ("_wrap_new_btTransform__SWIG_0"
                MAKE-TRANSFORM/naked) :pointer)
-(declaim (inline MAKE-TRANSFORM/with-q&c))
-(cffi:defcfun ("_wrap_new_btTransform__SWIG_1"
+
+(defcfun ("_wrap_new_btTransform__SWIG_1"
                MAKE-TRANSFORM/with-q&c) :pointer
   (q :pointer)
   (c :pointer))
-(declaim (inline MAKE-TRANSFORM/with-q))
-(cffi:defcfun ("_wrap_new_btTransform__SWIG_2"
+
+(defcfun ("_wrap_new_btTransform__SWIG_2"
                MAKE-TRANSFORM/with-q) :pointer
   (q :pointer))
-(declaim (inline MAKE-TRANSFORM/with-b&c))
-(cffi:defcfun ("_wrap_new_btTransform__SWIG_3"
+
+(defcfun ("_wrap_new_btTransform__SWIG_3"
                MAKE-TRANSFORM/with-b&c) :pointer
   (b :pointer)
   (c :pointer))
-(declaim (inline MAKE-TRANSFORM/with-b))
-(cffi:defcfun ("_wrap_new_btTransform__SWIG_4"
+
+(defcfun ("_wrap_new_btTransform__SWIG_4"
                MAKE-TRANSFORM/with-b) :pointer
   (b :pointer))
-(declaim (inline MAKE-TRANSFORM/with-other))
-(cffi:defcfun ("_wrap_new_btTransform__SWIG_5"
+
+(defcfun ("_wrap_new_btTransform__SWIG_5"
                MAKE-TRANSFORM/with-other) :pointer
   (other :pointer))
-(declaim (inline MAKE-TRANSFORM))
+
 (defun make-transform (&key (b nil b?) (c nil c?)
                          (q nil q?) (other nil other?))
   (cond
@@ -658,163 +647,163 @@
       "MAKE-TRANSFORM can be called with any of these
  combinations \(only): \(B C) (Q C) (Q) (B) (OTHER) ()"))
     (t (make-transform/naked))))
-(declaim (inline TRANSFORM/ASSIGN-VALUE))
-(cffi:defcfun ("_wrap_btTransform_assignValue"
+
+(defcfun ("_wrap_btTransform_assignValue"
                TRANSFORM/ASSIGN-VALUE) :pointer
   (self :pointer)
   (other :pointer))
-(declaim (inline TRANSFORM/MULT))
-(cffi:defcfun ("_wrap_btTransform_mult"
+
+(defcfun ("_wrap_btTransform_mult"
                TRANSFORM/MULT) :void
   (self :pointer)
   (t1 :pointer)
   (t2 :pointer))
-(declaim (inline TRANSFORM///FUNCALL//))
-(cffi:defcfun ("_wrap_btTransform___funcall__"
+
+(defcfun ("_wrap_btTransform___funcall__"
                TRANSFORM///FUNCALL//) :pointer
   (self :pointer)
   (x :pointer))
-(declaim (inline TRANSFORM/MULTIPLY))
-(cffi:defcfun ("_wrap_btTransform_multiply__SWIG_0"
+
+(defcfun ("_wrap_btTransform_multiply__SWIG_0"
                TRANSFORM/MULTIPLY/by-x) :pointer
   (self :pointer)
   (x :pointer))
-(declaim (inline TRANSFORM/MULTIPLY))
-(cffi:defcfun ("_wrap_btTransform_multiply__SWIG_1"
+
+(defcfun ("_wrap_btTransform_multiply__SWIG_1"
                TRANSFORM/MULTIPLY/by-q) :pointer
   (self :pointer)
   (q :pointer))
-(declaim (inline TRANSFORM/GET-BASIS))
-(cffi:defcfun ("_wrap_btTransform_getBasis__SWIG_0"
+
+(defcfun ("_wrap_btTransform_getBasis__SWIG_0"
                TRANSFORM/GET-BASIS) :pointer
   (self :pointer))
 #+ (or)
-(cffi:defcfun ("_wrap_btTransform_getBasis__SWIG_1"
+(defcfun ("_wrap_btTransform_getBasis__SWIG_1"
                TRANSFORM/GET-BASIS) :pointer
   (self :pointer))
-(declaim (inline TRANSFORM/GET-ORIGIN))
-(cffi:defcfun ("_wrap_btTransform_getOrigin__SWIG_0"
+
+(defcfun ("_wrap_btTransform_getOrigin__SWIG_0"
                TRANSFORM/GET-ORIGIN) :pointer
   (self :pointer))
 #+ (or)
-(cffi:defcfun ("_wrap_btTransform_getOrigin__SWIG_1"
+(defcfun ("_wrap_btTransform_getOrigin__SWIG_1"
                TRANSFORM/GET-ORIGIN) :pointer
   (self :pointer))
-(declaim (inline TRANSFORM/GET-ROTATION))
-(cffi:defcfun ("_wrap_btTransform_getRotation"
+
+(defcfun ("_wrap_btTransform_getRotation"
                TRANSFORM/GET-ROTATION) :pointer
   (self :pointer))
-(declaim (inline TRANSFORM/SET-FROM-OPENGL-MATRIX))
-(cffi:defcfun ("_wrap_btTransform_setFromOpenGLMatrix"
+
+(defcfun ("_wrap_btTransform_setFromOpenGLMatrix"
                TRANSFORM/SET-FROM-OPENGL-MATRIX) :void
   (self :pointer)
   (m :pointer))
-(declaim (inline TRANSFORM/GET-OPENGL-MATRIX))
-(cffi:defcfun ("_wrap_btTransform_getOpenGLMatrix"
+
+(defcfun ("_wrap_btTransform_getOpenGLMatrix"
                TRANSFORM/GET-OPENGL-MATRIX) :void
   (self :pointer)
   (m :pointer))
-(declaim (inline TRANSFORM/SET-ORIGIN))
-(cffi:defcfun ("_wrap_btTransform_setOrigin"
+
+(defcfun ("_wrap_btTransform_setOrigin"
                TRANSFORM/SET-ORIGIN) :void
   (self :pointer)
   (origin :pointer))
-(declaim (inline TRANSFORM/INV-XFORM))
-(cffi:defcfun ("_wrap_btTransform_invXform"
+
+(defcfun ("_wrap_btTransform_invXform"
                TRANSFORM/INV-XFORM) :pointer
   (self :pointer)
   (inVec :pointer))
-(declaim (inline TRANSFORM/SET-BASIS))
-(cffi:defcfun ("_wrap_btTransform_setBasis"
+
+(defcfun ("_wrap_btTransform_setBasis"
                TRANSFORM/SET-BASIS) :void
   (self :pointer)
   (basis :pointer))
-(declaim (inline TRANSFORM/SET-ROTATION))
-(cffi:defcfun ("_wrap_btTransform_setRotation"
+
+(defcfun ("_wrap_btTransform_setRotation"
                TRANSFORM/SET-ROTATION) :void
   (self :pointer)
   (q :pointer))
-(declaim (inline TRANSFORM/SET-IDENTITY))
-(cffi:defcfun ("_wrap_btTransform_setIdentity"
+
+(defcfun ("_wrap_btTransform_setIdentity"
                TRANSFORM/SET-IDENTITY) :void
   (self :pointer))
-(declaim (inline TRANSFORM/MULTIPLY-AND-ASSIGN))
-(cffi:defcfun ("_wrap_btTransform_multiplyAndAssign"
+
+(defcfun ("_wrap_btTransform_multiplyAndAssign"
                TRANSFORM/MULTIPLY-AND-ASSIGN) :pointer
   (self :pointer)
   (t_arg1 :pointer))
-(declaim (inline TRANSFORM/INVERSE))
-(cffi:defcfun ("_wrap_btTransform_inverse"
+
+(defcfun ("_wrap_btTransform_inverse"
                TRANSFORM/INVERSE) :pointer
   (self :pointer))
-(declaim (inline TRANSFORM/INVERSE-TIMES))
-(cffi:defcfun ("_wrap_btTransform_inverseTimes"
+
+(defcfun ("_wrap_btTransform_inverseTimes"
                TRANSFORM/INVERSE-TIMES) :pointer
   (self :pointer)
   (t_arg1 :pointer))
-(declaim (inline TRANSFORM/MULTIPLY))
-(cffi:defcfun ("_wrap_btTransform_multiply__SWIG_2"
+
+(defcfun ("_wrap_btTransform_multiply__SWIG_2"
                TRANSFORM/MULTIPLY) :pointer
   (self :pointer)
   (t_arg1 :pointer))
-(declaim (inline TRANSFORM/GET-IDENTITY))
-(cffi:defcfun ("_wrap_btTransform_getIdentity"
+
+(defcfun ("_wrap_btTransform_getIdentity"
                TRANSFORM/GET-IDENTITY) :pointer)
-(declaim (inline TRANSFORM/SERIALIZE))
-(cffi:defcfun ("_wrap_btTransform_serialize"
+
+(defcfun ("_wrap_btTransform_serialize"
                TRANSFORM/SERIALIZE) :void
   (self :pointer)
   (dataOut :pointer))
-(declaim (inline TRANSFORM/SERIALIZE-FLOAT))
-(cffi:defcfun ("_wrap_btTransform_serializeFloat"
+
+(defcfun ("_wrap_btTransform_serializeFloat"
                TRANSFORM/SERIALIZE-FLOAT) :void
   (self :pointer)
   (dataOut :pointer))
-(declaim (inline TRANSFORM/DE-SERIALIZE))
-(cffi:defcfun ("_wrap_btTransform_deSerialize"
+
+(defcfun ("_wrap_btTransform_deSerialize"
                TRANSFORM/DE-SERIALIZE) :void
   (self :pointer)
   (dataIn :pointer))
-(declaim (inline TRANSFORM/DE-SERIALIZE-DOUBLE))
-(cffi:defcfun ("_wrap_btTransform_deSerializeDouble"
+
+(defcfun ("_wrap_btTransform_deSerializeDouble"
                TRANSFORM/DE-SERIALIZE-DOUBLE) :void
   (self :pointer)
   (dataIn :pointer))
-(declaim (inline TRANSFORM/DE-SERIALIZE-FLOAT))
-(cffi:defcfun ("_wrap_btTransform_deSerializeFloat"
+
+(defcfun ("_wrap_btTransform_deSerializeFloat"
                TRANSFORM/DE-SERIALIZE-FLOAT) :void
   (self :pointer)
   (dataIn :pointer))
-(declaim (inline DELETE/BT-TRANSFORM))
-(cffi:defcfun ("_wrap_delete_btTransform"
+
+(defcfun ("_wrap_delete_btTransform"
                DELETE/BT-TRANSFORM) :void
   (self :pointer))
-(declaim (inline DELETE/BT-MOTION-STATE))
-(cffi:defcfun ("_wrap_delete_btMotionState"
+
+(defcfun ("_wrap_delete_btMotionState"
                DELETE/BT-MOTION-STATE) :void
   (self :pointer))
-(declaim (inline MOTION-STATE/GET-WORLD-TRANSFORM))
-(cffi:defcfun ("_wrap_btMotionState_getWorldTransform"
+
+(defcfun ("_wrap_btMotionState_getWorldTransform"
                MOTION-STATE/GET-WORLD-TRANSFORM) :void
   (self :pointer)
   (worldTrans :pointer))
-(declaim (inline MOTION-STATE/SET-WORLD-TRANSFORM))
-(cffi:defcfun ("_wrap_btMotionState_setWorldTransform"
+
+(defcfun ("_wrap_btMotionState_setWorldTransform"
                MOTION-STATE/SET-WORLD-TRANSFORM) :void
   (self :pointer)
   (worldTrans :pointer))
 (define-constant +USE-PLACEMENT-NEW+ 1)
-(cffi:defcfun ("_wrap_new_btCollisionWorld"
+(defcfun ("_wrap_new_btCollisionWorld"
                MAKE-COLLISION-WORLD/with-dispatcher&broadphase-pair-cache&collision-configuration)
     :pointer
   (dispatcher :pointer)
   (broadphasePairCache :pointer)
   (collisionConfiguration :pointer))
 
-(declaim (inline COLLISION-WORLD/ADD-COLLISION-OBJECT))
-(declaim (inline COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY))
-(declaim (inline COLLISION-WORLD/REMOVE-COLLISION-OBJECT))
-(declaim (inline COLLISION-WORLD/PERFORM-DISCRETE-COLLISION-DETECTION))
-(declaim (inline COLLISION-WORLD/GET-DISPATCH-INFO))
-(declaim (inline COLLISION-WORLD/GET-FORCE-UPDATE-ALL-AABBS))
+
+
+
+
+
+
 

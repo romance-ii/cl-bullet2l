@@ -29,6 +29,10 @@
 (defgeneric (setf rotation) (rotation thing))
 (defgeneric (setf synchronize-all-motion-states-p) (synchp world))
 (defgeneric (setf world-transform) (world-transform thing))
+(defgeneric (setf w) (w thing))
+(defgeneric (setf x) (x thing))
+(defgeneric (setf y) (y thing))
+(defgeneric (setf z) (z thing))
 (defgeneric ->serial (object &key &allow-other-keys))
 (defgeneric <-serial (object &key &allow-other-keys))
 (defgeneric +f (thing amount))
@@ -249,7 +253,10 @@ void* worldUserInfo=0,bool isPreTick=false);
 (defgeneric vertex (thing i vertex))
 (defgeneric world-type (world))
 (defgeneric world-transform (thing))
-
+(defgeneric w (thing))
+(defgeneric x (thing))
+(defgeneric y (thing))
+(defgeneric z (thing))
 
 (defgeneric angular-motor-enabled-p (thing))
 (defgeneric motor-target-velocity (thing))

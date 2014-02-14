@@ -4,7 +4,7 @@
 #+(or) (defmethod bullet/delete ((self BOX-SHAPE) ptr))
 
 
-(cffi:defcfun ("_wrap_new_btFixedConstraint"
+(defcfun ("_wrap_new_btFixedConstraint"
                MAKE-FIXED-CONSTRAINT) :pointer
   (rigid-body-a :pointer)
   (rigid-body-b :pointer)

@@ -5,372 +5,372 @@
 (cffi:defcenum RIGID-BODY-FLAGS
   (:DISABLE-WORLD-GRAVITY 1)
   (:ENABLE-GYROPSCOPIC-FORCE 2))
-(declaim (inline MAKE-RIGID-BODY))
-(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_0"
+
+(defcfun ("_wrap_new_btRigidBody__SWIG_0"
                MAKE-RIGID-BODY) :pointer
   (constructionInfo :pointer))
-(declaim (inline MAKE-RIGID-BODY))
-(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_1"
+
+(defcfun ("_wrap_new_btRigidBody__SWIG_1"
                MAKE-RIGID-BODY/with-motion-state&collision-shape&local-inertia) :pointer
   (mass :float)
   (motionState :pointer)
   (collisionShape :pointer)
   (localInertia :pointer))
-(declaim (inline MAKE-RIGID-BODY))
-(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_2"
+
+(defcfun ("_wrap_new_btRigidBody__SWIG_2"
                MAKE-RIGID-BODY/with-motion-state&collision-shape) :pointer
   (mass :float)
   (motionState :pointer)
   (collisionShape :pointer))
-(declaim (inline DELETE/BT-RIGID-BODY))
-(cffi:defcfun ("_wrap_delete_btRigidBody"
+
+(defcfun ("_wrap_delete_btRigidBody"
                DELETE/BT-RIGID-BODY) :void
   (self :pointer))
-(declaim (inline RIGID-BODY/PROCEED-TO-TRANSFORM))
-(cffi:defcfun ("_wrap_btRigidBody_proceedToTransform"
+
+(defcfun ("_wrap_btRigidBody_proceedToTransform"
                RIGID-BODY/PROCEED-TO-TRANSFORM) :void
   (self :pointer)
   (newTrans :pointer))
-(declaim (inline RIGID-BODY/UPCAST))
-(cffi:defcfun ("_wrap_btRigidBody_upcast__SWIG_0"
+
+(defcfun ("_wrap_btRigidBody_upcast__SWIG_0"
                RIGID-BODY/UPCAST) :pointer
   (colObj :pointer))
 #+ (or)
-(cffi:defcfun ("_wrap_btRigidBody_upcast__SWIG_1"
+(defcfun ("_wrap_btRigidBody_upcast__SWIG_1"
                RIGID-BODY/UPCAST) :pointer
   (colObj :pointer))
-(declaim (inline RIGID-BODY/PREDICT-INTEGRATED-TRANSFORM))
-(cffi:defcfun ("_wrap_btRigidBody_predictIntegratedTransform"
+
+(defcfun ("_wrap_btRigidBody_predictIntegratedTransform"
                RIGID-BODY/PREDICT-INTEGRATED-TRANSFORM) :void
   (self :pointer)
   (step :float)
   (predictedTransform :pointer))
-(declaim (inline RIGID-BODY/SAVE-KINEMATIC-STATE))
-(cffi:defcfun ("_wrap_btRigidBody_saveKinematicState"
+
+(defcfun ("_wrap_btRigidBody_saveKinematicState"
                RIGID-BODY/SAVE-KINEMATIC-STATE) :void
   (self :pointer)
   (step :float))
-(declaim (inline RIGID-BODY/APPLY-GRAVITY))
-(cffi:defcfun ("_wrap_btRigidBody_applyGravity"
+
+(defcfun ("_wrap_btRigidBody_applyGravity"
                RIGID-BODY/APPLY-GRAVITY) :void
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-GRAVITY))
-(cffi:defcfun ("_wrap_btRigidBody_setGravity"
+
+(defcfun ("_wrap_btRigidBody_setGravity"
                RIGID-BODY/SET-GRAVITY) :void
   (self :pointer)
   (acceleration :pointer))
-(declaim (inline RIGID-BODY/GET-GRAVITY))
-(cffi:defcfun ("_wrap_btRigidBody_getGravity"
+
+(defcfun ("_wrap_btRigidBody_getGravity"
                RIGID-BODY/GET-GRAVITY) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-DAMPING))
-(cffi:defcfun ("_wrap_btRigidBody_setDamping"
+
+(defcfun ("_wrap_btRigidBody_setDamping"
                RIGID-BODY/SET-DAMPING) :void
   (self :pointer)
   (lin_damping :float)
   (ang_damping :float))
-(declaim (inline RIGID-BODY/GET-LINEAR-DAMPING))
-(cffi:defcfun ("_wrap_btRigidBody_getLinearDamping"
+
+(defcfun ("_wrap_btRigidBody_getLinearDamping"
                RIGID-BODY/GET-LINEAR-DAMPING) :float
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-ANGULAR-DAMPING))
-(cffi:defcfun ("_wrap_btRigidBody_getAngularDamping"
+
+(defcfun ("_wrap_btRigidBody_getAngularDamping"
                RIGID-BODY/GET-ANGULAR-DAMPING) :float
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-LINEAR-SLEEPING-THRESHOLD))
-(cffi:defcfun ("_wrap_btRigidBody_getLinearSleepingThreshold"
+
+(defcfun ("_wrap_btRigidBody_getLinearSleepingThreshold"
                RIGID-BODY/GET-LINEAR-SLEEPING-THRESHOLD) :float
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-ANGULAR-SLEEPING-THRESHOLD))
-(cffi:defcfun ("_wrap_btRigidBody_getAngularSleepingThreshold"
+
+(defcfun ("_wrap_btRigidBody_getAngularSleepingThreshold"
                RIGID-BODY/GET-ANGULAR-SLEEPING-THRESHOLD) :float
   (self :pointer))
-(declaim (inline RIGID-BODY/APPLY-DAMPING))
-(cffi:defcfun ("_wrap_btRigidBody_applyDamping"
+
+(defcfun ("_wrap_btRigidBody_applyDamping"
                RIGID-BODY/APPLY-DAMPING) :void
   (self :pointer)
   (timeStep :float))
-(declaim (inline RIGID-BODY/GET-COLLISION-SHAPE))
-(cffi:defcfun ("_wrap_btRigidBody_getCollisionShape__SWIG_0"
+
+(defcfun ("_wrap_btRigidBody_getCollisionShape__SWIG_0"
                RIGID-BODY/GET-COLLISION-SHAPE) :pointer
   (self :pointer))
 #+ (or)
-(cffi:defcfun ("_wrap_btRigidBody_getCollisionShape__SWIG_1"
+(defcfun ("_wrap_btRigidBody_getCollisionShape__SWIG_1"
                RIGID-BODY/GET-COLLISION-SHAPE) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-MASS-PROPS))
-(cffi:defcfun ("_wrap_btRigidBody_setMassProps"
+
+(defcfun ("_wrap_btRigidBody_setMassProps"
                RIGID-BODY/SET-MASS-PROPS) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
-(declaim (inline RIGID-BODY/GET-LINEAR-FACTOR))
-(cffi:defcfun ("_wrap_btRigidBody_getLinearFactor"
+
+(defcfun ("_wrap_btRigidBody_getLinearFactor"
                RIGID-BODY/GET-LINEAR-FACTOR) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-LINEAR-FACTOR))
-(cffi:defcfun ("_wrap_btRigidBody_setLinearFactor"
+
+(defcfun ("_wrap_btRigidBody_setLinearFactor"
                RIGID-BODY/SET-LINEAR-FACTOR) :void
   (self :pointer)
   (linearFactor :pointer))
-(declaim (inline RIGID-BODY/GET-INV-MASS))
-(cffi:defcfun ("_wrap_btRigidBody_getInvMass"
+
+(defcfun ("_wrap_btRigidBody_getInvMass"
                RIGID-BODY/GET-INV-MASS) :float
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-INV-INERTIA-TENSOR-WORLD))
-(cffi:defcfun ("_wrap_btRigidBody_getInvInertiaTensorWorld"
+
+(defcfun ("_wrap_btRigidBody_getInvInertiaTensorWorld"
                RIGID-BODY/GET-INV-INERTIA-TENSOR-WORLD) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/INTEGRATE-VELOCITIES))
-(cffi:defcfun ("_wrap_btRigidBody_integrateVelocities"
+
+(defcfun ("_wrap_btRigidBody_integrateVelocities"
                RIGID-BODY/INTEGRATE-VELOCITIES) :void
   (self :pointer)
   (step :float))
-(declaim (inline RIGID-BODY/SET-CENTER-OF-MASS-TRANSFORM))
-(cffi:defcfun ("_wrap_btRigidBody_setCenterOfMassTransform"
+
+(defcfun ("_wrap_btRigidBody_setCenterOfMassTransform"
                RIGID-BODY/SET-CENTER-OF-MASS-TRANSFORM) :void
   (self :pointer)
   (xform :pointer))
-(declaim (inline RIGID-BODY/APPLY-CENTRAL-FORCE))
-(cffi:defcfun ("_wrap_btRigidBody_applyCentralForce"
+
+(defcfun ("_wrap_btRigidBody_applyCentralForce"
                RIGID-BODY/APPLY-CENTRAL-FORCE) :void
   (self :pointer)
   (force :pointer))
-(declaim (inline RIGID-BODY/GET-TOTAL-FORCE))
-(cffi:defcfun ("_wrap_btRigidBody_getTotalForce"
+
+(defcfun ("_wrap_btRigidBody_getTotalForce"
                RIGID-BODY/GET-TOTAL-FORCE) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-TOTAL-TORQUE))
-(cffi:defcfun ("_wrap_btRigidBody_getTotalTorque"
+
+(defcfun ("_wrap_btRigidBody_getTotalTorque"
                RIGID-BODY/GET-TOTAL-TORQUE) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-INV-INERTIA-DIAG-LOCAL))
-(cffi:defcfun ("_wrap_btRigidBody_getInvInertiaDiagLocal"
+
+(defcfun ("_wrap_btRigidBody_getInvInertiaDiagLocal"
                RIGID-BODY/GET-INV-INERTIA-DIAG-LOCAL) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-INV-INERTIA-DIAG-LOCAL))
-(cffi:defcfun ("_wrap_btRigidBody_setInvInertiaDiagLocal"
+
+(defcfun ("_wrap_btRigidBody_setInvInertiaDiagLocal"
                RIGID-BODY/SET-INV-INERTIA-DIAG-LOCAL) :void
   (self :pointer)
   (diagInvInertia :pointer))
-(declaim (inline RIGID-BODY/SET-SLEEPING-THRESHOLDS))
-(cffi:defcfun ("_wrap_btRigidBody_setSleepingThresholds"
+
+(defcfun ("_wrap_btRigidBody_setSleepingThresholds"
                RIGID-BODY/SET-SLEEPING-THRESHOLDS) :void
   (self :pointer)
   (linear :float)
   (angular :float))
-(declaim (inline RIGID-BODY/APPLY-TORQUE))
-(cffi:defcfun ("_wrap_btRigidBody_applyTorque"
+
+(defcfun ("_wrap_btRigidBody_applyTorque"
                RIGID-BODY/APPLY-TORQUE) :void
   (self :pointer)
   (torque :pointer))
-(declaim (inline RIGID-BODY/APPLY-FORCE))
-(cffi:defcfun ("_wrap_btRigidBody_applyForce"
+
+(defcfun ("_wrap_btRigidBody_applyForce"
                RIGID-BODY/APPLY-FORCE) :void
   (self :pointer)
   (force :pointer)
   (rel_pos :pointer))
-(declaim (inline RIGID-BODY/APPLY-CENTRAL-IMPULSE))
-(cffi:defcfun ("_wrap_btRigidBody_applyCentralImpulse"
+
+(defcfun ("_wrap_btRigidBody_applyCentralImpulse"
                RIGID-BODY/APPLY-CENTRAL-IMPULSE) :void
   (self :pointer)
   (impulse :pointer))
-(declaim (inline RIGID-BODY/APPLY-TORQUE-IMPULSE))
-(cffi:defcfun ("_wrap_btRigidBody_applyTorqueImpulse"
+
+(defcfun ("_wrap_btRigidBody_applyTorqueImpulse"
                RIGID-BODY/APPLY-TORQUE-IMPULSE) :void
   (self :pointer)
   (torque :pointer))
-(declaim (inline RIGID-BODY/APPLY-IMPULSE))
-(cffi:defcfun ("_wrap_btRigidBody_applyImpulse"
+
+(defcfun ("_wrap_btRigidBody_applyImpulse"
                RIGID-BODY/APPLY-IMPULSE) :void
   (self :pointer)
   (impulse :pointer)
   (rel_pos :pointer))
-(declaim (inline RIGID-BODY/CLEAR-FORCES))
-(cffi:defcfun ("_wrap_btRigidBody_clearForces"
+
+(defcfun ("_wrap_btRigidBody_clearForces"
                RIGID-BODY/CLEAR-FORCES) :void
   (self :pointer))
-(declaim (inline RIGID-BODY/UPDATE-INERTIA-TENSOR))
-(cffi:defcfun ("_wrap_btRigidBody_updateInertiaTensor"
+
+(defcfun ("_wrap_btRigidBody_updateInertiaTensor"
                RIGID-BODY/UPDATE-INERTIA-TENSOR) :void
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-CENTER-OF-MASS-POSITION))
-(cffi:defcfun ("_wrap_btRigidBody_getCenterOfMassPosition"
+
+(defcfun ("_wrap_btRigidBody_getCenterOfMassPosition"
                RIGID-BODY/GET-CENTER-OF-MASS-POSITION) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-ORIENTATION))
-(cffi:defcfun ("_wrap_btRigidBody_getOrientation"
+
+(defcfun ("_wrap_btRigidBody_getOrientation"
                RIGID-BODY/GET-ORIENTATION) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-CENTER-OF-MASS-TRANSFORM))
-(cffi:defcfun ("_wrap_btRigidBody_getCenterOfMassTransform"
+
+(defcfun ("_wrap_btRigidBody_getCenterOfMassTransform"
                RIGID-BODY/GET-CENTER-OF-MASS-TRANSFORM) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-LINEAR-VELOCITY))
-(cffi:defcfun ("_wrap_btRigidBody_getLinearVelocity"
+
+(defcfun ("_wrap_btRigidBody_getLinearVelocity"
                RIGID-BODY/GET-LINEAR-VELOCITY) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-ANGULAR-VELOCITY))
-(cffi:defcfun ("_wrap_btRigidBody_getAngularVelocity"
+
+(defcfun ("_wrap_btRigidBody_getAngularVelocity"
                RIGID-BODY/GET-ANGULAR-VELOCITY) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-LINEAR-VELOCITY))
-(cffi:defcfun ("_wrap_btRigidBody_setLinearVelocity"
+
+(defcfun ("_wrap_btRigidBody_setLinearVelocity"
                RIGID-BODY/SET-LINEAR-VELOCITY) :void
   (self :pointer)
   (lin_vel :pointer))
-(declaim (inline RIGID-BODY/SET-ANGULAR-VELOCITY))
-(cffi:defcfun ("_wrap_btRigidBody_setAngularVelocity"
+
+(defcfun ("_wrap_btRigidBody_setAngularVelocity"
                RIGID-BODY/SET-ANGULAR-VELOCITY) :void
   (self :pointer)
   (ang_vel :pointer))
-(declaim (inline RIGID-BODY/GET-VELOCITY-IN-LOCAL-POINT))
-(cffi:defcfun ("_wrap_btRigidBody_getVelocityInLocalPoint"
+
+(defcfun ("_wrap_btRigidBody_getVelocityInLocalPoint"
                RIGID-BODY/GET-VELOCITY-IN-LOCAL-POINT) :pointer
   (self :pointer)
   (rel_pos :pointer))
-(declaim (inline RIGID-BODY/TRANSLATE))
-(cffi:defcfun ("_wrap_btRigidBody_translate"
+
+(defcfun ("_wrap_btRigidBody_translate"
                RIGID-BODY/TRANSLATE) :void
   (self :pointer)
   (v :pointer))
-(declaim (inline RIGID-BODY/GET-AABB))
-(cffi:defcfun ("_wrap_btRigidBody_getAabb"
+
+(defcfun ("_wrap_btRigidBody_getAabb"
                RIGID-BODY/GET-AABB) :void
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
-(declaim (inline RIGID-BODY/COMPUTE-IMPULSE-DENOMINATOR))
-(cffi:defcfun ("_wrap_btRigidBody_computeImpulseDenominator"
+
+(defcfun ("_wrap_btRigidBody_computeImpulseDenominator"
                RIGID-BODY/COMPUTE-IMPULSE-DENOMINATOR) :float
   (self :pointer)
   (pos :pointer)
   (normal :pointer))
-(declaim (inline RIGID-BODY/COMPUTE-ANGULAR-IMPULSE-DENOMINATOR))
-(cffi:defcfun ("_wrap_btRigidBody_computeAngularImpulseDenominator"
+
+(defcfun ("_wrap_btRigidBody_computeAngularImpulseDenominator"
                RIGID-BODY/COMPUTE-ANGULAR-IMPULSE-DENOMINATOR) :float
   (self :pointer)
   (axis :pointer))
-(declaim (inline RIGID-BODY/UPDATE-DEACTIVATION))
-(cffi:defcfun ("_wrap_btRigidBody_updateDeactivation"
+
+(defcfun ("_wrap_btRigidBody_updateDeactivation"
                RIGID-BODY/UPDATE-DEACTIVATION) :void
   (self :pointer)
   (timeStep :float))
-(declaim (inline RIGID-BODY/WANTS-SLEEPING))
-(cffi:defcfun ("_wrap_btRigidBody_wantsSleeping"
+
+(defcfun ("_wrap_btRigidBody_wantsSleeping"
                RIGID-BODY/WANTS-SLEEPING) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/GET-BROADPHASE-PROXY))
-(cffi:defcfun ("_wrap_btRigidBody_getBroadphaseProxy__SWIG_0"
+
+(defcfun ("_wrap_btRigidBody_getBroadphaseProxy__SWIG_0"
                RIGID-BODY/GET-BROADPHASE-PROXY) :pointer
   (self :pointer))
 #+ (or)
-(cffi:defcfun ("_wrap_btRigidBody_getBroadphaseProxy__SWIG_1"
+(defcfun ("_wrap_btRigidBody_getBroadphaseProxy__SWIG_1"
                RIGID-BODY/GET-BROADPHASE-PROXY) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-NEW-BROADPHASE-PROXY))
-(cffi:defcfun ("_wrap_btRigidBody_setNewBroadphaseProxy"
+
+(defcfun ("_wrap_btRigidBody_setNewBroadphaseProxy"
                RIGID-BODY/SET-NEW-BROADPHASE-PROXY) :void
   (self :pointer)
   (broadphaseProxy :pointer))
-(declaim (inline RIGID-BODY/GET-MOTION-STATE))
-(cffi:defcfun ("_wrap_btRigidBody_getMotionState__SWIG_0"
+
+(defcfun ("_wrap_btRigidBody_getMotionState__SWIG_0"
                RIGID-BODY/GET-MOTION-STATE) :pointer
   (self :pointer))
 #+ (or)
-(cffi:defcfun ("_wrap_btRigidBody_getMotionState__SWIG_1"
+(defcfun ("_wrap_btRigidBody_getMotionState__SWIG_1"
                RIGID-BODY/GET-MOTION-STATE) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-MOTION-STATE))
-(cffi:defcfun ("_wrap_btRigidBody_setMotionState"
+
+(defcfun ("_wrap_btRigidBody_setMotionState"
                RIGID-BODY/SET-MOTION-STATE) :void
   (self :pointer)
   (motionState :pointer))
-(declaim (inline RIGID-BODY/CONTACT-SOLVER-TYPE/SET))
-(cffi:defcfun ("_wrap_btRigidBody_m_contactSolverType_set"
+
+(defcfun ("_wrap_btRigidBody_m_contactSolverType_set"
                RIGID-BODY/CONTACT-SOLVER-TYPE/SET) :void
   (self :pointer)
   (m_contactSolverType :int))
-(declaim (inline RIGID-BODY/CONTACT-SOLVER-TYPE/GET))
-(cffi:defcfun ("_wrap_btRigidBody_m_contactSolverType_get"
+
+(defcfun ("_wrap_btRigidBody_m_contactSolverType_get"
                RIGID-BODY/CONTACT-SOLVER-TYPE/GET) :int
   (self :pointer))
-(declaim (inline RIGID-BODY/FRICTION-SOLVER-TYPE/SET))
-(cffi:defcfun ("_wrap_btRigidBody_m_frictionSolverType_set"
+
+(defcfun ("_wrap_btRigidBody_m_frictionSolverType_set"
                RIGID-BODY/FRICTION-SOLVER-TYPE/SET) :void
   (self :pointer)
   (m_frictionSolverType :int))
-(declaim (inline RIGID-BODY/FRICTION-SOLVER-TYPE/GET))
-(cffi:defcfun ("_wrap_btRigidBody_m_frictionSolverType_get"
+
+(defcfun ("_wrap_btRigidBody_m_frictionSolverType_get"
                RIGID-BODY/FRICTION-SOLVER-TYPE/GET) :int
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-ANGULAR-FACTOR))
-(cffi:defcfun ("_wrap_btRigidBody_setAngularFactor__SWIG_0"
+
+(defcfun ("_wrap_btRigidBody_setAngularFactor__SWIG_0"
                RIGID-BODY/SET-ANGULAR-FACTOR/vector3) :void
   (self :pointer)
   (angFac :pointer))
-(cffi:defcfun ("_wrap_btRigidBody_setAngularFactor__SWIG_1"
+(defcfun ("_wrap_btRigidBody_setAngularFactor__SWIG_1"
                RIGID-BODY/SET-ANGULAR-FACTOR/float) :void
   (self :pointer)
   (angFac :float))
-(declaim (inline RIGID-BODY/GET-ANGULAR-FACTOR))
-(cffi:defcfun ("_wrap_btRigidBody_getAngularFactor"
+
+(defcfun ("_wrap_btRigidBody_getAngularFactor"
                RIGID-BODY/GET-ANGULAR-FACTOR) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/IS-IN-WORLD))
-(cffi:defcfun ("_wrap_btRigidBody_isInWorld"
+
+(defcfun ("_wrap_btRigidBody_isInWorld"
                RIGID-BODY/IS-IN-WORLD) :pointer
   (self :pointer))
-(declaim (inline RIGID-BODY/CHECK-COLLIDE-WITH-OVERRIDE))
-(cffi:defcfun ("_wrap_btRigidBody_checkCollideWithOverride"
+
+(defcfun ("_wrap_btRigidBody_checkCollideWithOverride"
                RIGID-BODY/CHECK-COLLIDE-WITH-OVERRIDE) :pointer
   (self :pointer)
   (co :pointer))
-(declaim (inline RIGID-BODY/ADD-CONSTRAINT-REF))
-(cffi:defcfun ("_wrap_btRigidBody_addConstraintRef"
+
+(defcfun ("_wrap_btRigidBody_addConstraintRef"
                RIGID-BODY/ADD-CONSTRAINT-REF) :void
   (self :pointer)
   (c :pointer))
-(declaim (inline RIGID-BODY/REMOVE-CONSTRAINT-REF))
-(cffi:defcfun ("_wrap_btRigidBody_removeConstraintRef"
+
+(defcfun ("_wrap_btRigidBody_removeConstraintRef"
                RIGID-BODY/REMOVE-CONSTRAINT-REF) :void
   (self :pointer)
   (c :pointer))
-(declaim (inline RIGID-BODY/GET-CONSTRAINT-REF))
-(cffi:defcfun ("_wrap_btRigidBody_getConstraintRef"
+
+(defcfun ("_wrap_btRigidBody_getConstraintRef"
                RIGID-BODY/GET-CONSTRAINT-REF) :pointer
   (self :pointer)
   (index :int))
-(declaim (inline RIGID-BODY/GET-NUM-CONSTRAINT-REFS))
-(cffi:defcfun ("_wrap_btRigidBody_getNumConstraintRefs"
+
+(defcfun ("_wrap_btRigidBody_getNumConstraintRefs"
                RIGID-BODY/GET-NUM-CONSTRAINT-REFS) :int
   (self :pointer))
-(declaim (inline RIGID-BODY/SET-FLAGS))
-(cffi:defcfun ("_wrap_btRigidBody_setFlags"
+
+(defcfun ("_wrap_btRigidBody_setFlags"
                RIGID-BODY/SET-FLAGS) :void
   (self :pointer)
   (flags :int))
-(declaim (inline RIGID-BODY/GET-FLAGS))
-(cffi:defcfun ("_wrap_btRigidBody_getFlags"
+
+(defcfun ("_wrap_btRigidBody_getFlags"
                RIGID-BODY/GET-FLAGS) :int
   (self :pointer))
-(declaim (inline RIGID-BODY/COMPUTE-GYROSCOPIC-FORCE))
-(cffi:defcfun ("_wrap_btRigidBody_computeGyroscopicForce"
+
+(defcfun ("_wrap_btRigidBody_computeGyroscopicForce"
                RIGID-BODY/COMPUTE-GYROSCOPIC-FORCE) :pointer
   (self :pointer)
   (maxGyroscopicForce :float))
-(declaim (inline RIGID-BODY/CALCULATE-SERIALIZE-BUFFER-SIZE))
-(cffi:defcfun ("_wrap_btRigidBody_calculateSerializeBufferSize"
+
+(defcfun ("_wrap_btRigidBody_calculateSerializeBufferSize"
                RIGID-BODY/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
   (self :pointer))
-(declaim (inline RIGID-BODY/SERIALIZE))
-(cffi:defcfun ("_wrap_btRigidBody_serialize"
+
+(defcfun ("_wrap_btRigidBody_serialize"
                RIGID-BODY/SERIALIZE) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
-(declaim (inline RIGID-BODY/SERIALIZE-SINGLE-OBJECT))
-(cffi:defcfun ("_wrap_btRigidBody_serializeSingleObject"
+
+(defcfun ("_wrap_btRigidBody_serializeSingleObject"
                RIGID-BODY/SERIALIZE-SINGLE-OBJECT) :void
   (self :pointer)
   (serializer :pointer))
