@@ -5,10 +5,15 @@
 %feature("intern_function","bullet-wrap::swig-lispify");
 %feature("inline");
 
-// Fix up operator overrides
+/* Fix up operator overrides */
+%rename (asVector) *::operator btScalar *();
+%rename (asConstVector) *::operator const btScalar *;
+
+/* Universal operators */
 %rename (assignValue) *::operator =;
 
 %rename (isEqual) *::operator ==;
+%rename (isEqual) *::operator==;
 %rename (isLessThan) *::operator <;
 %rename (isGreaterThan) *::operator >;
 %rename (isNotMoreThan) *::operator <=;
@@ -32,20 +37,50 @@
 %rename (makeCPlusArray) *::operator new[];
 %rename (deleteCPlusArray) *::operator delete[];
 
+/* all of the same things over again, but for 
+ * non-class-member-functions */
 
-// Ignore pure abstract class constructors
+%rename (assignValue) operator =;
+
+%rename (isEqual) operator ==;
+%rename (isEqual) operator==;
+%rename (isLessThan) operator <;
+%rename (isGreaterThan) operator >;
+%rename (isNotMoreThan) operator <=;
+%rename (isNotLessThan) operator >=;
+%rename (notEquals) operator !=;                         
+
+%rename (add) operator +;
+%rename (subtract) operator -;
+%rename (multiply) operator *;
+%rename (divide) operator /;
+%rename (modulo) operator %;
+
+%rename (increment) operator +=;
+%rename (decrement) operator -=;
+%rename (multiplyAndAssign) operator *=;
+%rename (divideAndAssign) operator /=;
+%rename (moduloAndAssign) operator %=;
+
+%rename (makeCPlusPlusInstance) operator new;
+%rename (deleteCPlusPlusInstance) operator delete;
+%rename (makeCPlusArray) operator new[];
+%rename (deleteCPlusArray) operator delete[];
+
+
+/* Ignore pure abstract class constructors */
 
 %ignore btMultiSapBroadphase (int, btOverlappingPairCache*);
 %ignore btMultiSapBroadphase (int);
 %ignore btMultiSapBroadphase ();
 
-// resizeNoInitialize seems friendlier for now
+/* resizeNoInitialize seems friendlier for now */
 %ignore btAlignedObjectArray< btWheelInfo >::expand ();
 %ignore btAlignedObjectArray< btWheelInfo >::resize ();
 %ignore btAlignedObjectArray< btWheelInfo >::resize (int);
 
 
-// Inner Class Work-arounds
+/* Inner Class Work-arounds */
 
 
 ///LocalShapeInfo gives extra information for complex shapes
@@ -317,6 +352,7 @@ ContactResultCallback()
 %nestedworkaround btCollisionWorld::ClosestConvexResultCallback;
 %nestedworkaround btCollisionWorld::ContactResultCallback;
 
+
 // Lisp Header
 
 %insert ("lisphead")
@@ -361,6 +397,7 @@ typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
 %include "LinearMath/btMinMax.h"
 %include "LinearMath/btAlignedAllocator.h"
 %include "LinearMath/btVector3.h"
+%include "LinearMath/btQuadWord.h"
 %include "LinearMath/btQuaternion.h"
 %include "LinearMath/btMatrix3x3.h"
 %include "LinearMath/btTransform.h"
@@ -369,6 +406,11 @@ typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
 %include "LinearMath/btAlignedObjectArray.h"
 %include "BulletCollision/CollisionDispatch/btCollisionWorld.h"
 %include "BulletCollision/CollisionDispatch/btCollisionObject.h"
+%include "BulletCollision/CollisionShapes/btCollisionShape.h"
+%include "BulletCollision/CollisionShapes/btConvexShape.h"
+%include "BulletCollision/CollisionShapes/btConcaveShape.h"
+%include "BulletCollision/CollisionShapes/btConvexInternalShape.h"
+%include "BulletCollision/CollisionShapes/btPolyhedralConvexShape.h"
 %include "BulletCollision/CollisionShapes/btBoxShape.h"
 %include "BulletCollision/CollisionShapes/btSphereShape.h"
 %include "BulletCollision/CollisionShapes/btCapsuleShape.h"
@@ -376,7 +418,10 @@ typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
 %include "BulletCollision/CollisionShapes/btConeShape.h"
 %include "BulletCollision/CollisionShapes/btStaticPlaneShape.h"
 %include "BulletCollision/CollisionShapes/btConvexHullShape.h"
+%include "BulletCollision/CollisionShapes/btStridingMeshInterface.h"
+%include "BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h"
 %include "BulletCollision/CollisionShapes/btTriangleMesh.h"
+%include "BulletCollision/CollisionShapes/btTriangleMeshShape.h"
 %include "BulletCollision/CollisionShapes/btConvexTriangleMeshShape.h"
 %include "BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h"
 %include "BulletCollision/CollisionShapes/btScaledBvhTriangleMeshShape.h"
@@ -387,22 +432,36 @@ typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
 %include "BulletCollision/CollisionShapes/btEmptyShape.h"
 %include "BulletCollision/CollisionShapes/btMultiSphereShape.h"
 %include "BulletCollision/CollisionShapes/btUniformScalingShape.h"
-%include "BulletCollision/CollisionDispatch/btSphereSphereCollisionAlgorithm.h"
-%include "BulletCollision/CollisionDispatch/btDefaultCollisionConfiguration.h"
-%include "BulletCollision/CollisionDispatch/btCollisionDispatcher.h"
+%include "BulletCollision/BroadphaseCollision/btOverlappingPairCache.h"
+%include "BulletCollision/BroadphaseCollision/btBroadphaseInterface.h"
+%include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
+%include "BulletCollision/BroadphaseCollision/btCollisionAlgorithm.h"
 %include "BulletCollision/BroadphaseCollision/btSimpleBroadphase.h"
+%include "BulletCollision/BroadphaseCollision/btDbvt.h"
+%include "BulletCollision/BroadphaseCollision/btDbvtBroadphase.h"
+
 %include "BulletCollision/BroadphaseCollision/btAxisSweep3.h"
+/* Fix up template classes and then reload */
+%template (btAxisSweep3Internal_UnsignedShort) btAxisSweep3Internal<unsigned short>;
+%template (btAxisSweep3Internal_UnsignedInt) btAxisSweep3Internal<unsigned int>;
+/* This time through, it should pick up the specialized subclasses */
+%include "BulletCollision/BroadphaseCollision/btAxisSweep3.h"
+
 %include "BulletCollision/BroadphaseCollision/btMultiSapBroadphase.h"
 %include "BulletCollision/BroadphaseCollision/btDbvtBroadphase.h"
+%include "BulletCollision/BroadphaseCollision/btDispatcher.h"
+%include "BulletCollision/CollisionDispatch/btActivatingCollisionAlgorithm.h"
+%include "BulletCollision/CollisionDispatch/btSphereSphereCollisionAlgorithm.h"
+%include "BulletCollision/CollisionDispatch/btCollisionConfiguration.h"
+%include "BulletCollision/CollisionDispatch/btDefaultCollisionConfiguration.h"
+%include "BulletCollision/CollisionDispatch/btCollisionDispatcher.h"
 %include "LinearMath/btQuaternion.h"
 %include "LinearMath/btDefaultMotionState.h"
 %include "LinearMath/btQuickprof.h"
 %include "LinearMath/btIDebugDraw.h"
 %include "LinearMath/btSerializer.h"
 %include "btBulletCollisionCommon.h" 
-%include "BulletDynamics/Dynamics/btDiscreteDynamicsWorld.h"
-%include "BulletDynamics/Dynamics/btSimpleDynamicsWorld.h"
-%include "BulletDynamics/Dynamics/btRigidBody.h"
+%include "BulletDynamics/ConstraintSolver/btContactSolverInfo.h"
 %include "BulletDynamics/ConstraintSolver/btTypedConstraint.h"
 %include "BulletDynamics/ConstraintSolver/btPoint2PointConstraint.h"
 %include "BulletDynamics/ConstraintSolver/btHingeConstraint.h"
@@ -414,10 +473,15 @@ typedef btCollisionWorld::LocalShapeInfo LocalShapeInfo;
 %include "BulletDynamics/ConstraintSolver/btHinge2Constraint.h"
 %include "BulletDynamics/ConstraintSolver/btGearConstraint.h"
 %include "BulletDynamics/ConstraintSolver/btFixedConstraint.h"
+%include "BulletDynamics/ConstraintSolver/btConstraintSolver.h"
 %include "BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.h"
-/* %include "BulletDynamics/Vehicle/btWheelInfo.h" */
-/* %include "BulletDynamics/Vehicle/btVehicleRaycaster.h" */
-/* %include "BulletDynamics/Vehicle/btRaycastVehicle.h" */
+%include "BulletDynamics/Dynamics/btDynamicsWorld.h"
+%include "BulletDynamics/Dynamics/btDiscreteDynamicsWorld.h"
+%include "BulletDynamics/Dynamics/btSimpleDynamicsWorld.h"
+%include "BulletDynamics/Dynamics/btRigidBody.h"
+ // %include "BulletDynamics/Vehicle/btWheelInfo.h"
+ // %include "BulletDynamics/Vehicle/btVehicleRaycaster.h"
+ // %include "BulletDynamics/Vehicle/btRaycastVehicle.h"
 
 /*    // Template instantiations */
 /*    %template(alignedWheelInfoArray) btAlignedObjectArray< btWheelInfo >; */
