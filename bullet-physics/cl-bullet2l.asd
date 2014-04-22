@@ -13,6 +13,7 @@
   ((:file "bullet-package")
    (:file "bt-load-libs")
    (:file "bt-classes")
+   (:file "bt-scalar")
    (:file "bt-structs")
    (:file "bt-generics")
    (:file "bt-param")
