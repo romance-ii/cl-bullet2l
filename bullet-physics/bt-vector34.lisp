@@ -6,8 +6,8 @@
 
 (defcfun ("_wrap_btVector3_makeCPlusPlusInstance__SWIG_0"
                VECTOR3/MAKE-c++-INSTANCE) :pointer
-  (self :pointer)
-  (sizeInBytes :pointer))
+  (self (:pointer vector3))
+  (sizeInBytes (:pointer scalar)))
 
 (defcfun ("_wrap_btVector3_deleteCPlusPlusInstance__SWIG_0"
                VECTOR3/DELETE-c++-INSTANCE) :void
@@ -61,16 +61,28 @@
                make-vector3/naked) :pointer)
 
 (defcfun ("_wrap_new_btVector3__SWIG_1"
-               make-vector3/x&y&z) :pointer
-  (x :pointer)
-  (y :pointer)
-  (z :pointer))
+          make-vector3/x&y&z) :pointer
+  (x (:pointer scalar))
+  (y (:pointer scalar))
+  (z (:pointer scalar)))
 
-(defun make-vector3 (&optional (x nil x?) y (z nil z?))
+(defcfun ("b2l_makeVector3" b2l-make-vector-3) :pointer
+  (x scalar) (y scalar) (z scalar))
+
+(defun vector3 (&optional (x nil x?) y (z nil z?))
   (cond
-    (z? (make-vector3/x&y&z x y z))
-    (x? (error "MAKE-VECTOR3 requires either 0 or 3 arguments"))
-    (t (make-vector3/naked))))
+    (z? (make-instance 'vector3 :x x :y y :z z))
+    (x? (error "VECTOR3 requires either 0 or 3 arguments"))
+    (t  (make-instance 'vector3))))
+
+(defun v3-alt-test (x y z)
+  (cffi:with-foreign-pointer (x+ (cffi:foreign-type-size 'scalar))
+    (cffi:with-foreign-pointer (y+ (cffi:foreign-type-size 'scalar))
+      (cffi:with-foreign-pointer (z+ (cffi:foreign-type-size 'scalar))
+        (setf (cffi:mem-ref x+ 'scalar) (coerce x 'double-float))
+        (setf (cffi:mem-ref y+ 'scalar) (coerce y 'double-float))
+        (setf (cffi:mem-ref z+ 'scalar) (coerce z 'double-float))
+        (make-vector3/x&y&z x+ y+ z+)))))
 
 (defcfun ("_wrap_btVector3_increment"
                VECTOR3/INCREMENT) :pointer
@@ -93,24 +105,24 @@
   (s :pointer))
 
 (defcfun ("_wrap_btVector3_length2"
-               VECTOR3/LENGTH-2) :float
+               VECTOR3/LENGTH-2) scalar
   (self :pointer))
 
 (defcfun ("_wrap_btVector3_length"
-               VECTOR3/LENGTH) :float
+               VECTOR3/LENGTH) scalar
   (self :pointer))
 
 (defcfun ("_wrap_btVector3_norm"
-               VECTOR3/NORM) :float
+               VECTOR3/NORM) scalar
   (self :pointer))
 
 (defcfun ("_wrap_btVector3_distance2"
-               VECTOR3/DISTANCE-2) :float
+               VECTOR3/DISTANCE-2) scalar
   (self :pointer)
   (v :pointer))
 
 (defcfun ("_wrap_btVector3_distance"
-               VECTOR3/DISTANCE) :float
+               VECTOR3/DISTANCE) scalar
   (self :pointer)
   (v :pointer))
 
@@ -130,10 +142,10 @@
                VECTOR3/ROTATE) :pointer
   (self :pointer)
   (wAxis :pointer)
-  (angle :float))
+  (angle scalar))
 
 (defcfun ("_wrap_btVector3_angle"
-               VECTOR3/ANGLE) :float
+               VECTOR3/ANGLE) scalar
   (self :pointer)
   (v :pointer))
 
@@ -147,7 +159,7 @@
   (v :pointer))
 
 (defcfun ("_wrap_btVector3_triple"
-               VECTOR3/TRIPLE) :float
+               VECTOR3/TRIPLE) scalar
   (self :pointer)
   (v1 :pointer)
   (v2 :pointer))
@@ -173,7 +185,7 @@
   (self :pointer)
   (v0 :pointer)
   (v1 :pointer)
-  (rt :float))
+  (rt scalar))
 
 (defcfun ("_wrap_btVector3_lerp"
                vector3/lerp) :pointer
@@ -188,7 +200,7 @@
 
 
 (defcfun ("_wrap_btVector3_getX"
-               VECTOR3/GET-X) :pointer
+          VECTOR3/GET-X) (:pointer scalar)
   (self :pointer))
 
 (defcfun ("_wrap_btVector3_getY"
@@ -202,25 +214,25 @@
 (defcfun ("_wrap_btVector3_setX"
                VECTOR3/SET-X) :void
   (self :pointer)
-  (_x :float))
+  (_x scalar))
 
 (defcfun ("_wrap_btVector3_setY"
                VECTOR3/SET-Y) :void
   (self :pointer)
-  (_y :float))
+  (_y scalar))
 
 (defcfun ("_wrap_btVector3_setZ"
                VECTOR3/SET-Z) :void
   (self :pointer)
-  (_z :float))
+  (_z scalar))
 
 (defcfun ("_wrap_btVector3_setW"
                VECTOR3/SET-W) :void
   (self :pointer)
-  (_w :float))
+  (_w scalar))
 
 (defcfun ("_wrap_btVector3_x"
-               VECTOR3/X) :pointer
+          VECTOR3/X) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btVector3_y"
@@ -336,11 +348,11 @@
                DELETE/BT-VECTOR3) :void
   (self :pointer))
 (defcfun ("_wrap_btVector3_dot"
-               VECTOR3/DOT/self*other) :float
+               VECTOR3/DOT/self*other) scalar
   (self :pointer)
   (v :pointer))
 (defcfun ("_wrap_btDot"
-               vector3/dot/v*v) :float
+               vector3/dot/v*v) scalar
   (v1 :pointer)
   (v2 :pointer))
 
@@ -430,16 +442,16 @@
     (q :pointer))
 
 (defcfun ("_wrap_btQuaternion_dot"
-               QUATERNION/DOT) :float
+               QUATERNION/DOT) scalar
   (self :pointer)
   (q :pointer))
 
 (defcfun ("_wrap_btQuaternion_length2"
-               QUATERNION/LENGTH-2) :float
+               QUATERNION/LENGTH-2) scalar
   (self :pointer))
 
 (defcfun ("_wrap_btQuaternion_length"
-               QUATERNION/LENGTH) :float
+               QUATERNION/LENGTH) scalar
   (self :pointer))
 
 (defcfun ("_wrap_btQuaternion_normalize"
@@ -466,21 +478,21 @@
   (self :pointer))
 
 (defcfun ("_wrap_btQuaternion_angle"
-               QUATERNION/ANGLE/self&q) :float
+               QUATERNION/ANGLE/self&q) scalar
   (self :pointer)
   (q :pointer))
 
 (defcfun ("_wrap_btQuaternion_angleShortestPath"
-               QUATERNION/ANGLE-SHORTEST-PATH) :float
+               QUATERNION/ANGLE-SHORTEST-PATH) scalar
   (self :pointer)
   (q :pointer))
 
 (defcfun ("_wrap_btQuaternion_getAngle"
-               QUATERNION/GET-ANGLE) :float
+               QUATERNION/GET-ANGLE) scalar
   (self :pointer))
 
 (defcfun ("_wrap_btQuaternion_getAngleShortestPath"
-               QUATERNION/GET-ANGLE-SHORTEST-PATH) :float
+               QUATERNION/GET-ANGLE-SHORTEST-PATH) scalar
   (self :pointer))
 
 (defcfun ("_wrap_btQuaternion_getAxis"
@@ -533,16 +545,16 @@
   (self :pointer))
 
 (defcfun ("_wrap_dot"
-               dot) :float
+               dot) scalar
   (q1 :pointer)
   (q2 :pointer))
 
 (defcfun ("_wrap_length"
-               qlength) :float
+               qlength) scalar
   (q :pointer))
 
 (defcfun ("_wrap_btAngle__SWIG_1"
-               quaternion/angle/q1&q2) :float
+               quaternion/angle/q1&q2) scalar
   (q1 :pointer)
   (q2 :pointer))
 
@@ -611,7 +623,9 @@
                  (setf (slot-value obj 'ff-pointer) (MAKE-VECTOR3)))
 
 (defmethod initialize-instance :after ((obj VECTOR3) &key (x 0) (y 0) (z 0))
-  (setf (slot-value obj 'ff-pointer) (MAKE-VECTOR3 x y z)))
+  (setf (slot-value obj 'ff-pointer) (b2l-make-vector-3 (coerce x 'double-float)
+                                                        (coerce y 'double-float) 
+                                                        (coerce z 'double-float))))
 
 (defmethod n+ ((self VECTOR3) (v VECTOR3))
   (VECTOR3/INCREMENT (ff-pointer self) (ff-pointer v)))
@@ -809,17 +823,17 @@
   (freeFunc :pointer))
 
 (defcfun ("_wrap_btDistance2"
-               DISTANCE-2) :float
+               DISTANCE-2) scalar
   (v1 :pointer)
   (v2 :pointer))
 
 (defcfun ("_wrap_btDistance"
-               DISTANCE) :float
+               DISTANCE) scalar
   (v1 :pointer)
   (v2 :pointer))
 
 (defcfun ("_wrap_btAngle__SWIG_0"
-               vector/angle) :float
+               vector/angle) scalar
   (v1 :pointer)
   (v2 :pointer))
 
@@ -829,7 +843,7 @@
   (v2 :pointer))
 
 (defcfun ("_wrap_btTriple"
-               TRIPLE/v1-3b) :float
+          TRIPLE/v1-3b) scalar
   (v1 :pointer)
   (v2 :pointer)
   (v3 :pointer))

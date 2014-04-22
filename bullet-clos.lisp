@@ -159,6 +159,14 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "w" 'method) ((self #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (#.(bullet-wrap::swig-lispify "btVector3_w" 'function) (ff-pointer self)))
 
+(cl:shadow "btScalar*")
+(cl:defmethod #.(bullet-wrap::swig-lispify "bt-scalar*" 'method) ((self #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btVector3_asVector" 'function) (ff-pointer self)))
+
+(cl:shadow "const btScalar*")
+(cl:defmethod #.(bullet-wrap::swig-lispify "const bt-scalar*" 'method) ((self #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btVector3_asConstVector" 'function) (ff-pointer self)))
+
 (cl:shadow "==")
 (cl:defmethod #.(bullet-wrap::swig-lispify "==" 'method) ((self #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (other #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (#.(bullet-wrap::swig-lispify "btVector3_isEqual" 'function) (ff-pointer self) (ff-pointer other)))
@@ -244,7 +252,81 @@
   (#.(bullet-wrap::swig-lispify "btVector4_setValue" 'function) (ff-pointer self) _x _y _z _w))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-quaternion" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-x" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_getX" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-y" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_getY" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-z" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_getZ" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-x" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) (_x cl:number))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_setX" 'function) (ff-pointer self) _x))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-y" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) (_y cl:number))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_setY" 'function) (ff-pointer self) _y))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-z" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) (_z cl:number))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_setZ" 'function) (ff-pointer self) _z))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-w" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) (_w cl:number))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_setW" 'function) (ff-pointer self) _w))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "x" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_x" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "y" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_y" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "z" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_z" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "w" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_w" 'function) (ff-pointer self)))
+
+(cl:shadow "btScalar*")
+(cl:defmethod #.(bullet-wrap::swig-lispify "bt-scalar*" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_asVector" 'function) (ff-pointer self)))
+
+(cl:shadow "const btScalar*")
+(cl:defmethod #.(bullet-wrap::swig-lispify "const bt-scalar*" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_asConstVector" 'function) (ff-pointer self)))
+
+(cl:shadow "==")
+(cl:defmethod #.(bullet-wrap::swig-lispify "==" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) (other #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_isEqual" 'function) (ff-pointer self) (ff-pointer other)))
+
+(cl:shadow "!=")
+(cl:defmethod #.(bullet-wrap::swig-lispify "!=" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) (other #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_notEquals" 'function) (ff-pointer self) (ff-pointer other)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-value" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) _x _y _z)
+  (#.(bullet-wrap::swig-lispify "btQuadWord_setValue" 'function) (ff-pointer self) _x _y _z))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-value" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) _x _y _z _w)
+  (#.(bullet-wrap::swig-lispify "btQuadWord_setValue" 'function) (ff-pointer self) _x _y _z _w))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-quad-word" 'class)) &key)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btQuadWord" 'function))))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-quad-word" 'class)) &key _x _y _z)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btQuadWord" 'function) _x _y _z)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-quad-word" 'class)) &key _x _y _z _w)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btQuadWord" 'function) _x _y _z _w)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-max" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) (other #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_setMax" 'function) (ff-pointer self) (ff-pointer other)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-min" 'method) ((self #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)) (other #.(bullet-wrap::swig-lispify "bt-quad-word" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btQuadWord_setMin" 'function) (ff-pointer self) (ff-pointer other)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-quaternion" 'classname)(#.(bullet-wrap::swig-lispify "btQuadWord" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-quaternion" 'class)) &key)
@@ -943,7 +1025,447 @@
   (#.(bullet-wrap::swig-lispify "btCollisionObject_serializeSingleObject" 'function) (ff-pointer self) serializer))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-box-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getAabb" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-bounding-sphere" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) (center #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) radius)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getBoundingSphere" 'function) (ff-pointer self) center radius))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-motion-disc" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getAngularMotionDisc" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-contact-breaking-threshold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) (defaultContactThresholdFactor cl:number))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getContactBreakingThreshold" 'function) (ff-pointer self) defaultContactThresholdFactor))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-temporal-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) (curTrans #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (linvel #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (angvel #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (timeStep cl:number) (temporalAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (temporalAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_calculateTemporalAabb" 'function) (ff-pointer self) curTrans linvel angvel timeStep temporalAabbMin temporalAabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-polyhedral" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_isPolyhedral" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-convex2d" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_isConvex2d" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-convex" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_isConvex" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-non-moving" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_isNonMoving" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-concave" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_isConcave" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-compound" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_isCompound" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-soft-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_isSoftBody" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-infinite" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_isInfinite" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_setLocalScaling" 'function) (ff-pointer self) scaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getLocalScaling" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-local-inertia" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) (mass cl:number) (inertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_calculateLocalInertia" 'function) (ff-pointer self) mass inertia))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-name" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getName" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-shape-type" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getShapeType" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-anisotropic-rolling-friction-direction" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getAnisotropicRollingFrictionDirection" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) (margin cl:number))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_setMargin" 'function) (ff-pointer self) margin))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getMargin" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-user-pointer" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) userPtr)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_setUserPointer" 'function) (ff-pointer self) userPtr))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-user-pointer" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_getUserPointer" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_calculateSerializeBufferSize" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) dataBuffer serializer)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize-single-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) serializer)
+  (#.(bullet-wrap::swig-lispify "btCollisionShape_serializeSingleShape" 'function) (ff-pointer self) serializer))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)(#.(bullet-wrap::swig-lispify "btCollisionShape" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportingVertex" 'function) (ff-pointer self) vec))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportingVertexWithoutMargin" 'function) (ff-pointer self) vec))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-support-vertex-without-margin-non-virtual" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportVertexWithoutMarginNonVirtual" 'function) (ff-pointer self) vec))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-support-vertex-non-virtual" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportVertexNonVirtual" 'function) (ff-pointer self) vec))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-margin-non-virtual" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_getMarginNonVirtual" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb-non-virtual" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_getAabbNonVirtual" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "project" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (trans #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (dir #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) min max)
+  (#.(bullet-wrap::swig-lispify "btConvexShape_project" 'function) (ff-pointer self) trans dir min max))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "batched-unit-vector-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (vectors #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (supportVerticesOut #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (numVectors cl:integer))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function) (ff-pointer self) vectors supportVerticesOut numVectors))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_getAabb" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb-slow" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_getAabbSlow" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_setLocalScaling" 'function) (ff-pointer self) scaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_getLocalScaling" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (margin cl:number))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_setMargin" 'function) (ff-pointer self) margin))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_getMargin" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-preferred-penetration-directions" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_getNumPreferredPenetrationDirections" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-preferred-penetration-direction" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (index cl:integer) (penetrationVector #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexShape_getPreferredPenetrationDirection" 'function) (ff-pointer self) index penetrationVector))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)(#.(bullet-wrap::swig-lispify "btCollisionShape" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-triangles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) callback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_processAllTriangles" 'function) (ff-pointer self) callback aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_getMargin" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-concave-shape" 'classname)) (collisionMargin cl:number))
+  (#.(bullet-wrap::swig-lispify "btConcaveShape_setMargin" 'function) (ff-pointer self) collisionMargin))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexShape" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_localGetSupportingVertex" 'function) (ff-pointer self) vec))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-implicit-shape-dimensions" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getImplicitShapeDimensions" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-implicit-shape-dimensions" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (dimensions #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_setImplicitShapeDimensions" 'function) (ff-pointer self) dimensions))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-safe-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (minDimension cl:number) (defaultMarginMultiplier cl:number))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function) (ff-pointer self) minDimension defaultMarginMultiplier))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-safe-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (minDimension cl:number))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function) (ff-pointer self) minDimension))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-safe-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (halfExtents #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (defaultMarginMultiplier cl:number))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function) (ff-pointer self) halfExtents defaultMarginMultiplier))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-safe-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (halfExtents #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function) (ff-pointer self) halfExtents))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getAabb" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb-slow" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getAabbSlow" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_setLocalScaling" 'function) (ff-pointer self) scaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getLocalScaling" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-local-scaling-nv" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getLocalScalingNV" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (margin cl:number))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_setMargin" 'function) (ff-pointer self) margin))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getMargin" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-margin-nv" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getMarginNV" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-preferred-penetration-directions" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getNumPreferredPenetrationDirections" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-preferred-penetration-direction" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) (index cl:integer) (penetrationVector #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_getPreferredPenetrationDirection" 'function) (ff-pointer self) index penetrationVector))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_calculateSerializeBufferSize" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-shape" 'classname)) dataBuffer serializer)
+  (#.(bullet-wrap::swig-lispify "btConvexInternalShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-convex-internal-aabb-caching-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexInternalShape" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-aabb-caching-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_setLocalScaling" 'function) (ff-pointer self) scaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-aabb-caching-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_getAabb" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "recalc-local-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-internal-aabb-caching-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_recalcLocalAabb" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexInternalShape" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "initialize-polyhedral-features" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) (shiftVerticesByMargin cl:integer))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_initializePolyhedralFeatures" 'function) (ff-pointer self) shiftVerticesByMargin))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "initialize-polyhedral-features" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_initializePolyhedralFeatures" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-convex-polyhedron" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getConvexPolyhedron" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_localGetSupportingVertexWithoutMargin" 'function) (ff-pointer self) vec))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "batched-unit-vector-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) (vectors #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (supportVerticesOut #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (numVectors cl:integer))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function) (ff-pointer self) vectors supportVerticesOut numVectors))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-local-inertia" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) (mass cl:number) (inertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_calculateLocalInertia" 'function) (ff-pointer self) mass inertia))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-vertices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumVertices" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-edges" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumEdges" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-edge" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) (i cl:integer) (pa #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pb #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getEdge" 'function) (ff-pointer self) i pa pb))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-vertex" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) (i cl:integer) (vtx #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getVertex" 'function) (ff-pointer self) i vtx))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-planes" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumPlanes" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-plane" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) (planeNormal #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (planeSupport #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (i cl:integer))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getPlane" 'function) (ff-pointer self) planeNormal planeSupport i))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-inside" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-shape" 'classname)) (pt #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (tolerance cl:number))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_isInside" 'function) (ff-pointer self) pt tolerance))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-aabb-caching-shape" 'classname)(#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-nonvirtual-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-aabb-caching-shape" 'classname)) (trans #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (margin cl:number))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_getNonvirtualAabb" 'function) (ff-pointer self) trans aabbMin aabbMax margin))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-aabb-caching-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_setLocalScaling" 'function) (ff-pointer self) scaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-aabb-caching-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_getAabb" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "recalc-local-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-polyhedral-convex-aabb-caching-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_recalcLocalAabb" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-box-shape" 'classname)(#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -1042,7 +1564,7 @@
   (#.(bullet-wrap::swig-lispify "btBoxShape_getPreferredPenetrationDirection" 'function) (ff-pointer self) index penetrationVector))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-sphere-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-sphere-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexInternalShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -1111,7 +1633,7 @@
   (#.(bullet-wrap::swig-lispify "btSphereShape_getMargin" 'function) (ff-pointer self)))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-capsule-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-capsule-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexInternalShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -1209,7 +1731,7 @@
   (#.(bullet-wrap::swig-lispify "btCapsuleShapeZ_getName" 'function) (ff-pointer self)))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-cylinder-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-cylinder-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexInternalShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -1395,7 +1917,7 @@
   (#.(bullet-wrap::swig-lispify "btCylinderShapeZ_getRadius" 'function) (ff-pointer self)))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-cone-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-cone-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexInternalShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -1499,7 +2021,7 @@
   (#.(bullet-wrap::swig-lispify "btConeShapeZ_getName" 'function) (ff-pointer self)))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-static-plane-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-static-plane-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConcaveShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -1568,7 +2090,7 @@
   (#.(bullet-wrap::swig-lispify "btStaticPlaneShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-convex-hull-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-convex-hull-shape" 'classname)(#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -1682,7 +2204,187 @@
   (#.(bullet-wrap::swig-lispify "btConvexHullShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-triangle-mesh" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "internal-process-all-triangles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) callback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_InternalProcessAllTriangles" 'function) (ff-pointer self) callback aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-aabb-brute-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_calculateAabbBruteForce" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) vertexbase numverts type stride indexbase indexstride numfaces indicestype (subpart cl:integer))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type stride indexbase indexstride numfaces indicestype subpart))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) vertexbase numverts type stride indexbase indexstride numfaces indicestype)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type stride indexbase indexstride numfaces indicestype))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-read-only-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) vertexbase numverts type stride indexbase indexstride numfaces indicestype (subpart cl:integer))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedReadOnlyVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type stride indexbase indexstride numfaces indicestype subpart))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-read-only-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) vertexbase numverts type stride indexbase indexstride numfaces indicestype)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedReadOnlyVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type stride indexbase indexstride numfaces indicestype))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "un-lock-vertex-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (subpart cl:integer))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_unLockVertexBase" 'function) (ff-pointer self) subpart))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "un-lock-read-only-vertex-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (subpart cl:integer))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_unLockReadOnlyVertexBase" 'function) (ff-pointer self) subpart))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-sub-parts" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getNumSubParts" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "preallocate-vertices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (numverts cl:integer))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_preallocateVertices" 'function) (ff-pointer self) numverts))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "preallocate-indices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (numindices cl:integer))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_preallocateIndices" 'function) (ff-pointer self) numindices))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "has-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_hasPremadeAabb" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_setPremadeAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getPremadeAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getScaling" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_setScaling" 'function) (ff-pointer self) scaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_calculateSerializeBufferSize" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) dataBuffer serializer)
+  (#.(bullet-wrap::swig-lispify "btStridingMeshInterface_serialize" 'function) (ff-pointer self) dataBuffer serializer))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)(#.(bullet-wrap::swig-lispify "btStridingMeshInterface" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'class)) &key)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function))))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'class)) &key (numTriangles cl:integer) triangleIndexBase (triangleIndexStride cl:integer) (numVertices cl:integer) vertexBase (vertexStride cl:integer))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function) numTriangles triangleIndexBase triangleIndexStride numVertices vertexBase vertexStride)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-indexed-mesh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) mesh (indexType cl:integer))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function) (ff-pointer self) mesh indexType))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-indexed-mesh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) mesh)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function) (ff-pointer self) mesh))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype (subpart cl:integer))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype subpart))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-read-only-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype (subpart cl:integer))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype subpart))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-read-only-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype)
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "un-lock-vertex-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (subpart cl:integer))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockVertexBase" 'function) (ff-pointer self) subpart))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "un-lock-read-only-vertex-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (subpart cl:integer))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockReadOnlyVertexBase" 'function) (ff-pointer self) subpart))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-sub-parts" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getNumSubParts" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-indexed-mesh-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-indexed-mesh-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "preallocate-vertices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (numverts cl:integer))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateVertices" 'function) (ff-pointer self) numverts))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "preallocate-indices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (numindices cl:integer))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateIndices" 'function) (ff-pointer self) numindices))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "has-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_hasPremadeAabb" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_setPremadeAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getPremadeAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-triangle-mesh" 'classname)(#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:defmethod (cl:setf #.(bullet-wrap::swig-lispify "m_weldingThreshold" 'method)) (arg0 (obj #.(bullet-wrap::swig-lispify "bt-triangle-mesh" 'class)))
@@ -1728,274 +2430,7 @@
   (#.(bullet-wrap::swig-lispify "btTriangleMesh_addIndex" 'function) (ff-pointer self) index))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)()
-  ((ff-pointer :reader ff-pointer)))
-
-(cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
-
-(cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
-
-(cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
-
-(cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
-
-(cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
-
-(cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
-
-(cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
-
-(cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'class)) &key meshInterface (calcAabb t))
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btConvexTriangleMeshShape" 'function) meshInterface calcAabb)))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'class)) &key meshInterface)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btConvexTriangleMeshShape" 'function) meshInterface)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-mesh-interface" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getMeshInterface" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-mesh-interface" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getMeshInterface" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_localGetSupportingVertex" 'function) (ff-pointer self) vec))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_localGetSupportingVertexWithoutMargin" 'function) (ff-pointer self) vec))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "batched-unit-vector-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (vectors #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (supportVerticesOut #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (numVectors cl:integer))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function) (ff-pointer self) vectors supportVerticesOut numVectors))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-name" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getName" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-vertices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getNumVertices" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-edges" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getNumEdges" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-edge" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (i cl:integer) (pa #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pb #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getEdge" 'function) (ff-pointer self) i pa pb))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-vertex" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (i cl:integer) (vtx #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getVertex" 'function) (ff-pointer self) i vtx))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-planes" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getNumPlanes" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-plane" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (planeNormal #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (planeSupport #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (i cl:integer))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getPlane" 'function) (ff-pointer self) planeNormal planeSupport i))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "is-inside" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (pt #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (tolerance cl:number))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_isInside" 'function) (ff-pointer self) pt tolerance))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_setLocalScaling" 'function) (ff-pointer self) scaling))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getLocalScaling" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-principal-axis-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (principal #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (inertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) volume)
-  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_calculatePrincipalAxisTransform" 'function) (ff-pointer self) principal inertia volume))
-
-
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)()
-  ((ff-pointer :reader ff-pointer)))
-
-(cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
-
-(cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
-
-(cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
-
-(cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
-
-(cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
-
-(cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
-
-(cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
-
-(cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'class)) &key meshInterface (useQuantizedAabbCompression t) (buildBvh t))
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBvhTriangleMeshShape" 'function) meshInterface useQuantizedAabbCompression buildBvh)))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'class)) &key meshInterface (useQuantizedAabbCompression t))
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBvhTriangleMeshShape" 'function) meshInterface useQuantizedAabbCompression)))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'class)) &key meshInterface (useQuantizedAabbCompression t) (bvhAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (bvhAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (buildBvh t))
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBvhTriangleMeshShape" 'function) meshInterface useQuantizedAabbCompression bvhAabbMin bvhAabbMax buildBvh)))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'class)) &key meshInterface (useQuantizedAabbCompression t) (bvhAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (bvhAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBvhTriangleMeshShape" 'function) meshInterface useQuantizedAabbCompression bvhAabbMin bvhAabbMax)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-owns-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getOwnsBvh" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "perform-raycast" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) callback (raySource #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTarget #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_performRaycast" 'function) (ff-pointer self) callback raySource rayTarget))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "perform-convexcast" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) callback (boxSource #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (boxTarget #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (boxMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (boxMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_performConvexcast" 'function) (ff-pointer self) callback boxSource boxTarget boxMin boxMax))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-triangles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) callback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_processAllTriangles" 'function) (ff-pointer self) callback aabbMin aabbMax))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "refit-tree" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_refitTree" 'function) (ff-pointer self) aabbMin aabbMax))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "partial-refit-tree" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_partialRefitTree" 'function) (ff-pointer self) aabbMin aabbMax))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-name" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getName" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_setLocalScaling" 'function) (ff-pointer self) scaling))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-optimized-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getOptimizedBvh" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-optimized-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) bvh (localScaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_setOptimizedBvh" 'function) (ff-pointer self) bvh localScaling))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-optimized-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) bvh)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_setOptimizedBvh" 'function) (ff-pointer self) bvh))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "build-optimized-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_buildOptimizedBvh" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "uses-quantized-aabb-compression" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_usesQuantizedAabbCompression" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-triangle-info-map" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) triangleInfoMap)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_setTriangleInfoMap" 'function) (ff-pointer self) triangleInfoMap))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-triangle-info-map" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getTriangleInfoMap" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-triangle-info-map" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getTriangleInfoMap" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_calculateSerializeBufferSize" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) dataBuffer serializer)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "serialize-single-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) serializer)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_serializeSingleBvh" 'function) (ff-pointer self) serializer))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "serialize-single-triangle-info-map" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) serializer)
-  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_serializeSingleTriangleInfoMap" 'function) (ff-pointer self) serializer))
-
-
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)()
-  ((ff-pointer :reader ff-pointer)))
-
-(cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
-
-(cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
-
-(cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
-
-(cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
-
-(cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
-
-(cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
-
-(cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
-
-(cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'class)) &key (childShape #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) (localScaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btScaledBvhTriangleMeshShape" 'function) childShape localScaling)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getAabb" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_setLocalScaling" 'function) (ff-pointer self) scaling))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getLocalScaling" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-local-inertia" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) (mass cl:number) (inertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_calculateLocalInertia" 'function) (ff-pointer self) mass inertia))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-triangles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) callback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_processAllTriangles" 'function) (ff-pointer self) callback aabbMin aabbMax))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-child-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getChildShape" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-child-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getChildShape" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-name" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getName" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_calculateSerializeBufferSize" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) dataBuffer serializer)
-  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
-
-
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-triangle-mesh-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-triangle-mesh-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConcaveShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -2070,97 +2505,274 @@
   (#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getName" 'function) (ff-pointer self)))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)(#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
 
 (cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
 
 (cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
 
 (cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
 
 (cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
 
 (cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
 
 (cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
 
 (cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'class)) &key)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function))))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'class)) &key (meshInterface #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (calcAabb t))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btConvexTriangleMeshShape" 'function) meshInterface calcAabb)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'class)) &key (numTriangles cl:integer) triangleIndexBase (triangleIndexStride cl:integer) (numVertices cl:integer) vertexBase (vertexStride cl:integer))
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function) numTriangles triangleIndexBase triangleIndexStride numVertices vertexBase vertexStride)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'class)) &key (meshInterface #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btConvexTriangleMeshShape" 'function) meshInterface)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-indexed-mesh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) mesh indexType)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function) (ff-pointer self) mesh indexType))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-mesh-interface" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getMeshInterface" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-indexed-mesh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) mesh)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function) (ff-pointer self) mesh))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-mesh-interface" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getMeshInterface" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype (subpart cl:integer))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype subpart))
+(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_localGetSupportingVertex" 'function) (ff-pointer self) vec))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype))
+(cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_localGetSupportingVertexWithoutMargin" 'function) (ff-pointer self) vec))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-read-only-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype (subpart cl:integer))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype subpart))
+(cl:defmethod #.(bullet-wrap::swig-lispify "batched-unit-vector-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (vectors #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (supportVerticesOut #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (numVectors cl:integer))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function) (ff-pointer self) vectors supportVerticesOut numVectors))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-locked-read-only-vertex-index-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype)
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function) (ff-pointer self) vertexbase numverts type vertexStride indexbase indexstride numfaces indicestype))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-name" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getName" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "un-lock-vertex-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (subpart cl:integer))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockVertexBase" 'function) (ff-pointer self) subpart))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-vertices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getNumVertices" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "un-lock-read-only-vertex-base" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (subpart cl:integer))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockReadOnlyVertexBase" 'function) (ff-pointer self) subpart))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-edges" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getNumEdges" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-sub-parts" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getNumSubParts" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-edge" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (i cl:integer) (pa #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pb #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getEdge" 'function) (ff-pointer self) i pa pb))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-indexed-mesh-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-vertex" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (i cl:integer) (vtx #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getVertex" 'function) (ff-pointer self) i vtx))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-indexed-mesh-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-planes" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getNumPlanes" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "preallocate-vertices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (numverts cl:integer))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateVertices" 'function) (ff-pointer self) numverts))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-plane" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (planeNormal #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (planeSupport #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (i cl:integer))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getPlane" 'function) (ff-pointer self) planeNormal planeSupport i))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "preallocate-indices" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (numindices cl:integer))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateIndices" 'function) (ff-pointer self) numindices))
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-inside" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (pt #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (tolerance cl:number))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_isInside" 'function) (ff-pointer self) pt tolerance))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "has-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_hasPremadeAabb" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_setLocalScaling" 'function) (ff-pointer self) scaling))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_setPremadeAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_getLocalScaling" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-premade-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-triangle-index-vertex-array" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getPremadeAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-principal-axis-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-convex-triangle-mesh-shape" 'classname)) (principal #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (inertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) volume)
+  (#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_calculatePrincipalAxisTransform" 'function) (ff-pointer self) principal inertia volume))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-compound-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)(#.(bullet-wrap::swig-lispify "btTriangleMeshShape" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'class)) &key (meshInterface #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (useQuantizedAabbCompression t) (buildBvh t))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBvhTriangleMeshShape" 'function) meshInterface useQuantizedAabbCompression buildBvh)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'class)) &key (meshInterface #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (useQuantizedAabbCompression t))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBvhTriangleMeshShape" 'function) meshInterface useQuantizedAabbCompression)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'class)) &key (meshInterface #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (useQuantizedAabbCompression t) (bvhAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (bvhAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (buildBvh t))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBvhTriangleMeshShape" 'function) meshInterface useQuantizedAabbCompression bvhAabbMin bvhAabbMax buildBvh)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'class)) &key (meshInterface #.(bullet-wrap::swig-lispify "bt-striding-mesh-interface" 'classname)) (useQuantizedAabbCompression t) (bvhAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (bvhAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBvhTriangleMeshShape" 'function) meshInterface useQuantizedAabbCompression bvhAabbMin bvhAabbMax)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-owns-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getOwnsBvh" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "perform-raycast" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) callback (raySource #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTarget #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_performRaycast" 'function) (ff-pointer self) callback raySource rayTarget))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "perform-convexcast" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) callback (boxSource #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (boxTarget #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (boxMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (boxMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_performConvexcast" 'function) (ff-pointer self) callback boxSource boxTarget boxMin boxMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-triangles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) callback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_processAllTriangles" 'function) (ff-pointer self) callback aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "refit-tree" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_refitTree" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "partial-refit-tree" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_partialRefitTree" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-name" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getName" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_setLocalScaling" 'function) (ff-pointer self) scaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-optimized-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getOptimizedBvh" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-optimized-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) bvh (localScaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_setOptimizedBvh" 'function) (ff-pointer self) bvh localScaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-optimized-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) bvh)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_setOptimizedBvh" 'function) (ff-pointer self) bvh))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "build-optimized-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_buildOptimizedBvh" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "uses-quantized-aabb-compression" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_usesQuantizedAabbCompression" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-triangle-info-map" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) triangleInfoMap)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_setTriangleInfoMap" 'function) (ff-pointer self) triangleInfoMap))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-triangle-info-map" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getTriangleInfoMap" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-triangle-info-map" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_getTriangleInfoMap" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_calculateSerializeBufferSize" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) dataBuffer serializer)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize-single-bvh" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) serializer)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_serializeSingleBvh" 'function) (ff-pointer self) serializer))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize-single-triangle-info-map" 'method) ((self #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) serializer)
+  (#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_serializeSingleTriangleInfoMap" 'function) (ff-pointer self) serializer))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConcaveShape" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'class)) &key (childShape #.(bullet-wrap::swig-lispify "bt-bvh-triangle-mesh-shape" 'classname)) (localScaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btScaledBvhTriangleMeshShape" 'function) childShape localScaling)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) (t-arg1 #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getAabb" 'function) (ff-pointer self) t-arg1 aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) (scaling #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_setLocalScaling" 'function) (ff-pointer self) scaling))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-local-scaling" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getLocalScaling" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-local-inertia" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) (mass cl:number) (inertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_calculateLocalInertia" 'function) (ff-pointer self) mass inertia))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-triangles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) callback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_processAllTriangles" 'function) (ff-pointer self) callback aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-child-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getChildShape" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-child-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getChildShape" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-name" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_getName" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_calculateSerializeBufferSize" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-scaled-bvh-triangle-mesh-shape" 'classname)) dataBuffer serializer)
+  (#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-compound-shape" 'classname)(#.(bullet-wrap::swig-lispify "btCollisionShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -2201,10 +2813,10 @@
 (cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-compound-shape" 'class)) &key)
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btCompoundShape" 'function))))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-child-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-compound-shape" 'classname)) (localTransform #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) shape)
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-child-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-compound-shape" 'classname)) (localTransform #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (shape #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
   (#.(bullet-wrap::swig-lispify "btCompoundShape_addChildShape" 'function) (ff-pointer self) localTransform shape))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-child-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-compound-shape" 'classname)) shape)
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-child-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-compound-shape" 'classname)) (shape #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
   (#.(bullet-wrap::swig-lispify "btCompoundShape_removeChildShape" 'function) (ff-pointer self) shape))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "remove-child-shape-by-index" 'method) ((self #.(bullet-wrap::swig-lispify "bt-compound-shape" 'classname)) (childShapeindex cl:integer))
@@ -2280,7 +2892,7 @@
   (#.(bullet-wrap::swig-lispify "btCompoundShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-bu-simplex1to4" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-bu-simplex1to4" 'classname)(#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -2367,7 +2979,7 @@
   (#.(bullet-wrap::swig-lispify "btBU_Simplex1to4_getName" 'function) (ff-pointer self)))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-empty-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-empty-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConcaveShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -2424,7 +3036,7 @@
   (#.(bullet-wrap::swig-lispify "btEmptyShape_processAllTriangles" 'function) (ff-pointer self) arg1 arg2 arg3))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-multi-sphere-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-multi-sphere-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -2490,7 +3102,7 @@
   (#.(bullet-wrap::swig-lispify "btMultiSphereShape_serialize" 'function) (ff-pointer self) dataBuffer serializer))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-uniform-scaling-shape" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-uniform-scaling-shape" 'classname)(#.(bullet-wrap::swig-lispify "btConvexShape" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -2525,7 +3137,7 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-uniform-scaling-shape" 'classname)) arg1 arg2)
   (#.(bullet-wrap::swig-lispify "btUniformScalingShape_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-uniform-scaling-shape" 'class)) &key convexChildShape (uniformScalingFactor cl:number))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-uniform-scaling-shape" 'class)) &key (convexChildShape #.(bullet-wrap::swig-lispify "bt-convex-shape" 'classname)) (uniformScalingFactor cl:number))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btUniformScalingShape" 'function) convexChildShape uniformScalingFactor)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "local-get-supporting-vertex-without-margin" 'method) ((self #.(bullet-wrap::swig-lispify "bt-uniform-scaling-shape" 'classname)) (vec #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
@@ -2577,148 +3189,288 @@
   (#.(bullet-wrap::swig-lispify "btUniformScalingShape_getPreferredPenetrationDirection" 'function) (ff-pointer self) index penetrationVector))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)()
   ((ff-pointer :reader ff-pointer)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'class)) &key mf ci col0Wrap col1Wrap)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSphereSphereCollisionAlgorithm" 'function) mf ci col0Wrap col1Wrap)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array-ptr" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArrayPtr" 'function) (ff-pointer self)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'class)) &key ci)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSphereSphereCollisionAlgorithm" 'function) ci)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array-ptr" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArrayPtr" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "process-collision" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'classname)) body0Wrap body1Wrap dispatchInfo resultOut)
-  (#.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_processCollision" 'function) (ff-pointer self) body0Wrap body1Wrap dispatchInfo resultOut))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArray" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-time-of-impact" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) dispatchInfo resultOut)
-  (#.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_calculateTimeOfImpact" 'function) (ff-pointer self) body0 body1 dispatchInfo resultOut))
+(cl:defmethod #.(bullet-wrap::swig-lispify "clean-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) pair dispatcher)
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_cleanOverlappingPair" 'function) (ff-pointer self) pair dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-all-contact-manifolds" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'classname)) manifoldArray)
-  (#.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_getAllContactManifolds" 'function) (ff-pointer self) manifoldArray))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_getNumOverlappingPairs" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clean-proxy-from-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) proxy dispatcher)
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_cleanProxyFromPairs" 'function) (ff-pointer self) proxy dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-overlap-filter-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) callback)
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_setOverlapFilterCallback" 'function) (ff-pointer self) callback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) arg1 dispatcher)
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_processAllOverlappingPairs" 'function) (ff-pointer self) arg1 dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "find-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_findPair" 'function) (ff-pointer self) proxy0 proxy1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "has-deferred-removal" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_hasDeferredRemoval" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-internal-ghost-pair-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) ghostPairCallback)
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_setInternalGhostPairCallback" 'function) (ff-pointer self) ghostPairCallback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "sort-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btOverlappingPairCache_sortOverlappingPairs" 'function) (ff-pointer self) dispatcher))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)(#.(bullet-wrap::swig-lispify "btOverlappingPairCache" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'class)) &key constructionInfo)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btDefaultCollisionConfiguration" 'function) constructionInfo)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'class)) &key)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHashedOverlappingPairCache" 'function))))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'class)) &key)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btDefaultCollisionConfiguration" 'function))))
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-overlapping-pairs-containing-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) proxy dispatcher)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_removeOverlappingPairsContainingProxy" 'function) (ff-pointer self) proxy dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-persistent-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_getPersistentManifoldPool" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) proxy0 proxy1 dispatcher)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_removeOverlappingPair" 'function) (ff-pointer self) proxy0 proxy1 dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-algorithm-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_getCollisionAlgorithmPool" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "needs-broadphase-collision" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_needsBroadphaseCollision" 'function) (ff-pointer self) proxy0 proxy1))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-simplex-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_getSimplexSolver" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_addOverlappingPair" 'function) (ff-pointer self) proxy0 proxy1))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-algorithm-create-func" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (proxyType0 cl:integer) (proxyType1 cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_getCollisionAlgorithmCreateFunc" 'function) (ff-pointer self) proxyType0 proxyType1))
+(cl:defmethod #.(bullet-wrap::swig-lispify "clean-proxy-from-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) proxy dispatcher)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_cleanProxyFromPairs" 'function) (ff-pointer self) proxy dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-convex-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (numPerturbationIterations cl:integer) (minimumPointsPerturbationThreshold cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setConvexConvexMultipointIterations" 'function) (ff-pointer self) numPerturbationIterations minimumPointsPerturbationThreshold))
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) arg1 dispatcher)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_processAllOverlappingPairs" 'function) (ff-pointer self) arg1 dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-convex-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (numPerturbationIterations cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setConvexConvexMultipointIterations" 'function) (ff-pointer self) numPerturbationIterations))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array-ptr" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArrayPtr" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-convex-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setConvexConvexMultipointIterations" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array-ptr" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArrayPtr" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-plane-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (numPerturbationIterations cl:integer) (minimumPointsPerturbationThreshold cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations" 'function) (ff-pointer self) numPerturbationIterations minimumPointsPerturbationThreshold))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArray" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-plane-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (numPerturbationIterations cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations" 'function) (ff-pointer self) numPerturbationIterations))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArray" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-plane-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "clean-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) pair dispatcher)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_cleanOverlappingPair" 'function) (ff-pointer self) pair dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "find-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_findPair" 'function) (ff-pointer self) proxy0 proxy1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-count" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_GetCount" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlap-filter-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlapFilterCallback" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-overlap-filter-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)) callback)
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_setOverlapFilterCallback" 'function) (ff-pointer self) callback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hashed-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getNumOverlappingPairs" 'function) (ff-pointer self)))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)(#.(bullet-wrap::swig-lispify "btOverlappingPairCache" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-dispatcher-flags" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getDispatcherFlags" 'function) (ff-pointer self)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'class)) &key)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSortedOverlappingPairCache" 'function))))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-dispatcher-flags" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (flags cl:integer))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_setDispatcherFlags" 'function) (ff-pointer self) flags))
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) arg1 dispatcher)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_processAllOverlappingPairs" 'function) (ff-pointer self) arg1 dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "register-collision-create-func" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (proxyType0 cl:integer) (proxyType1 cl:integer) createFunc)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_registerCollisionCreateFunc" 'function) (ff-pointer self) proxyType0 proxyType1 createFunc))
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) proxy0 proxy1 dispatcher)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_removeOverlappingPair" 'function) (ff-pointer self) proxy0 proxy1 dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-manifolds" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getNumManifolds" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "clean-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) pair dispatcher)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_cleanOverlappingPair" 'function) (ff-pointer self) pair dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pointer" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getInternalManifoldPointer" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_addOverlappingPair" 'function) (ff-pointer self) proxy0 proxy1))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-manifold-by-index-internal" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (index cl:integer))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getManifoldByIndexInternal" 'function) (ff-pointer self) index))
+(cl:defmethod #.(bullet-wrap::swig-lispify "find-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_findPair" 'function) (ff-pointer self) proxy0 proxy1))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-manifold-by-index-internal" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (index cl:integer))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getManifoldByIndexInternal" 'function) (ff-pointer self) index))
+(cl:defmethod #.(bullet-wrap::swig-lispify "clean-proxy-from-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) proxy dispatcher)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_cleanProxyFromPairs" 'function) (ff-pointer self) proxy dispatcher))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'class)) &key collisionConfiguration)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btCollisionDispatcher" 'function) collisionConfiguration)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-overlapping-pairs-containing-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) proxy dispatcher)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_removeOverlappingPairsContainingProxy" 'function) (ff-pointer self) proxy dispatcher))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-new-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (b0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (b1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getNewManifold" 'function) (ff-pointer self) b0 b1))
+(cl:defmethod #.(bullet-wrap::swig-lispify "needs-broadphase-collision" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_needsBroadphaseCollision" 'function) (ff-pointer self) proxy0 proxy1))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "release-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) manifold)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_releaseManifold" 'function) (ff-pointer self) manifold))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArray" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "clear-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) manifold)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_clearManifold" 'function) (ff-pointer self) manifold))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArray" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "find-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) body0Wrap body1Wrap sharedManifold)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_findAlgorithm" 'function) (ff-pointer self) body0Wrap body1Wrap sharedManifold))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array-ptr" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArrayPtr" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "find-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) body0Wrap body1Wrap)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_findAlgorithm" 'function) (ff-pointer self) body0Wrap body1Wrap))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array-ptr" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArrayPtr" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "needs-collision" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_needsCollision" 'function) (ff-pointer self) body0 body1))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getNumOverlappingPairs" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "needs-response" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_needsResponse" 'function) (ff-pointer self) body0 body1))
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlap-filter-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlapFilterCallback" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "dispatch-all-collision-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) pairCache dispatchInfo dispatcher)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_dispatchAllCollisionPairs" 'function) (ff-pointer self) pairCache dispatchInfo dispatcher))
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-overlap-filter-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) callback)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_setOverlapFilterCallback" 'function) (ff-pointer self) callback))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-near-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) nearCallback)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_setNearCallback" 'function) (ff-pointer self) nearCallback))
+(cl:defmethod #.(bullet-wrap::swig-lispify "has-deferred-removal" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_hasDeferredRemoval" 'function) (ff-pointer self)))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-near-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getNearCallback" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-internal-ghost-pair-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) ghostPairCallback)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_setInternalGhostPairCallback" 'function) (ff-pointer self) ghostPairCallback))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "allocate-collision-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (size cl:integer))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_allocateCollisionAlgorithm" 'function) (ff-pointer self) size))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "free-collision-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_freeCollisionAlgorithm" 'function) (ff-pointer self) ptr))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-configuration" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getCollisionConfiguration" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-configuration" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getCollisionConfiguration" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-collision-configuration" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) config)
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_setCollisionConfiguration" 'function) (ff-pointer self) config))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getInternalManifoldPool" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getInternalManifoldPool" 'function) (ff-pointer self)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "sort-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sorted-overlapping-pair-cache" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_sortOverlappingPairs" 'function) (ff-pointer self) dispatcher))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-simple-broadphase" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)(#.(bullet-wrap::swig-lispify "btOverlappingPairCache" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-simple-broadphase" 'class)) &key (maxProxies cl:integer) overlappingPairCache)
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array-ptr" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArrayPtr" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array-ptr" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArrayPtr" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArray" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clean-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_cleanOverlappingPair" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_getNumOverlappingPairs" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clean-proxy-from-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_cleanProxyFromPairs" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-overlap-filter-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_setOverlapFilterCallback" 'function) (ff-pointer self) arg1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_processAllOverlappingPairs" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "find-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_findPair" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "has-deferred-removal" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_hasDeferredRemoval" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-internal-ghost-pair-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_setInternalGhostPairCallback" 'function) (ff-pointer self) arg1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_addOverlappingPair" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-overlapping-pair" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1 arg2 arg3)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_removeOverlappingPair" 'function) (ff-pointer self) arg1 arg2 arg3))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-overlapping-pairs-containing-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_removeOverlappingPairsContainingProxy" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "sort-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btNullPairCache_sortOverlappingPairs" 'function) (ff-pointer self) dispatcher))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-null-pair-cache" 'class)) &key)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btNullPairCache" 'function))))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "create-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (shapeType cl:integer) userPtr (collisionFilterGroup cl:integer) (collisionFilterMask cl:integer) dispatcher multiSapProxy)
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_createProxy" 'function) (ff-pointer self) aabbMin aabbMax shapeType userPtr collisionFilterGroup collisionFilterMask dispatcher multiSapProxy))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "destroy-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) proxy dispatcher)
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_destroyProxy" 'function) (ff-pointer self) proxy dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) proxy (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_setAabb" 'function) (ff-pointer self) proxy aabbMin aabbMax dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) proxy (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_getAabb" 'function) (ff-pointer self) proxy aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback aabbMin))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback)
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "aabb-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) callback)
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_aabbTest" 'function) (ff-pointer self) aabbMin aabbMax callback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_calculateOverlappingPairs" 'function) (ff-pointer self) dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-cache" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_getOverlappingPairCache" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-cache" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_getOverlappingPairCache" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-broadphase-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_getBroadphaseAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "reset-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_resetPool" 'function) (ff-pointer self) dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "print-stats" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btBroadphaseInterface_printStats" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-broadphase-pair-sort-predicate" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "()")
+(cl:defmethod #.(bullet-wrap::swig-lispify "()" 'method) ((self #.(bullet-wrap::swig-lispify "bt-broadphase-pair-sort-predicate" 'classname)) a b)
+  (#.(bullet-wrap::swig-lispify "btBroadphasePairSortPredicate___funcall__" 'function) (ff-pointer self) a b))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-broadphase-pair-sort-predicate" 'class)) &key)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btBroadphasePairSortPredicate" 'function))))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-collision-algorithm" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-collision" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-algorithm" 'classname)) body0Wrap body1Wrap dispatchInfo resultOut)
+  (#.(bullet-wrap::swig-lispify "btCollisionAlgorithm_processCollision" 'function) (ff-pointer self) body0Wrap body1Wrap dispatchInfo resultOut))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-time-of-impact" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-algorithm" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) dispatchInfo resultOut)
+  (#.(bullet-wrap::swig-lispify "btCollisionAlgorithm_calculateTimeOfImpact" 'function) (ff-pointer self) body0 body1 dispatchInfo resultOut))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-all-contact-manifolds" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-algorithm" 'classname)) manifoldArray)
+  (#.(bullet-wrap::swig-lispify "btCollisionAlgorithm_getAllContactManifolds" 'function) (ff-pointer self) manifoldArray))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-simple-broadphase" 'classname)(#.(bullet-wrap::swig-lispify "btBroadphaseInterface" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-simple-broadphase" 'class)) &key (maxProxies cl:integer) (overlappingPairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function) maxProxies overlappingPairCache)))
 
 (cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-simple-broadphase" 'class)) &key (maxProxies cl:integer))
@@ -2773,10 +3525,10 @@
 (cl:defclass #.(bullet-wrap::swig-lispify "bt-axis-sweep3" 'classname)()
   ((ff-pointer :reader ff-pointer)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer) pairCache (disableRaycastAccelerator t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) (disableRaycastAccelerator t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function) worldAabbMin worldAabbMax maxHandles pairCache disableRaycastAccelerator)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer) pairCache)
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function) worldAabbMin worldAabbMax maxHandles pairCache)))
 
 (cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer))
@@ -2789,10 +3541,10 @@
 (cl:defclass #.(bullet-wrap::swig-lispify "bt32-bit-axis-sweep3" 'classname)()
   ((ff-pointer :reader ff-pointer)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt32-bit-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer) pairCache (disableRaycastAccelerator t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt32-bit-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) (disableRaycastAccelerator t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function) worldAabbMin worldAabbMax maxHandles pairCache disableRaycastAccelerator)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt32-bit-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer) pairCache)
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt32-bit-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function) worldAabbMin worldAabbMax maxHandles pairCache)))
 
 (cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt32-bit-axis-sweep3" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (maxHandles cl:integer))
@@ -2802,7 +3554,253 @@
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function) worldAabbMin worldAabbMax)))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-multi-sap-broadphase" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)(#.(bullet-wrap::swig-lispify "btBroadphaseInterface" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (handleMask cl:integer) (handleSentinel cl:integer) (maxHandles cl:integer) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) (disableRaycastAccelerator t))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function) worldAabbMin worldAabbMax handleMask handleSentinel maxHandles pairCache disableRaycastAccelerator)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (handleMask cl:integer) (handleSentinel cl:integer) (maxHandles cl:integer) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function) worldAabbMin worldAabbMax handleMask handleSentinel maxHandles pairCache)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (handleMask cl:integer) (handleSentinel cl:integer) (maxHandles cl:integer))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function) worldAabbMin worldAabbMax handleMask handleSentinel maxHandles)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (handleMask cl:integer) (handleSentinel cl:integer))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function) worldAabbMin worldAabbMax handleMask handleSentinel)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-handles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getNumHandles" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_calculateOverlappingPairs" 'function) (ff-pointer self) dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-handle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) pOwner (collisionFilterGroup cl:integer) (collisionFilterMask cl:integer) dispatcher multiSapProxy)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_addHandle" 'function) (ff-pointer self) aabbMin aabbMax pOwner collisionFilterGroup collisionFilterMask dispatcher multiSapProxy))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-handle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (handle cl:integer) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_removeHandle" 'function) (ff-pointer self) handle dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "update-handle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (handle cl:integer) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_updateHandle" 'function) (ff-pointer self) handle aabbMin aabbMax dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-handle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getHandle" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "reset-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_resetPool" 'function) (ff-pointer self) dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) callback)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_processAllOverlappingPairs" 'function) (ff-pointer self) callback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "create-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (shapeType cl:integer) userPtr (collisionFilterGroup cl:integer) (collisionFilterMask cl:integer) dispatcher multiSapProxy)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_createProxy" 'function) (ff-pointer self) aabbMin aabbMax shapeType userPtr collisionFilterGroup collisionFilterMask dispatcher multiSapProxy))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "destroy-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) proxy dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_destroyProxy" 'function) (ff-pointer self) proxy dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) proxy (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_setAabb" 'function) (ff-pointer self) proxy aabbMin aabbMax dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) proxy (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getAabb" 'function) (ff-pointer self) proxy aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback aabbMin))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "aabb-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) callback)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_aabbTest" 'function) (ff-pointer self) aabbMin aabbMax callback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "quantize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) out (point #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (isMax cl:integer))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_quantize" 'function) (ff-pointer self) out point isMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "un-quantize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) proxy (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_unQuantize" 'function) (ff-pointer self) proxy aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "test-aabb-overlap" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_testAabbOverlap" 'function) (ff-pointer self) proxy0 proxy1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-cache" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-cache" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-overlapping-pair-user-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) pairCallback)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_setOverlappingPairUserCallback" 'function) (ff-pointer self) pairCallback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-user-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairUserCallback" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-broadphase-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getBroadphaseAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "print-stats" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-short" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_printStats" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)(#.(bullet-wrap::swig-lispify "btBroadphaseInterface" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (handleMask cl:integer) (handleSentinel cl:integer) (maxHandles cl:integer) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) (disableRaycastAccelerator t))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function) worldAabbMin worldAabbMax handleMask handleSentinel maxHandles pairCache disableRaycastAccelerator)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (handleMask cl:integer) (handleSentinel cl:integer) (maxHandles cl:integer) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function) worldAabbMin worldAabbMax handleMask handleSentinel maxHandles pairCache)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (handleMask cl:integer) (handleSentinel cl:integer) (maxHandles cl:integer))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function) worldAabbMin worldAabbMax handleMask handleSentinel maxHandles)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'class)) &key (worldAabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (worldAabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (handleMask cl:integer) (handleSentinel cl:integer))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function) worldAabbMin worldAabbMax handleMask handleSentinel)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-handles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getNumHandles" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_calculateOverlappingPairs" 'function) (ff-pointer self) dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-handle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) pOwner (collisionFilterGroup cl:integer) (collisionFilterMask cl:integer) dispatcher multiSapProxy)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_addHandle" 'function) (ff-pointer self) aabbMin aabbMax pOwner collisionFilterGroup collisionFilterMask dispatcher multiSapProxy))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-handle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (handle cl:integer) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_removeHandle" 'function) (ff-pointer self) handle dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "update-handle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (handle cl:integer) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_updateHandle" 'function) (ff-pointer self) handle aabbMin aabbMax dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-handle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getHandle" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "reset-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_resetPool" 'function) (ff-pointer self) dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-all-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) callback)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_processAllOverlappingPairs" 'function) (ff-pointer self) callback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "create-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (shapeType cl:integer) userPtr (collisionFilterGroup cl:integer) (collisionFilterMask cl:integer) dispatcher multiSapProxy)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_createProxy" 'function) (ff-pointer self) aabbMin aabbMax shapeType userPtr collisionFilterGroup collisionFilterMask dispatcher multiSapProxy))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "destroy-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) proxy dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_destroyProxy" 'function) (ff-pointer self) proxy dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) proxy (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) dispatcher)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_setAabb" 'function) (ff-pointer self) proxy aabbMin aabbMax dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) proxy (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getAabb" 'function) (ff-pointer self) proxy aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback aabbMin))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "aabb-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) callback)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_aabbTest" 'function) (ff-pointer self) aabbMin aabbMax callback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "quantize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) out (point #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (isMax cl:integer))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_quantize" 'function) (ff-pointer self) out point isMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "un-quantize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) proxy (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_unQuantize" 'function) (ff-pointer self) proxy aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "test-aabb-overlap" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) proxy0 proxy1)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_testAabbOverlap" 'function) (ff-pointer self) proxy0 proxy1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-cache" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-cache" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-overlapping-pair-user-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) pairCallback)
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_setOverlappingPairUserCallback" 'function) (ff-pointer self) pairCallback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-overlapping-pair-user-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairUserCallback" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-broadphase-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getBroadphaseAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "print-stats" 'method) ((self #.(bullet-wrap::swig-lispify "bt-axis-sweep3-internal-unsigned-int" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_printStats" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-multi-sap-broadphase" 'classname)(#.(bullet-wrap::swig-lispify "btBroadphaseInterface" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "get-broadphase-array" 'method) ((self #.(bullet-wrap::swig-lispify "bt-multi-sap-broadphase" 'classname)))
@@ -2832,7 +3830,7 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "ray-test" 'method) ((self #.(bullet-wrap::swig-lispify "bt-multi-sap-broadphase" 'classname)) (rayFrom #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rayTo #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) rayCallback)
   (#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function) (ff-pointer self) rayFrom rayTo rayCallback))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-to-child-broadphase" 'method) ((self #.(bullet-wrap::swig-lispify "bt-multi-sap-broadphase" 'classname)) parentMultiSapProxy childProxy childBroadphase)
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-to-child-broadphase" 'method) ((self #.(bullet-wrap::swig-lispify "bt-multi-sap-broadphase" 'classname)) parentMultiSapProxy childProxy (childBroadphase #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)))
   (#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_addToChildBroadphase" 'function) (ff-pointer self) parentMultiSapProxy childProxy childBroadphase))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "calculate-overlapping-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-multi-sap-broadphase" 'classname)) dispatcher)
@@ -2861,6 +3859,210 @@
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "reset-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-multi-sap-broadphase" 'classname)) dispatcher)
   (#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_resetPool" 'function) (ff-pointer self) dispatcher))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "find-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) body0Wrap body1Wrap sharedManifold)
+  (#.(bullet-wrap::swig-lispify "btDispatcher_findAlgorithm" 'function) (ff-pointer self) body0Wrap body1Wrap sharedManifold))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "find-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) body0Wrap body1Wrap)
+  (#.(bullet-wrap::swig-lispify "btDispatcher_findAlgorithm" 'function) (ff-pointer self) body0Wrap body1Wrap))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-new-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) (b0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (b1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_getNewManifold" 'function) (ff-pointer self) b0 b1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "release-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) manifold)
+  (#.(bullet-wrap::swig-lispify "btDispatcher_releaseManifold" 'function) (ff-pointer self) manifold))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clear-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) manifold)
+  (#.(bullet-wrap::swig-lispify "btDispatcher_clearManifold" 'function) (ff-pointer self) manifold))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "needs-collision" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_needsCollision" 'function) (ff-pointer self) body0 body1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "needs-response" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_needsResponse" 'function) (ff-pointer self) body0 body1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "dispatch-all-collision-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) dispatchInfo (dispatcher #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_dispatchAllCollisionPairs" 'function) (ff-pointer self) pairCache dispatchInfo (ff-pointer dispatcher)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-manifolds" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_getNumManifolds" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-manifold-by-index-internal" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_getManifoldByIndexInternal" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pointer" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPointer" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPool" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPool" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "allocate-collision-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) (size cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDispatcher_allocateCollisionAlgorithm" 'function) (ff-pointer self) size))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "free-collision-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btDispatcher_freeCollisionAlgorithm" 'function) (ff-pointer self) ptr))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-activating-collision-algorithm" 'classname)(#.(bullet-wrap::swig-lispify "btCollisionAlgorithm" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'classname)(#.(bullet-wrap::swig-lispify "btActivatingCollisionAlgorithm" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'class)) &key mf ci col0Wrap col1Wrap)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSphereSphereCollisionAlgorithm" 'function) mf ci col0Wrap col1Wrap)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'class)) &key ci)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSphereSphereCollisionAlgorithm" 'function) ci)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "process-collision" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'classname)) body0Wrap body1Wrap dispatchInfo resultOut)
+  (#.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_processCollision" 'function) (ff-pointer self) body0Wrap body1Wrap dispatchInfo resultOut))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-time-of-impact" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) dispatchInfo resultOut)
+  (#.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_calculateTimeOfImpact" 'function) (ff-pointer self) body0 body1 dispatchInfo resultOut))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-all-contact-manifolds" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sphere-sphere-collision-algorithm" 'classname)) manifoldArray)
+  (#.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_getAllContactManifolds" 'function) (ff-pointer self) manifoldArray))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-collision-configuration" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-persistent-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-configuration" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionConfiguration_getPersistentManifoldPool" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-algorithm-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-configuration" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionConfiguration_getCollisionAlgorithmPool" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-algorithm-create-func" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-configuration" 'classname)) (proxyType0 cl:integer) (proxyType1 cl:integer))
+  (#.(bullet-wrap::swig-lispify "btCollisionConfiguration_getCollisionAlgorithmCreateFunc" 'function) (ff-pointer self) proxyType0 proxyType1))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)(#.(bullet-wrap::swig-lispify "btCollisionConfiguration" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'class)) &key constructionInfo)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btDefaultCollisionConfiguration" 'function) constructionInfo)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'class)) &key)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btDefaultCollisionConfiguration" 'function))))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-persistent-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_getPersistentManifoldPool" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-algorithm-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_getCollisionAlgorithmPool" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-simplex-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_getSimplexSolver" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-algorithm-create-func" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (proxyType0 cl:integer) (proxyType1 cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_getCollisionAlgorithmCreateFunc" 'function) (ff-pointer self) proxyType0 proxyType1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-convex-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (numPerturbationIterations cl:integer) (minimumPointsPerturbationThreshold cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setConvexConvexMultipointIterations" 'function) (ff-pointer self) numPerturbationIterations minimumPointsPerturbationThreshold))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-convex-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (numPerturbationIterations cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setConvexConvexMultipointIterations" 'function) (ff-pointer self) numPerturbationIterations))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-convex-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setConvexConvexMultipointIterations" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-plane-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (numPerturbationIterations cl:integer) (minimumPointsPerturbationThreshold cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations" 'function) (ff-pointer self) numPerturbationIterations minimumPointsPerturbationThreshold))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-plane-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)) (numPerturbationIterations cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations" 'function) (ff-pointer self) numPerturbationIterations))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-plane-convex-multipoint-iterations" 'method) ((self #.(bullet-wrap::swig-lispify "bt-default-collision-configuration" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)(#.(bullet-wrap::swig-lispify "btDispatcher" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-dispatcher-flags" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getDispatcherFlags" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-dispatcher-flags" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (flags cl:integer))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_setDispatcherFlags" 'function) (ff-pointer self) flags))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "register-collision-create-func" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (proxyType0 cl:integer) (proxyType1 cl:integer) createFunc)
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_registerCollisionCreateFunc" 'function) (ff-pointer self) proxyType0 proxyType1 createFunc))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-manifolds" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getNumManifolds" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pointer" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getInternalManifoldPointer" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-manifold-by-index-internal" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getManifoldByIndexInternal" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-manifold-by-index-internal" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getManifoldByIndexInternal" 'function) (ff-pointer self) index))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'class)) &key (collisionConfiguration #.(bullet-wrap::swig-lispify "bt-collision-configuration" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btCollisionDispatcher" 'function) collisionConfiguration)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-new-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (b0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (b1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getNewManifold" 'function) (ff-pointer self) b0 b1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "release-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) manifold)
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_releaseManifold" 'function) (ff-pointer self) manifold))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clear-manifold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) manifold)
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_clearManifold" 'function) (ff-pointer self) manifold))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "find-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) body0Wrap body1Wrap sharedManifold)
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_findAlgorithm" 'function) (ff-pointer self) body0Wrap body1Wrap sharedManifold))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "find-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) body0Wrap body1Wrap)
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_findAlgorithm" 'function) (ff-pointer self) body0Wrap body1Wrap))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "needs-collision" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_needsCollision" 'function) (ff-pointer self) body0 body1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "needs-response" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (body0 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_needsResponse" 'function) (ff-pointer self) body0 body1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "dispatch-all-collision-pairs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (pairCache #.(bullet-wrap::swig-lispify "bt-overlapping-pair-cache" 'classname)) dispatchInfo (dispatcher #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_dispatchAllCollisionPairs" 'function) (ff-pointer self) pairCache dispatchInfo dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-near-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) nearCallback)
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_setNearCallback" 'function) (ff-pointer self) nearCallback))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-near-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getNearCallback" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "allocate-collision-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (size cl:integer))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_allocateCollisionAlgorithm" 'function) (ff-pointer self) size))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "free-collision-algorithm" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_freeCollisionAlgorithm" 'function) (ff-pointer self) ptr))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-configuration" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getCollisionConfiguration" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-configuration" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getCollisionConfiguration" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-collision-configuration" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)) (config #.(bullet-wrap::swig-lispify "bt-collision-configuration" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_setCollisionConfiguration" 'function) (ff-pointer self) config))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getInternalManifoldPool" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-internal-manifold-pool" 'method) ((self #.(bullet-wrap::swig-lispify "bt-collision-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getInternalManifoldPool" 'function) (ff-pointer self)))
 
 
 (cl:defclass #.(bullet-wrap::swig-lispify "bt-clock" 'classname)()
@@ -3203,473 +4405,6 @@
   (#.(bullet-wrap::swig-lispify "btDefaultSerializer_setSerializationFlags" 'function) (ff-pointer self) flags))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)()
-  ((ff-pointer :reader ff-pointer)))
-
-(cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
-
-(cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
-
-(cl:shadow "new")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
-
-(cl:shadow "delete")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
-
-(cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) sizeInBytes)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
-
-(cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) ptr)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function) (ff-pointer self) ptr))
-
-(cl:shadow "new[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1 ptr)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
-
-(cl:shadow "delete[]")
-(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1 arg2)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'class)) &key dispatcher pairCache constraintSolver collisionConfiguration)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btDiscreteDynamicsWorld" 'function) dispatcher pairCache constraintSolver collisionConfiguration)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer) (fixedTimeStep cl:number))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps fixedTimeStep))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (timeStep cl:number))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "synchronize-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeMotionStates" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "synchronize-single-motion-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) body)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeSingleMotionState" 'function) (ff-pointer self) body))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) constraint (disableCollisionsBetweenLinkedBodies t))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function) (ff-pointer self) constraint disableCollisionsBetweenLinkedBodies))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) constraint)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function) (ff-pointer self) constraint))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) constraint)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeConstraint" 'function) (ff-pointer self) constraint))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addAction" 'function) (ff-pointer self) arg1))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeAction" 'function) (ff-pointer self) arg1))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-simulation-island-manager" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-simulation-island-manager" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getCollisionWorld" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (gravity #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setGravity" 'function) (ff-pointer self) gravity))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getGravity" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (collisionFilterGroup cl:integer) (collisionFilterMask cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function) (ff-pointer self) collisionObject collisionFilterGroup collisionFilterMask))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (collisionFilterGroup cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function) (ff-pointer self) collisionObject collisionFilterGroup))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function) (ff-pointer self) collisionObject))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) body)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) body (group cl:integer) (mask cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body group mask))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) body)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeRigidBody" 'function) (ff-pointer self) body))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCollisionObject" 'function) (ff-pointer self) collisionObject))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "debug-draw-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) constraint)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawConstraint" 'function) (ff-pointer self) constraint))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "debug-draw-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawWorld" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) solver)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setConstraintSolver" 'function) (ff-pointer self) solver))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraintSolver" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-constraints" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getNumConstraints" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (index cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function) (ff-pointer self) index))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (index cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function) (ff-pointer self) index))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-world-type" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getWorldType" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "clear-forces" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_clearForces" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_applyGravity" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-num-tasks" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (numTasks cl:integer))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setNumTasks" 'function) (ff-pointer self) numTasks))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "update-vehicles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (timeStep cl:number))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_updateVehicles" 'function) (ff-pointer self) timeStep))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-vehicle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) vehicle)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addVehicle" 'function) (ff-pointer self) vehicle))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-vehicle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) vehicle)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeVehicle" 'function) (ff-pointer self) vehicle))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-character" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) character)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCharacter" 'function) (ff-pointer self) character))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-character" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) character)
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCharacter" 'function) (ff-pointer self) character))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-synchronize-all-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (synchronizeAll t))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" 'function) (ff-pointer self) synchronizeAll))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-synchronize-all-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-apply-speculative-contact-restitution" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (enable t))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" 'function) (ff-pointer self) enable))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-apply-speculative-contact-restitution" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (serializer #.(bullet-wrap::swig-lispify "bt-serializer" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_serialize" 'function) (ff-pointer self) serializer))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-latency-motion-state-interpolation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (latencyInterpolation t))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" 'function) (ff-pointer self) latencyInterpolation))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-latency-motion-state-interpolation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" 'function) (ff-pointer self)))
-
-
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)()
-  ((ff-pointer :reader ff-pointer)))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'class)) &key dispatcher pairCache constraintSolver collisionConfiguration)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSimpleDynamicsWorld" 'function) dispatcher pairCache constraintSolver collisionConfiguration)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer) (fixedTimeStep cl:number))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps fixedTimeStep))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (timeStep cl:number))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (gravity #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setGravity" 'function) (ff-pointer self) gravity))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getGravity" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) body)
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) body (group cl:integer) (mask cl:integer))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body group mask))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) body)
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeRigidBody" 'function) (ff-pointer self) body))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "debug-draw-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_debugDrawWorld" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) action)
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addAction" 'function) (ff-pointer self) action))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) action)
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeAction" 'function) (ff-pointer self) action))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeCollisionObject" 'function) (ff-pointer self) collisionObject))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "update-aabbs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_updateAabbs" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "synchronize-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_synchronizeMotionStates" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) solver)
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setConstraintSolver" 'function) (ff-pointer self) solver))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getConstraintSolver" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-world-type" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getWorldType" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "clear-forces" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_clearForces" 'function) (ff-pointer self)))
-
-
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)(#.(bullet-wrap::swig-lispify "btCollisionObject" 'classname))
-  ((ff-pointer :reader ff-pointer)))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)) &key constructionInfo)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function) constructionInfo)))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)) &key (mass cl:number) (motionState #.(bullet-wrap::swig-lispify "bt-motion-state" 'classname)) collisionShape (localInertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function) mass motionState collisionShape localInertia)))
-
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)) &key (mass cl:number) (motionState #.(bullet-wrap::swig-lispify "bt-motion-state" 'classname)) collisionShape)
-  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function) mass motionState collisionShape)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "proceed-to-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (newTrans #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_proceedToTransform" 'function) (ff-pointer self) newTrans))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "predict-integrated-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (step cl:number) (predictedTransform #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_predictIntegratedTransform" 'function) (ff-pointer self) step predictedTransform))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "save-kinematic-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (step cl:number))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_saveKinematicState" 'function) (ff-pointer self) step))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_applyGravity" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (acceleration #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setGravity" 'function) (ff-pointer self) acceleration))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getGravity" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-damping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (lin_damping cl:number) (ang_damping cl:number))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setDamping" 'function) (ff-pointer self) lin_damping ang_damping))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-linear-damping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getLinearDamping" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-damping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getAngularDamping" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-linear-sleeping-threshold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getLinearSleepingThreshold" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-sleeping-threshold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getAngularSleepingThreshold" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-damping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (timeStep cl:number))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_applyDamping" 'function) (ff-pointer self) timeStep))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-mass-props" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (mass cl:number) (inertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setMassProps" 'function) (ff-pointer self) mass inertia))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-linear-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getLinearFactor" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-linear-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (linearFactor #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setLinearFactor" 'function) (ff-pointer self) linearFactor))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-inv-mass" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getInvMass" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-inv-inertia-tensor-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaTensorWorld" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "integrate-velocities" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (step cl:number))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_integrateVelocities" 'function) (ff-pointer self) step))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-center-of-mass-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (xform #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setCenterOfMassTransform" 'function) (ff-pointer self) xform))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-central-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (force #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_applyCentralForce" 'function) (ff-pointer self) force))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-total-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getTotalForce" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-total-torque" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getTotalTorque" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-inv-inertia-diag-local" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaDiagLocal" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-inv-inertia-diag-local" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (diagInvInertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setInvInertiaDiagLocal" 'function) (ff-pointer self) diagInvInertia))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-sleeping-thresholds" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (linear cl:number) (angular cl:number))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setSleepingThresholds" 'function) (ff-pointer self) linear angular))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-torque" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (torque #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_applyTorque" 'function) (ff-pointer self) torque))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (force #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rel_pos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_applyForce" 'function) (ff-pointer self) force rel_pos))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-central-impulse" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (impulse #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_applyCentralImpulse" 'function) (ff-pointer self) impulse))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-torque-impulse" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (torque #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_applyTorqueImpulse" 'function) (ff-pointer self) torque))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "apply-impulse" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (impulse #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rel_pos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_applyImpulse" 'function) (ff-pointer self) impulse rel_pos))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "clear-forces" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_clearForces" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "update-inertia-tensor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_updateInertiaTensor" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-center-of-mass-position" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassPosition" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-orientation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getOrientation" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-center-of-mass-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassTransform" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-linear-velocity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getLinearVelocity" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-velocity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getAngularVelocity" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-linear-velocity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (lin_vel #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setLinearVelocity" 'function) (ff-pointer self) lin_vel))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-angular-velocity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (ang_vel #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setAngularVelocity" 'function) (ff-pointer self) ang_vel))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-velocity-in-local-point" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rel_pos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getVelocityInLocalPoint" 'function) (ff-pointer self) rel_pos))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "translate" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (v #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_translate" 'function) (ff-pointer self) v))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getAabb" 'function) (ff-pointer self) aabbMin aabbMax))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "compute-impulse-denominator" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (normal #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_computeImpulseDenominator" 'function) (ff-pointer self) pos normal))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "compute-angular-impulse-denominator" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (axis #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_computeAngularImpulseDenominator" 'function) (ff-pointer self) axis))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "update-deactivation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (timeStep cl:number))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_updateDeactivation" 'function) (ff-pointer self) timeStep))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "wants-sleeping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_wantsSleeping" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-broadphase-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-broadphase-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-new-broadphase-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) broadphaseProxy)
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setNewBroadphaseProxy" 'function) (ff-pointer self) broadphaseProxy))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-motion-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-motion-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-motion-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (motionState #.(bullet-wrap::swig-lispify "bt-motion-state" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setMotionState" 'function) (ff-pointer self) motionState))
-
-(cl:defmethod (cl:setf #.(bullet-wrap::swig-lispify "m_contactSolverType" 'method)) (arg0 (obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_set" 'function) (ff-pointer obj) arg0))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "m_contactSolverType" 'method) ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_get" 'function) (ff-pointer obj)))
-
-(cl:defmethod (cl:setf #.(bullet-wrap::swig-lispify "m_frictionSolverType" 'method)) (arg0 (obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_set" 'function) (ff-pointer obj) arg0))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "m_frictionSolverType" 'method) ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_get" 'function) (ff-pointer obj)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-angular-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (angFac #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function) (ff-pointer self) angFac))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-angular-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (angFac cl:number))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function) (ff-pointer self) angFac))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getAngularFactor" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "is-in-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_isInWorld" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "check-collide-with-override" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (co #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_checkCollideWithOverride" 'function) (ff-pointer self) co))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "add-constraint-ref" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) c)
-  (#.(bullet-wrap::swig-lispify "btRigidBody_addConstraintRef" 'function) (ff-pointer self) c))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "remove-constraint-ref" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) c)
-  (#.(bullet-wrap::swig-lispify "btRigidBody_removeConstraintRef" 'function) (ff-pointer self) c))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint-ref" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (index cl:integer))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getConstraintRef" 'function) (ff-pointer self) index))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-constraint-refs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getNumConstraintRefs" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "set-flags" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (flags cl:integer))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_setFlags" 'function) (ff-pointer self) flags))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "get-flags" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_getFlags" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "compute-gyroscopic-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (maxGyroscopicForce cl:number))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_computeGyroscopicForce" 'function) (ff-pointer self) maxGyroscopicForce))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_calculateSerializeBufferSize" 'function) (ff-pointer self)))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) dataBuffer (serializer #.(bullet-wrap::swig-lispify "bt-serializer" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_serialize" 'function) (ff-pointer self) dataBuffer serializer))
-
-(cl:defmethod #.(bullet-wrap::swig-lispify "serialize-single-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (serializer #.(bullet-wrap::swig-lispify "bt-serializer" 'classname)))
-  (#.(bullet-wrap::swig-lispify "btRigidBody_serializeSingleObject" 'function) (ff-pointer self) serializer))
-
-
 (cl:defclass #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)(#.(bullet-wrap::swig-lispify "btTypedObject" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
@@ -3925,10 +4660,10 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "m_setting" 'method) ((obj #.(bullet-wrap::swig-lispify "bt-point2-point-constraint" 'class)))
   (#.(bullet-wrap::swig-lispify "btPoint2PointConstraint_m_setting_get" 'function) (ff-pointer obj)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-point2-point-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pivotInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-point2-point-constraint" 'class)) &key rbA rbB (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pivotInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btPoint2PointConstraint" 'function) rbA rbB pivotInA pivotInB)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-point2-point-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-point2-point-constraint" 'class)) &key rbA (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btPoint2PointConstraint" 'function) rbA pivotInA)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "build-jacobian" 'method) ((self #.(bullet-wrap::swig-lispify "bt-point2-point-constraint" 'classname)))
@@ -4015,28 +4750,28 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'classname)) arg1 arg2)
   (#.(bullet-wrap::swig-lispify "btHingeConstraint_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pivotInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (useReferenceFrameA t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key rbA rbB (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pivotInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (useReferenceFrameA t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHingeConstraint" 'function) rbA rbB pivotInA pivotInB axisInA axisInB useReferenceFrameA)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pivotInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key rbA rbB (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (pivotInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHingeConstraint" 'function) rbA rbB pivotInA pivotInB axisInA axisInB)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (useReferenceFrameA t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key rbA (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (useReferenceFrameA t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHingeConstraint" 'function) rbA pivotInA axisInA useReferenceFrameA)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key rbA (pivotInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHingeConstraint" 'function) rbA pivotInA axisInA)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (rbBFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useReferenceFrameA t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key rbA rbB (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (rbBFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useReferenceFrameA t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHingeConstraint" 'function) rbA rbB rbAFrame rbBFrame useReferenceFrameA)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (rbBFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key rbA rbB (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (rbBFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHingeConstraint" 'function) rbA rbB rbAFrame rbBFrame)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useReferenceFrameA t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key rbA (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useReferenceFrameA t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHingeConstraint" 'function) rbA rbAFrame useReferenceFrameA)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'class)) &key rbA (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHingeConstraint" 'function) rbA rbAFrame)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "build-jacobian" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hinge-constraint" 'classname)))
@@ -4222,10 +4957,10 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-cone-twist-constraint" 'classname)) arg1 arg2)
   (#.(bullet-wrap::swig-lispify "btConeTwistConstraint_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-cone-twist-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (rbBFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-cone-twist-constraint" 'class)) &key rbA rbB (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (rbBFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btConeTwistConstraint" 'function) rbA rbB rbAFrame rbBFrame)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-cone-twist-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-cone-twist-constraint" 'class)) &key rbA (rbAFrame #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btConeTwistConstraint" 'function) rbA rbAFrame)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "build-jacobian" 'method) ((self #.(bullet-wrap::swig-lispify "bt-cone-twist-constraint" 'classname)))
@@ -4478,7 +5213,7 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "test-limit-value" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rotational-limit-motor" 'classname)) (test_value cl:number))
   (#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_testLimitValue" 'function) (ff-pointer self) test_value))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "solve-angular-limits" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rotational-limit-motor" 'classname)) (timeStep cl:number) (axis #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (jacDiagABInv cl:number) (body0 #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (body1 #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "solve-angular-limits" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rotational-limit-motor" 'classname)) (timeStep cl:number) (axis #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (jacDiagABInv cl:number) body0 body1)
   (#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_solveAngularLimits" 'function) (ff-pointer self) timeStep axis jacDiagABInv body0 body1))
 
 
@@ -4590,7 +5325,7 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "test-limit-value" 'method) ((self #.(bullet-wrap::swig-lispify "bt-translational-limit-motor" 'classname)) (limitIndex cl:integer) (test_value cl:number))
   (#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_testLimitValue" 'function) (ff-pointer self) limitIndex test_value))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "solve-linear-axis" 'method) ((self #.(bullet-wrap::swig-lispify "bt-translational-limit-motor" 'classname)) (timeStep cl:number) (jacDiagABInv cl:number) (body1 #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pointInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (body2 #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pointInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (limit_index cl:integer) (axis_normal_on_a #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (anchorPos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+(cl:defmethod #.(bullet-wrap::swig-lispify "solve-linear-axis" 'method) ((self #.(bullet-wrap::swig-lispify "bt-translational-limit-motor" 'classname)) (timeStep cl:number) (jacDiagABInv cl:number) body1 (pointInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) body2 (pointInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (limit_index cl:integer) (axis_normal_on_a #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (anchorPos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_solveLinearAxis" 'function) (ff-pointer self) timeStep jacDiagABInv body1 pointInA body2 pointInB limit_index axis_normal_on_a anchorPos))
 
 
@@ -4635,10 +5370,10 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "m_useSolveConstraintObsolete" 'method) ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-constraint" 'class)))
   (#.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_m_useSolveConstraintObsolete_get" 'function) (ff-pointer obj)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (frameInA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameA t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-constraint" 'class)) &key rbA rbB (frameInA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameA t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btGeneric6DofConstraint" 'function) rbA rbB frameInA frameInB useLinearReferenceFrameA)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-constraint" 'class)) &key (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameB t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-constraint" 'class)) &key rbB (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameB t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btGeneric6DofConstraint" 'function) rbB frameInB useLinearReferenceFrameB)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "calculate-transforms" 'method) ((self #.(bullet-wrap::swig-lispify "bt-generic6-dof-constraint" 'classname)) (transA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (transB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
@@ -4806,10 +5541,10 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-slider-constraint" 'classname)) arg1 arg2)
   (#.(bullet-wrap::swig-lispify "btSliderConstraint_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-slider-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (frameInA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameA t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-slider-constraint" 'class)) &key rbA rbB (frameInA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameA t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSliderConstraint" 'function) rbA rbB frameInA frameInB useLinearReferenceFrameA)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-slider-constraint" 'class)) &key (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameA t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-slider-constraint" 'class)) &key rbB (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameA t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSliderConstraint" 'function) rbB frameInB useLinearReferenceFrameA)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "get-info1" 'method) ((self #.(bullet-wrap::swig-lispify "bt-slider-constraint" 'classname)) info)
@@ -5115,10 +5850,10 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-generic6-dof-spring-constraint" 'classname)) arg1 arg2)
   (#.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraint_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-spring-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (frameInA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameA t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-spring-constraint" 'class)) &key rbA rbB (frameInA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameA t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btGeneric6DofSpringConstraint" 'function) rbA rbB frameInA frameInB useLinearReferenceFrameA)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-spring-constraint" 'class)) &key (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameB t))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-generic6-dof-spring-constraint" 'class)) &key rbB (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (useLinearReferenceFrameB t))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btGeneric6DofSpringConstraint" 'function) rbB frameInB useLinearReferenceFrameB)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "enable-spring" 'method) ((self #.(bullet-wrap::swig-lispify "bt-generic6-dof-spring-constraint" 'classname)) (index cl:integer) (onOff t))
@@ -5187,7 +5922,7 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-universal-constraint" 'classname)) arg1 arg2)
   (#.(bullet-wrap::swig-lispify "btUniversalConstraint_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-universal-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (anchor #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axis1 #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axis2 #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-universal-constraint" 'class)) &key rbA rbB (anchor #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axis1 #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axis2 #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btUniversalConstraint" 'function) rbA rbB anchor axis1 axis2)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "get-anchor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-universal-constraint" 'classname)))
@@ -5253,7 +5988,7 @@
 (cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hinge2-constraint" 'classname)) arg1 arg2)
   (#.(bullet-wrap::swig-lispify "btHinge2Constraint_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge2-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (anchor #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axis1 #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axis2 #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-hinge2-constraint" 'class)) &key rbA rbB (anchor #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axis1 #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axis2 #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btHinge2Constraint" 'function) rbA rbB anchor axis1 axis2)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "get-anchor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-hinge2-constraint" 'classname)))
@@ -5284,10 +6019,10 @@
 (cl:defclass #.(bullet-wrap::swig-lispify "bt-gear-constraint" 'classname)(#.(bullet-wrap::swig-lispify "btTypedConstraint" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-gear-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (ratio cl:number))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-gear-constraint" 'class)) &key rbA rbB (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (ratio cl:number))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btGearConstraint" 'function) rbA rbB axisInA axisInB ratio)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-gear-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-gear-constraint" 'class)) &key rbA rbB (axisInA #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (axisInB #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btGearConstraint" 'function) rbA rbB axisInA axisInB)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "get-info1" 'method) ((self #.(bullet-wrap::swig-lispify "bt-gear-constraint" 'classname)) info)
@@ -5336,7 +6071,7 @@
 (cl:defclass #.(bullet-wrap::swig-lispify "bt-fixed-constraint" 'classname)(#.(bullet-wrap::swig-lispify "btTypedConstraint" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
-(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-fixed-constraint" 'class)) &key (rbA #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rbB #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (frameInA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-fixed-constraint" 'class)) &key rbA rbB (frameInA #.(bullet-wrap::swig-lispify "bt-transform" 'classname)) (frameInB #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btFixedConstraint" 'function) rbA rbB frameInA frameInB)))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "get-info1" 'method) ((self #.(bullet-wrap::swig-lispify "bt-fixed-constraint" 'classname)) info)
@@ -5358,7 +6093,26 @@
   (#.(bullet-wrap::swig-lispify "btFixedConstraint_getParam" 'function) (ff-pointer self) num))
 
 
-(cl:defclass #.(bullet-wrap::swig-lispify "bt-sequential-impulse-constraint-solver" 'classname)()
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)()
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "prepare-solve" 'method) ((self #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)) (arg1 cl:integer) (arg2 cl:integer))
+  (#.(bullet-wrap::swig-lispify "btConstraintSolver_prepareSolve" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "solve-group" 'method) ((self #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)) bodies (numBodies cl:integer) manifold (numManifolds cl:integer) constraints (numConstraints cl:integer) info (debugDrawer #.(bullet-wrap::swig-lispify "bt-idebug-draw" 'classname)) (dispatcher #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConstraintSolver_solveGroup" 'function) (ff-pointer self) bodies numBodies manifold numManifolds constraints numConstraints info debugDrawer dispatcher))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "all-solved" 'method) ((self #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)) arg1 (arg2 #.(bullet-wrap::swig-lispify "bt-idebug-draw" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConstraintSolver_allSolved" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "reset" 'method) ((self #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConstraintSolver_reset" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-solver-type" 'method) ((self #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btConstraintSolver_getSolverType" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-sequential-impulse-constraint-solver" 'classname)(#.(bullet-wrap::swig-lispify "btConstraintSolver" 'classname))
   ((ff-pointer :reader ff-pointer)))
 
 (cl:shadow "new")
@@ -5396,7 +6150,7 @@
 (cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-sequential-impulse-constraint-solver" 'class)) &key)
   (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSequentialImpulseConstraintSolver" 'function))))
 
-(cl:defmethod #.(bullet-wrap::swig-lispify "solve-group" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sequential-impulse-constraint-solver" 'classname)) bodies (numBodies cl:integer) manifold (numManifolds cl:integer) constraints (numConstraints cl:integer) info (debugDrawer #.(bullet-wrap::swig-lispify "bt-idebug-draw" 'classname)) dispatcher)
+(cl:defmethod #.(bullet-wrap::swig-lispify "solve-group" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sequential-impulse-constraint-solver" 'classname)) bodies (numBodies cl:integer) manifold (numManifolds cl:integer) constraints (numConstraints cl:integer) info (debugDrawer #.(bullet-wrap::swig-lispify "bt-idebug-draw" 'classname)) (dispatcher #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)))
   (#.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_solveGroup" 'function) (ff-pointer self) bodies numBodies manifold numManifolds constraints numConstraints info debugDrawer dispatcher))
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "reset" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sequential-impulse-constraint-solver" 'classname)))
@@ -5416,4 +6170,571 @@
 
 (cl:defmethod #.(bullet-wrap::swig-lispify "get-solver-type" 'method) ((self #.(bullet-wrap::swig-lispify "bt-sequential-impulse-constraint-solver" 'classname)))
   (#.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_getSolverType" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)(#.(bullet-wrap::swig-lispify "btCollisionWorld" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer) (fixedTimeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps fixedTimeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (timeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "debug-draw-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_debugDrawWorld" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (constraint #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)) (disableCollisionsBetweenLinkedBodies t))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_addConstraint" 'function) (ff-pointer self) constraint disableCollisionsBetweenLinkedBodies))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (constraint #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_addConstraint" 'function) (ff-pointer self) constraint))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (constraint #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeConstraint" 'function) (ff-pointer self) constraint))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) action)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_addAction" 'function) (ff-pointer self) action))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) action)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeAction" 'function) (ff-pointer self) action))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (gravity #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_setGravity" 'function) (ff-pointer self) gravity))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_getGravity" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "synchronize-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_synchronizeMotionStates" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) body)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) body (group cl:integer) (mask cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body group mask))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) body)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeRigidBody" 'function) (ff-pointer self) body))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (solver #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_setConstraintSolver" 'function) (ff-pointer self) solver))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraintSolver" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-constraints" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_getNumConstraints" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraint" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraint" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-world-type" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_getWorldType" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clear-forces" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_clearForces" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-internal-tick-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) cb worldUserInfo (isPreTick t))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function) (ff-pointer self) cb worldUserInfo isPreTick))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-internal-tick-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) cb worldUserInfo)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function) (ff-pointer self) cb worldUserInfo))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-internal-tick-callback" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) cb)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function) (ff-pointer self) cb))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-world-user-info" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) worldUserInfo)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_setWorldUserInfo" 'function) (ff-pointer self) worldUserInfo))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-world-user-info" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_getWorldUserInfo" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-solver-info" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_getSolverInfo" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-vehicle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) vehicle)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_addVehicle" 'function) (ff-pointer self) vehicle))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-vehicle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) vehicle)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeVehicle" 'function) (ff-pointer self) vehicle))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-character" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) character)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_addCharacter" 'function) (ff-pointer self) character))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-character" 'method) ((self #.(bullet-wrap::swig-lispify "bt-dynamics-world" 'classname)) character)
+  (#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeCharacter" 'function) (ff-pointer self) character))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)(#.(bullet-wrap::swig-lispify "btDynamicsWorld" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) sizeInBytes)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function) (ff-pointer self) sizeInBytes))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) ptr)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function) (ff-pointer self) ptr))
+
+(cl:shadow "new[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "new[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1 ptr)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function) (ff-pointer self) arg1 ptr))
+
+(cl:shadow "delete[]")
+(cl:defmethod #.(bullet-wrap::swig-lispify "delete[]" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1 arg2)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function) (ff-pointer self) arg1 arg2))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'class)) &key (dispatcher #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) (pairCache #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) (constraintSolver #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)) (collisionConfiguration #.(bullet-wrap::swig-lispify "bt-collision-configuration" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btDiscreteDynamicsWorld" 'function) dispatcher pairCache constraintSolver collisionConfiguration)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer) (fixedTimeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps fixedTimeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (timeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "synchronize-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeMotionStates" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "synchronize-single-motion-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) body)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeSingleMotionState" 'function) (ff-pointer self) body))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (constraint #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)) (disableCollisionsBetweenLinkedBodies t))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function) (ff-pointer self) constraint disableCollisionsBetweenLinkedBodies))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (constraint #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function) (ff-pointer self) constraint))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (constraint #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeConstraint" 'function) (ff-pointer self) constraint))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addAction" 'function) (ff-pointer self) arg1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) arg1)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeAction" 'function) (ff-pointer self) arg1))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-simulation-island-manager" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-simulation-island-manager" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getCollisionWorld" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (gravity #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setGravity" 'function) (ff-pointer self) gravity))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getGravity" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (collisionFilterGroup cl:integer) (collisionFilterMask cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function) (ff-pointer self) collisionObject collisionFilterGroup collisionFilterMask))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)) (collisionFilterGroup cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function) (ff-pointer self) collisionObject collisionFilterGroup))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function) (ff-pointer self) collisionObject))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) body)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) body (group cl:integer) (mask cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body group mask))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) body)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeRigidBody" 'function) (ff-pointer self) body))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCollisionObject" 'function) (ff-pointer self) collisionObject))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "debug-draw-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (constraint #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawConstraint" 'function) (ff-pointer self) constraint))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "debug-draw-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawWorld" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (solver #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setConstraintSolver" 'function) (ff-pointer self) solver))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraintSolver" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-constraints" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getNumConstraints" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-world-type" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getWorldType" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clear-forces" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_clearForces" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_applyGravity" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-num-tasks" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (numTasks cl:integer))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setNumTasks" 'function) (ff-pointer self) numTasks))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "update-vehicles" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (timeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_updateVehicles" 'function) (ff-pointer self) timeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-vehicle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) vehicle)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addVehicle" 'function) (ff-pointer self) vehicle))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-vehicle" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) vehicle)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeVehicle" 'function) (ff-pointer self) vehicle))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-character" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) character)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCharacter" 'function) (ff-pointer self) character))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-character" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) character)
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCharacter" 'function) (ff-pointer self) character))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-synchronize-all-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (synchronizeAll t))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" 'function) (ff-pointer self) synchronizeAll))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-synchronize-all-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-apply-speculative-contact-restitution" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (enable t))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" 'function) (ff-pointer self) enable))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-apply-speculative-contact-restitution" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (serializer #.(bullet-wrap::swig-lispify "bt-serializer" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_serialize" 'function) (ff-pointer self) serializer))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-latency-motion-state-interpolation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)) (latencyInterpolation t))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" 'function) (ff-pointer self) latencyInterpolation))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-latency-motion-state-interpolation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-discrete-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)(#.(bullet-wrap::swig-lispify "btDynamicsWorld" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'class)) &key (dispatcher #.(bullet-wrap::swig-lispify "bt-dispatcher" 'classname)) (pairCache #.(bullet-wrap::swig-lispify "bt-broadphase-interface" 'classname)) (constraintSolver #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)) (collisionConfiguration #.(bullet-wrap::swig-lispify "bt-collision-configuration" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btSimpleDynamicsWorld" 'function) dispatcher pairCache constraintSolver collisionConfiguration)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer) (fixedTimeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps fixedTimeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (timeStep cl:number) (maxSubSteps cl:integer))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep maxSubSteps))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "step-simulation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (timeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function) (ff-pointer self) timeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (gravity #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setGravity" 'function) (ff-pointer self) gravity))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getGravity" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) body)
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) body (group cl:integer) (mask cl:integer))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function) (ff-pointer self) body group mask))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-rigid-body" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) body)
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeRigidBody" 'function) (ff-pointer self) body))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "debug-draw-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_debugDrawWorld" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) action)
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addAction" 'function) (ff-pointer self) action))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-action" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) action)
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeAction" 'function) (ff-pointer self) action))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-collision-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (collisionObject #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeCollisionObject" 'function) (ff-pointer self) collisionObject))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "update-aabbs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_updateAabbs" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "synchronize-motion-states" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_synchronizeMotionStates" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)) (solver #.(bullet-wrap::swig-lispify "bt-constraint-solver" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setConstraintSolver" 'function) (ff-pointer self) solver))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint-solver" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getConstraintSolver" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-world-type" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getWorldType" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clear-forces" 'method) ((self #.(bullet-wrap::swig-lispify "bt-simple-dynamics-world" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_clearForces" 'function) (ff-pointer self)))
+
+
+(cl:defclass #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)(#.(bullet-wrap::swig-lispify "btCollisionObject" 'classname))
+  ((ff-pointer :reader ff-pointer)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)) &key constructionInfo)
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function) constructionInfo)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)) &key (mass cl:number) (motionState #.(bullet-wrap::swig-lispify "bt-motion-state" 'classname)) (collisionShape #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)) (localInertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function) mass motionState collisionShape localInertia)))
+
+(cl:defmethod initialize-instance :after ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)) &key (mass cl:number) (motionState #.(bullet-wrap::swig-lispify "bt-motion-state" 'classname)) (collisionShape #.(bullet-wrap::swig-lispify "bt-collision-shape" 'classname)))
+  (setf (slot-value obj 'ff-pointer) (#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function) mass motionState collisionShape)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "proceed-to-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (newTrans #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_proceedToTransform" 'function) (ff-pointer self) newTrans))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "predict-integrated-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (step cl:number) (predictedTransform #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_predictIntegratedTransform" 'function) (ff-pointer self) step predictedTransform))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "save-kinematic-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (step cl:number))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_saveKinematicState" 'function) (ff-pointer self) step))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_applyGravity" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (acceleration #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setGravity" 'function) (ff-pointer self) acceleration))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-gravity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getGravity" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-damping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (lin_damping cl:number) (ang_damping cl:number))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setDamping" 'function) (ff-pointer self) lin_damping ang_damping))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-linear-damping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getLinearDamping" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-damping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getAngularDamping" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-linear-sleeping-threshold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getLinearSleepingThreshold" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-sleeping-threshold" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getAngularSleepingThreshold" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-damping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (timeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_applyDamping" 'function) (ff-pointer self) timeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-collision-shape" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-mass-props" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (mass cl:number) (inertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setMassProps" 'function) (ff-pointer self) mass inertia))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-linear-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getLinearFactor" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-linear-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (linearFactor #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setLinearFactor" 'function) (ff-pointer self) linearFactor))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-inv-mass" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getInvMass" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-inv-inertia-tensor-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaTensorWorld" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "integrate-velocities" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (step cl:number))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_integrateVelocities" 'function) (ff-pointer self) step))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-center-of-mass-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (xform #.(bullet-wrap::swig-lispify "bt-transform" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setCenterOfMassTransform" 'function) (ff-pointer self) xform))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-central-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (force #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_applyCentralForce" 'function) (ff-pointer self) force))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-total-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getTotalForce" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-total-torque" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getTotalTorque" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-inv-inertia-diag-local" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaDiagLocal" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-inv-inertia-diag-local" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (diagInvInertia #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setInvInertiaDiagLocal" 'function) (ff-pointer self) diagInvInertia))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-sleeping-thresholds" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (linear cl:number) (angular cl:number))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setSleepingThresholds" 'function) (ff-pointer self) linear angular))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-torque" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (torque #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_applyTorque" 'function) (ff-pointer self) torque))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (force #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rel_pos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_applyForce" 'function) (ff-pointer self) force rel_pos))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-central-impulse" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (impulse #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_applyCentralImpulse" 'function) (ff-pointer self) impulse))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-torque-impulse" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (torque #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_applyTorqueImpulse" 'function) (ff-pointer self) torque))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "apply-impulse" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (impulse #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (rel_pos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_applyImpulse" 'function) (ff-pointer self) impulse rel_pos))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "clear-forces" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_clearForces" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "update-inertia-tensor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_updateInertiaTensor" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-center-of-mass-position" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassPosition" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-orientation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getOrientation" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-center-of-mass-transform" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassTransform" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-linear-velocity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getLinearVelocity" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-velocity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getAngularVelocity" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-linear-velocity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (lin_vel #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setLinearVelocity" 'function) (ff-pointer self) lin_vel))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-angular-velocity" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (ang_vel #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setAngularVelocity" 'function) (ff-pointer self) ang_vel))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-velocity-in-local-point" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (rel_pos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getVelocityInLocalPoint" 'function) (ff-pointer self) rel_pos))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "translate" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (v #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_translate" 'function) (ff-pointer self) v))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-aabb" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (aabbMin #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (aabbMax #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getAabb" 'function) (ff-pointer self) aabbMin aabbMax))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "compute-impulse-denominator" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (pos #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)) (normal #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_computeImpulseDenominator" 'function) (ff-pointer self) pos normal))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "compute-angular-impulse-denominator" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (axis #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_computeAngularImpulseDenominator" 'function) (ff-pointer self) axis))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "update-deactivation" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (timeStep cl:number))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_updateDeactivation" 'function) (ff-pointer self) timeStep))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "wants-sleeping" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_wantsSleeping" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-broadphase-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-broadphase-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-new-broadphase-proxy" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) broadphaseProxy)
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setNewBroadphaseProxy" 'function) (ff-pointer self) broadphaseProxy))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-motion-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-motion-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-motion-state" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (motionState #.(bullet-wrap::swig-lispify "bt-motion-state" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setMotionState" 'function) (ff-pointer self) motionState))
+
+(cl:defmethod (cl:setf #.(bullet-wrap::swig-lispify "m_contactSolverType" 'method)) (arg0 (obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_set" 'function) (ff-pointer obj) arg0))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "m_contactSolverType" 'method) ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_get" 'function) (ff-pointer obj)))
+
+(cl:defmethod (cl:setf #.(bullet-wrap::swig-lispify "m_frictionSolverType" 'method)) (arg0 (obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_set" 'function) (ff-pointer obj) arg0))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "m_frictionSolverType" 'method) ((obj #.(bullet-wrap::swig-lispify "bt-rigid-body" 'class)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_get" 'function) (ff-pointer obj)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-angular-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (angFac #.(bullet-wrap::swig-lispify "bt-vector3" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function) (ff-pointer self) angFac))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-angular-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (angFac cl:number))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function) (ff-pointer self) angFac))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-angular-factor" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getAngularFactor" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "is-in-world" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_isInWorld" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "check-collide-with-override" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (co #.(bullet-wrap::swig-lispify "bt-collision-object" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_checkCollideWithOverride" 'function) (ff-pointer self) co))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "add-constraint-ref" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (c #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_addConstraintRef" 'function) (ff-pointer self) c))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "remove-constraint-ref" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (c #.(bullet-wrap::swig-lispify "bt-typed-constraint" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_removeConstraintRef" 'function) (ff-pointer self) c))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-constraint-ref" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (index cl:integer))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getConstraintRef" 'function) (ff-pointer self) index))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-num-constraint-refs" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getNumConstraintRefs" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "set-flags" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (flags cl:integer))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_setFlags" 'function) (ff-pointer self) flags))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "get-flags" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_getFlags" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "compute-gyroscopic-force" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (maxGyroscopicForce cl:number))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_computeGyroscopicForce" 'function) (ff-pointer self) maxGyroscopicForce))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "calculate-serialize-buffer-size" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_calculateSerializeBufferSize" 'function) (ff-pointer self)))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) dataBuffer (serializer #.(bullet-wrap::swig-lispify "bt-serializer" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_serialize" 'function) (ff-pointer self) dataBuffer serializer))
+
+(cl:defmethod #.(bullet-wrap::swig-lispify "serialize-single-object" 'method) ((self #.(bullet-wrap::swig-lispify "bt-rigid-body" 'classname)) (serializer #.(bullet-wrap::swig-lispify "bt-serializer" 'classname)))
+  (#.(bullet-wrap::swig-lispify "btRigidBody_serializeSingleObject" 'function) (ff-pointer self) serializer))
 

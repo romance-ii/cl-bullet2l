@@ -1,11 +1,18 @@
 (defpackage bullet-physics-c++
   (:use :cl :alexandria)
   (:documentation
-   "Place to intern C++ wrappers (only)"))
+   "Place to intern C++ wrappers (only)
+
+This package contains ugly C++ wrapper functions used to access the
+Bullet Physics library. Hopefully, you should never have the need to
+call anything in this package; instead, use the object classes defined
+in the BULLET-PHYSICS (aka BULLET) package.
+"))
+  
 
 (defpackage bullet-physics
   (:use :cl :alexandria :bullet-physics-c++)
-  (:nicknames bullet)
+  (:nicknames :bullet)
   (:documentation 
    
    "Bullet is a Collision Detection and Rigid Body Dynamics Library.
@@ -214,29 +221,4 @@ Swig properly.")
 (defmacro defklass (name &rest method-stuff)
   `(progn (defclass ,name ,@method-stuff)
           (export ',name)))
-
-(defmacro defcfun ((c-name lisp-name &rest options)
-                                       returns &body args)
-  (let* ((c++-package (sb-int:find-undeleted-package-or-lose
-                      "BULLET-PHYSICS-C++"))
-         (sym-name (intern (string lisp-name) c++-package)))
-    `(let ((save-package (or *package*
-                             (sb-int:find-undeleted-package-or-lose
-                              "BULLET-PHYSICS"))))
-       (setq *package* ,c++-package)
-       (declaim (inline ,sym-name))
-       (cffi:defcfun (,c-name ,sym-name ,@options)
-           ,returns ,@args)
-       (unintern ',lisp-name :bullet-physics)
-       (export ',sym-name :bullet-physics-c++)
-       (setq *package* save-package))))
-
-(defmacro define-anonymous-enum (&body enums)
-  "Converts anonymous enums to defconstants."
-  `(progn ,@(loop for value in enums
-               for index = 0 then (1+ index)
-               when (listp value) do (setf index (second value)
-                                           value (first value))
-               collect `(define-constant ,value ,index))))
-
 

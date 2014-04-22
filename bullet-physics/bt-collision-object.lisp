@@ -1,23 +1,23 @@
 (in-package #:bullet-physics)
 
 (defcfun ("_wrap_btCollisionObject_mergesSimulationIslands"
-          COLLISION-OBJECT/MERGES-SIMULATION-ISLANDS) :pointer
-  (self :pointer))
+          COLLISION-OBJECT/MERGES-SIMULATION-ISLANDS) (:pointer collision-object)
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_getAnisotropicFriction"
-          COLLISION-OBJECT/GET-ANISOTROPIC-FRICTION) :pointer
-  (self :pointer))
+          COLLISION-OBJECT/GET-ANISOTROPIC-FRICTION) (:pointer collision-object)
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setAnisotropicFriction__SWIG_0"
           COLLISION-OBJECT/SET-ANISOTROPIC-FRICTION/with-mode) :void
-  (self :pointer)
-  (anisotropicFriction :pointer)
+  (self (:pointer collision-object))
+  (anisotropicFriction (:pointer anisotropic-friction))
   (frictionMode :int))
 
 (defcfun ("_wrap_btCollisionObject_setAnisotropicFriction__SWIG_1"
           COLLISION-OBJECT/SET-ANISOTROPIC-FRICTION/without-mode) :void
-  (self :pointer)
-  (anisotropicFriction :pointer))
+  (self (:pointer collision-object))
+  (anisotropicFriction (:pointer anisotropic-friction)))
 
 (defun COLLISION-OBJECT/SET-ANISOTROPIC-FRICTION
     (self anisotropic-friction &key (friction-mode nil friction-mode-?))
@@ -28,13 +28,13 @@
        self anisotropic-friction)))
 
 (defcfun ("_wrap_btCollisionObject_hasAnisotropicFriction__SWIG_0"
-          COLLISION-OBJECT/HAS-ANISOTROPIC-FRICTION/with-mode) :pointer
-  (self :pointer)
+          COLLISION-OBJECT/HAS-ANISOTROPIC-FRICTION/with-mode) (:pointer collision-object)
+  (self (:pointer collision-object))
   (frictionMode :int))
 
 (defcfun ("_wrap_btCollisionObject_hasAnisotropicFriction__SWIG_1"
-          COLLISION-OBJECT/HAS-ANISOTROPIC-FRICTION/without-mode) :pointer
-  (self :pointer))
+          COLLISION-OBJECT/HAS-ANISOTROPIC-FRICTION/without-mode) (:pointer collision-object)
+  (self (:pointer collision-object)))
 
 (defun COLLISION-OBJECT/HAS-ANISOTROPIC-FRICTION
     (self &key (friction-mode nil friction-mode-?))
@@ -45,288 +45,288 @@
 
 (defcfun ("_wrap_btCollisionObject_setContactProcessingThreshold"
           COLLISION-OBJECT/SET-CONTACT-PROCESSING-THRESHOLD) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (contactProcessingThreshold :float))
 
 (defcfun ("_wrap_btCollisionObject_getContactProcessingThreshold"
           COLLISION-OBJECT/GET-CONTACT-PROCESSING-THRESHOLD) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_isStaticObject"
-          COLLISION-OBJECT/IS-STATIC-OBJECT) :pointer
-  (self :pointer))
+          COLLISION-OBJECT/IS-STATIC-OBJECT) (:pointer collision-object)
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_isKinematicObject"
-          COLLISION-OBJECT/IS-KINEMATIC-OBJECT) :pointer
-  (self :pointer))
+          COLLISION-OBJECT/IS-KINEMATIC-OBJECT) (:pointer collision-object)
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_isStaticOrKinematicObject"
-          COLLISION-OBJECT/IS-STATIC-OR-KINEMATIC-OBJECT ) :pointer
-  (self :pointer))
+          COLLISION-OBJECT/IS-STATIC-OR-KINEMATIC-OBJECT ) (:pointer collision-object)
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_hasContactResponse"
-          COLLISION-OBJECT/HAS-CONTACT-RESPONSE) :pointer
-  (self :pointer))
+          COLLISION-OBJECT/HAS-CONTACT-RESPONSE) (:pointer collision-object)
+  (self (:pointer collision-object)))
 
-(defcfun ("_wrap_new_btCollisionObject" MAKE-COLLISION-OBJECT) :pointer)
+(defcfun ("_wrap_new_btCollisionObject" MAKE-COLLISION-OBJECT) (:pointer collision-object))
 
 (defcfun ("_wrap_delete_btCollisionObject" DELETE/BT-COLLISION-OBJECT) :void
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setCollisionShape" COLLISION-OBJECT/SET-COLLISION-SHAPE) :void
-  (self :pointer)
-  (collisionShape :pointer))
+  (self (:pointer collision-object))
+  (collisionShape (:pointer collision-shape)))
 
 (defcfun ("_wrap_btCollisionObject_getCollisionShape__SWIG_0"
-          COLLISION-OBJECT/GET-COLLISION-SHAPE) :pointer
-  (self :pointer))
+          COLLISION-OBJECT/GET-COLLISION-SHAPE) (:pointer collision-shape)
+  (self (:pointer collision-object)))
 #+ (or)
 (progn
 
   (defcfun ("_wrap_btCollisionObject_getCollisionShape__SWIG_1"
-            COLLISION-OBJECT/GET-COLLISION-SHAPE) :pointer
-    (self :pointer))
+            COLLISION-OBJECT/GET-COLLISION-SHAPE) (:pointer collision-shape)
+    (self (:pointer collision-object)))
   )
 
 (defcfun ("_wrap_btCollisionObject_internalGetExtensionPointer"
           COLLISION-OBJECT/INTERNAL-GET-EXTENSION-POINTER) :pointer
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_internalSetExtensionPointer"
           COLLISION-OBJECT/INTERNAL-SET-EXTENSION-POINTER) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (pointer :pointer))
 
 (defcfun ("_wrap_btCollisionObject_getActivationState"
           COLLISION-OBJECT/GET-ACTIVATION-STATE) :int
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setActivationState"
           COLLISION-OBJECT/SET-ACTIVATION-STATE) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (newState :int))
 
 (defcfun ("_wrap_btCollisionObject_setDeactivationTime"
           COLLISION-OBJECT/SET-DEACTIVATION-TIME) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (time :float))
 
 (defcfun ("_wrap_btCollisionObject_getDeactivationTime"
           COLLISION-OBJECT/GET-DEACTIVATION-TIME) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_forceActivationState"
           COLLISION-OBJECT/FORCE-ACTIVATION-STATE) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (newState :int))
 
 (defcfun ("_wrap_btCollisionObject_activate__SWIG_0"
           COLLISION-OBJECT/ACTIVATE/force) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (forceActivation :pointer))
 
 (defcfun ("_wrap_btCollisionObject_activate__SWIG_1"
           COLLISION-OBJECT/ACTIVATE) :void
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_isActive" COLLISION-OBJECT/IS-ACTIVE) :pointer
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setRestitution"
           COLLISION-OBJECT/SET-RESTITUTION) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (rest :float))
 
 (defcfun ("_wrap_btCollisionObject_getRestitution"
           COLLISION-OBJECT/GET-RESTITUTION) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setFriction"
           COLLISION-OBJECT/SET-FRICTION) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (frict :float))
 
 (defcfun ("_wrap_btCollisionObject_getFriction"
           COLLISION-OBJECT/GET-FRICTION) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setRollingFriction"
           COLLISION-OBJECT/SET-ROLLING-FRICTION) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (frict :float))
 
 (defcfun ("_wrap_btCollisionObject_getRollingFriction"
           COLLISION-OBJECT/GET-ROLLING-FRICTION) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_getInternalType"
           COLLISION-OBJECT/GET-INTERNAL-TYPE) :int
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_getWorldTransform__SWIG_0"
           COLLISION-OBJECT/GET-WORLD-TRANSFORM) :pointer
-  (self :pointer))
+  (self (:pointer collision-object)))
 #+ (or)
 (progn
 
   (defcfun ("_wrap_btCollisionObject_getWorldTransform__SWIG_1"
             COLLISION-OBJECT/GET-WORLD-TRANSFORM) :pointer
-    (self :pointer))
+    (self (:pointer collision-object)))
   )
 
 (defcfun ("_wrap_btCollisionObject_setWorldTransform"
           COLLISION-OBJECT/SET-WORLD-TRANSFORM) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (worldTrans :pointer))
 
 (defcfun ("_wrap_btCollisionObject_getBroadphaseHandle__SWIG_0"
           COLLISION-OBJECT/GET-BROADPHASE-HANDLE) :pointer
-  (self :pointer))
+  (self (:pointer collision-object)))
 #+ (or)
 (progn
 
   (defcfun ("_wrap_btCollisionObject_getBroadphaseHandle__SWIG_1"
             COLLISION-OBJECT/GET-BROADPHASE-HANDLE) :pointer
-    (self :pointer))
+    (self (:pointer collision-object)))
   )
 
 (defcfun ("_wrap_btCollisionObject_setBroadphaseHandle"
           COLLISION-OBJECT/SET-BROADPHASE-HANDLE) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (handle :pointer))
 
 (defcfun ("_wrap_btCollisionObject_getInterpolationWorldTransform__SWIG_0"
           COLLISION-OBJECT/GET-INTERPOLATION-WORLD-TRANSFORM) :pointer
-  (self :pointer))
+  (self (:pointer collision-object)))
 #+ (or)
 (progn
 
   (defcfun ("_wrap_btCollisionObject_getInterpolationWorldTransform__SWIG_1"
             COLLISION-OBJECT/GET-INTERPOLATION-WORLD-TRANSFORM) :pointer
-    (self :pointer))
+    (self (:pointer collision-object)))
   )
 
 (defcfun ("_wrap_btCollisionObject_setInterpolationWorldTransform"
           COLLISION-OBJECT/SET-INTERPOLATION-WORLD-TRANSFORM) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (trans :pointer))
 
 (defcfun ("_wrap_btCollisionObject_setInterpolationLinearVelocity"
           COLLISION-OBJECT/SET-INTERPOLATION-LINEAR-VELOCITY) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (linvel :pointer))
 
 (defcfun ("_wrap_btCollisionObject_setInterpolationAngularVelocity"
           COLLISION-OBJECT/SET-INTERPOLATION-ANGULAR-VELOCITY) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (angvel :pointer))
 
 (defcfun ("_wrap_btCollisionObject_getInterpolationLinearVelocity"
           COLLISION-OBJECT/GET-INTERPOLATION-LINEAR-VELOCITY) :pointer
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_getInterpolationAngularVelocity"
           COLLISION-OBJECT/GET-INTERPOLATION-ANGULAR-VELOCITY) :pointer
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_getIslandTag"
           COLLISION-OBJECT/GET-ISLAND-TAG) :int
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setIslandTag"
           COLLISION-OBJECT/SET-ISLAND-TAG) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (tag :int))
 
 (defcfun ("_wrap_btCollisionObject_getCompanionId"
           COLLISION-OBJECT/GET-COMPANION-ID) :int
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setCompanionId"
           COLLISION-OBJECT/SET-COMPANION-ID) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (id :int))
 
 (defcfun ("_wrap_btCollisionObject_getHitFraction"
           cOLLISION-OBJECT/GET-HIT-FRACTION) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setHitFraction"
           cOLLISION-OBJECT/SET-HIT-FRACTION) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (hitFraction :float))
 
 (defcfun ("_wrap_btCollisionObject_getCollisionFlags"
           cOLLISION-OBJECT/GET-COLLISION-FLAGS) :int
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setCollisionFlags"
           cOLLISION-OBJECT/SET-COLLISION-FLAGS) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (flags :int))
 
 (defcfun ("_wrap_btCollisionObject_getCcdSweptSphereRadius"
           cOLLISION-OBJECT/GET-CCD-SWEPT-SPHERE-RADIUS) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setCcdSweptSphereRadius"
           cOLLISION-OBJECT/SET-CCD-SWEPT-SPHERE-RADIUS) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (radius :float))
 
 (defcfun ("_wrap_btCollisionObject_getCcdMotionThreshold"
           cOLLISION-OBJECT/GET-CCD-MOTION-THRESHOLD) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_getCcdSquareMotionThreshold"
           cOLLISION-OBJECT/GET-CCD-SQUARE-MOTION-THRESHOLD) :float
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setCcdMotionThreshold"
           cOLLISION-OBJECT/SET-CCD-MOTION-THRESHOLD) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (ccdMotionThreshold :float))
 
 (defcfun ("_wrap_btCollisionObject_getUserPointer"
           cOLLISION-OBJECT/GET-USER-POINTER) :pointer
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_getUserIndex"
           cOLLISION-OBJECT/GET-USER-INDEX) :int
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_setUserPointer"
           cOLLISION-OBJECT/SET-USER-POINTER) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (userPointer :pointer))
 
 (defcfun ("_wrap_btCollisionObject_setUserIndex"
           cOLLISION-OBJECT/SET-USER-INDEX) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (index :int))
 
 (defcfun ("_wrap_btCollisionObject_getUpdateRevisionInternal"
           cOLLISION-OBJECT/GET-UPDATE-REVISION-INTERNAL) :int
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_checkCollideWith"
           cOLLISION-OBJECT/CHECK-COLLIDE-WITH) :pointer
-  (self :pointer)
+  (self (:pointer collision-object))
   (co :pointer))
 
 (defcfun ("_wrap_btCollisionObject_calculateSerializeBufferSize"
           cOLLISION-OBJECT/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
-  (self :pointer))
+  (self (:pointer collision-object)))
 
 (defcfun ("_wrap_btCollisionObject_serialize"
           cOLLISION-OBJECT/SERIALIZE) :string
-  (self :pointer)
+  (self (:pointer collision-object))
   (dataBuffer :pointer)
   (serializer :pointer))
 
 (defcfun ("_wrap_btCollisionObject_serializeSingleObject"
           cOLLISION-OBJECT/SERIALIZE-SINGLE-OBJECT) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (serializer :pointer))
 
 
@@ -489,20 +489,20 @@
   (:FEATHERSTONE-LINK #.64))
 (define-constant +COLLISION-OBJECT-DATA-NAME+ "btCollisionObjectFloatData"  :test 'equal)
 (defcfun ("_wrap_btCollisionObject_makeCPlusPlusInstance__SWIG_0"
-          COLLISION-OBJECT/MAKE-C++-INSTANCE) :pointer
-  (self :pointer)
+          COLLISION-OBJECT/MAKE-C++-INSTANCE) (:pointer collision-object)
+  (self (:pointer collision-object))
   (sizeInBytes :pointer))
 (defcfun ("_wrap_btCollisionObject_deleteCPlusPlusInstance__SWIG_0"
           COLLISION-OBJECT/DELETE-C++-INSTANCE) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (ptr :pointer))
 (defcfun ("_wrap_btCollisionObject_makeCPlusArray__SWIG_0"
           COLLISION-OBJECT/MAKE-C++-ARRAY) :pointer
-  (self :pointer)
+  (self (:pointer collision-object))
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCollisionObject_deleteCPlusArray__SWIG_0"
           COLLISION-OBJECT/DELETE-C++-ARRAY) :void
-  (self :pointer)
+  (self (:pointer collision-object))
   (ptr :pointer))
 

@@ -11,7 +11,7 @@ library.  It's also being used to unit-test the Lisp bindings.
 Once I can get this test to run successfully, we'll call it an \"Alpha\"
 quality library and share it with both people who care."
   
-  (let* ((broadphase (make-instance 'dbvt-broadphase))
+  (let* ((broadphase (make-instance 'axis-sweep3))
         (collision-configuration (make-instance 'default-collision-configuration))
         (dispatcher (make-instance 'collision-dispatcher :collision collision-configuration))
         (solver (make-instance 'sequential-impulse-constraint-solver))

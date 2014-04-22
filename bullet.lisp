@@ -79,7 +79,7 @@
 	(#.(bullet-wrap::swig-lispify "m_collisionObject" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_localShapeInfo" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_hitNormalLocal" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_hitFraction" 'slotname) :float))
+	(#.(bullet-wrap::swig-lispify "m_hitFraction" 'slotname) :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "LocalRayResult" 'classname))
 
@@ -92,7 +92,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "m_hitFraction" 'slotname))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "RayResultCallback" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_closestHitFraction" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_closestHitFraction" 'slotname) :double)
 	(#.(bullet-wrap::swig-lispify "m_collisionObject" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_collisionFilterGroup" 'slotname) :short)
 	(#.(bullet-wrap::swig-lispify "m_collisionFilterMask" 'slotname) :short)
@@ -168,7 +168,7 @@
 	(#.(bullet-wrap::swig-lispify "m_localShapeInfo" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_hitNormalLocal" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_hitPointLocal" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_hitFraction" 'slotname) :float))
+	(#.(bullet-wrap::swig-lispify "m_hitFraction" 'slotname) :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "LocalConvexResult" 'classname))
 
@@ -183,7 +183,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "m_hitFraction" 'slotname))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "ConvexResultCallback" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_closestHitFraction" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_closestHitFraction" 'slotname) :double)
 	(#.(bullet-wrap::swig-lispify "m_collisionFilterGroup" 'slotname) :short)
 	(#.(bullet-wrap::swig-lispify "m_collisionFilterMask" 'slotname) :short)
 	(#.(bullet-wrap::swig-lispify "hasHit" 'slotname) :pointer)
@@ -252,7 +252,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGetVersion" 'function))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "BT_LARGE_FLOAT" 'constant) 1d18)
+(cl:defconstant #.(bullet-wrap::swig-lispify "BT_LARGE_FLOAT" 'constant) 1d30)
 
 (cl:export '#.(bullet-wrap::swig-lispify "BT_LARGE_FLOAT" 'constant))
 
@@ -269,156 +269,156 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSqrt" 'function)))
 
-(cffi:defcfun ("_wrap_btSqrt" #.(bullet-wrap::swig-lispify "btSqrt" 'function)) :float
-  (y :float))
+(cffi:defcfun ("_wrap_btSqrt" #.(bullet-wrap::swig-lispify "btSqrt" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSqrt" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btFabs" 'function)))
 
-(cffi:defcfun ("_wrap_btFabs" #.(bullet-wrap::swig-lispify "btFabs" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btFabs" #.(bullet-wrap::swig-lispify "btFabs" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btFabs" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCos" 'function)))
 
-(cffi:defcfun ("_wrap_btCos" #.(bullet-wrap::swig-lispify "btCos" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btCos" #.(bullet-wrap::swig-lispify "btCos" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCos" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSin" 'function)))
 
-(cffi:defcfun ("_wrap_btSin" #.(bullet-wrap::swig-lispify "btSin" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btSin" #.(bullet-wrap::swig-lispify "btSin" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTan" 'function)))
 
-(cffi:defcfun ("_wrap_btTan" #.(bullet-wrap::swig-lispify "btTan" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btTan" #.(bullet-wrap::swig-lispify "btTan" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTan" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAcos" 'function)))
 
-(cffi:defcfun ("_wrap_btAcos" #.(bullet-wrap::swig-lispify "btAcos" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btAcos" #.(bullet-wrap::swig-lispify "btAcos" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAcos" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAsin" 'function)))
 
-(cffi:defcfun ("_wrap_btAsin" #.(bullet-wrap::swig-lispify "btAsin" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btAsin" #.(bullet-wrap::swig-lispify "btAsin" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAsin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAtan" 'function)))
 
-(cffi:defcfun ("_wrap_btAtan" #.(bullet-wrap::swig-lispify "btAtan" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btAtan" #.(bullet-wrap::swig-lispify "btAtan" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAtan" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAtan2" 'function)))
 
-(cffi:defcfun ("_wrap_btAtan2" #.(bullet-wrap::swig-lispify "btAtan2" 'function)) :float
-  (x :float)
-  (y :float))
+(cffi:defcfun ("_wrap_btAtan2" #.(bullet-wrap::swig-lispify "btAtan2" 'function)) :double
+  (x :double)
+  (y :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAtan2" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btExp" 'function)))
 
-(cffi:defcfun ("_wrap_btExp" #.(bullet-wrap::swig-lispify "btExp" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btExp" #.(bullet-wrap::swig-lispify "btExp" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btExp" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btLog" 'function)))
 
-(cffi:defcfun ("_wrap_btLog" #.(bullet-wrap::swig-lispify "btLog" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btLog" #.(bullet-wrap::swig-lispify "btLog" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btLog" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPow" 'function)))
 
-(cffi:defcfun ("_wrap_btPow" #.(bullet-wrap::swig-lispify "btPow" 'function)) :float
-  (x :float)
-  (y :float))
+(cffi:defcfun ("_wrap_btPow" #.(bullet-wrap::swig-lispify "btPow" 'function)) :double
+  (x :double)
+  (y :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btPow" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btFmod" 'function)))
 
-(cffi:defcfun ("_wrap_btFmod" #.(bullet-wrap::swig-lispify "btFmod" 'function)) :float
-  (x :float)
-  (y :float))
+(cffi:defcfun ("_wrap_btFmod" #.(bullet-wrap::swig-lispify "btFmod" 'function)) :double
+  (x :double)
+  (y :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btFmod" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAtan2Fast" 'function)))
 
-(cffi:defcfun ("_wrap_btAtan2Fast" #.(bullet-wrap::swig-lispify "btAtan2Fast" 'function)) :float
-  (y :float)
-  (x :float))
+(cffi:defcfun ("_wrap_btAtan2Fast" #.(bullet-wrap::swig-lispify "btAtan2Fast" 'function)) :double
+  (y :double)
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAtan2Fast" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btFuzzyZero" 'function)))
 
 (cffi:defcfun ("_wrap_btFuzzyZero" #.(bullet-wrap::swig-lispify "btFuzzyZero" 'function)) :pointer
-  (x :float))
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btFuzzyZero" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btEqual" 'function)))
 
 (cffi:defcfun ("_wrap_btEqual" #.(bullet-wrap::swig-lispify "btEqual" 'function)) :pointer
-  (a :float)
-  (eps :float))
+  (a :double)
+  (eps :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btEqual" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btGreaterEqual" 'function)))
 
 (cffi:defcfun ("_wrap_btGreaterEqual" #.(bullet-wrap::swig-lispify "btGreaterEqual" 'function)) :pointer
-  (a :float)
-  (eps :float))
+  (a :double)
+  (eps :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGreaterEqual" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btIsNegative" 'function)))
 
 (cffi:defcfun ("_wrap_btIsNegative" #.(bullet-wrap::swig-lispify "btIsNegative" 'function)) :int
-  (x :float))
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIsNegative" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRadians" 'function)))
 
-(cffi:defcfun ("_wrap_btRadians" #.(bullet-wrap::swig-lispify "btRadians" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btRadians" #.(bullet-wrap::swig-lispify "btRadians" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRadians" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDegrees" 'function)))
 
-(cffi:defcfun ("_wrap_btDegrees" #.(bullet-wrap::swig-lispify "btDegrees" 'function)) :float
-  (x :float))
+(cffi:defcfun ("_wrap_btDegrees" #.(bullet-wrap::swig-lispify "btDegrees" 'function)) :double
+  (x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btDegrees" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btFsel" 'function)))
 
-(cffi:defcfun ("_wrap_btFsel" #.(bullet-wrap::swig-lispify "btFsel" 'function)) :float
-  (a :float)
-  (b :float)
-  (c :float))
+(cffi:defcfun ("_wrap_btFsel" #.(bullet-wrap::swig-lispify "btFsel" 'function)) :double
+  (a :double)
+  (b :double)
+  (c :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btFsel" 'function))
 
@@ -514,7 +514,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btLargeDot" 'function)))
 
-(cffi:defcfun ("_wrap_btLargeDot" #.(bullet-wrap::swig-lispify "btLargeDot" 'function)) :float
+(cffi:defcfun ("_wrap_btLargeDot" #.(bullet-wrap::swig-lispify "btLargeDot" 'function)) :double
   (a :pointer)
   (b :pointer)
   (n :int))
@@ -523,8 +523,8 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNormalizeAngle" 'function)))
 
-(cffi:defcfun ("_wrap_btNormalizeAngle" #.(bullet-wrap::swig-lispify "btNormalizeAngle" 'function)) :float
-  (angleInRadians :float))
+(cffi:defcfun ("_wrap_btNormalizeAngle" #.(bullet-wrap::swig-lispify "btNormalizeAngle" 'function)) :double
+  (angleInRadians :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btNormalizeAngle" 'function))
 
@@ -569,7 +569,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAlignedAllocSetCustomAligned" 'function))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btVector3DataName" 'constant) "btVector3FloatData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btVector3DataName" 'constant) "btVector3DoubleData")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3DataName" 'constant))
 
@@ -705,7 +705,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_dot" 'function)))
 
-(cffi:defcfun ("_wrap_btVector3_dot" #.(bullet-wrap::swig-lispify "btVector3_dot" 'function)) :float
+(cffi:defcfun ("_wrap_btVector3_dot" #.(bullet-wrap::swig-lispify "btVector3_dot" 'function)) :double
   (self :pointer)
   (v :pointer))
 
@@ -713,28 +713,28 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_length2" 'function)))
 
-(cffi:defcfun ("_wrap_btVector3_length2" #.(bullet-wrap::swig-lispify "btVector3_length2" 'function)) :float
+(cffi:defcfun ("_wrap_btVector3_length2" #.(bullet-wrap::swig-lispify "btVector3_length2" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_length2" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_length" 'function)))
 
-(cffi:defcfun ("_wrap_btVector3_length" #.(bullet-wrap::swig-lispify "btVector3_length" 'function)) :float
+(cffi:defcfun ("_wrap_btVector3_length" #.(bullet-wrap::swig-lispify "btVector3_length" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_length" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_norm" 'function)))
 
-(cffi:defcfun ("_wrap_btVector3_norm" #.(bullet-wrap::swig-lispify "btVector3_norm" 'function)) :float
+(cffi:defcfun ("_wrap_btVector3_norm" #.(bullet-wrap::swig-lispify "btVector3_norm" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_norm" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_distance2" 'function)))
 
-(cffi:defcfun ("_wrap_btVector3_distance2" #.(bullet-wrap::swig-lispify "btVector3_distance2" 'function)) :float
+(cffi:defcfun ("_wrap_btVector3_distance2" #.(bullet-wrap::swig-lispify "btVector3_distance2" 'function)) :double
   (self :pointer)
   (v :pointer))
 
@@ -742,7 +742,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_distance" 'function)))
 
-(cffi:defcfun ("_wrap_btVector3_distance" #.(bullet-wrap::swig-lispify "btVector3_distance" 'function)) :float
+(cffi:defcfun ("_wrap_btVector3_distance" #.(bullet-wrap::swig-lispify "btVector3_distance" 'function)) :double
   (self :pointer)
   (v :pointer))
 
@@ -774,13 +774,13 @@
 (cffi:defcfun ("_wrap_btVector3_rotate" #.(bullet-wrap::swig-lispify "btVector3_rotate" 'function)) :pointer
   (self :pointer)
   (wAxis :pointer)
-  (angle :float))
+  (angle :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_rotate" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_angle" 'function)))
 
-(cffi:defcfun ("_wrap_btVector3_angle" #.(bullet-wrap::swig-lispify "btVector3_angle" 'function)) :float
+(cffi:defcfun ("_wrap_btVector3_angle" #.(bullet-wrap::swig-lispify "btVector3_angle" 'function)) :double
   (self :pointer)
   (v :pointer))
 
@@ -803,7 +803,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_triple" 'function)))
 
-(cffi:defcfun ("_wrap_btVector3_triple" #.(bullet-wrap::swig-lispify "btVector3_triple" 'function)) :float
+(cffi:defcfun ("_wrap_btVector3_triple" #.(bullet-wrap::swig-lispify "btVector3_triple" 'function)) :double
   (self :pointer)
   (v1 :pointer)
   (v2 :pointer))
@@ -844,7 +844,7 @@
   (self :pointer)
   (v0 :pointer)
   (v1 :pointer)
-  (rt :float))
+  (rt :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_setInterpolate3" 'function))
 
@@ -890,7 +890,7 @@
 
 (cffi:defcfun ("_wrap_btVector3_setX" #.(bullet-wrap::swig-lispify "btVector3_setX" 'function)) :void
   (self :pointer)
-  (_x :float))
+  (_x :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_setX" 'function))
 
@@ -898,7 +898,7 @@
 
 (cffi:defcfun ("_wrap_btVector3_setY" #.(bullet-wrap::swig-lispify "btVector3_setY" 'function)) :void
   (self :pointer)
-  (_y :float))
+  (_y :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_setY" 'function))
 
@@ -906,7 +906,7 @@
 
 (cffi:defcfun ("_wrap_btVector3_setZ" #.(bullet-wrap::swig-lispify "btVector3_setZ" 'function)) :void
   (self :pointer)
-  (_z :float))
+  (_z :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_setZ" 'function))
 
@@ -914,7 +914,7 @@
 
 (cffi:defcfun ("_wrap_btVector3_setW" #.(bullet-wrap::swig-lispify "btVector3_setW" 'function)) :void
   (self :pointer)
-  (_w :float))
+  (_w :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_setW" 'function))
 
@@ -945,6 +945,20 @@
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3_w" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_asVector" 'function)))
+
+(cffi:defcfun ("_wrap_btVector3_asVector" #.(bullet-wrap::swig-lispify "btVector3_asVector" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btVector3_asVector" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_asConstVector" 'function)))
+
+(cffi:defcfun ("_wrap_btVector3_asConstVector" #.(bullet-wrap::swig-lispify "btVector3_asConstVector" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btVector3_asConstVector" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector3_isEqual" 'function)))
 
@@ -1104,9 +1118,72 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btVector3" 'function))
 
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "add" 'function)))
+
+(cffi:defcfun ("_wrap_add__SWIG_0" #.(bullet-wrap::swig-lispify "add" 'function)) :pointer
+  (v1 :pointer)
+  (v2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "add" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_0" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (v1 :pointer)
+  (v2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "subtract" 'function)))
+
+(cffi:defcfun ("_wrap_subtract__SWIG_0" #.(bullet-wrap::swig-lispify "subtract" 'function)) :pointer
+  (v1 :pointer)
+  (v2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "subtract" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "subtract" 'function)))
+
+(cffi:defcfun ("_wrap_subtract__SWIG_1" #.(bullet-wrap::swig-lispify "subtract" 'function)) :pointer
+  (v :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "subtract" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_1" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (v :pointer)
+  (s :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_2" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (s :pointer)
+  (v :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "divide" 'function)))
+
+(cffi:defcfun ("_wrap_divide__SWIG_0" #.(bullet-wrap::swig-lispify "divide" 'function)) :pointer
+  (v :pointer)
+  (s :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "divide" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "divide" 'function)))
+
+(cffi:defcfun ("_wrap_divide__SWIG_1" #.(bullet-wrap::swig-lispify "divide" 'function)) :pointer
+  (v1 :pointer)
+  (v2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "divide" 'function))
+
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDot" 'function)))
 
-(cffi:defcfun ("_wrap_btDot" #.(bullet-wrap::swig-lispify "btDot" 'function)) :float
+(cffi:defcfun ("_wrap_btDot" #.(bullet-wrap::swig-lispify "btDot" 'function)) :double
   (v1 :pointer)
   (v2 :pointer))
 
@@ -1114,7 +1191,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDistance2" 'function)))
 
-(cffi:defcfun ("_wrap_btDistance2" #.(bullet-wrap::swig-lispify "btDistance2" 'function)) :float
+(cffi:defcfun ("_wrap_btDistance2" #.(bullet-wrap::swig-lispify "btDistance2" 'function)) :double
   (v1 :pointer)
   (v2 :pointer))
 
@@ -1122,7 +1199,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDistance" 'function)))
 
-(cffi:defcfun ("_wrap_btDistance" #.(bullet-wrap::swig-lispify "btDistance" 'function)) :float
+(cffi:defcfun ("_wrap_btDistance" #.(bullet-wrap::swig-lispify "btDistance" 'function)) :double
   (v1 :pointer)
   (v2 :pointer))
 
@@ -1130,7 +1207,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngle" 'function)))
 
-(cffi:defcfun ("_wrap_btAngle__SWIG_0" #.(bullet-wrap::swig-lispify "btAngle" 'function)) :float
+(cffi:defcfun ("_wrap_btAngle__SWIG_0" #.(bullet-wrap::swig-lispify "btAngle" 'function)) :double
   (v1 :pointer)
   (v2 :pointer))
 
@@ -1146,7 +1223,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriple" 'function)))
 
-(cffi:defcfun ("_wrap_btTriple" #.(bullet-wrap::swig-lispify "btTriple" 'function)) :float
+(cffi:defcfun ("_wrap_btTriple" #.(bullet-wrap::swig-lispify "btTriple" 'function)) :double
   (v1 :pointer)
   (v2 :pointer)
   (v3 :pointer))
@@ -1187,7 +1264,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btVector4_getW" 'function)))
 
-(cffi:defcfun ("_wrap_btVector4_getW" #.(bullet-wrap::swig-lispify "btVector4_getW" 'function)) :float
+(cffi:defcfun ("_wrap_btVector4_getW" #.(bullet-wrap::swig-lispify "btVector4_getW" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btVector4_getW" 'function))
@@ -1267,6 +1344,186 @@
 (cl:export '#.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_floats" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_getX" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_getX" #.(bullet-wrap::swig-lispify "btQuadWord_getX" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_getX" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_getY" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_getY" #.(bullet-wrap::swig-lispify "btQuadWord_getY" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_getY" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_getZ" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_getZ" #.(bullet-wrap::swig-lispify "btQuadWord_getZ" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_getZ" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_setX" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_setX" #.(bullet-wrap::swig-lispify "btQuadWord_setX" 'function)) :void
+  (self :pointer)
+  (_x :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_setX" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_setY" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_setY" #.(bullet-wrap::swig-lispify "btQuadWord_setY" 'function)) :void
+  (self :pointer)
+  (_y :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_setY" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_setZ" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_setZ" #.(bullet-wrap::swig-lispify "btQuadWord_setZ" 'function)) :void
+  (self :pointer)
+  (_z :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_setZ" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_setW" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_setW" #.(bullet-wrap::swig-lispify "btQuadWord_setW" 'function)) :void
+  (self :pointer)
+  (_w :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_setW" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_x" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_x" #.(bullet-wrap::swig-lispify "btQuadWord_x" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_x" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_y" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_y" #.(bullet-wrap::swig-lispify "btQuadWord_y" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_y" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_z" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_z" #.(bullet-wrap::swig-lispify "btQuadWord_z" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_z" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_w" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_w" #.(bullet-wrap::swig-lispify "btQuadWord_w" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_w" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_asVector" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_asVector" #.(bullet-wrap::swig-lispify "btQuadWord_asVector" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_asVector" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_asConstVector" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_asConstVector" #.(bullet-wrap::swig-lispify "btQuadWord_asConstVector" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_asConstVector" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_isEqual" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_isEqual" #.(bullet-wrap::swig-lispify "btQuadWord_isEqual" 'function)) :pointer
+  (self :pointer)
+  (other :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_isEqual" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_notEquals" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_notEquals" #.(bullet-wrap::swig-lispify "btQuadWord_notEquals" 'function)) :pointer
+  (self :pointer)
+  (other :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_notEquals" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_setValue" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_setValue__SWIG_0" #.(bullet-wrap::swig-lispify "btQuadWord_setValue" 'function)) :void
+  (self :pointer)
+  (_x :pointer)
+  (_y :pointer)
+  (_z :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_setValue" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_setValue" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_setValue__SWIG_1" #.(bullet-wrap::swig-lispify "btQuadWord_setValue" 'function)) :void
+  (self :pointer)
+  (_x :pointer)
+  (_y :pointer)
+  (_z :pointer)
+  (_w :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_setValue" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btQuadWord" 'function)))
+
+(cffi:defcfun ("_wrap_new_btQuadWord__SWIG_0" #.(bullet-wrap::swig-lispify "new_btQuadWord" 'function)) :pointer)
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btQuadWord" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btQuadWord" 'function)))
+
+(cffi:defcfun ("_wrap_new_btQuadWord__SWIG_1" #.(bullet-wrap::swig-lispify "new_btQuadWord" 'function)) :pointer
+  (_x :pointer)
+  (_y :pointer)
+  (_z :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btQuadWord" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btQuadWord" 'function)))
+
+(cffi:defcfun ("_wrap_new_btQuadWord__SWIG_2" #.(bullet-wrap::swig-lispify "new_btQuadWord" 'function)) :pointer
+  (_x :pointer)
+  (_y :pointer)
+  (_z :pointer)
+  (_w :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btQuadWord" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_setMax" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_setMax" #.(bullet-wrap::swig-lispify "btQuadWord_setMax" 'function)) :void
+  (self :pointer)
+  (other :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_setMax" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuadWord_setMin" 'function)))
+
+(cffi:defcfun ("_wrap_btQuadWord_setMin" #.(bullet-wrap::swig-lispify "btQuadWord_setMin" 'function)) :void
+  (self :pointer)
+  (other :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btQuadWord_setMin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btQuadWord" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btQuadWord" #.(bullet-wrap::swig-lispify "delete_btQuadWord" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btQuadWord" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btQuaternion" 'function)))
 
@@ -1364,7 +1621,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuaternion_dot" 'function)))
 
-(cffi:defcfun ("_wrap_btQuaternion_dot" #.(bullet-wrap::swig-lispify "btQuaternion_dot" 'function)) :float
+(cffi:defcfun ("_wrap_btQuaternion_dot" #.(bullet-wrap::swig-lispify "btQuaternion_dot" 'function)) :double
   (self :pointer)
   (q :pointer))
 
@@ -1372,14 +1629,14 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuaternion_length2" 'function)))
 
-(cffi:defcfun ("_wrap_btQuaternion_length2" #.(bullet-wrap::swig-lispify "btQuaternion_length2" 'function)) :float
+(cffi:defcfun ("_wrap_btQuaternion_length2" #.(bullet-wrap::swig-lispify "btQuaternion_length2" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btQuaternion_length2" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuaternion_length" 'function)))
 
-(cffi:defcfun ("_wrap_btQuaternion_length" #.(bullet-wrap::swig-lispify "btQuaternion_length" 'function)) :float
+(cffi:defcfun ("_wrap_btQuaternion_length" #.(bullet-wrap::swig-lispify "btQuaternion_length" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btQuaternion_length" 'function))
@@ -1424,7 +1681,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuaternion_angle" 'function)))
 
-(cffi:defcfun ("_wrap_btQuaternion_angle" #.(bullet-wrap::swig-lispify "btQuaternion_angle" 'function)) :float
+(cffi:defcfun ("_wrap_btQuaternion_angle" #.(bullet-wrap::swig-lispify "btQuaternion_angle" 'function)) :double
   (self :pointer)
   (q :pointer))
 
@@ -1432,7 +1689,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuaternion_angleShortestPath" 'function)))
 
-(cffi:defcfun ("_wrap_btQuaternion_angleShortestPath" #.(bullet-wrap::swig-lispify "btQuaternion_angleShortestPath" 'function)) :float
+(cffi:defcfun ("_wrap_btQuaternion_angleShortestPath" #.(bullet-wrap::swig-lispify "btQuaternion_angleShortestPath" 'function)) :double
   (self :pointer)
   (q :pointer))
 
@@ -1440,14 +1697,14 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuaternion_getAngle" 'function)))
 
-(cffi:defcfun ("_wrap_btQuaternion_getAngle" #.(bullet-wrap::swig-lispify "btQuaternion_getAngle" 'function)) :float
+(cffi:defcfun ("_wrap_btQuaternion_getAngle" #.(bullet-wrap::swig-lispify "btQuaternion_getAngle" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btQuaternion_getAngle" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btQuaternion_getAngleShortestPath" 'function)))
 
-(cffi:defcfun ("_wrap_btQuaternion_getAngleShortestPath" #.(bullet-wrap::swig-lispify "btQuaternion_getAngleShortestPath" 'function)) :float
+(cffi:defcfun ("_wrap_btQuaternion_getAngleShortestPath" #.(bullet-wrap::swig-lispify "btQuaternion_getAngleShortestPath" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btQuaternion_getAngleShortestPath" 'function))
@@ -1534,9 +1791,33 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btQuaternion" 'function))
 
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_3" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (q1 :pointer)
+  (q2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_4" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (q :pointer)
+  (w :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_5" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (w :pointer)
+  (q :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "dot" 'function)))
 
-(cffi:defcfun ("_wrap_dot" #.(bullet-wrap::swig-lispify "dot" 'function)) :float
+(cffi:defcfun ("_wrap_dot" #.(bullet-wrap::swig-lispify "dot" 'function)) :double
   (q1 :pointer)
   (q2 :pointer))
 
@@ -1544,14 +1825,14 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "length" 'function)))
 
-(cffi:defcfun ("_wrap_length" #.(bullet-wrap::swig-lispify "length" 'function)) :float
+(cffi:defcfun ("_wrap_length" #.(bullet-wrap::swig-lispify "length" 'function)) :double
   (q :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "length" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngle" 'function)))
 
-(cffi:defcfun ("_wrap_btAngle__SWIG_1" #.(bullet-wrap::swig-lispify "btAngle" 'function)) :float
+(cffi:defcfun ("_wrap_btAngle__SWIG_1" #.(bullet-wrap::swig-lispify "btAngle" 'function)) :double
   (q1 :pointer)
   (q2 :pointer))
 
@@ -1742,9 +2023,9 @@
 
 (cffi:defcfun ("_wrap_btMatrix3x3_setEulerZYX" #.(bullet-wrap::swig-lispify "btMatrix3x3_setEulerZYX" 'function)) :void
   (self :pointer)
-  (eulerX :float)
-  (eulerY :float)
-  (eulerZ :float))
+  (eulerX :double)
+  (eulerY :double)
+  (eulerZ :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btMatrix3x3_setEulerZYX" 'function))
 
@@ -1818,7 +2099,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMatrix3x3_determinant" 'function)))
 
-(cffi:defcfun ("_wrap_btMatrix3x3_determinant" #.(bullet-wrap::swig-lispify "btMatrix3x3_determinant" 'function)) :float
+(cffi:defcfun ("_wrap_btMatrix3x3_determinant" #.(bullet-wrap::swig-lispify "btMatrix3x3_determinant" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btMatrix3x3_determinant" 'function))
@@ -1869,7 +2150,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMatrix3x3_tdotx" 'function)))
 
-(cffi:defcfun ("_wrap_btMatrix3x3_tdotx" #.(bullet-wrap::swig-lispify "btMatrix3x3_tdotx" 'function)) :float
+(cffi:defcfun ("_wrap_btMatrix3x3_tdotx" #.(bullet-wrap::swig-lispify "btMatrix3x3_tdotx" 'function)) :double
   (self :pointer)
   (v :pointer))
 
@@ -1877,7 +2158,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMatrix3x3_tdoty" 'function)))
 
-(cffi:defcfun ("_wrap_btMatrix3x3_tdoty" #.(bullet-wrap::swig-lispify "btMatrix3x3_tdoty" 'function)) :float
+(cffi:defcfun ("_wrap_btMatrix3x3_tdoty" #.(bullet-wrap::swig-lispify "btMatrix3x3_tdoty" 'function)) :double
   (self :pointer)
   (v :pointer))
 
@@ -1885,7 +2166,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMatrix3x3_tdotz" 'function)))
 
-(cffi:defcfun ("_wrap_btMatrix3x3_tdotz" #.(bullet-wrap::swig-lispify "btMatrix3x3_tdotz" 'function)) :float
+(cffi:defcfun ("_wrap_btMatrix3x3_tdotz" #.(bullet-wrap::swig-lispify "btMatrix3x3_tdotz" 'function)) :double
   (self :pointer)
   (v :pointer))
 
@@ -1896,14 +2177,14 @@
 (cffi:defcfun ("_wrap_btMatrix3x3_diagonalize" #.(bullet-wrap::swig-lispify "btMatrix3x3_diagonalize" 'function)) :void
   (self :pointer)
   (rot :pointer)
-  (threshold :float)
+  (threshold :double)
   (maxSteps :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btMatrix3x3_diagonalize" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMatrix3x3_cofac" 'function)))
 
-(cffi:defcfun ("_wrap_btMatrix3x3_cofac" #.(bullet-wrap::swig-lispify "btMatrix3x3_cofac" 'function)) :float
+(cffi:defcfun ("_wrap_btMatrix3x3_cofac" #.(bullet-wrap::swig-lispify "btMatrix3x3_cofac" 'function)) :double
   (self :pointer)
   (r1 :int)
   (c1 :int)
@@ -1958,6 +2239,62 @@
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btMatrix3x3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_6" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (m :pointer)
+  (k :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "add" 'function)))
+
+(cffi:defcfun ("_wrap_add__SWIG_1" #.(bullet-wrap::swig-lispify "add" 'function)) :pointer
+  (m1 :pointer)
+  (m2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "add" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "subtract" 'function)))
+
+(cffi:defcfun ("_wrap_subtract__SWIG_2" #.(bullet-wrap::swig-lispify "subtract" 'function)) :pointer
+  (m1 :pointer)
+  (m2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "subtract" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_7" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (m :pointer)
+  (v :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_8" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (v :pointer)
+  (m :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "multiply" 'function)))
+
+(cffi:defcfun ("_wrap_multiply__SWIG_9" #.(bullet-wrap::swig-lispify "multiply" 'function)) :pointer
+  (m1 :pointer)
+  (m2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "multiply" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "isEqual" 'function)))
+
+(cffi:defcfun ("_wrap_isEqual__SWIG_1" #.(bullet-wrap::swig-lispify "isEqual" 'function)) :pointer
+  (m1 :pointer)
+  (m2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isEqual" 'function))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btMatrix3x3FloatData" 'classname)
 	(#.(bullet-wrap::swig-lispify "m_el" 'slotname) :pointer))
@@ -2231,6 +2568,14 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btTransform" 'function))
 
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "isEqual" 'function)))
+
+(cffi:defcfun ("_wrap_isEqual__SWIG_2" #.(bullet-wrap::swig-lispify "isEqual" 'function)) :pointer
+  (t1 :pointer)
+  (t2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isEqual" 'function))
+
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btTransformFloatData" 'classname)
 	(#.(bullet-wrap::swig-lispify "m_basis" 'slotname) #.(bullet-wrap::swig-lispify "btMatrix3x3FloatData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_origin" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname)))
@@ -2416,7 +2761,7 @@
   (from :pointer)
   (to :pointer)
   (resultCallback :pointer)
-  (allowedCcdPenetration :float))
+  (allowedCcdPenetration :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionWorld_convexSweepTest" 'function))
 
@@ -2482,7 +2827,7 @@
   (collisionShape :pointer)
   (colObjWorldTransform :pointer)
   (resultCallback :pointer)
-  (allowedPenetration :float))
+  (allowedPenetration :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionWorld_objectQuerySingle" 'function))
 
@@ -2494,7 +2839,7 @@
   (convexToTrans :pointer)
   (colObjWrap :pointer)
   (resultCallback :pointer)
-  (allowedPenetration :float))
+  (allowedPenetration :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionWorld_objectQuerySingleInternal" 'function))
 
@@ -2611,7 +2956,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "DISABLE_SIMULATION" 'constant))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btCollisionObjectDataName" 'constant) "btCollisionObjectFloatData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btCollisionObjectDataName" 'constant) "btCollisionObjectDoubleData")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObjectDataName" 'constant))
 
@@ -2762,13 +3107,13 @@
 
 (cffi:defcfun ("_wrap_btCollisionObject_setContactProcessingThreshold" #.(bullet-wrap::swig-lispify "btCollisionObject_setContactProcessingThreshold" 'function)) :void
   (self :pointer)
-  (contactProcessingThreshold :float))
+  (contactProcessingThreshold :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_setContactProcessingThreshold" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getContactProcessingThreshold" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getContactProcessingThreshold" #.(bullet-wrap::swig-lispify "btCollisionObject_getContactProcessingThreshold" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getContactProcessingThreshold" #.(bullet-wrap::swig-lispify "btCollisionObject_getContactProcessingThreshold" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getContactProcessingThreshold" 'function))
@@ -2870,13 +3215,13 @@
 
 (cffi:defcfun ("_wrap_btCollisionObject_setDeactivationTime" #.(bullet-wrap::swig-lispify "btCollisionObject_setDeactivationTime" 'function)) :void
   (self :pointer)
-  (time :float))
+  (time :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_setDeactivationTime" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getDeactivationTime" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getDeactivationTime" #.(bullet-wrap::swig-lispify "btCollisionObject_getDeactivationTime" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getDeactivationTime" #.(bullet-wrap::swig-lispify "btCollisionObject_getDeactivationTime" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getDeactivationTime" 'function))
@@ -2915,13 +3260,13 @@
 
 (cffi:defcfun ("_wrap_btCollisionObject_setRestitution" #.(bullet-wrap::swig-lispify "btCollisionObject_setRestitution" 'function)) :void
   (self :pointer)
-  (rest :float))
+  (rest :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_setRestitution" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getRestitution" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getRestitution" #.(bullet-wrap::swig-lispify "btCollisionObject_getRestitution" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getRestitution" #.(bullet-wrap::swig-lispify "btCollisionObject_getRestitution" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getRestitution" 'function))
@@ -2930,13 +3275,13 @@
 
 (cffi:defcfun ("_wrap_btCollisionObject_setFriction" #.(bullet-wrap::swig-lispify "btCollisionObject_setFriction" 'function)) :void
   (self :pointer)
-  (frict :float))
+  (frict :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_setFriction" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getFriction" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getFriction" #.(bullet-wrap::swig-lispify "btCollisionObject_getFriction" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getFriction" #.(bullet-wrap::swig-lispify "btCollisionObject_getFriction" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getFriction" 'function))
@@ -2945,13 +3290,13 @@
 
 (cffi:defcfun ("_wrap_btCollisionObject_setRollingFriction" #.(bullet-wrap::swig-lispify "btCollisionObject_setRollingFriction" 'function)) :void
   (self :pointer)
-  (frict :float))
+  (frict :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_setRollingFriction" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getRollingFriction" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getRollingFriction" #.(bullet-wrap::swig-lispify "btCollisionObject_getRollingFriction" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getRollingFriction" #.(bullet-wrap::swig-lispify "btCollisionObject_getRollingFriction" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getRollingFriction" 'function))
@@ -3091,7 +3436,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getHitFraction" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getHitFraction" #.(bullet-wrap::swig-lispify "btCollisionObject_getHitFraction" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getHitFraction" #.(bullet-wrap::swig-lispify "btCollisionObject_getHitFraction" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getHitFraction" 'function))
@@ -3100,7 +3445,7 @@
 
 (cffi:defcfun ("_wrap_btCollisionObject_setHitFraction" #.(bullet-wrap::swig-lispify "btCollisionObject_setHitFraction" 'function)) :void
   (self :pointer)
-  (hitFraction :float))
+  (hitFraction :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_setHitFraction" 'function))
 
@@ -3121,7 +3466,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdSweptSphereRadius" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getCcdSweptSphereRadius" #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdSweptSphereRadius" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getCcdSweptSphereRadius" #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdSweptSphereRadius" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getCcdSweptSphereRadius" 'function))
@@ -3130,20 +3475,20 @@
 
 (cffi:defcfun ("_wrap_btCollisionObject_setCcdSweptSphereRadius" #.(bullet-wrap::swig-lispify "btCollisionObject_setCcdSweptSphereRadius" 'function)) :void
   (self :pointer)
-  (radius :float))
+  (radius :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_setCcdSweptSphereRadius" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdMotionThreshold" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getCcdMotionThreshold" #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdMotionThreshold" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getCcdMotionThreshold" #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdMotionThreshold" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getCcdMotionThreshold" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdSquareMotionThreshold" 'function)))
 
-(cffi:defcfun ("_wrap_btCollisionObject_getCcdSquareMotionThreshold" #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdSquareMotionThreshold" 'function)) :float
+(cffi:defcfun ("_wrap_btCollisionObject_getCcdSquareMotionThreshold" #.(bullet-wrap::swig-lispify "btCollisionObject_getCcdSquareMotionThreshold" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_getCcdSquareMotionThreshold" 'function))
@@ -3152,7 +3497,7 @@
 
 (cffi:defcfun ("_wrap_btCollisionObject_setCcdMotionThreshold" #.(bullet-wrap::swig-lispify "btCollisionObject_setCcdMotionThreshold" 'function)) :void
   (self :pointer)
-  (ccdMotionThreshold :float))
+  (ccdMotionThreshold :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionObject_setCcdMotionThreshold" 'function))
 
@@ -3383,6 +3728,1126 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_padding" 'slotname))
 
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btCollisionShape" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btCollisionShape" #.(bullet-wrap::swig-lispify "delete_btCollisionShape" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btCollisionShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getAabb" #.(bullet-wrap::swig-lispify "btCollisionShape_getAabb" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getBoundingSphere" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getBoundingSphere" #.(bullet-wrap::swig-lispify "btCollisionShape_getBoundingSphere" 'function)) :void
+  (self :pointer)
+  (center :pointer)
+  (radius :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getBoundingSphere" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getAngularMotionDisc" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getAngularMotionDisc" #.(bullet-wrap::swig-lispify "btCollisionShape_getAngularMotionDisc" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getAngularMotionDisc" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getContactBreakingThreshold" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getContactBreakingThreshold" #.(bullet-wrap::swig-lispify "btCollisionShape_getContactBreakingThreshold" 'function)) :double
+  (self :pointer)
+  (defaultContactThresholdFactor :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getContactBreakingThreshold" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_calculateTemporalAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_calculateTemporalAabb" #.(bullet-wrap::swig-lispify "btCollisionShape_calculateTemporalAabb" 'function)) :void
+  (self :pointer)
+  (curTrans :pointer)
+  (linvel :pointer)
+  (angvel :pointer)
+  (timeStep :double)
+  (temporalAabbMin :pointer)
+  (temporalAabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_calculateTemporalAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_isPolyhedral" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_isPolyhedral" #.(bullet-wrap::swig-lispify "btCollisionShape_isPolyhedral" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_isPolyhedral" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_isConvex2d" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_isConvex2d" #.(bullet-wrap::swig-lispify "btCollisionShape_isConvex2d" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_isConvex2d" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_isConvex" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_isConvex" #.(bullet-wrap::swig-lispify "btCollisionShape_isConvex" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_isConvex" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_isNonMoving" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_isNonMoving" #.(bullet-wrap::swig-lispify "btCollisionShape_isNonMoving" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_isNonMoving" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_isConcave" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_isConcave" #.(bullet-wrap::swig-lispify "btCollisionShape_isConcave" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_isConcave" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_isCompound" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_isCompound" #.(bullet-wrap::swig-lispify "btCollisionShape_isCompound" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_isCompound" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_isSoftBody" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_isSoftBody" #.(bullet-wrap::swig-lispify "btCollisionShape_isSoftBody" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_isSoftBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_isInfinite" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_isInfinite" #.(bullet-wrap::swig-lispify "btCollisionShape_isInfinite" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_isInfinite" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_setLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_setLocalScaling" #.(bullet-wrap::swig-lispify "btCollisionShape_setLocalScaling" 'function)) :void
+  (self :pointer)
+  (scaling :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_setLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getLocalScaling" #.(bullet-wrap::swig-lispify "btCollisionShape_getLocalScaling" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_calculateLocalInertia" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btCollisionShape_calculateLocalInertia" 'function)) :void
+  (self :pointer)
+  (mass :double)
+  (inertia :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_calculateLocalInertia" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getName" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getName" #.(bullet-wrap::swig-lispify "btCollisionShape_getName" 'function)) :string
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getName" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getShapeType" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getShapeType" #.(bullet-wrap::swig-lispify "btCollisionShape_getShapeType" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getShapeType" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getAnisotropicRollingFrictionDirection" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getAnisotropicRollingFrictionDirection" #.(bullet-wrap::swig-lispify "btCollisionShape_getAnisotropicRollingFrictionDirection" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getAnisotropicRollingFrictionDirection" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_setMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_setMargin" #.(bullet-wrap::swig-lispify "btCollisionShape_setMargin" 'function)) :void
+  (self :pointer)
+  (margin :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_setMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getMargin" #.(bullet-wrap::swig-lispify "btCollisionShape_getMargin" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_setUserPointer" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_setUserPointer" #.(bullet-wrap::swig-lispify "btCollisionShape_setUserPointer" 'function)) :void
+  (self :pointer)
+  (userPtr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_setUserPointer" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_getUserPointer" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_getUserPointer" #.(bullet-wrap::swig-lispify "btCollisionShape_getUserPointer" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_getUserPointer" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_calculateSerializeBufferSize" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_calculateSerializeBufferSize" #.(bullet-wrap::swig-lispify "btCollisionShape_calculateSerializeBufferSize" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_calculateSerializeBufferSize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_serialize" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_serialize" #.(bullet-wrap::swig-lispify "btCollisionShape_serialize" 'function)) :string
+  (self :pointer)
+  (dataBuffer :pointer)
+  (serializer :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_serialize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionShape_serializeSingleShape" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionShape_serializeSingleShape" #.(bullet-wrap::swig-lispify "btCollisionShape_serializeSingleShape" 'function)) :void
+  (self :pointer)
+  (serializer :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShape_serializeSingleShape" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btCollisionShapeData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_name" 'slotname) :string)
+	(#.(bullet-wrap::swig-lispify "m_shapeType" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionShapeData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_name" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_shapeType" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_padding" 'slotname))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "MAX_PREFERRED_PENETRATION_DIRECTIONS" 'constant) 10)
+
+(cl:export '#.(bullet-wrap::swig-lispify "MAX_PREFERRED_PENETRATION_DIRECTIONS" 'constant))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btConvexShape" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btConvexShape" #.(bullet-wrap::swig-lispify "delete_btConvexShape" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btConvexShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportingVertex" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_localGetSupportingVertex" #.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportingVertex" 'function)) :pointer
+  (self :pointer)
+  (vec :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportingVertex" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportingVertexWithoutMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_localGetSupportingVertexWithoutMargin" #.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportingVertexWithoutMargin" 'function)) :pointer
+  (self :pointer)
+  (vec :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportingVertexWithoutMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportVertexWithoutMarginNonVirtual" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_localGetSupportVertexWithoutMarginNonVirtual" #.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportVertexWithoutMarginNonVirtual" 'function)) :pointer
+  (self :pointer)
+  (vec :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportVertexWithoutMarginNonVirtual" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportVertexNonVirtual" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_localGetSupportVertexNonVirtual" #.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportVertexNonVirtual" 'function)) :pointer
+  (self :pointer)
+  (vec :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_localGetSupportVertexNonVirtual" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_getMarginNonVirtual" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_getMarginNonVirtual" #.(bullet-wrap::swig-lispify "btConvexShape_getMarginNonVirtual" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_getMarginNonVirtual" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_getAabbNonVirtual" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_getAabbNonVirtual" #.(bullet-wrap::swig-lispify "btConvexShape_getAabbNonVirtual" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_getAabbNonVirtual" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_project" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_project" #.(bullet-wrap::swig-lispify "btConvexShape_project" 'function)) :void
+  (self :pointer)
+  (trans :pointer)
+  (dir :pointer)
+  (min :pointer)
+  (max :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_project" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" #.(bullet-wrap::swig-lispify "btConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function)) :void
+  (self :pointer)
+  (vectors :pointer)
+  (supportVerticesOut :pointer)
+  (numVectors :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_getAabb" #.(bullet-wrap::swig-lispify "btConvexShape_getAabb" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_getAabbSlow" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_getAabbSlow" #.(bullet-wrap::swig-lispify "btConvexShape_getAabbSlow" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_getAabbSlow" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_setLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_setLocalScaling" #.(bullet-wrap::swig-lispify "btConvexShape_setLocalScaling" 'function)) :void
+  (self :pointer)
+  (scaling :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_setLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_getLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_getLocalScaling" #.(bullet-wrap::swig-lispify "btConvexShape_getLocalScaling" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_getLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_setMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_setMargin" #.(bullet-wrap::swig-lispify "btConvexShape_setMargin" 'function)) :void
+  (self :pointer)
+  (margin :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_setMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_getMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_getMargin" #.(bullet-wrap::swig-lispify "btConvexShape_getMargin" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_getMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_getNumPreferredPenetrationDirections" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_getNumPreferredPenetrationDirections" #.(bullet-wrap::swig-lispify "btConvexShape_getNumPreferredPenetrationDirections" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_getNumPreferredPenetrationDirections" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexShape_getPreferredPenetrationDirection" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexShape_getPreferredPenetrationDirection" #.(bullet-wrap::swig-lispify "btConvexShape_getPreferredPenetrationDirection" 'function)) :void
+  (self :pointer)
+  (index :int)
+  (penetrationVector :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexShape_getPreferredPenetrationDirection" 'function))
+
+(cffi:defcenum #.(bullet-wrap::swig-lispify "PHY_ScalarType" 'enumname)
+	#.(bullet-wrap::swig-lispify "PHY_FLOAT" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "PHY_DOUBLE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "PHY_INTEGER" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "PHY_SHORT" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "PHY_FIXEDPOINT88" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "PHY_UCHAR" 'enumvalue :keyword))
+
+(cl:export '#.(bullet-wrap::swig-lispify "PHY_ScalarType" 'enumname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btConcaveShape" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btConcaveShape" #.(bullet-wrap::swig-lispify "delete_btConcaveShape" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btConcaveShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_processAllTriangles" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_processAllTriangles" #.(bullet-wrap::swig-lispify "btConcaveShape_processAllTriangles" 'function)) :void
+  (self :pointer)
+  (callback :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_processAllTriangles" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_getMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_getMargin" #.(bullet-wrap::swig-lispify "btConcaveShape_getMargin" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_getMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConcaveShape_setMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConcaveShape_setMargin" #.(bullet-wrap::swig-lispify "btConcaveShape_setMargin" 'function)) :void
+  (self :pointer)
+  (collisionMargin :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConcaveShape_setMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btConvexInternalShape" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btConvexInternalShape" #.(bullet-wrap::swig-lispify "delete_btConvexInternalShape" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btConvexInternalShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_localGetSupportingVertex" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_localGetSupportingVertex" #.(bullet-wrap::swig-lispify "btConvexInternalShape_localGetSupportingVertex" 'function)) :pointer
+  (self :pointer)
+  (vec :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_localGetSupportingVertex" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getImplicitShapeDimensions" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getImplicitShapeDimensions" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getImplicitShapeDimensions" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getImplicitShapeDimensions" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_setImplicitShapeDimensions" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_setImplicitShapeDimensions" #.(bullet-wrap::swig-lispify "btConvexInternalShape_setImplicitShapeDimensions" 'function)) :void
+  (self :pointer)
+  (dimensions :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_setImplicitShapeDimensions" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_setSafeMargin__SWIG_0" #.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function)) :void
+  (self :pointer)
+  (minDimension :double)
+  (defaultMarginMultiplier :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_setSafeMargin__SWIG_1" #.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function)) :void
+  (self :pointer)
+  (minDimension :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_setSafeMargin__SWIG_2" #.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function)) :void
+  (self :pointer)
+  (halfExtents :pointer)
+  (defaultMarginMultiplier :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_setSafeMargin__SWIG_3" #.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function)) :void
+  (self :pointer)
+  (halfExtents :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_setSafeMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getAabb" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getAabb" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getAabbSlow" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getAabbSlow" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getAabbSlow" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getAabbSlow" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_setLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_setLocalScaling" #.(bullet-wrap::swig-lispify "btConvexInternalShape_setLocalScaling" 'function)) :void
+  (self :pointer)
+  (scaling :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_setLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getLocalScaling" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getLocalScaling" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getLocalScalingNV" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getLocalScalingNV" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getLocalScalingNV" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getLocalScalingNV" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_setMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_setMargin" #.(bullet-wrap::swig-lispify "btConvexInternalShape_setMargin" 'function)) :void
+  (self :pointer)
+  (margin :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_setMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getMargin" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getMargin" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getMarginNV" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getMarginNV" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getMarginNV" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getMarginNV" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getNumPreferredPenetrationDirections" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getNumPreferredPenetrationDirections" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getNumPreferredPenetrationDirections" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getNumPreferredPenetrationDirections" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_getPreferredPenetrationDirection" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_getPreferredPenetrationDirection" #.(bullet-wrap::swig-lispify "btConvexInternalShape_getPreferredPenetrationDirection" 'function)) :void
+  (self :pointer)
+  (index :int)
+  (penetrationVector :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_getPreferredPenetrationDirection" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_calculateSerializeBufferSize" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_calculateSerializeBufferSize" #.(bullet-wrap::swig-lispify "btConvexInternalShape_calculateSerializeBufferSize" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_calculateSerializeBufferSize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalShape_serialize" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalShape_serialize" #.(bullet-wrap::swig-lispify "btConvexInternalShape_serialize" 'function)) :string
+  (self :pointer)
+  (dataBuffer :pointer)
+  (serializer :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShape_serialize" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btConvexInternalShapeData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_collisionShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btCollisionShapeData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_localScaling" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_implicitShapeDimensions" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_collisionMargin" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalShapeData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_collisionShapeData" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_localScaling" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_implicitShapeDimensions" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_collisionMargin" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_padding" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_setLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalAabbCachingShape_setLocalScaling" #.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_setLocalScaling" 'function)) :void
+  (self :pointer)
+  (scaling :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_setLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalAabbCachingShape_getAabb" #.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_getAabb" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_recalcLocalAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btConvexInternalAabbCachingShape_recalcLocalAabb" #.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_recalcLocalAabb" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConvexInternalAabbCachingShape_recalcLocalAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btConvexInternalAabbCachingShape" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btConvexInternalAabbCachingShape" #.(bullet-wrap::swig-lispify "delete_btConvexInternalAabbCachingShape" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btConvexInternalAabbCachingShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btPolyhedralConvexShape" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btPolyhedralConvexShape" #.(bullet-wrap::swig-lispify "delete_btPolyhedralConvexShape" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btPolyhedralConvexShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_initializePolyhedralFeatures" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_initializePolyhedralFeatures__SWIG_0" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_initializePolyhedralFeatures" 'function)) :pointer
+  (self :pointer)
+  (shiftVerticesByMargin :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_initializePolyhedralFeatures" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_initializePolyhedralFeatures" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_initializePolyhedralFeatures__SWIG_1" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_initializePolyhedralFeatures" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_initializePolyhedralFeatures" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getConvexPolyhedron" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_getConvexPolyhedron" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getConvexPolyhedron" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getConvexPolyhedron" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_localGetSupportingVertexWithoutMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_localGetSupportingVertexWithoutMargin" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_localGetSupportingVertexWithoutMargin" 'function)) :pointer
+  (self :pointer)
+  (vec :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_localGetSupportingVertexWithoutMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function)) :void
+  (self :pointer)
+  (vectors :pointer)
+  (supportVerticesOut :pointer)
+  (numVectors :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_batchedUnitVectorGetSupportingVertexWithoutMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_calculateLocalInertia" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_calculateLocalInertia" 'function)) :void
+  (self :pointer)
+  (mass :double)
+  (inertia :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_calculateLocalInertia" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumVertices" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_getNumVertices" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumVertices" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumVertices" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumEdges" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_getNumEdges" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumEdges" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumEdges" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getEdge" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_getEdge" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getEdge" 'function)) :void
+  (self :pointer)
+  (i :int)
+  (pa :pointer)
+  (pb :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getEdge" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getVertex" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_getVertex" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getVertex" 'function)) :void
+  (self :pointer)
+  (i :int)
+  (vtx :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getVertex" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumPlanes" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_getNumPlanes" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumPlanes" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getNumPlanes" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getPlane" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_getPlane" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getPlane" 'function)) :void
+  (self :pointer)
+  (planeNormal :pointer)
+  (planeSupport :pointer)
+  (i :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_getPlane" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_isInside" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexShape_isInside" #.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_isInside" 'function)) :pointer
+  (self :pointer)
+  (pt :pointer)
+  (tolerance :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexShape_isInside" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_getNonvirtualAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexAabbCachingShape_getNonvirtualAabb" #.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_getNonvirtualAabb" 'function)) :void
+  (self :pointer)
+  (trans :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (margin :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_getNonvirtualAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_setLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexAabbCachingShape_setLocalScaling" #.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_setLocalScaling" 'function)) :void
+  (self :pointer)
+  (scaling :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_setLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexAabbCachingShape_getAabb" #.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_getAabb" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_recalcLocalAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btPolyhedralConvexAabbCachingShape_recalcLocalAabb" #.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_recalcLocalAabb" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btPolyhedralConvexAabbCachingShape_recalcLocalAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btPolyhedralConvexAabbCachingShape" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btPolyhedralConvexAabbCachingShape" #.(bullet-wrap::swig-lispify "delete_btPolyhedralConvexAabbCachingShape" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btPolyhedralConvexAabbCachingShape" 'function))
+
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBoxShape_makeCPlusPlusInstance" 'function)))
 
 (cffi:defcfun ("_wrap_btBoxShape_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btBoxShape_makeCPlusPlusInstance" 'function)) :pointer
@@ -3502,7 +4967,7 @@
 
 (cffi:defcfun ("_wrap_btBoxShape_setMargin" #.(bullet-wrap::swig-lispify "btBoxShape_setMargin" 'function)) :void
   (self :pointer)
-  (collisionMargin :float))
+  (collisionMargin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btBoxShape_setMargin" 'function))
 
@@ -3528,7 +4993,7 @@
 
 (cffi:defcfun ("_wrap_btBoxShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btBoxShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btBoxShape_calculateLocalInertia" 'function))
@@ -3597,7 +5062,7 @@
 (cffi:defcfun ("_wrap_btBoxShape_isInside" #.(bullet-wrap::swig-lispify "btBoxShape_isInside" 'function)) :pointer
   (self :pointer)
   (pt :pointer)
-  (tolerance :float))
+  (tolerance :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btBoxShape_isInside" 'function))
 
@@ -3702,7 +5167,7 @@
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSphereShape" 'function)))
 
 (cffi:defcfun ("_wrap_new_btSphereShape" #.(bullet-wrap::swig-lispify "new_btSphereShape" 'function)) :pointer
-  (radius :float))
+  (radius :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btSphereShape" 'function))
 
@@ -3736,7 +5201,7 @@
 
 (cffi:defcfun ("_wrap_btSphereShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btSphereShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSphereShape_calculateLocalInertia" 'function))
@@ -3753,7 +5218,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSphereShape_getRadius" 'function)))
 
-(cffi:defcfun ("_wrap_btSphereShape_getRadius" #.(bullet-wrap::swig-lispify "btSphereShape_getRadius" 'function)) :float
+(cffi:defcfun ("_wrap_btSphereShape_getRadius" #.(bullet-wrap::swig-lispify "btSphereShape_getRadius" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSphereShape_getRadius" 'function))
@@ -3762,7 +5227,7 @@
 
 (cffi:defcfun ("_wrap_btSphereShape_setUnscaledRadius" #.(bullet-wrap::swig-lispify "btSphereShape_setUnscaledRadius" 'function)) :void
   (self :pointer)
-  (radius :float))
+  (radius :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSphereShape_setUnscaledRadius" 'function))
 
@@ -3777,13 +5242,13 @@
 
 (cffi:defcfun ("_wrap_btSphereShape_setMargin" #.(bullet-wrap::swig-lispify "btSphereShape_setMargin" 'function)) :void
   (self :pointer)
-  (margin :float))
+  (margin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSphereShape_setMargin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSphereShape_getMargin" 'function)))
 
-(cffi:defcfun ("_wrap_btSphereShape_getMargin" #.(bullet-wrap::swig-lispify "btSphereShape_getMargin" 'function)) :float
+(cffi:defcfun ("_wrap_btSphereShape_getMargin" #.(bullet-wrap::swig-lispify "btSphereShape_getMargin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSphereShape_getMargin" 'function))
@@ -3866,8 +5331,8 @@
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btCapsuleShape" 'function)))
 
 (cffi:defcfun ("_wrap_new_btCapsuleShape__SWIG_1" #.(bullet-wrap::swig-lispify "new_btCapsuleShape" 'function)) :pointer
-  (radius :float)
-  (height :float))
+  (radius :double)
+  (height :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btCapsuleShape" 'function))
 
@@ -3875,7 +5340,7 @@
 
 (cffi:defcfun ("_wrap_btCapsuleShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btCapsuleShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCapsuleShape_calculateLocalInertia" 'function))
@@ -3902,7 +5367,7 @@
 
 (cffi:defcfun ("_wrap_btCapsuleShape_setMargin" #.(bullet-wrap::swig-lispify "btCapsuleShape_setMargin" 'function)) :void
   (self :pointer)
-  (collisionMargin :float))
+  (collisionMargin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCapsuleShape_setMargin" 'function))
 
@@ -3932,14 +5397,14 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCapsuleShape_getRadius" 'function)))
 
-(cffi:defcfun ("_wrap_btCapsuleShape_getRadius" #.(bullet-wrap::swig-lispify "btCapsuleShape_getRadius" 'function)) :float
+(cffi:defcfun ("_wrap_btCapsuleShape_getRadius" #.(bullet-wrap::swig-lispify "btCapsuleShape_getRadius" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCapsuleShape_getRadius" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCapsuleShape_getHalfHeight" 'function)))
 
-(cffi:defcfun ("_wrap_btCapsuleShape_getHalfHeight" #.(bullet-wrap::swig-lispify "btCapsuleShape_getHalfHeight" 'function)) :float
+(cffi:defcfun ("_wrap_btCapsuleShape_getHalfHeight" #.(bullet-wrap::swig-lispify "btCapsuleShape_getHalfHeight" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCapsuleShape_getHalfHeight" 'function))
@@ -3985,8 +5450,8 @@
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btCapsuleShapeX" 'function)))
 
 (cffi:defcfun ("_wrap_new_btCapsuleShapeX" #.(bullet-wrap::swig-lispify "new_btCapsuleShapeX" 'function)) :pointer
-  (radius :float)
-  (height :float))
+  (radius :double)
+  (height :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btCapsuleShapeX" 'function))
 
@@ -4007,8 +5472,8 @@
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btCapsuleShapeZ" 'function)))
 
 (cffi:defcfun ("_wrap_new_btCapsuleShapeZ" #.(bullet-wrap::swig-lispify "new_btCapsuleShapeZ" 'function)) :pointer
-  (radius :float)
-  (height :float))
+  (radius :double)
+  (height :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btCapsuleShapeZ" 'function))
 
@@ -4027,7 +5492,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btCapsuleShapeZ" 'function))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btCapsuleShapeData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btConvexInternalShapeData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_upAxis" 'slotname) :int)
 	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
 
@@ -4142,7 +5607,7 @@
 
 (cffi:defcfun ("_wrap_btCylinderShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btCylinderShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCylinderShape_calculateLocalInertia" 'function))
@@ -4169,7 +5634,7 @@
 
 (cffi:defcfun ("_wrap_btCylinderShape_setMargin" #.(bullet-wrap::swig-lispify "btCylinderShape_setMargin" 'function)) :void
   (self :pointer)
-  (collisionMargin :float))
+  (collisionMargin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCylinderShape_setMargin" 'function))
 
@@ -4197,7 +5662,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCylinderShape_getRadius" 'function)))
 
-(cffi:defcfun ("_wrap_btCylinderShape_getRadius" #.(bullet-wrap::swig-lispify "btCylinderShape_getRadius" 'function)) :float
+(cffi:defcfun ("_wrap_btCylinderShape_getRadius" #.(bullet-wrap::swig-lispify "btCylinderShape_getRadius" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCylinderShape_getRadius" 'function))
@@ -4342,7 +5807,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCylinderShapeX_getRadius" 'function)))
 
-(cffi:defcfun ("_wrap_btCylinderShapeX_getRadius" #.(bullet-wrap::swig-lispify "btCylinderShapeX_getRadius" 'function)) :float
+(cffi:defcfun ("_wrap_btCylinderShapeX_getRadius" #.(bullet-wrap::swig-lispify "btCylinderShapeX_getRadius" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCylinderShapeX_getRadius" 'function))
@@ -4456,7 +5921,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCylinderShapeZ_getRadius" 'function)))
 
-(cffi:defcfun ("_wrap_btCylinderShapeZ_getRadius" #.(bullet-wrap::swig-lispify "btCylinderShapeZ_getRadius" 'function)) :float
+(cffi:defcfun ("_wrap_btCylinderShapeZ_getRadius" #.(bullet-wrap::swig-lispify "btCylinderShapeZ_getRadius" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCylinderShapeZ_getRadius" 'function))
@@ -4469,7 +5934,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btCylinderShapeZ" 'function))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btCylinderShapeData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btConvexInternalShapeData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_upAxis" 'slotname) :int)
 	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
 
@@ -4552,8 +6017,8 @@
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btConeShape" 'function)))
 
 (cffi:defcfun ("_wrap_new_btConeShape" #.(bullet-wrap::swig-lispify "new_btConeShape" 'function)) :pointer
-  (radius :float)
-  (height :float))
+  (radius :double)
+  (height :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btConeShape" 'function))
 
@@ -4585,14 +6050,14 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeShape_getRadius" 'function)))
 
-(cffi:defcfun ("_wrap_btConeShape_getRadius" #.(bullet-wrap::swig-lispify "btConeShape_getRadius" 'function)) :float
+(cffi:defcfun ("_wrap_btConeShape_getRadius" #.(bullet-wrap::swig-lispify "btConeShape_getRadius" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeShape_getRadius" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeShape_getHeight" 'function)))
 
-(cffi:defcfun ("_wrap_btConeShape_getHeight" #.(bullet-wrap::swig-lispify "btConeShape_getHeight" 'function)) :float
+(cffi:defcfun ("_wrap_btConeShape_getHeight" #.(bullet-wrap::swig-lispify "btConeShape_getHeight" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeShape_getHeight" 'function))
@@ -4601,7 +6066,7 @@
 
 (cffi:defcfun ("_wrap_btConeShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btConeShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeShape_calculateLocalInertia" 'function))
@@ -4669,8 +6134,8 @@
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btConeShapeX" 'function)))
 
 (cffi:defcfun ("_wrap_new_btConeShapeX" #.(bullet-wrap::swig-lispify "new_btConeShapeX" 'function)) :pointer
-  (radius :float)
-  (height :float))
+  (radius :double)
+  (height :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btConeShapeX" 'function))
 
@@ -4698,8 +6163,8 @@
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btConeShapeZ" 'function)))
 
 (cffi:defcfun ("_wrap_new_btConeShapeZ" #.(bullet-wrap::swig-lispify "new_btConeShapeZ" 'function)) :pointer
-  (radius :float)
-  (height :float))
+  (radius :double)
+  (height :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btConeShapeZ" 'function))
 
@@ -4725,7 +6190,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btConeShapeZ" 'function))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btConeShapeData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btConvexInternalShapeData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_upIndex" 'slotname) :int)
 	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
 
@@ -4809,7 +6274,7 @@
 
 (cffi:defcfun ("_wrap_new_btStaticPlaneShape" #.(bullet-wrap::swig-lispify "new_btStaticPlaneShape" 'function)) :pointer
   (planeNormal :pointer)
-  (planeConstant :float))
+  (planeConstant :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btStaticPlaneShape" 'function))
 
@@ -4844,7 +6309,7 @@
 
 (cffi:defcfun ("_wrap_btStaticPlaneShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btStaticPlaneShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btStaticPlaneShape_calculateLocalInertia" 'function))
@@ -4902,7 +6367,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "btStaticPlaneShape_serialize" 'function))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btStaticPlaneShapeData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_collisionShapeData" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_collisionShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btCollisionShapeData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_localScaling" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_planeNormal" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_planeConstant" 'slotname) :float)
@@ -5172,7 +6637,7 @@
 (cffi:defcfun ("_wrap_btConvexHullShape_isInside" #.(bullet-wrap::swig-lispify "btConvexHullShape_isInside" 'function)) :pointer
   (self :pointer)
   (pt :pointer)
-  (tolerance :float))
+  (tolerance :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConvexHullShape_isInside" 'function))
 
@@ -5208,7 +6673,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btConvexHullShape" 'function))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btConvexHullShapeData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btConvexInternalShapeData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_unscaledPointsFloatPtr" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_unscaledPointsDoublePtr" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_numUnscaledPoints" 'slotname) :int)
@@ -5226,17 +6691,651 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_padding3" 'slotname))
 
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btStridingMeshInterface" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btStridingMeshInterface" #.(bullet-wrap::swig-lispify "delete_btStridingMeshInterface" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btStridingMeshInterface" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_InternalProcessAllTriangles" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_InternalProcessAllTriangles" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_InternalProcessAllTriangles" 'function)) :void
+  (self :pointer)
+  (callback :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_InternalProcessAllTriangles" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_calculateAabbBruteForce" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_calculateAabbBruteForce" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_calculateAabbBruteForce" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_calculateAabbBruteForce" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedVertexIndexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_getLockedVertexIndexBase__SWIG_0" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedVertexIndexBase" 'function)) :void
+  (self :pointer)
+  (vertexbase :pointer)
+  (numverts :pointer)
+  (type :pointer)
+  (stride :pointer)
+  (indexbase :pointer)
+  (indexstride :pointer)
+  (numfaces :pointer)
+  (indicestype :pointer)
+  (subpart :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedVertexIndexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedVertexIndexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_getLockedVertexIndexBase__SWIG_1" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedVertexIndexBase" 'function)) :void
+  (self :pointer)
+  (vertexbase :pointer)
+  (numverts :pointer)
+  (type :pointer)
+  (stride :pointer)
+  (indexbase :pointer)
+  (indexstride :pointer)
+  (numfaces :pointer)
+  (indicestype :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedVertexIndexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedReadOnlyVertexIndexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_getLockedReadOnlyVertexIndexBase__SWIG_0" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedReadOnlyVertexIndexBase" 'function)) :void
+  (self :pointer)
+  (vertexbase :pointer)
+  (numverts :pointer)
+  (type :pointer)
+  (stride :pointer)
+  (indexbase :pointer)
+  (indexstride :pointer)
+  (numfaces :pointer)
+  (indicestype :pointer)
+  (subpart :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedReadOnlyVertexIndexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedReadOnlyVertexIndexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_getLockedReadOnlyVertexIndexBase__SWIG_1" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedReadOnlyVertexIndexBase" 'function)) :void
+  (self :pointer)
+  (vertexbase :pointer)
+  (numverts :pointer)
+  (type :pointer)
+  (stride :pointer)
+  (indexbase :pointer)
+  (indexstride :pointer)
+  (numfaces :pointer)
+  (indicestype :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getLockedReadOnlyVertexIndexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_unLockVertexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_unLockVertexBase" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_unLockVertexBase" 'function)) :void
+  (self :pointer)
+  (subpart :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_unLockVertexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_unLockReadOnlyVertexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_unLockReadOnlyVertexBase" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_unLockReadOnlyVertexBase" 'function)) :void
+  (self :pointer)
+  (subpart :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_unLockReadOnlyVertexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getNumSubParts" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_getNumSubParts" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getNumSubParts" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getNumSubParts" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_preallocateVertices" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_preallocateVertices" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_preallocateVertices" 'function)) :void
+  (self :pointer)
+  (numverts :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_preallocateVertices" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_preallocateIndices" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_preallocateIndices" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_preallocateIndices" 'function)) :void
+  (self :pointer)
+  (numindices :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_preallocateIndices" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_hasPremadeAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_hasPremadeAabb" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_hasPremadeAabb" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_hasPremadeAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_setPremadeAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_setPremadeAabb" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_setPremadeAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_setPremadeAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getPremadeAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_getPremadeAabb" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getPremadeAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getPremadeAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_getScaling" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_getScaling" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_getScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_setScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_setScaling" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_setScaling" 'function)) :void
+  (self :pointer)
+  (scaling :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_setScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_calculateSerializeBufferSize" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_calculateSerializeBufferSize" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_calculateSerializeBufferSize" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_calculateSerializeBufferSize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btStridingMeshInterface_serialize" 'function)))
+
+(cffi:defcfun ("_wrap_btStridingMeshInterface_serialize" #.(bullet-wrap::swig-lispify "btStridingMeshInterface_serialize" 'function)) :string
+  (self :pointer)
+  (dataBuffer :pointer)
+  (serializer :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterface_serialize" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btIntIndexData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_value" 'slotname) :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btIntIndexData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_value" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btShortIntIndexData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_value" 'slotname) :short)
+	(#.(bullet-wrap::swig-lispify "m_pad" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btShortIntIndexData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_value" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_pad" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btShortIntIndexTripletData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_values" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_pad" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btShortIntIndexTripletData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_values" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_pad" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btCharIndexTripletData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_values" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_pad" 'slotname) :char))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCharIndexTripletData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_values" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_pad" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btMeshPartData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_vertices3f" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_vertices3d" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_indices32" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_3indices16" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_3indices8" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_indices16" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_numTriangles" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_numVertices" 'slotname) :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMeshPartData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_vertices3f" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_vertices3d" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_indices32" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_3indices16" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_3indices8" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_indices16" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_numTriangles" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_numVertices" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btStridingMeshInterfaceData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_meshPartsPtr" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_scaling" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_numMeshParts" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btStridingMeshInterfaceData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_meshPartsPtr" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_scaling" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_numMeshParts" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_padding" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btIndexedMesh" 'classname)
+	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_numTriangles" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_triangleIndexBase" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_triangleIndexStride" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_numVertices" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_vertexBase" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_vertexStride" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_indexType" 'slotname) #.(bullet-wrap::swig-lispify "PHY_ScalarType" 'enumname))
+	(#.(bullet-wrap::swig-lispify "m_vertexType" 'slotname) #.(bullet-wrap::swig-lispify "PHY_ScalarType" 'enumname)))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btIndexedMesh" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_numTriangles" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_triangleIndexBase" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_triangleIndexStride" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_numVertices" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_vertexBase" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_vertexStride" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_indexType" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_vertexType" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function)))
+
+(cffi:defcfun ("_wrap_new_btTriangleIndexVertexArray__SWIG_0" #.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function)) :pointer)
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btTriangleIndexVertexArray" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btTriangleIndexVertexArray" #.(bullet-wrap::swig-lispify "delete_btTriangleIndexVertexArray" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btTriangleIndexVertexArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function)))
+
+(cffi:defcfun ("_wrap_new_btTriangleIndexVertexArray__SWIG_1" #.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function)) :pointer
+  (numTriangles :int)
+  (triangleIndexBase :pointer)
+  (triangleIndexStride :int)
+  (numVertices :int)
+  (vertexBase :pointer)
+  (vertexStride :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_addIndexedMesh__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function)) :void
+  (self :pointer)
+  (mesh :pointer)
+  (indexType #.(bullet-wrap::swig-lispify "PHY_ScalarType" 'enumname)))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_addIndexedMesh__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function)) :void
+  (self :pointer)
+  (mesh :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getLockedVertexIndexBase__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function)) :void
+  (self :pointer)
+  (vertexbase :pointer)
+  (numverts :pointer)
+  (type :pointer)
+  (vertexStride :pointer)
+  (indexbase :pointer)
+  (indexstride :pointer)
+  (numfaces :pointer)
+  (indicestype :pointer)
+  (subpart :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getLockedVertexIndexBase__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function)) :void
+  (self :pointer)
+  (vertexbase :pointer)
+  (numverts :pointer)
+  (type :pointer)
+  (vertexStride :pointer)
+  (indexbase :pointer)
+  (indexstride :pointer)
+  (numfaces :pointer)
+  (indicestype :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function)) :void
+  (self :pointer)
+  (vertexbase :pointer)
+  (numverts :pointer)
+  (type :pointer)
+  (vertexStride :pointer)
+  (indexbase :pointer)
+  (indexstride :pointer)
+  (numfaces :pointer)
+  (indicestype :pointer)
+  (subpart :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function)) :void
+  (self :pointer)
+  (vertexbase :pointer)
+  (numverts :pointer)
+  (type :pointer)
+  (vertexStride :pointer)
+  (indexbase :pointer)
+  (indexstride :pointer)
+  (numfaces :pointer)
+  (indicestype :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockVertexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_unLockVertexBase" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockVertexBase" 'function)) :void
+  (self :pointer)
+  (subpart :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockVertexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockReadOnlyVertexBase" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_unLockReadOnlyVertexBase" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockReadOnlyVertexBase" 'function)) :void
+  (self :pointer)
+  (subpart :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockReadOnlyVertexBase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getNumSubParts" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getNumSubParts" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getNumSubParts" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getNumSubParts" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getIndexedMeshArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getIndexedMeshArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateVertices" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_preallocateVertices" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateVertices" 'function)) :void
+  (self :pointer)
+  (numverts :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateVertices" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateIndices" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_preallocateIndices" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateIndices" 'function)) :void
+  (self :pointer)
+  (numindices :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateIndices" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_hasPremadeAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_hasPremadeAabb" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_hasPremadeAabb" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_hasPremadeAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_setPremadeAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_setPremadeAabb" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_setPremadeAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_setPremadeAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getPremadeAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getPremadeAabb" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getPremadeAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getPremadeAabb" 'function))
+
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMesh_m_weldingThreshold_set" 'function)))
 
 (cffi:defcfun ("_wrap_btTriangleMesh_m_weldingThreshold_set" #.(bullet-wrap::swig-lispify "btTriangleMesh_m_weldingThreshold_set" 'function)) :void
   (self :pointer)
-  (m_weldingThreshold :float))
+  (m_weldingThreshold :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTriangleMesh_m_weldingThreshold_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMesh_m_weldingThreshold_get" 'function)))
 
-(cffi:defcfun ("_wrap_btTriangleMesh_m_weldingThreshold_get" #.(bullet-wrap::swig-lispify "btTriangleMesh_m_weldingThreshold_get" 'function)) :float
+(cffi:defcfun ("_wrap_btTriangleMesh_m_weldingThreshold_get" #.(bullet-wrap::swig-lispify "btTriangleMesh_m_weldingThreshold_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTriangleMesh_m_weldingThreshold_get" 'function))
@@ -5343,6 +7442,183 @@
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btTriangleMesh" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btTriangleMeshShape" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btTriangleMeshShape" #.(bullet-wrap::swig-lispify "delete_btTriangleMeshShape" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btTriangleMeshShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertex" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_localGetSupportingVertex" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertex" 'function)) :pointer
+  (self :pointer)
+  (vec :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertex" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertexWithoutMargin" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_localGetSupportingVertexWithoutMargin" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertexWithoutMargin" 'function)) :pointer
+  (self :pointer)
+  (vec :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertexWithoutMargin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_recalcLocalAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_recalcLocalAabb" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_recalcLocalAabb" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_recalcLocalAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_getAabb" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getAabb" 'function)) :void
+  (self :pointer)
+  (t_arg1 :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_processAllTriangles" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_processAllTriangles" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_processAllTriangles" 'function)) :void
+  (self :pointer)
+  (callback :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_processAllTriangles" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_calculateLocalInertia" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_calculateLocalInertia" 'function)) :void
+  (self :pointer)
+  (mass :double)
+  (inertia :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_calculateLocalInertia" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_setLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_setLocalScaling" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_setLocalScaling" 'function)) :void
+  (self :pointer)
+  (scaling :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_setLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalScaling" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_getLocalScaling" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalScaling" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalScaling" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_getMeshInterface__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_getMeshInterface__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMin" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_getLocalAabbMin" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMin" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMin" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMax" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_getLocalAabbMax" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMax" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMax" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getName" 'function)))
+
+(cffi:defcfun ("_wrap_btTriangleMeshShape_getName" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getName" 'function)) :string
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getName" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_makeCPlusPlusInstance" 'function)))
 
@@ -5529,7 +7805,7 @@
 (cffi:defcfun ("_wrap_btConvexTriangleMeshShape_isInside" #.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_isInside" 'function)) :pointer
   (self :pointer)
   (pt :pointer)
-  (tolerance :float))
+  (tolerance :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConvexTriangleMeshShape_isInside" 'function))
 
@@ -5843,8 +8119,8 @@
 (cl:export '#.(bullet-wrap::swig-lispify "btBvhTriangleMeshShape_serializeSingleTriangleInfoMap" 'function))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btTriangleMeshShapeData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_collisionShapeData" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_meshInterface" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_collisionShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btCollisionShapeData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_meshInterface" 'slotname) #.(bullet-wrap::swig-lispify "btStridingMeshInterfaceData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_quantizedFloatBvh" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_quantizedDoubleBvh" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_triangleInfoMap" 'slotname) :pointer)
@@ -5979,7 +8255,7 @@
 
 (cffi:defcfun ("_wrap_btScaledBvhTriangleMeshShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btScaledBvhTriangleMeshShape_calculateLocalInertia" 'function))
@@ -6041,485 +8317,6 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_localScaling" 'slotname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function)) :pointer
-  (self :pointer)
-  (sizeInBytes :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function)) :void
-  (self :pointer)
-  (ptr :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function)) :pointer
-  (self :pointer)
-  (arg1 :pointer)
-  (ptr :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusPlusInstance" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function)) :void
-  (self :pointer)
-  (arg1 :pointer)
-  (arg2 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusPlusInstance" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function)) :pointer
-  (self :pointer)
-  (sizeInBytes :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function)) :void
-  (self :pointer)
-  (ptr :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function)) :pointer
-  (self :pointer)
-  (arg1 :pointer)
-  (ptr :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_makeCPlusArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function)) :void
-  (self :pointer)
-  (arg1 :pointer)
-  (arg2 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_deleteCPlusArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btTriangleMeshShape" 'function)))
-
-(cffi:defcfun ("_wrap_delete_btTriangleMeshShape" #.(bullet-wrap::swig-lispify "delete_btTriangleMeshShape" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_btTriangleMeshShape" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertex" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_localGetSupportingVertex" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertex" 'function)) :pointer
-  (self :pointer)
-  (vec :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertex" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertexWithoutMargin" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_localGetSupportingVertexWithoutMargin" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertexWithoutMargin" 'function)) :pointer
-  (self :pointer)
-  (vec :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_localGetSupportingVertexWithoutMargin" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_recalcLocalAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_recalcLocalAabb" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_recalcLocalAabb" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_recalcLocalAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_getAabb" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getAabb" 'function)) :void
-  (self :pointer)
-  (t_arg1 :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_processAllTriangles" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_processAllTriangles" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_processAllTriangles" 'function)) :void
-  (self :pointer)
-  (callback :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_processAllTriangles" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_calculateLocalInertia" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_calculateLocalInertia" 'function)) :void
-  (self :pointer)
-  (mass :float)
-  (inertia :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_calculateLocalInertia" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_setLocalScaling" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_setLocalScaling" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_setLocalScaling" 'function)) :void
-  (self :pointer)
-  (scaling :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_setLocalScaling" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalScaling" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_getLocalScaling" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalScaling" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalScaling" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_getMeshInterface__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_getMeshInterface__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getMeshInterface" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMin" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_getLocalAabbMin" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMin" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMin" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMax" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_getLocalAabbMax" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMax" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getLocalAabbMax" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getName" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleMeshShape_getName" #.(bullet-wrap::swig-lispify "btTriangleMeshShape_getName" 'function)) :string
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleMeshShape_getName" 'function))
-
-(cffi:defcstruct #.(bullet-wrap::swig-lispify "btIndexedMesh" 'classname)
-	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_numTriangles" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_triangleIndexBase" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_triangleIndexStride" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_numVertices" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_vertexBase" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_vertexStride" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_indexType" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_vertexType" 'slotname) :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btIndexedMesh" 'classname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_numTriangles" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_triangleIndexBase" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_triangleIndexStride" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_numVertices" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_vertexBase" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_vertexStride" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_indexType" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_vertexType" 'slotname))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function)) :pointer
-  (self :pointer)
-  (sizeInBytes :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function)) :void
-  (self :pointer)
-  (ptr :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function)) :pointer
-  (self :pointer)
-  (arg1 :pointer)
-  (ptr :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusPlusInstance" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function)) :void
-  (self :pointer)
-  (arg1 :pointer)
-  (arg2 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusPlusInstance" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function)) :pointer
-  (self :pointer)
-  (sizeInBytes :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function)) :void
-  (self :pointer)
-  (ptr :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function)) :pointer
-  (self :pointer)
-  (arg1 :pointer)
-  (ptr :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_makeCPlusArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function)) :void
-  (self :pointer)
-  (arg1 :pointer)
-  (arg2 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_deleteCPlusArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function)))
-
-(cffi:defcfun ("_wrap_new_btTriangleIndexVertexArray__SWIG_0" #.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function)) :pointer)
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btTriangleIndexVertexArray" 'function)))
-
-(cffi:defcfun ("_wrap_delete_btTriangleIndexVertexArray" #.(bullet-wrap::swig-lispify "delete_btTriangleIndexVertexArray" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_btTriangleIndexVertexArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function)))
-
-(cffi:defcfun ("_wrap_new_btTriangleIndexVertexArray__SWIG_1" #.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function)) :pointer
-  (numTriangles :int)
-  (triangleIndexBase :pointer)
-  (triangleIndexStride :int)
-  (numVertices :int)
-  (vertexBase :pointer)
-  (vertexStride :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btTriangleIndexVertexArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_addIndexedMesh__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function)) :void
-  (self :pointer)
-  (mesh :pointer)
-  (indexType :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_addIndexedMesh__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function)) :void
-  (self :pointer)
-  (mesh :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_addIndexedMesh" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getLockedVertexIndexBase__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function)) :void
-  (self :pointer)
-  (vertexbase :pointer)
-  (numverts :pointer)
-  (type :pointer)
-  (vertexStride :pointer)
-  (indexbase :pointer)
-  (indexstride :pointer)
-  (numfaces :pointer)
-  (indicestype :pointer)
-  (subpart :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getLockedVertexIndexBase__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function)) :void
-  (self :pointer)
-  (vertexbase :pointer)
-  (numverts :pointer)
-  (type :pointer)
-  (vertexStride :pointer)
-  (indexbase :pointer)
-  (indexstride :pointer)
-  (numfaces :pointer)
-  (indicestype :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedVertexIndexBase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function)) :void
-  (self :pointer)
-  (vertexbase :pointer)
-  (numverts :pointer)
-  (type :pointer)
-  (vertexStride :pointer)
-  (indexbase :pointer)
-  (indexstride :pointer)
-  (numfaces :pointer)
-  (indicestype :pointer)
-  (subpart :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function)) :void
-  (self :pointer)
-  (vertexbase :pointer)
-  (numverts :pointer)
-  (type :pointer)
-  (vertexStride :pointer)
-  (indexbase :pointer)
-  (indexstride :pointer)
-  (numfaces :pointer)
-  (indicestype :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockVertexBase" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_unLockVertexBase" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockVertexBase" 'function)) :void
-  (self :pointer)
-  (subpart :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockVertexBase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockReadOnlyVertexBase" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_unLockReadOnlyVertexBase" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockReadOnlyVertexBase" 'function)) :void
-  (self :pointer)
-  (subpart :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_unLockReadOnlyVertexBase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getNumSubParts" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getNumSubParts" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getNumSubParts" 'function)) :int
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getNumSubParts" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getIndexedMeshArray__SWIG_0" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getIndexedMeshArray__SWIG_1" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getIndexedMeshArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateVertices" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_preallocateVertices" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateVertices" 'function)) :void
-  (self :pointer)
-  (numverts :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateVertices" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateIndices" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_preallocateIndices" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateIndices" 'function)) :void
-  (self :pointer)
-  (numindices :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_preallocateIndices" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_hasPremadeAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_hasPremadeAabb" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_hasPremadeAabb" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_hasPremadeAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_setPremadeAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_setPremadeAabb" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_setPremadeAabb" 'function)) :void
-  (self :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_setPremadeAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getPremadeAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btTriangleIndexVertexArray_getPremadeAabb" #.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getPremadeAabb" 'function)) :void
-  (self :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btTriangleIndexVertexArray_getPremadeAabb" 'function))
-
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btCompoundShapeChild" 'classname)
 	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
@@ -6532,7 +8329,7 @@
 	(#.(bullet-wrap::swig-lispify "m_transform" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_childShape" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_childShapeType" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_childMargin" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_childMargin" 'slotname) :double)
 	(#.(bullet-wrap::swig-lispify "m_node" 'slotname) :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCompoundShapeChild" 'classname))
@@ -6562,6 +8359,14 @@
 (cl:export '#.(bullet-wrap::swig-lispify "m_childMargin" 'slotname))
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_node" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "isEqual" 'function)))
+
+(cffi:defcfun ("_wrap_isEqual__SWIG_3" #.(bullet-wrap::swig-lispify "isEqual" 'function)) :pointer
+  (c1 :pointer)
+  (c2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isEqual" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCompoundShape_makeCPlusPlusInstance" 'function)))
 
@@ -6777,7 +8582,7 @@
 
 (cffi:defcfun ("_wrap_btCompoundShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btCompoundShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCompoundShape_calculateLocalInertia" 'function))
@@ -6786,13 +8591,13 @@
 
 (cffi:defcfun ("_wrap_btCompoundShape_setMargin" #.(bullet-wrap::swig-lispify "btCompoundShape_setMargin" 'function)) :void
   (self :pointer)
-  (margin :float))
+  (margin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCompoundShape_setMargin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCompoundShape_getMargin" 'function)))
 
-(cffi:defcfun ("_wrap_btCompoundShape_getMargin" #.(bullet-wrap::swig-lispify "btCompoundShape_getMargin" 'function)) :float
+(cffi:defcfun ("_wrap_btCompoundShape_getMargin" #.(bullet-wrap::swig-lispify "btCompoundShape_getMargin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCompoundShape_getMargin" 'function))
@@ -6875,7 +8680,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "m_childMargin" 'slotname))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btCompoundShapeData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_collisionShapeData" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_collisionShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btCollisionShapeData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_childShapePtr" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_numChildShapes" 'slotname) :int)
 	(#.(bullet-wrap::swig-lispify "m_collisionMargin" 'slotname) :float))
@@ -7086,7 +8891,7 @@
 (cffi:defcfun ("_wrap_btBU_Simplex1to4_isInside" #.(bullet-wrap::swig-lispify "btBU_Simplex1to4_isInside" 'function)) :pointer
   (self :pointer)
   (pt :pointer)
-  (tolerance :float))
+  (tolerance :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btBU_Simplex1to4_isInside" 'function))
 
@@ -7214,7 +9019,7 @@
 
 (cffi:defcfun ("_wrap_btEmptyShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btEmptyShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btEmptyShape_calculateLocalInertia" 'function))
@@ -7317,7 +9122,7 @@
 
 (cffi:defcfun ("_wrap_btMultiSphereShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btMultiSphereShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btMultiSphereShape_calculateLocalInertia" 'function))
@@ -7357,7 +9162,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSphereShape_getSphereRadius" 'function)))
 
-(cffi:defcfun ("_wrap_btMultiSphereShape_getSphereRadius" #.(bullet-wrap::swig-lispify "btMultiSphereShape_getSphereRadius" 'function)) :float
+(cffi:defcfun ("_wrap_btMultiSphereShape_getSphereRadius" #.(bullet-wrap::swig-lispify "btMultiSphereShape_getSphereRadius" 'function)) :double
   (self :pointer)
   (index :int))
 
@@ -7404,7 +9209,7 @@
 (cl:export '#.(bullet-wrap::swig-lispify "m_radius" 'slotname))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btMultiSphereShapeData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_convexInternalShapeData" 'slotname) #.(bullet-wrap::swig-lispify "btConvexInternalShapeData" 'classname))
 	(#.(bullet-wrap::swig-lispify "m_localPositionArrayPtr" 'slotname) :pointer)
 	(#.(bullet-wrap::swig-lispify "m_localPositionArraySize" 'slotname) :int)
 	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
@@ -7491,7 +9296,7 @@
 
 (cffi:defcfun ("_wrap_new_btUniformScalingShape" #.(bullet-wrap::swig-lispify "new_btUniformScalingShape" 'function)) :pointer
   (convexChildShape :pointer)
-  (uniformScalingFactor :float))
+  (uniformScalingFactor :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btUniformScalingShape" 'function))
 
@@ -7532,14 +9337,14 @@
 
 (cffi:defcfun ("_wrap_btUniformScalingShape_calculateLocalInertia" #.(bullet-wrap::swig-lispify "btUniformScalingShape_calculateLocalInertia" 'function)) :void
   (self :pointer)
-  (mass :float)
+  (mass :double)
   (inertia :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniformScalingShape_calculateLocalInertia" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btUniformScalingShape_getUniformScalingFactor" 'function)))
 
-(cffi:defcfun ("_wrap_btUniformScalingShape_getUniformScalingFactor" #.(bullet-wrap::swig-lispify "btUniformScalingShape_getUniformScalingFactor" 'function)) :float
+(cffi:defcfun ("_wrap_btUniformScalingShape_getUniformScalingFactor" #.(bullet-wrap::swig-lispify "btUniformScalingShape_getUniformScalingFactor" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniformScalingShape_getUniformScalingFactor" 'function))
@@ -7604,13 +9409,13 @@
 
 (cffi:defcfun ("_wrap_btUniformScalingShape_setMargin" #.(bullet-wrap::swig-lispify "btUniformScalingShape_setMargin" 'function)) :void
   (self :pointer)
-  (margin :float))
+  (margin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniformScalingShape_setMargin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btUniformScalingShape_getMargin" 'function)))
 
-(cffi:defcfun ("_wrap_btUniformScalingShape_getMargin" #.(bullet-wrap::swig-lispify "btUniformScalingShape_getMargin" 'function)) :float
+(cffi:defcfun ("_wrap_btUniformScalingShape_getMargin" #.(bullet-wrap::swig-lispify "btUniformScalingShape_getMargin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniformScalingShape_getMargin" 'function))
@@ -7630,6 +9435,2742 @@
   (penetrationVector :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniformScalingShape_getPreferredPenetrationDirection" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btOverlapCallback" 'classname)
+	(#.(bullet-wrap::swig-lispify "processOverlap" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlapCallback" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "processOverlap" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btOverlapFilterCallback" 'classname)
+	(#.(bullet-wrap::swig-lispify "needBroadphaseCollision" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlapFilterCallback" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "needBroadphaseCollision" 'slotname))
+
+(cffi:defcvar ("gRemovePairs" #.(bullet-wrap::swig-lispify "gRemovePairs" 'variable))
+ :int)
+
+(cl:export '#.(bullet-wrap::swig-lispify "gRemovePairs" 'variable))
+
+(cffi:defcvar ("gAddedPairs" #.(bullet-wrap::swig-lispify "gAddedPairs" 'variable))
+ :int)
+
+(cl:export '#.(bullet-wrap::swig-lispify "gAddedPairs" 'variable))
+
+(cffi:defcvar ("gFindPairs" #.(bullet-wrap::swig-lispify "gFindPairs" 'variable))
+ :int)
+
+(cl:export '#.(bullet-wrap::swig-lispify "gFindPairs" 'variable))
+
+(cffi:defcvar ("BT_NULL_PAIR" #.(bullet-wrap::swig-lispify "BT_NULL_PAIR" 'variable))
+ :int)
+
+(cl:export '#.(bullet-wrap::swig-lispify "BT_NULL_PAIR" 'variable))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btOverlappingPairCache" #.(bullet-wrap::swig-lispify "delete_btOverlappingPairCache" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArrayPtr" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_getOverlappingPairArrayPtr__SWIG_0" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArrayPtr" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArrayPtr" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArrayPtr" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_getOverlappingPairArrayPtr__SWIG_1" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArrayPtr" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArrayPtr" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArray" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_getOverlappingPairArray" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_getOverlappingPairArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_cleanOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_cleanOverlappingPair" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_cleanOverlappingPair" 'function)) :void
+  (self :pointer)
+  (pair :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_cleanOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_getNumOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_getNumOverlappingPairs" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_getNumOverlappingPairs" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_getNumOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_cleanProxyFromPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_cleanProxyFromPairs" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_cleanProxyFromPairs" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_cleanProxyFromPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_setOverlapFilterCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_setOverlapFilterCallback" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_setOverlapFilterCallback" 'function)) :void
+  (self :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_setOverlapFilterCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_processAllOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_processAllOverlappingPairs" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_processAllOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_processAllOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_findPair" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_findPair" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_findPair" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_findPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_hasDeferredRemoval" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_hasDeferredRemoval" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_hasDeferredRemoval" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_hasDeferredRemoval" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_setInternalGhostPairCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_setInternalGhostPairCallback" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_setInternalGhostPairCallback" 'function)) :void
+  (self :pointer)
+  (ghostPairCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_setInternalGhostPairCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btOverlappingPairCache_sortOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btOverlappingPairCache_sortOverlappingPairs" #.(bullet-wrap::swig-lispify "btOverlappingPairCache_sortOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btOverlappingPairCache_sortOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btHashedOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_new_btHashedOverlappingPairCache" #.(bullet-wrap::swig-lispify "new_btHashedOverlappingPairCache" 'function)) :pointer)
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btHashedOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btHashedOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btHashedOverlappingPairCache" #.(bullet-wrap::swig-lispify "delete_btHashedOverlappingPairCache" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btHashedOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_removeOverlappingPairsContainingProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_removeOverlappingPairsContainingProxy" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_removeOverlappingPairsContainingProxy" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_removeOverlappingPairsContainingProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_removeOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_removeOverlappingPair" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_removeOverlappingPair" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_removeOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_needsBroadphaseCollision" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_needsBroadphaseCollision" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_needsBroadphaseCollision" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_needsBroadphaseCollision" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_addOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_addOverlappingPair" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_addOverlappingPair" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_addOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_cleanProxyFromPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_cleanProxyFromPairs" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_cleanProxyFromPairs" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_cleanProxyFromPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_processAllOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_processAllOverlappingPairs" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_processAllOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_processAllOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArrayPtr" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_getOverlappingPairArrayPtr__SWIG_0" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArrayPtr" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArrayPtr" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArrayPtr" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_getOverlappingPairArrayPtr__SWIG_1" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArrayPtr" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArrayPtr" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArray" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_getOverlappingPairArray__SWIG_0" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArray" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_getOverlappingPairArray__SWIG_1" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlappingPairArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_cleanOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_cleanOverlappingPair" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_cleanOverlappingPair" 'function)) :void
+  (self :pointer)
+  (pair :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_cleanOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_findPair" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_findPair" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_findPair" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_findPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_GetCount" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_GetCount" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_GetCount" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_GetCount" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlapFilterCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_getOverlapFilterCallback" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlapFilterCallback" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getOverlapFilterCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_setOverlapFilterCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_setOverlapFilterCallback" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_setOverlapFilterCallback" 'function)) :void
+  (self :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_setOverlapFilterCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getNumOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btHashedOverlappingPairCache_getNumOverlappingPairs" #.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getNumOverlappingPairs" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btHashedOverlappingPairCache_getNumOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSortedOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_new_btSortedOverlappingPairCache" #.(bullet-wrap::swig-lispify "new_btSortedOverlappingPairCache" 'function)) :pointer)
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btSortedOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btSortedOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btSortedOverlappingPairCache" #.(bullet-wrap::swig-lispify "delete_btSortedOverlappingPairCache" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btSortedOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_processAllOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_processAllOverlappingPairs" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_processAllOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_processAllOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_removeOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_removeOverlappingPair" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_removeOverlappingPair" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_removeOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_cleanOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_cleanOverlappingPair" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_cleanOverlappingPair" 'function)) :void
+  (self :pointer)
+  (pair :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_cleanOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_addOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_addOverlappingPair" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_addOverlappingPair" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_addOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_findPair" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_findPair" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_findPair" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_findPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_cleanProxyFromPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_cleanProxyFromPairs" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_cleanProxyFromPairs" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_cleanProxyFromPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_removeOverlappingPairsContainingProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_removeOverlappingPairsContainingProxy" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_removeOverlappingPairsContainingProxy" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_removeOverlappingPairsContainingProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_needsBroadphaseCollision" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_needsBroadphaseCollision" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_needsBroadphaseCollision" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_needsBroadphaseCollision" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArray" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_getOverlappingPairArray__SWIG_0" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArray" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_getOverlappingPairArray__SWIG_1" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArrayPtr" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_getOverlappingPairArrayPtr__SWIG_0" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArrayPtr" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArrayPtr" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArrayPtr" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_getOverlappingPairArrayPtr__SWIG_1" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArrayPtr" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlappingPairArrayPtr" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getNumOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_getNumOverlappingPairs" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getNumOverlappingPairs" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getNumOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlapFilterCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_getOverlapFilterCallback" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlapFilterCallback" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_getOverlapFilterCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_setOverlapFilterCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_setOverlapFilterCallback" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_setOverlapFilterCallback" 'function)) :void
+  (self :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_setOverlapFilterCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_hasDeferredRemoval" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_hasDeferredRemoval" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_hasDeferredRemoval" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_hasDeferredRemoval" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_setInternalGhostPairCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_setInternalGhostPairCallback" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_setInternalGhostPairCallback" 'function)) :void
+  (self :pointer)
+  (ghostPairCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_setInternalGhostPairCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_sortOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btSortedOverlappingPairCache_sortOverlappingPairs" #.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_sortOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSortedOverlappingPairCache_sortOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArrayPtr" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_getOverlappingPairArrayPtr__SWIG_0" #.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArrayPtr" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArrayPtr" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArrayPtr" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_getOverlappingPairArrayPtr__SWIG_1" #.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArrayPtr" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArrayPtr" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArray" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_getOverlappingPairArray" #.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_getOverlappingPairArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_cleanOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_cleanOverlappingPair" #.(bullet-wrap::swig-lispify "btNullPairCache_cleanOverlappingPair" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_cleanOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_getNumOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_getNumOverlappingPairs" #.(bullet-wrap::swig-lispify "btNullPairCache_getNumOverlappingPairs" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_getNumOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_cleanProxyFromPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_cleanProxyFromPairs" #.(bullet-wrap::swig-lispify "btNullPairCache_cleanProxyFromPairs" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_cleanProxyFromPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_setOverlapFilterCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_setOverlapFilterCallback" #.(bullet-wrap::swig-lispify "btNullPairCache_setOverlapFilterCallback" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_setOverlapFilterCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_processAllOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_processAllOverlappingPairs" #.(bullet-wrap::swig-lispify "btNullPairCache_processAllOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_processAllOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_findPair" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_findPair" #.(bullet-wrap::swig-lispify "btNullPairCache_findPair" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_findPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_hasDeferredRemoval" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_hasDeferredRemoval" #.(bullet-wrap::swig-lispify "btNullPairCache_hasDeferredRemoval" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_hasDeferredRemoval" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_setInternalGhostPairCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_setInternalGhostPairCallback" #.(bullet-wrap::swig-lispify "btNullPairCache_setInternalGhostPairCallback" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_setInternalGhostPairCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_addOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_addOverlappingPair" #.(bullet-wrap::swig-lispify "btNullPairCache_addOverlappingPair" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_addOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_removeOverlappingPair" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_removeOverlappingPair" #.(bullet-wrap::swig-lispify "btNullPairCache_removeOverlappingPair" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer)
+  (arg3 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_removeOverlappingPair" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_removeOverlappingPairsContainingProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_removeOverlappingPairsContainingProxy" #.(bullet-wrap::swig-lispify "btNullPairCache_removeOverlappingPairsContainingProxy" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_removeOverlappingPairsContainingProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btNullPairCache_sortOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btNullPairCache_sortOverlappingPairs" #.(bullet-wrap::swig-lispify "btNullPairCache_sortOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btNullPairCache_sortOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btNullPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_new_btNullPairCache" #.(bullet-wrap::swig-lispify "new_btNullPairCache" 'function)) :pointer)
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btNullPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btNullPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btNullPairCache" #.(bullet-wrap::swig-lispify "delete_btNullPairCache" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btNullPairCache" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btBroadphaseAabbCallback" 'classname)
+	(#.(bullet-wrap::swig-lispify "process" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseAabbCallback" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "process" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btBroadphaseRayCallback" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_rayDirectionInverse" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_signs" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_lambda_max" 'slotname) :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseRayCallback" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_rayDirectionInverse" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_signs" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_lambda_max" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btBroadphaseInterface" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btBroadphaseInterface" #.(bullet-wrap::swig-lispify "delete_btBroadphaseInterface" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btBroadphaseInterface" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_createProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_createProxy" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_createProxy" 'function)) :pointer
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (shapeType :int)
+  (userPtr :pointer)
+  (collisionFilterGroup :short)
+  (collisionFilterMask :short)
+  (dispatcher :pointer)
+  (multiSapProxy :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_createProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_destroyProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_destroyProxy" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_destroyProxy" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_destroyProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_setAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_setAabb" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_setAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_setAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_getAabb" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_getAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_rayTest__SWIG_0" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_rayTest__SWIG_1" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_rayTest__SWIG_2" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_aabbTest" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_aabbTest" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_aabbTest" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_aabbTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_calculateOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_calculateOverlappingPairs" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_calculateOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_calculateOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_getOverlappingPairCache__SWIG_0" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_getOverlappingPairCache__SWIG_1" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_getBroadphaseAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_getBroadphaseAabb" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_getBroadphaseAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_getBroadphaseAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_resetPool" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_resetPool" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_resetPool" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_resetPool" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphaseInterface_printStats" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphaseInterface_printStats" #.(bullet-wrap::swig-lispify "btBroadphaseInterface_printStats" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseInterface_printStats" 'function))
+
+(cffi:defcenum #.(bullet-wrap::swig-lispify "BroadphaseNativeTypes" 'enumname)
+	#.(bullet-wrap::swig-lispify "BOX_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "TRIANGLE_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "TETRAHEDRAL_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CONVEX_TRIANGLEMESH_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CONVEX_HULL_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CONVEX_POINT_CLOUD_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CUSTOM_POLYHEDRAL_SHAPE_TYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "IMPLICIT_CONVEX_SHAPES_START_HERE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "SPHERE_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "MULTI_SPHERE_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CAPSULE_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CONE_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CONVEX_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CYLINDER_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "UNIFORM_SCALING_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "MINKOWSKI_SUM_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "MINKOWSKI_DIFFERENCE_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "BOX_2D_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CONVEX_2D_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CUSTOM_CONVEX_SHAPE_TYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CONCAVE_SHAPES_START_HERE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "TRIANGLE_MESH_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "SCALED_TRIANGLE_MESH_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "FAST_CONCAVE_MESH_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "TERRAIN_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "GIMPACT_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "MULTIMATERIAL_TRIANGLE_MESH_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "EMPTY_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "STATIC_PLANE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CUSTOM_CONCAVE_SHAPE_TYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "CONCAVE_SHAPES_END_HERE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "COMPOUND_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "SOFTBODY_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "HFFLUID_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "HFFLUID_BUOYANT_CONVEX_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "INVALID_SHAPE_PROXYTYPE" 'enumvalue :keyword)
+	#.(bullet-wrap::swig-lispify "MAX_BROADPHASE_COLLISION_TYPES" 'enumvalue :keyword))
+
+(cl:export '#.(bullet-wrap::swig-lispify "BroadphaseNativeTypes" 'enumname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btBroadphaseProxy" 'classname)
+	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_clientObject" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_collisionFilterGroup" 'slotname) :short)
+	(#.(bullet-wrap::swig-lispify "m_collisionFilterMask" 'slotname) :short)
+	(#.(bullet-wrap::swig-lispify "m_multiSapParentProxy" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_uniqueId" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_aabbMin" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_aabbMax" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "getUid" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isPolyhedral" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isConvex" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isNonMoving" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isConcave" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isCompound" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isSoftBody" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isInfinite" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isConvex2d" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphaseProxy" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_clientObject" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_collisionFilterGroup" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_collisionFilterMask" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_multiSapParentProxy" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_uniqueId" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_aabbMin" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_aabbMax" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "getUid" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isPolyhedral" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isConvex" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isNonMoving" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isConcave" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isCompound" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isSoftBody" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isInfinite" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isConvex2d" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btBroadphasePair" 'classname)
+	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_pProxy0" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_pProxy1" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_algorithm" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphasePair" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusPlusInstance" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "makeCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "deleteCPlusArray" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_pProxy0" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_pProxy1" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_algorithm" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btBroadphasePairSortPredicate___funcall__" 'function)))
+
+(cffi:defcfun ("_wrap_btBroadphasePairSortPredicate___funcall__" #.(bullet-wrap::swig-lispify "btBroadphasePairSortPredicate___funcall__" 'function)) :pointer
+  (self :pointer)
+  (a :pointer)
+  (b :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btBroadphasePairSortPredicate___funcall__" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btBroadphasePairSortPredicate" 'function)))
+
+(cffi:defcfun ("_wrap_new_btBroadphasePairSortPredicate" #.(bullet-wrap::swig-lispify "new_btBroadphasePairSortPredicate" 'function)) :pointer)
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btBroadphasePairSortPredicate" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btBroadphasePairSortPredicate" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btBroadphasePairSortPredicate" #.(bullet-wrap::swig-lispify "delete_btBroadphasePairSortPredicate" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btBroadphasePairSortPredicate" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "isEqual" 'function)))
+
+(cffi:defcfun ("_wrap_isEqual__SWIG_4" #.(bullet-wrap::swig-lispify "isEqual" 'function)) :pointer
+  (a :pointer)
+  (b :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isEqual" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btCollisionAlgorithmConstructionInfo" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_dispatcher1" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_manifold" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionAlgorithmConstructionInfo" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_dispatcher1" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_manifold" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btCollisionAlgorithm" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btCollisionAlgorithm" #.(bullet-wrap::swig-lispify "delete_btCollisionAlgorithm" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btCollisionAlgorithm" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionAlgorithm_processCollision" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionAlgorithm_processCollision" #.(bullet-wrap::swig-lispify "btCollisionAlgorithm_processCollision" 'function)) :void
+  (self :pointer)
+  (body0Wrap :pointer)
+  (body1Wrap :pointer)
+  (dispatchInfo :pointer)
+  (resultOut :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionAlgorithm_processCollision" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionAlgorithm_calculateTimeOfImpact" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionAlgorithm_calculateTimeOfImpact" #.(bullet-wrap::swig-lispify "btCollisionAlgorithm_calculateTimeOfImpact" 'function)) :double
+  (self :pointer)
+  (body0 :pointer)
+  (body1 :pointer)
+  (dispatchInfo :pointer)
+  (resultOut :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionAlgorithm_calculateTimeOfImpact" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionAlgorithm_getAllContactManifolds" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionAlgorithm_getAllContactManifolds" #.(bullet-wrap::swig-lispify "btCollisionAlgorithm_getAllContactManifolds" 'function)) :void
+  (self :pointer)
+  (manifoldArray :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionAlgorithm_getAllContactManifolds" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btSimpleBroadphaseProxy" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_nextFree" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "SetNextFree" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "GetNextFree" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphaseProxy" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_nextFree" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "SetNextFree" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "GetNextFree" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)))
+
+(cffi:defcfun ("_wrap_new_btSimpleBroadphase__SWIG_0" #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)) :pointer
+  (maxProxies :int)
+  (overlappingPairCache :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)))
+
+(cffi:defcfun ("_wrap_new_btSimpleBroadphase__SWIG_1" #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)) :pointer
+  (maxProxies :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)))
+
+(cffi:defcfun ("_wrap_new_btSimpleBroadphase__SWIG_2" #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)) :pointer)
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btSimpleBroadphase" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btSimpleBroadphase" #.(bullet-wrap::swig-lispify "delete_btSimpleBroadphase" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btSimpleBroadphase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbOverlap" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_aabbOverlap" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbOverlap" 'function)) :pointer
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbOverlap" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_createProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_createProxy" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_createProxy" 'function)) :pointer
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (shapeType :int)
+  (userPtr :pointer)
+  (collisionFilterGroup :short)
+  (collisionFilterMask :short)
+  (dispatcher :pointer)
+  (multiSapProxy :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_createProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_calculateOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_calculateOverlappingPairs" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_calculateOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_calculateOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_destroyProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_destroyProxy" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_destroyProxy" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_destroyProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_setAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_setAabb" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_setAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_setAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_getAabb" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_0" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_1" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_2" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbTest" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_aabbTest" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbTest" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_getOverlappingPairCache__SWIG_0" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_getOverlappingPairCache__SWIG_1" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_testAabbOverlap" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_testAabbOverlap" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_testAabbOverlap" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_testAabbOverlap" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getBroadphaseAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_getBroadphaseAabb" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getBroadphaseAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_getBroadphaseAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_printStats" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleBroadphase_printStats" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_printStats" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_printStats" 'function))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_IMPL_GENERIC" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_IMPL_GENERIC" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_IMPL_SSE" 'constant) 1)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_IMPL_SSE" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_USE_TEMPLATE" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_USE_TEMPLATE" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_USE_INTRINSIC_SSE" 'constant) 1)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_USE_INTRINSIC_SSE" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_USE_MEMMOVE" 'constant) 1)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_USE_MEMMOVE" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_ENABLE_BENCHMARK" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_ENABLE_BENCHMARK" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_SELECT_IMPL" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_SELECT_IMPL" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_MERGE_IMPL" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_MERGE_IMPL" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_INT0_IMPL" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_INT0_IMPL" 'constant))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDbvtAabbMm" 'classname)
+	(#.(bullet-wrap::swig-lispify "Center" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Lengths" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Extents" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Mins" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Maxs" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "FromCE" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "FromCR" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "FromMM" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "FromPoints" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "FromPoints" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Expand" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "SignedExpand" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Contain" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Classify" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "ProjectMinimum" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Intersect" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Intersect" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Proximity" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Select" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "Merge" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "NotEqual" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "tMins" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "tMaxs" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDbvtAabbMm" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Center" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Lengths" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Extents" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Mins" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Maxs" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "FromCE" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "FromCR" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "FromMM" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "FromPoints" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "FromPoints" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Expand" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "SignedExpand" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Contain" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Classify" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "ProjectMinimum" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Intersect" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Intersect" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Proximity" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Select" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "Merge" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "NotEqual" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "tMins" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "tMaxs" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDbvtNode" 'classname)
+	(#.(bullet-wrap::swig-lispify "volume" 'slotname) #.(bullet-wrap::swig-lispify "btDbvtAabbMm" 'classname))
+	(#.(bullet-wrap::swig-lispify "parent" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isleaf" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "isinternal" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDbvtNode" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "volume" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "parent" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isleaf" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "isinternal" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDbvt" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_root" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_free" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_lkhd" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_leaves" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_opath" 'slotname) :unsigned-int)
+	(#.(bullet-wrap::swig-lispify "m_stkStack" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_rayTestStack" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "clear" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "empty" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "optimizeBottomUp" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "optimizeTopDown" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "optimizeTopDown" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "optimizeIncremental" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "insert" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "update" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "update" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "update" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "update" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "update" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "update" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "remove" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "write" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "clone" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "clone" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "maxdepth" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "countLeaves" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "extractLeaves" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "benchmark" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "enumNodes" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "enumLeaves" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "collideTT" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "collideTTpersistentStack" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "collideTV" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "rayTest" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "rayTestInternal" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "collideKDOP" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "collideOCL" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "collideOCL" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "collideTU" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "nearest" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "allocate" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDbvt" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_root" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_free" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_lkhd" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_leaves" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_opath" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_stkStack" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_rayTestStack" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "clear" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "empty" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "optimizeBottomUp" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "optimizeTopDown" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "optimizeTopDown" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "optimizeIncremental" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "insert" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "update" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "update" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "update" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "update" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "update" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "update" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "remove" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "write" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "clone" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "clone" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "maxdepth" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "countLeaves" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "extractLeaves" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "benchmark" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "enumNodes" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "enumLeaves" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "collideTT" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "collideTTpersistentStack" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "collideTV" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "rayTest" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "rayTestInternal" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "collideKDOP" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "collideOCL" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "collideOCL" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "collideTU" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "nearest" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "allocate" 'slotname))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_BP_PROFILE" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_BP_PROFILE" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_BP_PREVENTFALSEUPDATE" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_BP_PREVENTFALSEUPDATE" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_BP_ACCURATESLEEPING" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_BP_ACCURATESLEEPING" 'constant))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_BP_ENABLE_BENCHMARK" 'constant) 0)
+
+(cl:export '#.(bullet-wrap::swig-lispify "DBVT_BP_ENABLE_BENCHMARK" 'constant))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDbvtProxy" 'classname)
+	(#.(bullet-wrap::swig-lispify "leaf" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "links" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "stage" 'slotname) :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDbvtProxy" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "leaf" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "links" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "stage" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDbvtBroadphase" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_sets" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_stageRoots" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_paircache" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_prediction" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_stageCurrent" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_fupdates" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_dupdates" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_cupdates" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_newpairs" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_fixedleft" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_updates_call" 'slotname) :unsigned-int)
+	(#.(bullet-wrap::swig-lispify "m_updates_done" 'slotname) :unsigned-int)
+	(#.(bullet-wrap::swig-lispify "m_updates_ratio" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_pid" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_cid" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_gid" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_releasepaircache" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_deferedcollide" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_needcleanup" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "collide" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "optimize" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "createProxy" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "destroyProxy" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "setAabb" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "rayTest" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "rayTest" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "rayTest" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "aabbTest" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "getAabb" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "calculateOverlappingPairs" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "getOverlappingPairCache" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "getOverlappingPairCache" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "getBroadphaseAabb" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "printStats" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "resetPool" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "performDeferredRemoval" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "setVelocityPrediction" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "getVelocityPrediction" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "setAabbForceUpdate" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "benchmark" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDbvtBroadphase" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_sets" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_stageRoots" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_paircache" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_prediction" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_stageCurrent" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_fupdates" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_dupdates" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_cupdates" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_newpairs" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_fixedleft" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_updates_call" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_updates_done" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_updates_ratio" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_pid" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_cid" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_gid" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_releasepaircache" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_deferedcollide" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_needcleanup" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "collide" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "optimize" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "createProxy" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "destroyProxy" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "setAabb" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "rayTest" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "rayTest" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "rayTest" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "aabbTest" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "getAabb" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "calculateOverlappingPairs" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "getOverlappingPairCache" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "getOverlappingPairCache" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "getBroadphaseAabb" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "printStats" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "resetPool" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "performDeferredRemoval" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "setVelocityPrediction" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "getVelocityPrediction" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "setAabbForceUpdate" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "benchmark" 'slotname))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "USE_OVERLAP_TEST_ON_REMOVES" 'constant) 1)
+
+(cl:export '#.(bullet-wrap::swig-lispify "USE_OVERLAP_TEST_ON_REMOVES" 'constant))
+
+(cffi:defcvar ("gOverlappingPairs" #.(bullet-wrap::swig-lispify "gOverlappingPairs" 'variable))
+ :int)
+
+(cl:export '#.(bullet-wrap::swig-lispify "gOverlappingPairs" 'variable))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3__SWIG_0" #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (maxHandles :unsigned-short)
+  (pairCache :pointer)
+  (disableRaycastAccelerator :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3__SWIG_1" #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (maxHandles :unsigned-short)
+  (pairCache :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3__SWIG_2" #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (maxHandles :unsigned-short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3__SWIG_3" #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btAxisSweep3" #.(bullet-wrap::swig-lispify "delete_btAxisSweep3" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_0" #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (maxHandles :unsigned-int)
+  (pairCache :pointer)
+  (disableRaycastAccelerator :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_1" #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (maxHandles :unsigned-int)
+  (pairCache :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_2" #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (maxHandles :unsigned-int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_3" #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_bt32BitAxisSweep3" 'function)))
+
+(cffi:defcfun ("_wrap_delete_bt32BitAxisSweep3" #.(bullet-wrap::swig-lispify "delete_bt32BitAxisSweep3" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_bt32BitAxisSweep3" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3Internal_UnsignedShort__SWIG_0" #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (handleMask :unsigned-short)
+  (handleSentinel :unsigned-short)
+  (maxHandles :unsigned-short)
+  (pairCache :pointer)
+  (disableRaycastAccelerator :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3Internal_UnsignedShort__SWIG_1" #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (handleMask :unsigned-short)
+  (handleSentinel :unsigned-short)
+  (maxHandles :unsigned-short)
+  (pairCache :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3Internal_UnsignedShort__SWIG_2" #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (handleMask :unsigned-short)
+  (handleSentinel :unsigned-short)
+  (maxHandles :unsigned-short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3Internal_UnsignedShort__SWIG_3" #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (handleMask :unsigned-short)
+  (handleSentinel :unsigned-short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedShort" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btAxisSweep3Internal_UnsignedShort" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btAxisSweep3Internal_UnsignedShort" #.(bullet-wrap::swig-lispify "delete_btAxisSweep3Internal_UnsignedShort" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btAxisSweep3Internal_UnsignedShort" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getNumHandles" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_getNumHandles" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getNumHandles" 'function)) :unsigned-short
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getNumHandles" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_calculateOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_calculateOverlappingPairs" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_calculateOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_calculateOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_addHandle" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_addHandle" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_addHandle" 'function)) :unsigned-short
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (pOwner :pointer)
+  (collisionFilterGroup :short)
+  (collisionFilterMask :short)
+  (dispatcher :pointer)
+  (multiSapProxy :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_addHandle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_removeHandle" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_removeHandle" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_removeHandle" 'function)) :void
+  (self :pointer)
+  (handle :unsigned-short)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_removeHandle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_updateHandle" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_updateHandle" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_updateHandle" 'function)) :void
+  (self :pointer)
+  (handle :unsigned-short)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_updateHandle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getHandle" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_getHandle" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getHandle" 'function)) :pointer
+  (self :pointer)
+  (index :unsigned-short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getHandle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_resetPool" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_resetPool" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_resetPool" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_resetPool" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_processAllOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_processAllOverlappingPairs" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_processAllOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_processAllOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_createProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_createProxy" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_createProxy" 'function)) :pointer
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (shapeType :int)
+  (userPtr :pointer)
+  (collisionFilterGroup :short)
+  (collisionFilterMask :short)
+  (dispatcher :pointer)
+  (multiSapProxy :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_createProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_destroyProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_destroyProxy" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_destroyProxy" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_destroyProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_setAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_setAabb" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_setAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_setAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_getAabb" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_rayTest__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_rayTest__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_rayTest__SWIG_2" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_aabbTest" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_aabbTest" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_aabbTest" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_aabbTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_quantize" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_quantize" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_quantize" 'function)) :void
+  (self :pointer)
+  (out :pointer)
+  (point :pointer)
+  (isMax :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_quantize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_unQuantize" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_unQuantize" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_unQuantize" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_unQuantize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_testAabbOverlap" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_testAabbOverlap" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_testAabbOverlap" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_testAabbOverlap" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_setOverlappingPairUserCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_setOverlappingPairUserCallback" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_setOverlappingPairUserCallback" 'function)) :void
+  (self :pointer)
+  (pairCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_setOverlappingPairUserCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairUserCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_getOverlappingPairUserCallback" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairUserCallback" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getOverlappingPairUserCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getBroadphaseAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_getBroadphaseAabb" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getBroadphaseAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_getBroadphaseAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_printStats" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedShort_printStats" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_printStats" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedShort_printStats" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3Internal_UnsignedInt__SWIG_0" #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (handleMask :unsigned-int)
+  (handleSentinel :unsigned-int)
+  (maxHandles :unsigned-int)
+  (pairCache :pointer)
+  (disableRaycastAccelerator :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3Internal_UnsignedInt__SWIG_1" #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (handleMask :unsigned-int)
+  (handleSentinel :unsigned-int)
+  (maxHandles :unsigned-int)
+  (pairCache :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3Internal_UnsignedInt__SWIG_2" #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (handleMask :unsigned-int)
+  (handleSentinel :unsigned-int)
+  (maxHandles :unsigned-int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function)))
+
+(cffi:defcfun ("_wrap_new_btAxisSweep3Internal_UnsignedInt__SWIG_3" #.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function)) :pointer
+  (worldAabbMin :pointer)
+  (worldAabbMax :pointer)
+  (handleMask :unsigned-int)
+  (handleSentinel :unsigned-int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3Internal_UnsignedInt" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btAxisSweep3Internal_UnsignedInt" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btAxisSweep3Internal_UnsignedInt" #.(bullet-wrap::swig-lispify "delete_btAxisSweep3Internal_UnsignedInt" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btAxisSweep3Internal_UnsignedInt" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getNumHandles" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_getNumHandles" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getNumHandles" 'function)) :unsigned-int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getNumHandles" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_calculateOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_calculateOverlappingPairs" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_calculateOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_calculateOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_addHandle" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_addHandle" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_addHandle" 'function)) :unsigned-int
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (pOwner :pointer)
+  (collisionFilterGroup :short)
+  (collisionFilterMask :short)
+  (dispatcher :pointer)
+  (multiSapProxy :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_addHandle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_removeHandle" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_removeHandle" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_removeHandle" 'function)) :void
+  (self :pointer)
+  (handle :unsigned-int)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_removeHandle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_updateHandle" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_updateHandle" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_updateHandle" 'function)) :void
+  (self :pointer)
+  (handle :unsigned-int)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_updateHandle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getHandle" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_getHandle" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getHandle" 'function)) :pointer
+  (self :pointer)
+  (index :unsigned-int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getHandle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_resetPool" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_resetPool" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_resetPool" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_resetPool" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_processAllOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_processAllOverlappingPairs" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_processAllOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_processAllOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_createProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_createProxy" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_createProxy" 'function)) :pointer
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (shapeType :int)
+  (userPtr :pointer)
+  (collisionFilterGroup :short)
+  (collisionFilterMask :short)
+  (dispatcher :pointer)
+  (multiSapProxy :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_createProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_destroyProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_destroyProxy" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_destroyProxy" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_destroyProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_setAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_setAabb" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_setAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_setAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_getAabb" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_rayTest__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_rayTest__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_rayTest__SWIG_2" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_aabbTest" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_aabbTest" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_aabbTest" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (callback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_aabbTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_quantize" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_quantize" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_quantize" 'function)) :void
+  (self :pointer)
+  (out :pointer)
+  (point :pointer)
+  (isMax :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_quantize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_unQuantize" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_unQuantize" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_unQuantize" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_unQuantize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_testAabbOverlap" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_testAabbOverlap" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_testAabbOverlap" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_testAabbOverlap" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache__SWIG_0" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache__SWIG_1" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_setOverlappingPairUserCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_setOverlappingPairUserCallback" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_setOverlappingPairUserCallback" 'function)) :void
+  (self :pointer)
+  (pairCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_setOverlappingPairUserCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairUserCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_getOverlappingPairUserCallback" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairUserCallback" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getOverlappingPairUserCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getBroadphaseAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_getBroadphaseAabb" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getBroadphaseAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_getBroadphaseAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_printStats" 'function)))
+
+(cffi:defcfun ("_wrap_btAxisSweep3Internal_UnsignedInt_printStats" #.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_printStats" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btAxisSweep3Internal_UnsignedInt_printStats" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseArray__SWIG_0" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseArray__SWIG_1" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btMultiSapBroadphase" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btMultiSapBroadphase" #.(bullet-wrap::swig-lispify "delete_btMultiSapBroadphase" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btMultiSapBroadphase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_createProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_createProxy" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_createProxy" 'function)) :pointer
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (shapeType :int)
+  (userPtr :pointer)
+  (collisionFilterGroup :short)
+  (collisionFilterMask :short)
+  (dispatcher :pointer)
+  (multiSapProxy :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_createProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_destroyProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_destroyProxy" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_destroyProxy" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_destroyProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_setAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_setAabb" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_setAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_setAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_getAabb" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getAabb" 'function)) :void
+  (self :pointer)
+  (proxy :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_0" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_1" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer)
+  (aabbMin :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_2" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)) :void
+  (self :pointer)
+  (rayFrom :pointer)
+  (rayTo :pointer)
+  (rayCallback :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_addToChildBroadphase" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_addToChildBroadphase" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_addToChildBroadphase" 'function)) :void
+  (self :pointer)
+  (parentMultiSapProxy :pointer)
+  (childProxy :pointer)
+  (childBroadphase :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_addToChildBroadphase" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_calculateOverlappingPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_calculateOverlappingPairs" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_calculateOverlappingPairs" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_calculateOverlappingPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_testAabbOverlap" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_testAabbOverlap" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_testAabbOverlap" 'function)) :pointer
+  (self :pointer)
+  (proxy0 :pointer)
+  (proxy1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_testAabbOverlap" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_getOverlappingPairCache__SWIG_0" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_getOverlappingPairCache__SWIG_1" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseAabb" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_buildTree" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_buildTree" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_buildTree" 'function)) :void
+  (self :pointer)
+  (bvhAabbMin :pointer)
+  (bvhAabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_buildTree" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_printStats" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_printStats" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_printStats" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_printStats" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_quicksort" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_quicksort" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_quicksort" 'function)) :void
+  (self :pointer)
+  (a :pointer)
+  (lo :int)
+  (hi :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_quicksort" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_resetPool" 'function)))
+
+(cffi:defcfun ("_wrap_btMultiSapBroadphase_resetPool" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_resetPool" 'function)) :void
+  (self :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_resetPool" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDispatcherInfo" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_timeStep" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_stepCount" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_dispatchFunc" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_timeOfImpact" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_useContinuous" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_debugDraw" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_enableSatConvex" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_enableSPU" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_useEpa" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_allowedCcdPenetration" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_useConvexConservativeDistanceUtil" 'slotname) :pointer)
+	(#.(bullet-wrap::swig-lispify "m_convexConservativeDistanceThreshold" 'slotname) :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcherInfo" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_timeStep" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_stepCount" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_dispatchFunc" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_timeOfImpact" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_useContinuous" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_debugDraw" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_enableSatConvex" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_enableSPU" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_useEpa" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_allowedCcdPenetration" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_useConvexConservativeDistanceUtil" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_convexConservativeDistanceThreshold" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btDispatcher" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btDispatcher" #.(bullet-wrap::swig-lispify "delete_btDispatcher" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btDispatcher" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_findAlgorithm" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_findAlgorithm__SWIG_0" #.(bullet-wrap::swig-lispify "btDispatcher_findAlgorithm" 'function)) :pointer
+  (self :pointer)
+  (body0Wrap :pointer)
+  (body1Wrap :pointer)
+  (sharedManifold :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_findAlgorithm" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_findAlgorithm" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_findAlgorithm__SWIG_1" #.(bullet-wrap::swig-lispify "btDispatcher_findAlgorithm" 'function)) :pointer
+  (self :pointer)
+  (body0Wrap :pointer)
+  (body1Wrap :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_findAlgorithm" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_getNewManifold" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_getNewManifold" #.(bullet-wrap::swig-lispify "btDispatcher_getNewManifold" 'function)) :pointer
+  (self :pointer)
+  (b0 :pointer)
+  (b1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_getNewManifold" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_releaseManifold" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_releaseManifold" #.(bullet-wrap::swig-lispify "btDispatcher_releaseManifold" 'function)) :void
+  (self :pointer)
+  (manifold :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_releaseManifold" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_clearManifold" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_clearManifold" #.(bullet-wrap::swig-lispify "btDispatcher_clearManifold" 'function)) :void
+  (self :pointer)
+  (manifold :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_clearManifold" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_needsCollision" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_needsCollision" #.(bullet-wrap::swig-lispify "btDispatcher_needsCollision" 'function)) :pointer
+  (self :pointer)
+  (body0 :pointer)
+  (body1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_needsCollision" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_needsResponse" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_needsResponse" #.(bullet-wrap::swig-lispify "btDispatcher_needsResponse" 'function)) :pointer
+  (self :pointer)
+  (body0 :pointer)
+  (body1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_needsResponse" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_dispatchAllCollisionPairs" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_dispatchAllCollisionPairs" #.(bullet-wrap::swig-lispify "btDispatcher_dispatchAllCollisionPairs" 'function)) :void
+  (self :pointer)
+  (pairCache :pointer)
+  (dispatchInfo :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_dispatchAllCollisionPairs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_getNumManifolds" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_getNumManifolds" #.(bullet-wrap::swig-lispify "btDispatcher_getNumManifolds" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_getNumManifolds" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_getManifoldByIndexInternal" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_getManifoldByIndexInternal" #.(bullet-wrap::swig-lispify "btDispatcher_getManifoldByIndexInternal" 'function)) :pointer
+  (self :pointer)
+  (index :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_getManifoldByIndexInternal" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPointer" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_getInternalManifoldPointer" #.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPointer" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPointer" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPool" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_getInternalManifoldPool__SWIG_0" #.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPool" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPool" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPool" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_getInternalManifoldPool__SWIG_1" #.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPool" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_getInternalManifoldPool" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_allocateCollisionAlgorithm" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_allocateCollisionAlgorithm" #.(bullet-wrap::swig-lispify "btDispatcher_allocateCollisionAlgorithm" 'function)) :pointer
+  (self :pointer)
+  (size :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_allocateCollisionAlgorithm" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDispatcher_freeCollisionAlgorithm" 'function)))
+
+(cffi:defcfun ("_wrap_btDispatcher_freeCollisionAlgorithm" #.(bullet-wrap::swig-lispify "btDispatcher_freeCollisionAlgorithm" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDispatcher_freeCollisionAlgorithm" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btActivatingCollisionAlgorithm" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btActivatingCollisionAlgorithm" #.(bullet-wrap::swig-lispify "delete_btActivatingCollisionAlgorithm" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btActivatingCollisionAlgorithm" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSphereSphereCollisionAlgorithm" 'function)))
 
@@ -7661,7 +12202,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_calculateTimeOfImpact" 'function)))
 
-(cffi:defcfun ("_wrap_btSphereSphereCollisionAlgorithm_calculateTimeOfImpact" #.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_calculateTimeOfImpact" 'function)) :float
+(cffi:defcfun ("_wrap_btSphereSphereCollisionAlgorithm_calculateTimeOfImpact" #.(bullet-wrap::swig-lispify "btSphereSphereCollisionAlgorithm_calculateTimeOfImpact" 'function)) :double
   (self :pointer)
   (body0 :pointer)
   (body1 :pointer)
@@ -7684,6 +12225,36 @@
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btSphereSphereCollisionAlgorithm" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btCollisionConfiguration" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btCollisionConfiguration" #.(bullet-wrap::swig-lispify "delete_btCollisionConfiguration" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btCollisionConfiguration" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionConfiguration_getPersistentManifoldPool" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionConfiguration_getPersistentManifoldPool" #.(bullet-wrap::swig-lispify "btCollisionConfiguration_getPersistentManifoldPool" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionConfiguration_getPersistentManifoldPool" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionConfiguration_getCollisionAlgorithmPool" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionConfiguration_getCollisionAlgorithmPool" #.(bullet-wrap::swig-lispify "btCollisionConfiguration_getCollisionAlgorithmPool" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionConfiguration_getCollisionAlgorithmPool" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btCollisionConfiguration_getCollisionAlgorithmCreateFunc" 'function)))
+
+(cffi:defcfun ("_wrap_btCollisionConfiguration_getCollisionAlgorithmCreateFunc" #.(bullet-wrap::swig-lispify "btCollisionConfiguration_getCollisionAlgorithmCreateFunc" 'function)) :pointer
+  (self :pointer)
+  (proxyType0 :int)
+  (proxyType1 :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btCollisionConfiguration_getCollisionAlgorithmCreateFunc" 'function))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btDefaultCollisionConstructionInfo" 'classname)
 	(#.(bullet-wrap::swig-lispify "m_persistentManifoldPool" 'slotname) :pointer)
@@ -8032,625 +12603,6 @@
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btCollisionDispatcher_getInternalManifoldPool" 'function))
-
-(cffi:defcstruct #.(bullet-wrap::swig-lispify "btSimpleBroadphaseProxy" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_nextFree" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "SetNextFree" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "GetNextFree" 'slotname) :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphaseProxy" 'classname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_nextFree" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "SetNextFree" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "GetNextFree" 'slotname))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)))
-
-(cffi:defcfun ("_wrap_new_btSimpleBroadphase__SWIG_0" #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)) :pointer
-  (maxProxies :int)
-  (overlappingPairCache :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)))
-
-(cffi:defcfun ("_wrap_new_btSimpleBroadphase__SWIG_1" #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)) :pointer
-  (maxProxies :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)))
-
-(cffi:defcfun ("_wrap_new_btSimpleBroadphase__SWIG_2" #.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function)) :pointer)
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btSimpleBroadphase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btSimpleBroadphase" 'function)))
-
-(cffi:defcfun ("_wrap_delete_btSimpleBroadphase" #.(bullet-wrap::swig-lispify "delete_btSimpleBroadphase" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_btSimpleBroadphase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbOverlap" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_aabbOverlap" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbOverlap" 'function)) :pointer
-  (proxy0 :pointer)
-  (proxy1 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbOverlap" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_createProxy" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_createProxy" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_createProxy" 'function)) :pointer
-  (self :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer)
-  (shapeType :int)
-  (userPtr :pointer)
-  (collisionFilterGroup :short)
-  (collisionFilterMask :short)
-  (dispatcher :pointer)
-  (multiSapProxy :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_createProxy" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_calculateOverlappingPairs" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_calculateOverlappingPairs" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_calculateOverlappingPairs" 'function)) :void
-  (self :pointer)
-  (dispatcher :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_calculateOverlappingPairs" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_destroyProxy" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_destroyProxy" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_destroyProxy" 'function)) :void
-  (self :pointer)
-  (proxy :pointer)
-  (dispatcher :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_destroyProxy" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_setAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_setAabb" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_setAabb" 'function)) :void
-  (self :pointer)
-  (proxy :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer)
-  (dispatcher :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_setAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_getAabb" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getAabb" 'function)) :void
-  (self :pointer)
-  (proxy :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_getAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_0" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)) :void
-  (self :pointer)
-  (rayFrom :pointer)
-  (rayTo :pointer)
-  (rayCallback :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_1" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)) :void
-  (self :pointer)
-  (rayFrom :pointer)
-  (rayTo :pointer)
-  (rayCallback :pointer)
-  (aabbMin :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_2" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function)) :void
-  (self :pointer)
-  (rayFrom :pointer)
-  (rayTo :pointer)
-  (rayCallback :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_rayTest" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbTest" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_aabbTest" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbTest" 'function)) :void
-  (self :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer)
-  (callback :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_aabbTest" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_getOverlappingPairCache__SWIG_0" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_getOverlappingPairCache__SWIG_1" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_getOverlappingPairCache" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_testAabbOverlap" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_testAabbOverlap" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_testAabbOverlap" 'function)) :pointer
-  (self :pointer)
-  (proxy0 :pointer)
-  (proxy1 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_testAabbOverlap" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getBroadphaseAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_getBroadphaseAabb" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_getBroadphaseAabb" 'function)) :void
-  (self :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_getBroadphaseAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleBroadphase_printStats" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleBroadphase_printStats" #.(bullet-wrap::swig-lispify "btSimpleBroadphase_printStats" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleBroadphase_printStats" 'function))
-
-(cl:defconstant #.(bullet-wrap::swig-lispify "USE_OVERLAP_TEST_ON_REMOVES" 'constant) 1)
-
-(cl:export '#.(bullet-wrap::swig-lispify "USE_OVERLAP_TEST_ON_REMOVES" 'constant))
-
-(cffi:defcvar ("gOverlappingPairs" #.(bullet-wrap::swig-lispify "gOverlappingPairs" 'variable))
- :int)
-
-(cl:export '#.(bullet-wrap::swig-lispify "gOverlappingPairs" 'variable))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_new_btAxisSweep3__SWIG_0" #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)) :pointer
-  (worldAabbMin :pointer)
-  (worldAabbMax :pointer)
-  (maxHandles :unsigned-short)
-  (pairCache :pointer)
-  (disableRaycastAccelerator :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_new_btAxisSweep3__SWIG_1" #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)) :pointer
-  (worldAabbMin :pointer)
-  (worldAabbMax :pointer)
-  (maxHandles :unsigned-short)
-  (pairCache :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_new_btAxisSweep3__SWIG_2" #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)) :pointer
-  (worldAabbMin :pointer)
-  (worldAabbMax :pointer)
-  (maxHandles :unsigned-short))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_new_btAxisSweep3__SWIG_3" #.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function)) :pointer
-  (worldAabbMin :pointer)
-  (worldAabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_delete_btAxisSweep3" #.(bullet-wrap::swig-lispify "delete_btAxisSweep3" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_btAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_0" #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)) :pointer
-  (worldAabbMin :pointer)
-  (worldAabbMax :pointer)
-  (maxHandles :unsigned-int)
-  (pairCache :pointer)
-  (disableRaycastAccelerator :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_1" #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)) :pointer
-  (worldAabbMin :pointer)
-  (worldAabbMax :pointer)
-  (maxHandles :unsigned-int)
-  (pairCache :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_2" #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)) :pointer
-  (worldAabbMin :pointer)
-  (worldAabbMax :pointer)
-  (maxHandles :unsigned-int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_3" #.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function)) :pointer
-  (worldAabbMin :pointer)
-  (worldAabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_bt32BitAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_bt32BitAxisSweep3" 'function)))
-
-(cffi:defcfun ("_wrap_delete_bt32BitAxisSweep3" #.(bullet-wrap::swig-lispify "delete_bt32BitAxisSweep3" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_bt32BitAxisSweep3" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseArray__SWIG_0" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseArray__SWIG_1" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseArray" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btMultiSapBroadphase" 'function)))
-
-(cffi:defcfun ("_wrap_delete_btMultiSapBroadphase" #.(bullet-wrap::swig-lispify "delete_btMultiSapBroadphase" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_btMultiSapBroadphase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_createProxy" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_createProxy" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_createProxy" 'function)) :pointer
-  (self :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer)
-  (shapeType :int)
-  (userPtr :pointer)
-  (collisionFilterGroup :short)
-  (collisionFilterMask :short)
-  (dispatcher :pointer)
-  (multiSapProxy :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_createProxy" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_destroyProxy" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_destroyProxy" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_destroyProxy" 'function)) :void
-  (self :pointer)
-  (proxy :pointer)
-  (dispatcher :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_destroyProxy" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_setAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_setAabb" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_setAabb" 'function)) :void
-  (self :pointer)
-  (proxy :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer)
-  (dispatcher :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_setAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_getAabb" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getAabb" 'function)) :void
-  (self :pointer)
-  (proxy :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_0" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)) :void
-  (self :pointer)
-  (rayFrom :pointer)
-  (rayTo :pointer)
-  (rayCallback :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_1" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)) :void
-  (self :pointer)
-  (rayFrom :pointer)
-  (rayTo :pointer)
-  (rayCallback :pointer)
-  (aabbMin :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_2" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function)) :void
-  (self :pointer)
-  (rayFrom :pointer)
-  (rayTo :pointer)
-  (rayCallback :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_rayTest" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_addToChildBroadphase" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_addToChildBroadphase" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_addToChildBroadphase" 'function)) :void
-  (self :pointer)
-  (parentMultiSapProxy :pointer)
-  (childProxy :pointer)
-  (childBroadphase :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_addToChildBroadphase" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_calculateOverlappingPairs" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_calculateOverlappingPairs" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_calculateOverlappingPairs" 'function)) :void
-  (self :pointer)
-  (dispatcher :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_calculateOverlappingPairs" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_testAabbOverlap" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_testAabbOverlap" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_testAabbOverlap" 'function)) :pointer
-  (self :pointer)
-  (proxy0 :pointer)
-  (proxy1 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_testAabbOverlap" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_getOverlappingPairCache__SWIG_0" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_getOverlappingPairCache__SWIG_1" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getOverlappingPairCache" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseAabb" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseAabb" 'function)) :void
-  (self :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_getBroadphaseAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_buildTree" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_buildTree" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_buildTree" 'function)) :void
-  (self :pointer)
-  (bvhAabbMin :pointer)
-  (bvhAabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_buildTree" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_printStats" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_printStats" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_printStats" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_printStats" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_quicksort" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_quicksort" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_quicksort" 'function)) :void
-  (self :pointer)
-  (a :pointer)
-  (lo :int)
-  (hi :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_quicksort" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_resetPool" 'function)))
-
-(cffi:defcfun ("_wrap_btMultiSapBroadphase_resetPool" #.(bullet-wrap::swig-lispify "btMultiSapBroadphase_resetPool" 'function)) :void
-  (self :pointer)
-  (dispatcher :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btMultiSapBroadphase_resetPool" 'function))
-
-(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_BP_PROFILE" 'constant) 0)
-
-(cl:export '#.(bullet-wrap::swig-lispify "DBVT_BP_PROFILE" 'constant))
-
-(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_BP_PREVENTFALSEUPDATE" 'constant) 0)
-
-(cl:export '#.(bullet-wrap::swig-lispify "DBVT_BP_PREVENTFALSEUPDATE" 'constant))
-
-(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_BP_ACCURATESLEEPING" 'constant) 0)
-
-(cl:export '#.(bullet-wrap::swig-lispify "DBVT_BP_ACCURATESLEEPING" 'constant))
-
-(cl:defconstant #.(bullet-wrap::swig-lispify "DBVT_BP_ENABLE_BENCHMARK" 'constant) 0)
-
-(cl:export '#.(bullet-wrap::swig-lispify "DBVT_BP_ENABLE_BENCHMARK" 'constant))
-
-(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDbvtProxy" 'classname)
-	(#.(bullet-wrap::swig-lispify "leaf" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "links" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "stage" 'slotname) :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDbvtProxy" 'classname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "leaf" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "links" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "stage" 'slotname))
-
-(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDbvtBroadphase" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_sets" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_stageRoots" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_paircache" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_prediction" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_stageCurrent" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_fupdates" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_dupdates" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_cupdates" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_newpairs" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_fixedleft" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_updates_call" 'slotname) :unsigned-int)
-	(#.(bullet-wrap::swig-lispify "m_updates_done" 'slotname) :unsigned-int)
-	(#.(bullet-wrap::swig-lispify "m_updates_ratio" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_pid" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_cid" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_gid" 'slotname) :int)
-	(#.(bullet-wrap::swig-lispify "m_releasepaircache" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_deferedcollide" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "m_needcleanup" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "collide" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "optimize" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "createProxy" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "destroyProxy" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "setAabb" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "rayTest" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "rayTest" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "rayTest" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "aabbTest" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "getAabb" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "calculateOverlappingPairs" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "getOverlappingPairCache" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "getOverlappingPairCache" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "getBroadphaseAabb" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "printStats" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "resetPool" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "performDeferredRemoval" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "setVelocityPrediction" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "getVelocityPrediction" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "setAabbForceUpdate" 'slotname) :pointer)
-	(#.(bullet-wrap::swig-lispify "benchmark" 'slotname) :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDbvtBroadphase" 'classname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_sets" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_stageRoots" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_paircache" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_prediction" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_stageCurrent" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_fupdates" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_dupdates" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_cupdates" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_newpairs" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_fixedleft" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_updates_call" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_updates_done" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_updates_ratio" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_pid" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_cid" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_gid" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_releasepaircache" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_deferedcollide" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_needcleanup" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "collide" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "optimize" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "createProxy" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "destroyProxy" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "setAabb" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "rayTest" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "rayTest" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "rayTest" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "aabbTest" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "getAabb" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "calculateOverlappingPairs" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "getOverlappingPairCache" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "getOverlappingPairCache" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "getBroadphaseAabb" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "printStats" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "resetPool" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "performDeferredRemoval" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "setVelocityPrediction" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "getVelocityPrediction" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "setAabbForceUpdate" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "benchmark" 'slotname))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btDefaultMotionState" 'classname)
 	(#.(bullet-wrap::swig-lispify "m_graphicsWorldTrans" 'slotname) :pointer)
@@ -9123,7 +13075,7 @@
 
 (cffi:defcfun ("_wrap_btIDebugDraw_drawSphere__SWIG_0" #.(bullet-wrap::swig-lispify "btIDebugDraw_drawSphere" 'function)) :void
   (self :pointer)
-  (radius :float)
+  (radius :double)
   (transform :pointer)
   (color :pointer))
 
@@ -9134,7 +13086,7 @@
 (cffi:defcfun ("_wrap_btIDebugDraw_drawSphere__SWIG_1" #.(bullet-wrap::swig-lispify "btIDebugDraw_drawSphere" 'function)) :void
   (self :pointer)
   (p :pointer)
-  (radius :float)
+  (radius :double)
   (color :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIDebugDraw_drawSphere" 'function))
@@ -9150,7 +13102,7 @@
   (arg5 :pointer)
   (arg6 :pointer)
   (color :pointer)
-  (alpha :float))
+  (alpha :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIDebugDraw_drawTriangle" 'function))
 
@@ -9162,7 +13114,7 @@
   (v1 :pointer)
   (v2 :pointer)
   (color :pointer)
-  (arg5 :float))
+  (arg5 :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIDebugDraw_drawTriangle" 'function))
 
@@ -9172,7 +13124,7 @@
   (self :pointer)
   (PointOnB :pointer)
   (normalOnB :pointer)
-  (distance :float)
+  (distance :double)
   (lifeTime :int)
   (color :pointer))
 
@@ -9225,7 +13177,7 @@
 (cffi:defcfun ("_wrap_btIDebugDraw_drawTransform" #.(bullet-wrap::swig-lispify "btIDebugDraw_drawTransform" 'function)) :void
   (self :pointer)
   (transform :pointer)
-  (orthoLen :float))
+  (orthoLen :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIDebugDraw_drawTransform" 'function))
 
@@ -9236,13 +13188,13 @@
   (center :pointer)
   (normal :pointer)
   (axis :pointer)
-  (radiusA :float)
-  (radiusB :float)
-  (minAngle :float)
-  (maxAngle :float)
+  (radiusA :double)
+  (radiusB :double)
+  (minAngle :double)
+  (maxAngle :double)
   (color :pointer)
   (drawSect :pointer)
-  (stepDegrees :float))
+  (stepDegrees :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIDebugDraw_drawArc" 'function))
 
@@ -9253,10 +13205,10 @@
   (center :pointer)
   (normal :pointer)
   (axis :pointer)
-  (radiusA :float)
-  (radiusB :float)
-  (minAngle :float)
-  (maxAngle :float)
+  (radiusA :double)
+  (radiusB :double)
+  (minAngle :double)
+  (maxAngle :double)
   (color :pointer)
   (drawSect :pointer))
 
@@ -9269,13 +13221,13 @@
   (center :pointer)
   (up :pointer)
   (axis :pointer)
-  (radius :float)
-  (minTh :float)
-  (maxTh :float)
-  (minPs :float)
-  (maxPs :float)
+  (radius :double)
+  (minTh :double)
+  (maxTh :double)
+  (minPs :double)
+  (maxPs :double)
   (color :pointer)
-  (stepDegrees :float)
+  (stepDegrees :double)
   (drawCenter :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIDebugDraw_drawSpherePatch" 'function))
@@ -9287,13 +13239,13 @@
   (center :pointer)
   (up :pointer)
   (axis :pointer)
-  (radius :float)
-  (minTh :float)
-  (maxTh :float)
-  (minPs :float)
-  (maxPs :float)
+  (radius :double)
+  (minTh :double)
+  (maxTh :double)
+  (minPs :double)
+  (maxPs :double)
   (color :pointer)
-  (stepDegrees :float))
+  (stepDegrees :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIDebugDraw_drawSpherePatch" 'function))
 
@@ -9304,11 +13256,11 @@
   (center :pointer)
   (up :pointer)
   (axis :pointer)
-  (radius :float)
-  (minTh :float)
-  (maxTh :float)
-  (minPs :float)
-  (maxPs :float)
+  (radius :double)
+  (minTh :double)
+  (maxTh :double)
+  (minPs :double)
+  (maxPs :double)
   (color :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btIDebugDraw_drawSpherePatch" 'function))
@@ -9338,8 +13290,8 @@
 
 (cffi:defcfun ("_wrap_btIDebugDraw_drawCapsule" #.(bullet-wrap::swig-lispify "btIDebugDraw_drawCapsule" 'function)) :void
   (self :pointer)
-  (radius :float)
-  (halfHeight :float)
+  (radius :double)
+  (halfHeight :double)
   (upAxis :int)
   (transform :pointer)
   (color :pointer))
@@ -9350,8 +13302,8 @@
 
 (cffi:defcfun ("_wrap_btIDebugDraw_drawCylinder" #.(bullet-wrap::swig-lispify "btIDebugDraw_drawCylinder" 'function)) :void
   (self :pointer)
-  (radius :float)
-  (halfHeight :float)
+  (radius :double)
+  (halfHeight :double)
   (upAxis :int)
   (transform :pointer)
   (color :pointer))
@@ -9362,8 +13314,8 @@
 
 (cffi:defcfun ("_wrap_btIDebugDraw_drawCone" #.(bullet-wrap::swig-lispify "btIDebugDraw_drawCone" 'function)) :void
   (self :pointer)
-  (radius :float)
-  (height :float)
+  (radius :double)
+  (height :double)
   (upAxis :int)
   (transform :pointer)
   (color :pointer))
@@ -9375,7 +13327,7 @@
 (cffi:defcfun ("_wrap_btIDebugDraw_drawPlane" #.(bullet-wrap::swig-lispify "btIDebugDraw_drawPlane" 'function)) :void
   (self :pointer)
   (planeNormal :pointer)
-  (planeConst :float)
+  (planeConst :double)
   (transform :pointer)
   (color :pointer))
 
@@ -9754,1370 +13706,232 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "btDefaultSerializer_setSerializationFlags" 'function))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function)))
+(cffi:defcenum #.(bullet-wrap::swig-lispify "btSolverMode" 'enumname)
+	(#.(bullet-wrap::swig-lispify "SOLVER_RANDMIZE_ORDER" 'enumvalue :keyword) #.1)
+	(#.(bullet-wrap::swig-lispify "SOLVER_FRICTION_SEPARATE" 'enumvalue :keyword) #.2)
+	(#.(bullet-wrap::swig-lispify "SOLVER_USE_WARMSTARTING" 'enumvalue :keyword) #.4)
+	(#.(bullet-wrap::swig-lispify "SOLVER_USE_2_FRICTION_DIRECTIONS" 'enumvalue :keyword) #.16)
+	(#.(bullet-wrap::swig-lispify "SOLVER_ENABLE_FRICTION_DIRECTION_CACHING" 'enumvalue :keyword) #.32)
+	(#.(bullet-wrap::swig-lispify "SOLVER_DISABLE_VELOCITY_DEPENDENT_FRICTION_DIRECTION" 'enumvalue :keyword) #.64)
+	(#.(bullet-wrap::swig-lispify "SOLVER_CACHE_FRIENDLY" 'enumvalue :keyword) #.128)
+	(#.(bullet-wrap::swig-lispify "SOLVER_SIMD" 'enumvalue :keyword) #.256)
+	(#.(bullet-wrap::swig-lispify "SOLVER_INTERLEAVE_CONTACT_AND_FRICTION_CONSTRAINTS" 'enumvalue :keyword) #.512)
+	(#.(bullet-wrap::swig-lispify "SOLVER_ALLOW_ZERO_LENGTH_FRICTION_DIRECTIONS" 'enumvalue :keyword) #.1024))
 
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function)) :pointer
-  (self :pointer)
-  (sizeInBytes :pointer))
+(cl:export '#.(bullet-wrap::swig-lispify "btSolverMode" 'enumname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function))
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btContactSolverInfoData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_tau" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_damping" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_friction" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_timeStep" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_restitution" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_numIterations" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_maxErrorReduction" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_sor" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_erp" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_erp2" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_globalCfm" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulse" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulsePenetrationThreshold" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulseTurnErp" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_linearSlop" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_warmstartingFactor" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_solverMode" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_restingContactRestitutionThreshold" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_minimumSolverBatchSize" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_maxGyroscopicForce" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_singleAxisRollingFrictionThreshold" 'slotname) :double))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function)))
+(cl:export '#.(bullet-wrap::swig-lispify "btContactSolverInfoData" 'classname))
 
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function)) :void
-  (self :pointer)
-  (ptr :pointer))
+(cl:export '#.(bullet-wrap::swig-lispify "m_tau" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function))
+(cl:export '#.(bullet-wrap::swig-lispify "m_damping" 'slotname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function)))
+(cl:export '#.(bullet-wrap::swig-lispify "m_friction" 'slotname))
 
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function)) :pointer
-  (self :pointer)
-  (arg1 :pointer)
-  (ptr :pointer))
+(cl:export '#.(bullet-wrap::swig-lispify "m_timeStep" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function))
+(cl:export '#.(bullet-wrap::swig-lispify "m_restitution" 'slotname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function)))
+(cl:export '#.(bullet-wrap::swig-lispify "m_numIterations" 'slotname))
 
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function)) :void
-  (self :pointer)
-  (arg1 :pointer)
-  (arg2 :pointer))
+(cl:export '#.(bullet-wrap::swig-lispify "m_maxErrorReduction" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function))
+(cl:export '#.(bullet-wrap::swig-lispify "m_sor" 'slotname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function)))
+(cl:export '#.(bullet-wrap::swig-lispify "m_erp" 'slotname))
 
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function)) :pointer
-  (self :pointer)
-  (sizeInBytes :pointer))
+(cl:export '#.(bullet-wrap::swig-lispify "m_erp2" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function))
+(cl:export '#.(bullet-wrap::swig-lispify "m_globalCfm" 'slotname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function)))
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulse" 'slotname))
 
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function)) :void
-  (self :pointer)
-  (ptr :pointer))
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulsePenetrationThreshold" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function))
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulseTurnErp" 'slotname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function)))
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearSlop" 'slotname))
 
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function)) :pointer
-  (self :pointer)
-  (arg1 :pointer)
-  (ptr :pointer))
+(cl:export '#.(bullet-wrap::swig-lispify "m_warmstartingFactor" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function))
+(cl:export '#.(bullet-wrap::swig-lispify "m_solverMode" 'slotname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function)))
+(cl:export '#.(bullet-wrap::swig-lispify "m_restingContactRestitutionThreshold" 'slotname))
 
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function)) :void
-  (self :pointer)
-  (arg1 :pointer)
-  (arg2 :pointer))
+(cl:export '#.(bullet-wrap::swig-lispify "m_minimumSolverBatchSize" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function))
+(cl:export '#.(bullet-wrap::swig-lispify "m_maxGyroscopicForce" 'slotname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btDiscreteDynamicsWorld" 'function)))
+(cl:export '#.(bullet-wrap::swig-lispify "m_singleAxisRollingFrictionThreshold" 'slotname))
 
-(cffi:defcfun ("_wrap_new_btDiscreteDynamicsWorld" #.(bullet-wrap::swig-lispify "new_btDiscreteDynamicsWorld" 'function)) :pointer
-  (dispatcher :pointer)
-  (pairCache :pointer)
-  (constraintSolver :pointer)
-  (collisionConfiguration :pointer))
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btContactSolverInfo" 'classname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "new_btDiscreteDynamicsWorld" 'function))
+(cl:export '#.(bullet-wrap::swig-lispify "btContactSolverInfo" 'classname))
 
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btDiscreteDynamicsWorld" 'function)))
-
-(cffi:defcfun ("_wrap_delete_btDiscreteDynamicsWorld" #.(bullet-wrap::swig-lispify "delete_btDiscreteDynamicsWorld" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_btDiscreteDynamicsWorld" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)) :int
-  (self :pointer)
-  (timeStep :float)
-  (maxSubSteps :int)
-  (fixedTimeStep :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)) :int
-  (self :pointer)
-  (timeStep :float)
-  (maxSubSteps :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_2" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)) :int
-  (self :pointer)
-  (timeStep :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeMotionStates" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_synchronizeMotionStates" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeMotionStates" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeMotionStates" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeSingleMotionState" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_synchronizeSingleMotionState" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeSingleMotionState" 'function)) :void
-  (self :pointer)
-  (body :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeSingleMotionState" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addConstraint__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function)) :void
-  (self :pointer)
-  (constraint :pointer)
-  (disableCollisionsBetweenLinkedBodies :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addConstraint__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function)) :void
-  (self :pointer)
-  (constraint :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeConstraint" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeConstraint" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeConstraint" 'function)) :void
-  (self :pointer)
-  (constraint :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeConstraint" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addAction" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addAction" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addAction" 'function)) :void
-  (self :pointer)
-  (arg1 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addAction" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeAction" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeAction" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeAction" 'function)) :void
-  (self :pointer)
-  (arg1 :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeAction" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getSimulationIslandManager__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getSimulationIslandManager__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getCollisionWorld" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getCollisionWorld" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getCollisionWorld" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getCollisionWorld" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setGravity" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setGravity" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setGravity" 'function)) :void
-  (self :pointer)
-  (gravity :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setGravity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getGravity" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getGravity" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getGravity" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getGravity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)) :void
-  (self :pointer)
-  (collisionObject :pointer)
-  (collisionFilterGroup :short)
-  (collisionFilterMask :short))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)) :void
-  (self :pointer)
-  (collisionObject :pointer)
-  (collisionFilterGroup :short))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_2" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)) :void
-  (self :pointer)
-  (collisionObject :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addRigidBody__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function)) :void
-  (self :pointer)
-  (body :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addRigidBody__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function)) :void
-  (self :pointer)
-  (body :pointer)
-  (group :short)
-  (mask :short))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeRigidBody" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeRigidBody" 'function)) :void
-  (self :pointer)
-  (body :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCollisionObject" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeCollisionObject" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCollisionObject" 'function)) :void
-  (self :pointer)
-  (collisionObject :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCollisionObject" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawConstraint" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_debugDrawConstraint" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawConstraint" 'function)) :void
-  (self :pointer)
-  (constraint :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawConstraint" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawWorld" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_debugDrawWorld" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawWorld" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawWorld" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setConstraintSolver" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setConstraintSolver" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setConstraintSolver" 'function)) :void
-  (self :pointer)
-  (solver :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setConstraintSolver" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraintSolver" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraintSolver" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraintSolver" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraintSolver" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getNumConstraints" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getNumConstraints" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getNumConstraints" 'function)) :int
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getNumConstraints" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraint__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function)) :pointer
-  (self :pointer)
-  (index :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraint__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function)) :pointer
-  (self :pointer)
-  (index :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getWorldType" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getWorldType" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getWorldType" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getWorldType" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_clearForces" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_clearForces" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_clearForces" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_clearForces" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_applyGravity" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_applyGravity" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_applyGravity" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_applyGravity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setNumTasks" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setNumTasks" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setNumTasks" 'function)) :void
-  (self :pointer)
-  (numTasks :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setNumTasks" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_updateVehicles" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_updateVehicles" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_updateVehicles" 'function)) :void
-  (self :pointer)
-  (timeStep :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_updateVehicles" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addVehicle" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addVehicle" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addVehicle" 'function)) :void
-  (self :pointer)
-  (vehicle :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addVehicle" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeVehicle" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeVehicle" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeVehicle" 'function)) :void
-  (self :pointer)
-  (vehicle :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeVehicle" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCharacter" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addCharacter" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCharacter" 'function)) :void
-  (self :pointer)
-  (character :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCharacter" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCharacter" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeCharacter" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCharacter" 'function)) :void
-  (self :pointer)
-  (character :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCharacter" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" 'function)) :void
-  (self :pointer)
-  (synchronizeAll :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" 'function)) :void
-  (self :pointer)
-  (enable :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_serialize" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_serialize" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_serialize" 'function)) :void
-  (self :pointer)
-  (serializer :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_serialize" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" 'function)) :void
-  (self :pointer)
-  (latencyInterpolation :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" 'function)))
-
-(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSimpleDynamicsWorld" 'function)))
-
-(cffi:defcfun ("_wrap_new_btSimpleDynamicsWorld" #.(bullet-wrap::swig-lispify "new_btSimpleDynamicsWorld" 'function)) :pointer
-  (dispatcher :pointer)
-  (pairCache :pointer)
-  (constraintSolver :pointer)
-  (collisionConfiguration :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btSimpleDynamicsWorld" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btSimpleDynamicsWorld" 'function)))
-
-(cffi:defcfun ("_wrap_delete_btSimpleDynamicsWorld" #.(bullet-wrap::swig-lispify "delete_btSimpleDynamicsWorld" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_btSimpleDynamicsWorld" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_stepSimulation__SWIG_0" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)) :int
-  (self :pointer)
-  (timeStep :float)
-  (maxSubSteps :int)
-  (fixedTimeStep :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_stepSimulation__SWIG_1" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)) :int
-  (self :pointer)
-  (timeStep :float)
-  (maxSubSteps :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_stepSimulation__SWIG_2" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)) :int
-  (self :pointer)
-  (timeStep :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setGravity" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_setGravity" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setGravity" 'function)) :void
-  (self :pointer)
-  (gravity :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setGravity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getGravity" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_getGravity" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getGravity" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getGravity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_addRigidBody__SWIG_0" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function)) :void
-  (self :pointer)
-  (body :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_addRigidBody__SWIG_1" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function)) :void
-  (self :pointer)
-  (body :pointer)
-  (group :short)
-  (mask :short))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_removeRigidBody" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeRigidBody" 'function)) :void
-  (self :pointer)
-  (body :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_debugDrawWorld" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_debugDrawWorld" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_debugDrawWorld" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_debugDrawWorld" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addAction" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_addAction" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addAction" 'function)) :void
-  (self :pointer)
-  (action :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addAction" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeAction" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_removeAction" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeAction" 'function)) :void
-  (self :pointer)
-  (action :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeAction" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeCollisionObject" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_removeCollisionObject" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeCollisionObject" 'function)) :void
-  (self :pointer)
-  (collisionObject :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeCollisionObject" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_updateAabbs" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_updateAabbs" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_updateAabbs" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_updateAabbs" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_synchronizeMotionStates" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_synchronizeMotionStates" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_synchronizeMotionStates" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_synchronizeMotionStates" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setConstraintSolver" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_setConstraintSolver" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setConstraintSolver" 'function)) :void
-  (self :pointer)
-  (solver :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setConstraintSolver" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getConstraintSolver" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_getConstraintSolver" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getConstraintSolver" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getConstraintSolver" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getWorldType" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_getWorldType" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getWorldType" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getWorldType" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_clearForces" 'function)))
-
-(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_clearForces" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_clearForces" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_clearForces" 'function))
-
-(cffi:defcvar ("gDeactivationTime" #.(bullet-wrap::swig-lispify "gDeactivationTime" 'variable))
- :float)
-
-(cl:export '#.(bullet-wrap::swig-lispify "gDeactivationTime" 'variable))
-
-(cffi:defcvar ("gDisableDeactivation" #.(bullet-wrap::swig-lispify "gDisableDeactivation" 'variable))
- :pointer)
-
-(cl:export '#.(bullet-wrap::swig-lispify "gDisableDeactivation" 'variable))
-
-(cl:defconstant #.(bullet-wrap::swig-lispify "btRigidBodyDataName" 'constant) "btRigidBodyFloatData")
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBodyDataName" 'constant))
-
-(cffi:defcenum #.(bullet-wrap::swig-lispify "btRigidBodyFlags" 'enumname)
-	(#.(bullet-wrap::swig-lispify "BT_DISABLE_WORLD_GRAVITY" 'enumvalue :keyword) #.1)
-	(#.(bullet-wrap::swig-lispify "BT_ENABLE_GYROPSCOPIC_FORCE" 'enumvalue :keyword) #.2))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBodyFlags" 'enumname))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_0" #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)) :pointer
-  (constructionInfo :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_1" #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)) :pointer
-  (mass :float)
-  (motionState :pointer)
-  (collisionShape :pointer)
-  (localInertia :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_2" #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)) :pointer
-  (mass :float)
-  (motionState :pointer)
-  (collisionShape :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btRigidBody" 'function)))
-
-(cffi:defcfun ("_wrap_delete_btRigidBody" #.(bullet-wrap::swig-lispify "delete_btRigidBody" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "delete_btRigidBody" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_proceedToTransform" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_proceedToTransform" #.(bullet-wrap::swig-lispify "btRigidBody_proceedToTransform" 'function)) :void
-  (self :pointer)
-  (newTrans :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_proceedToTransform" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_upcast__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function)) :pointer
-  (colObj :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_upcast__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function)) :pointer
-  (colObj :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_predictIntegratedTransform" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_predictIntegratedTransform" #.(bullet-wrap::swig-lispify "btRigidBody_predictIntegratedTransform" 'function)) :void
-  (self :pointer)
-  (step :float)
-  (predictedTransform :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_predictIntegratedTransform" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_saveKinematicState" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_saveKinematicState" #.(bullet-wrap::swig-lispify "btRigidBody_saveKinematicState" 'function)) :void
-  (self :pointer)
-  (step :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_saveKinematicState" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyGravity" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_applyGravity" #.(bullet-wrap::swig-lispify "btRigidBody_applyGravity" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyGravity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setGravity" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setGravity" #.(bullet-wrap::swig-lispify "btRigidBody_setGravity" 'function)) :void
-  (self :pointer)
-  (acceleration :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setGravity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getGravity" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getGravity" #.(bullet-wrap::swig-lispify "btRigidBody_getGravity" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getGravity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setDamping" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setDamping" #.(bullet-wrap::swig-lispify "btRigidBody_setDamping" 'function)) :void
-  (self :pointer)
-  (lin_damping :float)
-  (ang_damping :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setDamping" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getLinearDamping" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getLinearDamping" #.(bullet-wrap::swig-lispify "btRigidBody_getLinearDamping" 'function)) :float
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getLinearDamping" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAngularDamping" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getAngularDamping" #.(bullet-wrap::swig-lispify "btRigidBody_getAngularDamping" 'function)) :float
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAngularDamping" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getLinearSleepingThreshold" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getLinearSleepingThreshold" #.(bullet-wrap::swig-lispify "btRigidBody_getLinearSleepingThreshold" 'function)) :float
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getLinearSleepingThreshold" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAngularSleepingThreshold" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getAngularSleepingThreshold" #.(bullet-wrap::swig-lispify "btRigidBody_getAngularSleepingThreshold" 'function)) :float
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAngularSleepingThreshold" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyDamping" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_applyDamping" #.(bullet-wrap::swig-lispify "btRigidBody_applyDamping" 'function)) :void
-  (self :pointer)
-  (timeStep :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyDamping" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getCollisionShape__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getCollisionShape__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setMassProps" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setMassProps" #.(bullet-wrap::swig-lispify "btRigidBody_setMassProps" 'function)) :void
-  (self :pointer)
-  (mass :float)
-  (inertia :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setMassProps" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getLinearFactor" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getLinearFactor" #.(bullet-wrap::swig-lispify "btRigidBody_getLinearFactor" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getLinearFactor" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setLinearFactor" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setLinearFactor" #.(bullet-wrap::swig-lispify "btRigidBody_setLinearFactor" 'function)) :void
-  (self :pointer)
-  (linearFactor :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setLinearFactor" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getInvMass" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getInvMass" #.(bullet-wrap::swig-lispify "btRigidBody_getInvMass" 'function)) :float
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getInvMass" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaTensorWorld" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getInvInertiaTensorWorld" #.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaTensorWorld" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaTensorWorld" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_integrateVelocities" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_integrateVelocities" #.(bullet-wrap::swig-lispify "btRigidBody_integrateVelocities" 'function)) :void
-  (self :pointer)
-  (step :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_integrateVelocities" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setCenterOfMassTransform" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setCenterOfMassTransform" #.(bullet-wrap::swig-lispify "btRigidBody_setCenterOfMassTransform" 'function)) :void
-  (self :pointer)
-  (xform :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setCenterOfMassTransform" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyCentralForce" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_applyCentralForce" #.(bullet-wrap::swig-lispify "btRigidBody_applyCentralForce" 'function)) :void
-  (self :pointer)
-  (force :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyCentralForce" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getTotalForce" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getTotalForce" #.(bullet-wrap::swig-lispify "btRigidBody_getTotalForce" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getTotalForce" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getTotalTorque" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getTotalTorque" #.(bullet-wrap::swig-lispify "btRigidBody_getTotalTorque" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getTotalTorque" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaDiagLocal" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getInvInertiaDiagLocal" #.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaDiagLocal" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaDiagLocal" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setInvInertiaDiagLocal" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setInvInertiaDiagLocal" #.(bullet-wrap::swig-lispify "btRigidBody_setInvInertiaDiagLocal" 'function)) :void
-  (self :pointer)
-  (diagInvInertia :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setInvInertiaDiagLocal" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setSleepingThresholds" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setSleepingThresholds" #.(bullet-wrap::swig-lispify "btRigidBody_setSleepingThresholds" 'function)) :void
-  (self :pointer)
-  (linear :float)
-  (angular :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setSleepingThresholds" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyTorque" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_applyTorque" #.(bullet-wrap::swig-lispify "btRigidBody_applyTorque" 'function)) :void
-  (self :pointer)
-  (torque :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyTorque" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyForce" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_applyForce" #.(bullet-wrap::swig-lispify "btRigidBody_applyForce" 'function)) :void
-  (self :pointer)
-  (force :pointer)
-  (rel_pos :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyForce" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyCentralImpulse" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_applyCentralImpulse" #.(bullet-wrap::swig-lispify "btRigidBody_applyCentralImpulse" 'function)) :void
-  (self :pointer)
-  (impulse :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyCentralImpulse" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyTorqueImpulse" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_applyTorqueImpulse" #.(bullet-wrap::swig-lispify "btRigidBody_applyTorqueImpulse" 'function)) :void
-  (self :pointer)
-  (torque :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyTorqueImpulse" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyImpulse" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_applyImpulse" #.(bullet-wrap::swig-lispify "btRigidBody_applyImpulse" 'function)) :void
-  (self :pointer)
-  (impulse :pointer)
-  (rel_pos :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyImpulse" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_clearForces" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_clearForces" #.(bullet-wrap::swig-lispify "btRigidBody_clearForces" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_clearForces" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_updateInertiaTensor" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_updateInertiaTensor" #.(bullet-wrap::swig-lispify "btRigidBody_updateInertiaTensor" 'function)) :void
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_updateInertiaTensor" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassPosition" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getCenterOfMassPosition" #.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassPosition" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassPosition" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getOrientation" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getOrientation" #.(bullet-wrap::swig-lispify "btRigidBody_getOrientation" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getOrientation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassTransform" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getCenterOfMassTransform" #.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassTransform" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassTransform" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getLinearVelocity" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getLinearVelocity" #.(bullet-wrap::swig-lispify "btRigidBody_getLinearVelocity" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getLinearVelocity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAngularVelocity" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getAngularVelocity" #.(bullet-wrap::swig-lispify "btRigidBody_getAngularVelocity" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAngularVelocity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setLinearVelocity" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setLinearVelocity" #.(bullet-wrap::swig-lispify "btRigidBody_setLinearVelocity" 'function)) :void
-  (self :pointer)
-  (lin_vel :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setLinearVelocity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setAngularVelocity" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setAngularVelocity" #.(bullet-wrap::swig-lispify "btRigidBody_setAngularVelocity" 'function)) :void
-  (self :pointer)
-  (ang_vel :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setAngularVelocity" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getVelocityInLocalPoint" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getVelocityInLocalPoint" #.(bullet-wrap::swig-lispify "btRigidBody_getVelocityInLocalPoint" 'function)) :pointer
-  (self :pointer)
-  (rel_pos :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getVelocityInLocalPoint" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_translate" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_translate" #.(bullet-wrap::swig-lispify "btRigidBody_translate" 'function)) :void
-  (self :pointer)
-  (v :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_translate" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAabb" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getAabb" #.(bullet-wrap::swig-lispify "btRigidBody_getAabb" 'function)) :void
-  (self :pointer)
-  (aabbMin :pointer)
-  (aabbMax :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAabb" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_computeImpulseDenominator" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_computeImpulseDenominator" #.(bullet-wrap::swig-lispify "btRigidBody_computeImpulseDenominator" 'function)) :float
-  (self :pointer)
-  (pos :pointer)
-  (normal :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_computeImpulseDenominator" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_computeAngularImpulseDenominator" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_computeAngularImpulseDenominator" #.(bullet-wrap::swig-lispify "btRigidBody_computeAngularImpulseDenominator" 'function)) :float
-  (self :pointer)
-  (axis :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_computeAngularImpulseDenominator" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_updateDeactivation" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_updateDeactivation" #.(bullet-wrap::swig-lispify "btRigidBody_updateDeactivation" 'function)) :void
-  (self :pointer)
-  (timeStep :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_updateDeactivation" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_wantsSleeping" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_wantsSleeping" #.(bullet-wrap::swig-lispify "btRigidBody_wantsSleeping" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_wantsSleeping" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getBroadphaseProxy__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getBroadphaseProxy__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setNewBroadphaseProxy" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setNewBroadphaseProxy" #.(bullet-wrap::swig-lispify "btRigidBody_setNewBroadphaseProxy" 'function)) :void
-  (self :pointer)
-  (broadphaseProxy :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setNewBroadphaseProxy" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getMotionState__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getMotionState__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setMotionState" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setMotionState" #.(bullet-wrap::swig-lispify "btRigidBody_setMotionState" 'function)) :void
-  (self :pointer)
-  (motionState :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setMotionState" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_set" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_m_contactSolverType_set" #.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_set" 'function)) :void
-  (self :pointer)
-  (m_contactSolverType :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_set" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_get" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_m_contactSolverType_get" #.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_get" 'function)) :int
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_get" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_set" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_m_frictionSolverType_set" #.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_set" 'function)) :void
-  (self :pointer)
-  (m_frictionSolverType :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_set" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_get" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_m_frictionSolverType_get" #.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_get" 'function)) :int
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_get" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setAngularFactor__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function)) :void
-  (self :pointer)
-  (angFac :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setAngularFactor__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function)) :void
-  (self :pointer)
-  (angFac :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAngularFactor" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getAngularFactor" #.(bullet-wrap::swig-lispify "btRigidBody_getAngularFactor" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAngularFactor" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_isInWorld" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_isInWorld" #.(bullet-wrap::swig-lispify "btRigidBody_isInWorld" 'function)) :pointer
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_isInWorld" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_checkCollideWithOverride" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_checkCollideWithOverride" #.(bullet-wrap::swig-lispify "btRigidBody_checkCollideWithOverride" 'function)) :pointer
-  (self :pointer)
-  (co :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_checkCollideWithOverride" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_addConstraintRef" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_addConstraintRef" #.(bullet-wrap::swig-lispify "btRigidBody_addConstraintRef" 'function)) :void
-  (self :pointer)
-  (c :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_addConstraintRef" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_removeConstraintRef" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_removeConstraintRef" #.(bullet-wrap::swig-lispify "btRigidBody_removeConstraintRef" 'function)) :void
-  (self :pointer)
-  (c :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_removeConstraintRef" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getConstraintRef" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getConstraintRef" #.(bullet-wrap::swig-lispify "btRigidBody_getConstraintRef" 'function)) :pointer
-  (self :pointer)
-  (index :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getConstraintRef" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getNumConstraintRefs" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getNumConstraintRefs" #.(bullet-wrap::swig-lispify "btRigidBody_getNumConstraintRefs" 'function)) :int
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getNumConstraintRefs" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setFlags" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_setFlags" #.(bullet-wrap::swig-lispify "btRigidBody_setFlags" 'function)) :void
-  (self :pointer)
-  (flags :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setFlags" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getFlags" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_getFlags" #.(bullet-wrap::swig-lispify "btRigidBody_getFlags" 'function)) :int
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getFlags" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_computeGyroscopicForce" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_computeGyroscopicForce" #.(bullet-wrap::swig-lispify "btRigidBody_computeGyroscopicForce" 'function)) :pointer
-  (self :pointer)
-  (maxGyroscopicForce :float))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_computeGyroscopicForce" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_calculateSerializeBufferSize" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_calculateSerializeBufferSize" #.(bullet-wrap::swig-lispify "btRigidBody_calculateSerializeBufferSize" 'function)) :int
-  (self :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_calculateSerializeBufferSize" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_serialize" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_serialize" #.(bullet-wrap::swig-lispify "btRigidBody_serialize" 'function)) :string
-  (self :pointer)
-  (dataBuffer :pointer)
-  (serializer :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_serialize" 'function))
-
-(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_serializeSingleObject" 'function)))
-
-(cffi:defcfun ("_wrap_btRigidBody_serializeSingleObject" #.(bullet-wrap::swig-lispify "btRigidBody_serializeSingleObject" 'function)) :void
-  (self :pointer)
-  (serializer :pointer))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_serializeSingleObject" 'function))
-
-(cffi:defcstruct #.(bullet-wrap::swig-lispify "btRigidBodyFloatData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_collisionObjectData" 'slotname) #.(bullet-wrap::swig-lispify "btCollisionObjectFloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_invInertiaTensorWorld" 'slotname) #.(bullet-wrap::swig-lispify "btMatrix3x3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_linearVelocity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_angularVelocity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_angularFactor" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_linearFactor" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_gravity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_gravity_acceleration" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_invInertiaLocal" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_totalForce" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_totalTorque" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_inverseMass" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_linearDamping" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_angularDamping" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_additionalDampingFactor" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_additionalLinearDampingThresholdSqr" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_additionalAngularDampingThresholdSqr" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_additionalAngularDampingFactor" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_linearSleepingThreshold" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_angularSleepingThreshold" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_additionalDamping" 'slotname) :int))
-
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBodyFloatData" 'classname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_collisionObjectData" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_invInertiaTensorWorld" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_linearVelocity" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_angularVelocity" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_angularFactor" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_linearFactor" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_gravity" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_gravity_acceleration" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_invInertiaLocal" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_totalForce" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_totalTorque" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_inverseMass" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_linearDamping" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_angularDamping" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalDampingFactor" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalLinearDampingThresholdSqr" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalAngularDampingThresholdSqr" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalAngularDampingFactor" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_linearSleepingThreshold" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_angularSleepingThreshold" 'slotname))
-
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalDamping" 'slotname))
-
-(cffi:defcstruct #.(bullet-wrap::swig-lispify "btRigidBodyDoubleData" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_collisionObjectData" 'slotname) #.(bullet-wrap::swig-lispify "btCollisionObjectDoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_invInertiaTensorWorld" 'slotname) #.(bullet-wrap::swig-lispify "btMatrix3x3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_linearVelocity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_angularVelocity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_angularFactor" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_linearFactor" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_gravity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_gravity_acceleration" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_invInertiaLocal" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_totalForce" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_totalTorque" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
-	(#.(bullet-wrap::swig-lispify "m_inverseMass" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_linearDamping" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_angularDamping" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_additionalDampingFactor" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_additionalLinearDampingThresholdSqr" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_additionalAngularDampingThresholdSqr" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_additionalAngularDampingFactor" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_linearSleepingThreshold" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_angularSleepingThreshold" 'slotname) :double)
-	(#.(bullet-wrap::swig-lispify "m_additionalDamping" 'slotname) :int)
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btContactSolverInfoDoubleData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_tau" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_damping" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_friction" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_timeStep" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_restitution" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_maxErrorReduction" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_sor" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_erp" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_erp2" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_globalCfm" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulsePenetrationThreshold" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulseTurnErp" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_linearSlop" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_warmstartingFactor" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_maxGyroscopicForce" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_singleAxisRollingFrictionThreshold" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_numIterations" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_solverMode" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_restingContactRestitutionThreshold" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_minimumSolverBatchSize" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulse" 'slotname) :int)
 	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
 
-(cl:export '#.(bullet-wrap::swig-lispify "btRigidBodyDoubleData" 'classname))
+(cl:export '#.(bullet-wrap::swig-lispify "btContactSolverInfoDoubleData" 'classname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_collisionObjectData" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_tau" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_invInertiaTensorWorld" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_damping" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_linearVelocity" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_friction" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_angularVelocity" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_timeStep" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_angularFactor" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_restitution" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_linearFactor" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_maxErrorReduction" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_gravity" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_sor" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_gravity_acceleration" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_erp" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_invInertiaLocal" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_erp2" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_totalForce" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_globalCfm" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_totalTorque" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulsePenetrationThreshold" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_inverseMass" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulseTurnErp" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_linearDamping" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearSlop" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_angularDamping" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_warmstartingFactor" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalDampingFactor" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_maxGyroscopicForce" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalLinearDampingThresholdSqr" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_singleAxisRollingFrictionThreshold" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalAngularDampingThresholdSqr" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_numIterations" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalAngularDampingFactor" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_solverMode" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_linearSleepingThreshold" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_restingContactRestitutionThreshold" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_angularSleepingThreshold" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_minimumSolverBatchSize" 'slotname))
 
-(cl:export '#.(bullet-wrap::swig-lispify "m_additionalDamping" 'slotname))
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulse" 'slotname))
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_padding" 'slotname))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btTypedConstraintDataName" 'constant) "btTypedConstraintFloatData")
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btContactSolverInfoFloatData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_tau" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_damping" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_friction" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_timeStep" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_restitution" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_maxErrorReduction" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_sor" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_erp" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_erp2" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_globalCfm" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulsePenetrationThreshold" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulseTurnErp" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_linearSlop" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_warmstartingFactor" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_maxGyroscopicForce" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_singleAxisRollingFrictionThreshold" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_numIterations" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_solverMode" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_restingContactRestitutionThreshold" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_minimumSolverBatchSize" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_splitImpulse" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btContactSolverInfoFloatData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_tau" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_damping" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_friction" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_timeStep" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_restitution" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_maxErrorReduction" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_sor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_erp" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_erp2" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_globalCfm" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulsePenetrationThreshold" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulseTurnErp" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearSlop" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_warmstartingFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_maxGyroscopicForce" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_singleAxisRollingFrictionThreshold" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_numIterations" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_solverMode" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_restingContactRestitutionThreshold" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_minimumSolverBatchSize" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_splitImpulse" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_padding" 'slotname))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "btTypedConstraintDataName" 'constant) "btTypedConstraintDoubleData")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraintDataName" 'constant))
 
@@ -11269,7 +14083,7 @@
   (ca :pointer)
   (solverBodyA :int)
   (solverBodyB :int)
-  (timeStep :float))
+  (timeStep :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_setupSolverConstraint" 'function))
 
@@ -11293,20 +14107,20 @@
 
 (cffi:defcfun ("_wrap_btTypedConstraint_internalSetAppliedImpulse" #.(bullet-wrap::swig-lispify "btTypedConstraint_internalSetAppliedImpulse" 'function)) :void
   (self :pointer)
-  (appliedImpulse :float))
+  (appliedImpulse :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_internalSetAppliedImpulse" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTypedConstraint_internalGetAppliedImpulse" 'function)))
 
-(cffi:defcfun ("_wrap_btTypedConstraint_internalGetAppliedImpulse" #.(bullet-wrap::swig-lispify "btTypedConstraint_internalGetAppliedImpulse" 'function)) :float
+(cffi:defcfun ("_wrap_btTypedConstraint_internalGetAppliedImpulse" #.(bullet-wrap::swig-lispify "btTypedConstraint_internalGetAppliedImpulse" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_internalGetAppliedImpulse" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTypedConstraint_getBreakingImpulseThreshold" 'function)))
 
-(cffi:defcfun ("_wrap_btTypedConstraint_getBreakingImpulseThreshold" #.(bullet-wrap::swig-lispify "btTypedConstraint_getBreakingImpulseThreshold" 'function)) :float
+(cffi:defcfun ("_wrap_btTypedConstraint_getBreakingImpulseThreshold" #.(bullet-wrap::swig-lispify "btTypedConstraint_getBreakingImpulseThreshold" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_getBreakingImpulseThreshold" 'function))
@@ -11315,7 +14129,7 @@
 
 (cffi:defcfun ("_wrap_btTypedConstraint_setBreakingImpulseThreshold" #.(bullet-wrap::swig-lispify "btTypedConstraint_setBreakingImpulseThreshold" 'function)) :void
   (self :pointer)
-  (threshold :float))
+  (threshold :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_setBreakingImpulseThreshold" 'function))
 
@@ -11340,7 +14154,7 @@
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer)
-  (arg3 :float))
+  (arg3 :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_solveConstraintObsolete" 'function))
 
@@ -11463,7 +14277,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTypedConstraint_getAppliedImpulse" 'function)))
 
-(cffi:defcfun ("_wrap_btTypedConstraint_getAppliedImpulse" #.(bullet-wrap::swig-lispify "btTypedConstraint_getAppliedImpulse" 'function)) :float
+(cffi:defcfun ("_wrap_btTypedConstraint_getAppliedImpulse" #.(bullet-wrap::swig-lispify "btTypedConstraint_getAppliedImpulse" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_getAppliedImpulse" 'function))
@@ -11479,13 +14293,13 @@
 
 (cffi:defcfun ("_wrap_btTypedConstraint_setDbgDrawSize" #.(bullet-wrap::swig-lispify "btTypedConstraint_setDbgDrawSize" 'function)) :void
   (self :pointer)
-  (dbgDrawSize :float))
+  (dbgDrawSize :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_setDbgDrawSize" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTypedConstraint_getDbgDrawSize" 'function)))
 
-(cffi:defcfun ("_wrap_btTypedConstraint_getDbgDrawSize" #.(bullet-wrap::swig-lispify "btTypedConstraint_getDbgDrawSize" 'function)) :float
+(cffi:defcfun ("_wrap_btTypedConstraint_getDbgDrawSize" #.(bullet-wrap::swig-lispify "btTypedConstraint_getDbgDrawSize" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_getDbgDrawSize" 'function))
@@ -11495,7 +14309,7 @@
 (cffi:defcfun ("_wrap_btTypedConstraint_setParam__SWIG_0" #.(bullet-wrap::swig-lispify "btTypedConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float)
+  (value :double)
   (axis :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_setParam" 'function))
@@ -11505,13 +14319,13 @@
 (cffi:defcfun ("_wrap_btTypedConstraint_setParam__SWIG_1" #.(bullet-wrap::swig-lispify "btTypedConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float))
+  (value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTypedConstraint_setParam" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTypedConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btTypedConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btTypedConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btTypedConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btTypedConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int)
   (axis :int))
@@ -11520,7 +14334,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTypedConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btTypedConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btTypedConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btTypedConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btTypedConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int))
 
@@ -11544,10 +14358,10 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAdjustAngleToLimits" 'function)))
 
-(cffi:defcfun ("_wrap_btAdjustAngleToLimits" #.(bullet-wrap::swig-lispify "btAdjustAngleToLimits" 'function)) :float
-  (angleInRadians :float)
-  (angleLowerLimitInRadians :float)
-  (angleUpperLimitInRadians :float))
+(cffi:defcfun ("_wrap_btAdjustAngleToLimits" #.(bullet-wrap::swig-lispify "btAdjustAngleToLimits" 'function)) :double
+  (angleInRadians :double)
+  (angleLowerLimitInRadians :double)
+  (angleUpperLimitInRadians :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAdjustAngleToLimits" 'function))
 
@@ -11693,11 +14507,11 @@
 
 (cffi:defcfun ("_wrap_btAngularLimit_set__SWIG_0" #.(bullet-wrap::swig-lispify "btAngularLimit_set" 'function)) :void
   (self :pointer)
-  (low :float)
-  (high :float)
-  (_softness :float)
-  (_biasFactor :float)
-  (_relaxationFactor :float))
+  (low :double)
+  (high :double)
+  (_softness :double)
+  (_biasFactor :double)
+  (_relaxationFactor :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_set" 'function))
 
@@ -11705,10 +14519,10 @@
 
 (cffi:defcfun ("_wrap_btAngularLimit_set__SWIG_1" #.(bullet-wrap::swig-lispify "btAngularLimit_set" 'function)) :void
   (self :pointer)
-  (low :float)
-  (high :float)
-  (_softness :float)
-  (_biasFactor :float))
+  (low :double)
+  (high :double)
+  (_softness :double)
+  (_biasFactor :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_set" 'function))
 
@@ -11716,9 +14530,9 @@
 
 (cffi:defcfun ("_wrap_btAngularLimit_set__SWIG_2" #.(bullet-wrap::swig-lispify "btAngularLimit_set" 'function)) :void
   (self :pointer)
-  (low :float)
-  (high :float)
-  (_softness :float))
+  (low :double)
+  (high :double)
+  (_softness :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_set" 'function))
 
@@ -11726,8 +14540,8 @@
 
 (cffi:defcfun ("_wrap_btAngularLimit_set__SWIG_3" #.(bullet-wrap::swig-lispify "btAngularLimit_set" 'function)) :void
   (self :pointer)
-  (low :float)
-  (high :float))
+  (low :double)
+  (high :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_set" 'function))
 
@@ -11735,48 +14549,48 @@
 
 (cffi:defcfun ("_wrap_btAngularLimit_test" #.(bullet-wrap::swig-lispify "btAngularLimit_test" 'function)) :void
   (self :pointer)
-  (angle :float))
+  (angle :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_test" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getSoftness" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getSoftness" #.(bullet-wrap::swig-lispify "btAngularLimit_getSoftness" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getSoftness" #.(bullet-wrap::swig-lispify "btAngularLimit_getSoftness" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getSoftness" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getBiasFactor" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getBiasFactor" #.(bullet-wrap::swig-lispify "btAngularLimit_getBiasFactor" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getBiasFactor" #.(bullet-wrap::swig-lispify "btAngularLimit_getBiasFactor" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getBiasFactor" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getRelaxationFactor" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getRelaxationFactor" #.(bullet-wrap::swig-lispify "btAngularLimit_getRelaxationFactor" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getRelaxationFactor" #.(bullet-wrap::swig-lispify "btAngularLimit_getRelaxationFactor" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getRelaxationFactor" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getCorrection" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getCorrection" #.(bullet-wrap::swig-lispify "btAngularLimit_getCorrection" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getCorrection" #.(bullet-wrap::swig-lispify "btAngularLimit_getCorrection" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getCorrection" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getSign" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getSign" #.(bullet-wrap::swig-lispify "btAngularLimit_getSign" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getSign" #.(bullet-wrap::swig-lispify "btAngularLimit_getSign" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getSign" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getHalfRange" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getHalfRange" #.(bullet-wrap::swig-lispify "btAngularLimit_getHalfRange" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getHalfRange" #.(bullet-wrap::swig-lispify "btAngularLimit_getHalfRange" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getHalfRange" 'function))
@@ -11798,21 +14612,21 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getError" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getError" #.(bullet-wrap::swig-lispify "btAngularLimit_getError" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getError" #.(bullet-wrap::swig-lispify "btAngularLimit_getError" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getError" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getLow" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getLow" #.(bullet-wrap::swig-lispify "btAngularLimit_getLow" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getLow" #.(bullet-wrap::swig-lispify "btAngularLimit_getLow" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getLow" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btAngularLimit_getHigh" 'function)))
 
-(cffi:defcfun ("_wrap_btAngularLimit_getHigh" #.(bullet-wrap::swig-lispify "btAngularLimit_getHigh" 'function)) :float
+(cffi:defcfun ("_wrap_btAngularLimit_getHigh" #.(bullet-wrap::swig-lispify "btAngularLimit_getHigh" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btAngularLimit_getHigh" 'function))
@@ -11824,14 +14638,14 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btAngularLimit" 'function))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btPoint2PointConstraintDataName" 'constant) "btPoint2PointConstraintFloatData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btPoint2PointConstraintDataName" 'constant) "btPoint2PointConstraintDoubleData2")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btPoint2PointConstraintDataName" 'constant))
 
 (cffi:defcstruct #.(bullet-wrap::swig-lispify "btConstraintSetting" 'classname)
-	(#.(bullet-wrap::swig-lispify "m_tau" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_damping" 'slotname) :float)
-	(#.(bullet-wrap::swig-lispify "m_impulseClamp" 'slotname) :float))
+	(#.(bullet-wrap::swig-lispify "m_tau" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_damping" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_impulseClamp" 'slotname) :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConstraintSetting" 'classname))
 
@@ -12008,7 +14822,7 @@
 
 (cffi:defcfun ("_wrap_btPoint2PointConstraint_updateRHS" #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_updateRHS" 'function)) :void
   (self :pointer)
-  (timeStep :float))
+  (timeStep :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btPoint2PointConstraint_updateRHS" 'function))
 
@@ -12047,7 +14861,7 @@
 (cffi:defcfun ("_wrap_btPoint2PointConstraint_setParam__SWIG_0" #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float)
+  (value :double)
   (axis :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btPoint2PointConstraint_setParam" 'function))
@@ -12057,13 +14871,13 @@
 (cffi:defcfun ("_wrap_btPoint2PointConstraint_setParam__SWIG_1" #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float))
+  (value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btPoint2PointConstraint_setParam" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btPoint2PointConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btPoint2PointConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int)
   (axis :int))
@@ -12072,7 +14886,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btPoint2PointConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btPoint2PointConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btPoint2PointConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int))
 
@@ -12144,7 +14958,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "_BT_USE_CENTER_LIMIT_" 'constant))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btHingeConstraintDataName" 'constant) "btHingeConstraintFloatData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btHingeConstraintDataName" 'constant) "btHingeConstraintDoubleData2")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraintDataName" 'constant))
 
@@ -12376,7 +15190,7 @@
 
 (cffi:defcfun ("_wrap_btHingeConstraint_updateRHS" #.(bullet-wrap::swig-lispify "btHingeConstraint_updateRHS" 'function)) :void
   (self :pointer)
-  (timeStep :float))
+  (timeStep :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_updateRHS" 'function))
 
@@ -12444,8 +15258,8 @@
 (cffi:defcfun ("_wrap_btHingeConstraint_enableAngularMotor" #.(bullet-wrap::swig-lispify "btHingeConstraint_enableAngularMotor" 'function)) :void
   (self :pointer)
   (enableMotor :pointer)
-  (targetVelocity :float)
-  (maxMotorImpulse :float))
+  (targetVelocity :double)
+  (maxMotorImpulse :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_enableAngularMotor" 'function))
 
@@ -12461,7 +15275,7 @@
 
 (cffi:defcfun ("_wrap_btHingeConstraint_setMaxMotorImpulse" #.(bullet-wrap::swig-lispify "btHingeConstraint_setMaxMotorImpulse" 'function)) :void
   (self :pointer)
-  (maxMotorImpulse :float))
+  (maxMotorImpulse :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setMaxMotorImpulse" 'function))
 
@@ -12470,7 +15284,7 @@
 (cffi:defcfun ("_wrap_btHingeConstraint_setMotorTarget__SWIG_0" #.(bullet-wrap::swig-lispify "btHingeConstraint_setMotorTarget" 'function)) :void
   (self :pointer)
   (qAinB :pointer)
-  (dt :float))
+  (dt :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setMotorTarget" 'function))
 
@@ -12478,8 +15292,8 @@
 
 (cffi:defcfun ("_wrap_btHingeConstraint_setMotorTarget__SWIG_1" #.(bullet-wrap::swig-lispify "btHingeConstraint_setMotorTarget" 'function)) :void
   (self :pointer)
-  (targetAngle :float)
-  (dt :float))
+  (targetAngle :double)
+  (dt :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setMotorTarget" 'function))
 
@@ -12487,11 +15301,11 @@
 
 (cffi:defcfun ("_wrap_btHingeConstraint_setLimit__SWIG_0" #.(bullet-wrap::swig-lispify "btHingeConstraint_setLimit" 'function)) :void
   (self :pointer)
-  (low :float)
-  (high :float)
-  (_softness :float)
-  (_biasFactor :float)
-  (_relaxationFactor :float))
+  (low :double)
+  (high :double)
+  (_softness :double)
+  (_biasFactor :double)
+  (_relaxationFactor :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setLimit" 'function))
 
@@ -12499,10 +15313,10 @@
 
 (cffi:defcfun ("_wrap_btHingeConstraint_setLimit__SWIG_1" #.(bullet-wrap::swig-lispify "btHingeConstraint_setLimit" 'function)) :void
   (self :pointer)
-  (low :float)
-  (high :float)
-  (_softness :float)
-  (_biasFactor :float))
+  (low :double)
+  (high :double)
+  (_softness :double)
+  (_biasFactor :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setLimit" 'function))
 
@@ -12510,9 +15324,9 @@
 
 (cffi:defcfun ("_wrap_btHingeConstraint_setLimit__SWIG_2" #.(bullet-wrap::swig-lispify "btHingeConstraint_setLimit" 'function)) :void
   (self :pointer)
-  (low :float)
-  (high :float)
-  (_softness :float))
+  (low :double)
+  (high :double)
+  (_softness :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setLimit" 'function))
 
@@ -12520,8 +15334,8 @@
 
 (cffi:defcfun ("_wrap_btHingeConstraint_setLimit__SWIG_3" #.(bullet-wrap::swig-lispify "btHingeConstraint_setLimit" 'function)) :void
   (self :pointer)
-  (low :float)
-  (high :float))
+  (low :double)
+  (high :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setLimit" 'function))
 
@@ -12535,28 +15349,28 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getLowerLimit" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getLowerLimit" #.(bullet-wrap::swig-lispify "btHingeConstraint_getLowerLimit" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getLowerLimit" #.(bullet-wrap::swig-lispify "btHingeConstraint_getLowerLimit" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_getLowerLimit" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getUpperLimit" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getUpperLimit" #.(bullet-wrap::swig-lispify "btHingeConstraint_getUpperLimit" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getUpperLimit" #.(bullet-wrap::swig-lispify "btHingeConstraint_getUpperLimit" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_getUpperLimit" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getHingeAngle" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getHingeAngle__SWIG_0" #.(bullet-wrap::swig-lispify "btHingeConstraint_getHingeAngle" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getHingeAngle__SWIG_0" #.(bullet-wrap::swig-lispify "btHingeConstraint_getHingeAngle" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_getHingeAngle" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getHingeAngle" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getHingeAngle__SWIG_1" #.(bullet-wrap::swig-lispify "btHingeConstraint_getHingeAngle" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getHingeAngle__SWIG_1" #.(bullet-wrap::swig-lispify "btHingeConstraint_getHingeAngle" 'function)) :double
   (self :pointer)
   (transA :pointer)
   (transB :pointer))
@@ -12609,7 +15423,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getLimitSign" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getLimitSign" #.(bullet-wrap::swig-lispify "btHingeConstraint_getLimitSign" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getLimitSign" #.(bullet-wrap::swig-lispify "btHingeConstraint_getLimitSign" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_getLimitSign" 'function))
@@ -12630,14 +15444,14 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getMotorTargetVelosity" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getMotorTargetVelosity" #.(bullet-wrap::swig-lispify "btHingeConstraint_getMotorTargetVelosity" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getMotorTargetVelosity" #.(bullet-wrap::swig-lispify "btHingeConstraint_getMotorTargetVelosity" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_getMotorTargetVelosity" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getMaxMotorImpulse" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getMaxMotorImpulse" #.(bullet-wrap::swig-lispify "btHingeConstraint_getMaxMotorImpulse" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getMaxMotorImpulse" #.(bullet-wrap::swig-lispify "btHingeConstraint_getMaxMotorImpulse" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_getMaxMotorImpulse" 'function))
@@ -12662,7 +15476,7 @@
 (cffi:defcfun ("_wrap_btHingeConstraint_setParam__SWIG_0" #.(bullet-wrap::swig-lispify "btHingeConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float)
+  (value :double)
   (axis :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setParam" 'function))
@@ -12672,13 +15486,13 @@
 (cffi:defcfun ("_wrap_btHingeConstraint_setParam__SWIG_1" #.(bullet-wrap::swig-lispify "btHingeConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float))
+  (value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHingeConstraint_setParam" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btHingeConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btHingeConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int)
   (axis :int))
@@ -12687,7 +15501,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHingeConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btHingeConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btHingeConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btHingeConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btHingeConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int))
 
@@ -12848,7 +15662,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_padding1" 'slotname))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btConeTwistConstraintDataName" 'constant) "btConeTwistConstraintData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btConeTwistConstraintDataName" 'constant) "btConeTwistConstraintDoubleData")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraintDataName" 'constant))
 
@@ -12994,7 +15808,7 @@
   (self :pointer)
   (bodyA :pointer)
   (bodyB :pointer)
-  (timeStep :float))
+  (timeStep :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_solveConstraintObsolete" 'function))
 
@@ -13002,7 +15816,7 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_updateRHS" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_updateRHS" 'function)) :void
   (self :pointer)
-  (timeStep :float))
+  (timeStep :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_updateRHS" 'function))
 
@@ -13033,7 +15847,7 @@
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setLimit__SWIG_0" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function)) :void
   (self :pointer)
   (limitIndex :int)
-  (limitValue :float))
+  (limitValue :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function))
 
@@ -13041,12 +15855,12 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setLimit__SWIG_1" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function)) :void
   (self :pointer)
-  (_swingSpan1 :float)
-  (_swingSpan2 :float)
-  (_twistSpan :float)
-  (_softness :float)
-  (_biasFactor :float)
-  (_relaxationFactor :float))
+  (_swingSpan1 :double)
+  (_swingSpan2 :double)
+  (_twistSpan :double)
+  (_softness :double)
+  (_biasFactor :double)
+  (_relaxationFactor :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function))
 
@@ -13054,11 +15868,11 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setLimit__SWIG_2" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function)) :void
   (self :pointer)
-  (_swingSpan1 :float)
-  (_swingSpan2 :float)
-  (_twistSpan :float)
-  (_softness :float)
-  (_biasFactor :float))
+  (_swingSpan1 :double)
+  (_swingSpan2 :double)
+  (_twistSpan :double)
+  (_softness :double)
+  (_biasFactor :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function))
 
@@ -13066,10 +15880,10 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setLimit__SWIG_3" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function)) :void
   (self :pointer)
-  (_swingSpan1 :float)
-  (_swingSpan2 :float)
-  (_twistSpan :float)
-  (_softness :float))
+  (_swingSpan1 :double)
+  (_swingSpan2 :double)
+  (_twistSpan :double)
+  (_softness :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function))
 
@@ -13077,9 +15891,9 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setLimit__SWIG_4" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function)) :void
   (self :pointer)
-  (_swingSpan1 :float)
-  (_swingSpan2 :float)
-  (_twistSpan :float))
+  (_swingSpan1 :double)
+  (_swingSpan2 :double)
+  (_twistSpan :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setLimit" 'function))
 
@@ -13113,7 +15927,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistLimitSign" 'function)))
 
-(cffi:defcfun ("_wrap_btConeTwistConstraint_getTwistLimitSign" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistLimitSign" 'function)) :float
+(cffi:defcfun ("_wrap_btConeTwistConstraint_getTwistLimitSign" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistLimitSign" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistLimitSign" 'function))
@@ -13138,28 +15952,28 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getSwingSpan1" 'function)))
 
-(cffi:defcfun ("_wrap_btConeTwistConstraint_getSwingSpan1" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getSwingSpan1" 'function)) :float
+(cffi:defcfun ("_wrap_btConeTwistConstraint_getSwingSpan1" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getSwingSpan1" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_getSwingSpan1" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getSwingSpan2" 'function)))
 
-(cffi:defcfun ("_wrap_btConeTwistConstraint_getSwingSpan2" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getSwingSpan2" 'function)) :float
+(cffi:defcfun ("_wrap_btConeTwistConstraint_getSwingSpan2" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getSwingSpan2" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_getSwingSpan2" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistSpan" 'function)))
 
-(cffi:defcfun ("_wrap_btConeTwistConstraint_getTwistSpan" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistSpan" 'function)) :float
+(cffi:defcfun ("_wrap_btConeTwistConstraint_getTwistSpan" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistSpan" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistSpan" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistAngle" 'function)))
 
-(cffi:defcfun ("_wrap_btConeTwistConstraint_getTwistAngle" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistAngle" 'function)) :float
+(cffi:defcfun ("_wrap_btConeTwistConstraint_getTwistAngle" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistAngle" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_getTwistAngle" 'function))
@@ -13175,7 +15989,7 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setDamping" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setDamping" 'function)) :void
   (self :pointer)
-  (damping :float))
+  (damping :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setDamping" 'function))
 
@@ -13191,7 +16005,7 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setMaxMotorImpulse" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setMaxMotorImpulse" 'function)) :void
   (self :pointer)
-  (maxMotorImpulse :float))
+  (maxMotorImpulse :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setMaxMotorImpulse" 'function))
 
@@ -13199,13 +16013,13 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setMaxMotorImpulseNormalized" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setMaxMotorImpulseNormalized" 'function)) :void
   (self :pointer)
-  (maxMotorImpulse :float))
+  (maxMotorImpulse :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setMaxMotorImpulseNormalized" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getFixThresh" 'function)))
 
-(cffi:defcfun ("_wrap_btConeTwistConstraint_getFixThresh" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getFixThresh" 'function)) :float
+(cffi:defcfun ("_wrap_btConeTwistConstraint_getFixThresh" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getFixThresh" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_getFixThresh" 'function))
@@ -13214,7 +16028,7 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setFixThresh" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setFixThresh" 'function)) :void
   (self :pointer)
-  (fixThresh :float))
+  (fixThresh :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setFixThresh" 'function))
 
@@ -13238,8 +16052,8 @@
 
 (cffi:defcfun ("_wrap_btConeTwistConstraint_GetPointForAngle" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_GetPointForAngle" 'function)) :pointer
   (self :pointer)
-  (fAngleInRadians :float)
-  (fLength :float))
+  (fAngleInRadians :double)
+  (fLength :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_GetPointForAngle" 'function))
 
@@ -13248,7 +16062,7 @@
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setParam__SWIG_0" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float)
+  (value :double)
   (axis :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setParam" 'function))
@@ -13258,7 +16072,7 @@
 (cffi:defcfun ("_wrap_btConeTwistConstraint_setParam__SWIG_1" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float))
+  (value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btConeTwistConstraint_setParam" 'function))
 
@@ -13287,7 +16101,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btConeTwistConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btConeTwistConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int)
   (axis :int))
@@ -13296,7 +16110,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btConeTwistConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btConeTwistConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btConeTwistConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int))
 
@@ -13396,7 +16210,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_pad" 'slotname))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btGeneric6DofConstraintDataName" 'constant) "btGeneric6DofConstraintData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btGeneric6DofConstraintDataName" 'constant) "btGeneric6DofConstraintDoubleData2")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofConstraintDataName" 'constant))
 
@@ -13404,13 +16218,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_loLimit_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_loLimit_set" 'function)) :void
   (self :pointer)
-  (m_loLimit :float))
+  (m_loLimit :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_loLimit_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_loLimit_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_loLimit_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_loLimit_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_loLimit_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_loLimit_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_loLimit_get" 'function))
@@ -13419,13 +16233,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_hiLimit_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_hiLimit_set" 'function)) :void
   (self :pointer)
-  (m_hiLimit :float))
+  (m_hiLimit :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_hiLimit_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_hiLimit_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_hiLimit_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_hiLimit_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_hiLimit_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_hiLimit_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_hiLimit_get" 'function))
@@ -13434,13 +16248,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_targetVelocity_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_targetVelocity_set" 'function)) :void
   (self :pointer)
-  (m_targetVelocity :float))
+  (m_targetVelocity :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_targetVelocity_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_targetVelocity_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_targetVelocity_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_targetVelocity_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_targetVelocity_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_targetVelocity_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_targetVelocity_get" 'function))
@@ -13449,13 +16263,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_maxMotorForce_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxMotorForce_set" 'function)) :void
   (self :pointer)
-  (m_maxMotorForce :float))
+  (m_maxMotorForce :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxMotorForce_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxMotorForce_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_maxMotorForce_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxMotorForce_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_maxMotorForce_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxMotorForce_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxMotorForce_get" 'function))
@@ -13464,13 +16278,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_maxLimitForce_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxLimitForce_set" 'function)) :void
   (self :pointer)
-  (m_maxLimitForce :float))
+  (m_maxLimitForce :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxLimitForce_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxLimitForce_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_maxLimitForce_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxLimitForce_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_maxLimitForce_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxLimitForce_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_maxLimitForce_get" 'function))
@@ -13479,13 +16293,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_damping_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_damping_set" 'function)) :void
   (self :pointer)
-  (m_damping :float))
+  (m_damping :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_damping_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_damping_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_damping_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_damping_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_damping_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_damping_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_damping_get" 'function))
@@ -13494,13 +16308,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_limitSoftness_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_limitSoftness_set" 'function)) :void
   (self :pointer)
-  (m_limitSoftness :float))
+  (m_limitSoftness :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_limitSoftness_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_limitSoftness_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_limitSoftness_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_limitSoftness_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_limitSoftness_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_limitSoftness_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_limitSoftness_get" 'function))
@@ -13509,13 +16323,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_normalCFM_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_normalCFM_set" 'function)) :void
   (self :pointer)
-  (m_normalCFM :float))
+  (m_normalCFM :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_normalCFM_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_normalCFM_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_normalCFM_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_normalCFM_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_normalCFM_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_normalCFM_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_normalCFM_get" 'function))
@@ -13524,13 +16338,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_stopERP_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopERP_set" 'function)) :void
   (self :pointer)
-  (m_stopERP :float))
+  (m_stopERP :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopERP_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopERP_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_stopERP_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopERP_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_stopERP_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopERP_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopERP_get" 'function))
@@ -13539,13 +16353,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_stopCFM_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopCFM_set" 'function)) :void
   (self :pointer)
-  (m_stopCFM :float))
+  (m_stopCFM :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopCFM_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopCFM_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_stopCFM_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopCFM_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_stopCFM_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopCFM_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_stopCFM_get" 'function))
@@ -13554,13 +16368,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_bounce_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_bounce_set" 'function)) :void
   (self :pointer)
-  (m_bounce :float))
+  (m_bounce :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_bounce_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_bounce_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_bounce_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_bounce_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_bounce_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_bounce_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_bounce_get" 'function))
@@ -13584,13 +16398,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_currentLimitError_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentLimitError_set" 'function)) :void
   (self :pointer)
-  (m_currentLimitError :float))
+  (m_currentLimitError :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentLimitError_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentLimitError_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_currentLimitError_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentLimitError_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_currentLimitError_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentLimitError_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentLimitError_get" 'function))
@@ -13599,13 +16413,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_currentPosition_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentPosition_set" 'function)) :void
   (self :pointer)
-  (m_currentPosition :float))
+  (m_currentPosition :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentPosition_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentPosition_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_currentPosition_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentPosition_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_currentPosition_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentPosition_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_currentPosition_get" 'function))
@@ -13629,13 +16443,13 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_m_accumulatedImpulse_set" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_accumulatedImpulse_set" 'function)) :void
   (self :pointer)
-  (m_accumulatedImpulse :float))
+  (m_accumulatedImpulse :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_accumulatedImpulse_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_accumulatedImpulse_get" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_accumulatedImpulse_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_accumulatedImpulse_get" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_m_accumulatedImpulse_get" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_accumulatedImpulse_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_m_accumulatedImpulse_get" 'function))
@@ -13671,17 +16485,17 @@
 
 (cffi:defcfun ("_wrap_btRotationalLimitMotor_testLimitValue" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_testLimitValue" 'function)) :int
   (self :pointer)
-  (test_value :float))
+  (test_value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btRotationalLimitMotor_testLimitValue" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_solveAngularLimits" 'function)))
 
-(cffi:defcfun ("_wrap_btRotationalLimitMotor_solveAngularLimits" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_solveAngularLimits" 'function)) :float
+(cffi:defcfun ("_wrap_btRotationalLimitMotor_solveAngularLimits" #.(bullet-wrap::swig-lispify "btRotationalLimitMotor_solveAngularLimits" 'function)) :double
   (self :pointer)
-  (timeStep :float)
+  (timeStep :double)
   (axis :pointer)
-  (jacDiagABInv :float)
+  (jacDiagABInv :double)
   (body0 :pointer)
   (body1 :pointer))
 
@@ -13743,13 +16557,13 @@
 
 (cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_limitSoftness_set" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_limitSoftness_set" 'function)) :void
   (self :pointer)
-  (m_limitSoftness :float))
+  (m_limitSoftness :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_limitSoftness_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_limitSoftness_get" 'function)))
 
-(cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_limitSoftness_get" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_limitSoftness_get" 'function)) :float
+(cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_limitSoftness_get" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_limitSoftness_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_limitSoftness_get" 'function))
@@ -13758,13 +16572,13 @@
 
 (cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_damping_set" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_damping_set" 'function)) :void
   (self :pointer)
-  (m_damping :float))
+  (m_damping :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_damping_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_damping_get" 'function)))
 
-(cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_damping_get" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_damping_get" 'function)) :float
+(cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_damping_get" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_damping_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_damping_get" 'function))
@@ -13773,13 +16587,13 @@
 
 (cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_restitution_set" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_restitution_set" 'function)) :void
   (self :pointer)
-  (m_restitution :float))
+  (m_restitution :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_restitution_set" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_restitution_get" 'function)))
 
-(cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_restitution_get" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_restitution_get" 'function)) :float
+(cffi:defcfun ("_wrap_btTranslationalLimitMotor_m_restitution_get" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_restitution_get" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_m_restitution_get" 'function))
@@ -13953,16 +16767,16 @@
 (cffi:defcfun ("_wrap_btTranslationalLimitMotor_testLimitValue" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_testLimitValue" 'function)) :int
   (self :pointer)
   (limitIndex :int)
-  (test_value :float))
+  (test_value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_testLimitValue" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_solveLinearAxis" 'function)))
 
-(cffi:defcfun ("_wrap_btTranslationalLimitMotor_solveLinearAxis" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_solveLinearAxis" 'function)) :float
+(cffi:defcfun ("_wrap_btTranslationalLimitMotor_solveLinearAxis" #.(bullet-wrap::swig-lispify "btTranslationalLimitMotor_solveLinearAxis" 'function)) :double
   (self :pointer)
-  (timeStep :float)
-  (jacDiagABInv :float)
+  (timeStep :double)
+  (jacDiagABInv :double)
   (body1 :pointer)
   (pointInA :pointer)
   (body2 :pointer)
@@ -14201,7 +17015,7 @@
 
 (cffi:defcfun ("_wrap_btGeneric6DofConstraint_updateRHS" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_updateRHS" 'function)) :void
   (self :pointer)
-  (timeStep :float))
+  (timeStep :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_updateRHS" 'function))
 
@@ -14215,7 +17029,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getAngle" 'function)))
 
-(cffi:defcfun ("_wrap_btGeneric6DofConstraint_getAngle" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getAngle" 'function)) :float
+(cffi:defcfun ("_wrap_btGeneric6DofConstraint_getAngle" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getAngle" 'function)) :double
   (self :pointer)
   (axis_index :int))
 
@@ -14223,7 +17037,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getRelativePivotPosition" 'function)))
 
-(cffi:defcfun ("_wrap_btGeneric6DofConstraint_getRelativePivotPosition" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getRelativePivotPosition" 'function)) :float
+(cffi:defcfun ("_wrap_btGeneric6DofConstraint_getRelativePivotPosition" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getRelativePivotPosition" 'function)) :double
   (self :pointer)
   (axis_index :int))
 
@@ -14330,8 +17144,8 @@
 (cffi:defcfun ("_wrap_btGeneric6DofConstraint_setLimit" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_setLimit" 'function)) :void
   (self :pointer)
   (axis :int)
-  (lo :float)
-  (hi :float))
+  (lo :double)
+  (hi :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_setLimit" 'function))
 
@@ -14407,7 +17221,7 @@
 (cffi:defcfun ("_wrap_btGeneric6DofConstraint_setParam__SWIG_0" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float)
+  (value :double)
   (axis :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_setParam" 'function))
@@ -14417,13 +17231,13 @@
 (cffi:defcfun ("_wrap_btGeneric6DofConstraint_setParam__SWIG_1" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float))
+  (value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_setParam" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btGeneric6DofConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btGeneric6DofConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int)
   (axis :int))
@@ -14432,7 +17246,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btGeneric6DofConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btGeneric6DofConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btGeneric6DofConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int))
 
@@ -14532,7 +17346,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_useOffsetForConstraintFrame" 'slotname))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btSliderConstraintDataName" 'constant) "btSliderConstraintData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btSliderConstraintDataName" 'constant) "btSliderConstraintDoubleData")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraintDataName" 'constant))
 
@@ -14673,8 +17487,8 @@
   (transB :pointer)
   (linVelA :pointer)
   (linVelB :pointer)
-  (rbAinvMass :float)
-  (rbBinvMass :float))
+  (rbAinvMass :double)
+  (rbBinvMass :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getInfo2NonVirtual" 'function))
 
@@ -14736,7 +17550,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getLowerLinLimit" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getLowerLinLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_getLowerLinLimit" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getLowerLinLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_getLowerLinLimit" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getLowerLinLimit" 'function))
@@ -14745,13 +17559,13 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setLowerLinLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_setLowerLinLimit" 'function)) :void
   (self :pointer)
-  (lowerLimit :float))
+  (lowerLimit :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setLowerLinLimit" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getUpperLinLimit" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getUpperLinLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_getUpperLinLimit" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getUpperLinLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_getUpperLinLimit" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getUpperLinLimit" 'function))
@@ -14760,13 +17574,13 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setUpperLinLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_setUpperLinLimit" 'function)) :void
   (self :pointer)
-  (upperLimit :float))
+  (upperLimit :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setUpperLinLimit" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getLowerAngLimit" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getLowerAngLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_getLowerAngLimit" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getLowerAngLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_getLowerAngLimit" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getLowerAngLimit" 'function))
@@ -14775,13 +17589,13 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setLowerAngLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_setLowerAngLimit" 'function)) :void
   (self :pointer)
-  (lowerLimit :float))
+  (lowerLimit :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setLowerAngLimit" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getUpperAngLimit" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getUpperAngLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_getUpperAngLimit" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getUpperAngLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_getUpperAngLimit" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getUpperAngLimit" 'function))
@@ -14790,7 +17604,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setUpperAngLimit" #.(bullet-wrap::swig-lispify "btSliderConstraint_setUpperAngLimit" 'function)) :void
   (self :pointer)
-  (upperLimit :float))
+  (upperLimit :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setUpperAngLimit" 'function))
 
@@ -14803,126 +17617,126 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessDirLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessDirLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessDirLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessDirLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionDirLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionDirLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionDirLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionDirLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingDirLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getDampingDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingDirLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getDampingDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingDirLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingDirLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessDirAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessDirAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessDirAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessDirAng" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionDirAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionDirAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionDirAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionDirAng" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingDirAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getDampingDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingDirAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getDampingDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingDirAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingDirAng" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessLimLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessLimLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessLimLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessLimLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionLimLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionLimLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionLimLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionLimLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingLimLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getDampingLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingLimLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getDampingLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingLimLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingLimLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessLimAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessLimAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessLimAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessLimAng" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionLimAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionLimAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionLimAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionLimAng" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingLimAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getDampingLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingLimAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getDampingLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingLimAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingLimAng" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessOrthoLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessOrthoLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessOrthoLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessOrthoLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionOrthoLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionOrthoLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionOrthoLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionOrthoLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingOrthoLin" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getDampingOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingOrthoLin" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getDampingOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingOrthoLin" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingOrthoLin" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessOrthoAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessOrthoAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getSoftnessOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessOrthoAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getSoftnessOrthoAng" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionOrthoAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionOrthoAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getRestitutionOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionOrthoAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getRestitutionOrthoAng" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingOrthoAng" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getDampingOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingOrthoAng" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getDampingOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingOrthoAng" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getDampingOrthoAng" 'function))
@@ -14931,7 +17745,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setSoftnessDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessDirLin" 'function)) :void
   (self :pointer)
-  (softnessDirLin :float))
+  (softnessDirLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessDirLin" 'function))
 
@@ -14939,7 +17753,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setRestitutionDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionDirLin" 'function)) :void
   (self :pointer)
-  (restitutionDirLin :float))
+  (restitutionDirLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionDirLin" 'function))
 
@@ -14947,7 +17761,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setDampingDirLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingDirLin" 'function)) :void
   (self :pointer)
-  (dampingDirLin :float))
+  (dampingDirLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingDirLin" 'function))
 
@@ -14955,7 +17769,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setSoftnessDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessDirAng" 'function)) :void
   (self :pointer)
-  (softnessDirAng :float))
+  (softnessDirAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessDirAng" 'function))
 
@@ -14963,7 +17777,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setRestitutionDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionDirAng" 'function)) :void
   (self :pointer)
-  (restitutionDirAng :float))
+  (restitutionDirAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionDirAng" 'function))
 
@@ -14971,7 +17785,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setDampingDirAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingDirAng" 'function)) :void
   (self :pointer)
-  (dampingDirAng :float))
+  (dampingDirAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingDirAng" 'function))
 
@@ -14979,7 +17793,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setSoftnessLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessLimLin" 'function)) :void
   (self :pointer)
-  (softnessLimLin :float))
+  (softnessLimLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessLimLin" 'function))
 
@@ -14987,7 +17801,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setRestitutionLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionLimLin" 'function)) :void
   (self :pointer)
-  (restitutionLimLin :float))
+  (restitutionLimLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionLimLin" 'function))
 
@@ -14995,7 +17809,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setDampingLimLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingLimLin" 'function)) :void
   (self :pointer)
-  (dampingLimLin :float))
+  (dampingLimLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingLimLin" 'function))
 
@@ -15003,7 +17817,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setSoftnessLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessLimAng" 'function)) :void
   (self :pointer)
-  (softnessLimAng :float))
+  (softnessLimAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessLimAng" 'function))
 
@@ -15011,7 +17825,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setRestitutionLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionLimAng" 'function)) :void
   (self :pointer)
-  (restitutionLimAng :float))
+  (restitutionLimAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionLimAng" 'function))
 
@@ -15019,7 +17833,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setDampingLimAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingLimAng" 'function)) :void
   (self :pointer)
-  (dampingLimAng :float))
+  (dampingLimAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingLimAng" 'function))
 
@@ -15027,7 +17841,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setSoftnessOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessOrthoLin" 'function)) :void
   (self :pointer)
-  (softnessOrthoLin :float))
+  (softnessOrthoLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessOrthoLin" 'function))
 
@@ -15035,7 +17849,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setRestitutionOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionOrthoLin" 'function)) :void
   (self :pointer)
-  (restitutionOrthoLin :float))
+  (restitutionOrthoLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionOrthoLin" 'function))
 
@@ -15043,7 +17857,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setDampingOrthoLin" #.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingOrthoLin" 'function)) :void
   (self :pointer)
-  (dampingOrthoLin :float))
+  (dampingOrthoLin :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingOrthoLin" 'function))
 
@@ -15051,7 +17865,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setSoftnessOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessOrthoAng" 'function)) :void
   (self :pointer)
-  (softnessOrthoAng :float))
+  (softnessOrthoAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setSoftnessOrthoAng" 'function))
 
@@ -15059,7 +17873,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setRestitutionOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionOrthoAng" 'function)) :void
   (self :pointer)
-  (restitutionOrthoAng :float))
+  (restitutionOrthoAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setRestitutionOrthoAng" 'function))
 
@@ -15067,7 +17881,7 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setDampingOrthoAng" #.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingOrthoAng" 'function)) :void
   (self :pointer)
-  (dampingOrthoAng :float))
+  (dampingOrthoAng :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setDampingOrthoAng" 'function))
 
@@ -15090,13 +17904,13 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setTargetLinMotorVelocity" #.(bullet-wrap::swig-lispify "btSliderConstraint_setTargetLinMotorVelocity" 'function)) :void
   (self :pointer)
-  (targetLinMotorVelocity :float))
+  (targetLinMotorVelocity :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setTargetLinMotorVelocity" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getTargetLinMotorVelocity" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getTargetLinMotorVelocity" #.(bullet-wrap::swig-lispify "btSliderConstraint_getTargetLinMotorVelocity" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getTargetLinMotorVelocity" #.(bullet-wrap::swig-lispify "btSliderConstraint_getTargetLinMotorVelocity" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getTargetLinMotorVelocity" 'function))
@@ -15105,13 +17919,13 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setMaxLinMotorForce" #.(bullet-wrap::swig-lispify "btSliderConstraint_setMaxLinMotorForce" 'function)) :void
   (self :pointer)
-  (maxLinMotorForce :float))
+  (maxLinMotorForce :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setMaxLinMotorForce" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getMaxLinMotorForce" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getMaxLinMotorForce" #.(bullet-wrap::swig-lispify "btSliderConstraint_getMaxLinMotorForce" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getMaxLinMotorForce" #.(bullet-wrap::swig-lispify "btSliderConstraint_getMaxLinMotorForce" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getMaxLinMotorForce" 'function))
@@ -15135,13 +17949,13 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setTargetAngMotorVelocity" #.(bullet-wrap::swig-lispify "btSliderConstraint_setTargetAngMotorVelocity" 'function)) :void
   (self :pointer)
-  (targetAngMotorVelocity :float))
+  (targetAngMotorVelocity :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setTargetAngMotorVelocity" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getTargetAngMotorVelocity" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getTargetAngMotorVelocity" #.(bullet-wrap::swig-lispify "btSliderConstraint_getTargetAngMotorVelocity" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getTargetAngMotorVelocity" #.(bullet-wrap::swig-lispify "btSliderConstraint_getTargetAngMotorVelocity" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getTargetAngMotorVelocity" 'function))
@@ -15150,27 +17964,27 @@
 
 (cffi:defcfun ("_wrap_btSliderConstraint_setMaxAngMotorForce" #.(bullet-wrap::swig-lispify "btSliderConstraint_setMaxAngMotorForce" 'function)) :void
   (self :pointer)
-  (maxAngMotorForce :float))
+  (maxAngMotorForce :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setMaxAngMotorForce" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getMaxAngMotorForce" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getMaxAngMotorForce" #.(bullet-wrap::swig-lispify "btSliderConstraint_getMaxAngMotorForce" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getMaxAngMotorForce" #.(bullet-wrap::swig-lispify "btSliderConstraint_getMaxAngMotorForce" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getMaxAngMotorForce" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getLinearPos" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getLinearPos" #.(bullet-wrap::swig-lispify "btSliderConstraint_getLinearPos" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getLinearPos" #.(bullet-wrap::swig-lispify "btSliderConstraint_getLinearPos" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getLinearPos" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getAngularPos" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getAngularPos" #.(bullet-wrap::swig-lispify "btSliderConstraint_getAngularPos" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getAngularPos" #.(bullet-wrap::swig-lispify "btSliderConstraint_getAngularPos" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getAngularPos" 'function))
@@ -15184,7 +17998,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getLinDepth" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getLinDepth" #.(bullet-wrap::swig-lispify "btSliderConstraint_getLinDepth" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getLinDepth" #.(bullet-wrap::swig-lispify "btSliderConstraint_getLinDepth" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getLinDepth" 'function))
@@ -15198,7 +18012,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getAngDepth" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getAngDepth" #.(bullet-wrap::swig-lispify "btSliderConstraint_getAngDepth" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getAngDepth" #.(bullet-wrap::swig-lispify "btSliderConstraint_getAngDepth" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_getAngDepth" 'function))
@@ -15269,7 +18083,7 @@
 (cffi:defcfun ("_wrap_btSliderConstraint_setParam__SWIG_0" #.(bullet-wrap::swig-lispify "btSliderConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float)
+  (value :double)
   (axis :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setParam" 'function))
@@ -15279,13 +18093,13 @@
 (cffi:defcfun ("_wrap_btSliderConstraint_setParam__SWIG_1" #.(bullet-wrap::swig-lispify "btSliderConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float))
+  (value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSliderConstraint_setParam" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btSliderConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btSliderConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int)
   (axis :int))
@@ -15294,7 +18108,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSliderConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btSliderConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btSliderConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btSliderConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btSliderConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int))
 
@@ -15385,7 +18199,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "m_useOffsetForConstraintFrame" 'slotname))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraintDataName" 'constant) "btGeneric6DofSpringConstraintData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraintDataName" 'constant) "btGeneric6DofSpringConstraintDoubleData2")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraintDataName" 'constant))
 
@@ -15491,7 +18305,7 @@
 (cffi:defcfun ("_wrap_btGeneric6DofSpringConstraint_setStiffness" #.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraint_setStiffness" 'function)) :void
   (self :pointer)
   (index :int)
-  (stiffness :float))
+  (stiffness :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraint_setStiffness" 'function))
 
@@ -15500,7 +18314,7 @@
 (cffi:defcfun ("_wrap_btGeneric6DofSpringConstraint_setDamping" #.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraint_setDamping" 'function)) :void
   (self :pointer)
   (index :int)
-  (damping :float))
+  (damping :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraint_setDamping" 'function))
 
@@ -15524,7 +18338,7 @@
 (cffi:defcfun ("_wrap_btGeneric6DofSpringConstraint_setEquilibriumPoint__SWIG_2" #.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraint_setEquilibriumPoint" 'function)) :void
   (self :pointer)
   (index :int)
-  (val :float))
+  (val :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGeneric6DofSpringConstraint_setEquilibriumPoint" 'function))
 
@@ -15715,14 +18529,14 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btUniversalConstraint_getAngle1" 'function)))
 
-(cffi:defcfun ("_wrap_btUniversalConstraint_getAngle1" #.(bullet-wrap::swig-lispify "btUniversalConstraint_getAngle1" 'function)) :float
+(cffi:defcfun ("_wrap_btUniversalConstraint_getAngle1" #.(bullet-wrap::swig-lispify "btUniversalConstraint_getAngle1" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniversalConstraint_getAngle1" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btUniversalConstraint_getAngle2" 'function)))
 
-(cffi:defcfun ("_wrap_btUniversalConstraint_getAngle2" #.(bullet-wrap::swig-lispify "btUniversalConstraint_getAngle2" 'function)) :float
+(cffi:defcfun ("_wrap_btUniversalConstraint_getAngle2" #.(bullet-wrap::swig-lispify "btUniversalConstraint_getAngle2" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniversalConstraint_getAngle2" 'function))
@@ -15731,8 +18545,8 @@
 
 (cffi:defcfun ("_wrap_btUniversalConstraint_setUpperLimit" #.(bullet-wrap::swig-lispify "btUniversalConstraint_setUpperLimit" 'function)) :void
   (self :pointer)
-  (ang1max :float)
-  (ang2max :float))
+  (ang1max :double)
+  (ang2max :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniversalConstraint_setUpperLimit" 'function))
 
@@ -15740,8 +18554,8 @@
 
 (cffi:defcfun ("_wrap_btUniversalConstraint_setLowerLimit" #.(bullet-wrap::swig-lispify "btUniversalConstraint_setLowerLimit" 'function)) :void
   (self :pointer)
-  (ang1min :float)
-  (ang2min :float))
+  (ang1min :double)
+  (ang2min :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btUniversalConstraint_setLowerLimit" 'function))
 
@@ -15870,14 +18684,14 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHinge2Constraint_getAngle1" 'function)))
 
-(cffi:defcfun ("_wrap_btHinge2Constraint_getAngle1" #.(bullet-wrap::swig-lispify "btHinge2Constraint_getAngle1" 'function)) :float
+(cffi:defcfun ("_wrap_btHinge2Constraint_getAngle1" #.(bullet-wrap::swig-lispify "btHinge2Constraint_getAngle1" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHinge2Constraint_getAngle1" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btHinge2Constraint_getAngle2" 'function)))
 
-(cffi:defcfun ("_wrap_btHinge2Constraint_getAngle2" #.(bullet-wrap::swig-lispify "btHinge2Constraint_getAngle2" 'function)) :float
+(cffi:defcfun ("_wrap_btHinge2Constraint_getAngle2" #.(bullet-wrap::swig-lispify "btHinge2Constraint_getAngle2" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHinge2Constraint_getAngle2" 'function))
@@ -15886,7 +18700,7 @@
 
 (cffi:defcfun ("_wrap_btHinge2Constraint_setUpperLimit" #.(bullet-wrap::swig-lispify "btHinge2Constraint_setUpperLimit" 'function)) :void
   (self :pointer)
-  (ang1max :float))
+  (ang1max :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHinge2Constraint_setUpperLimit" 'function))
 
@@ -15894,7 +18708,7 @@
 
 (cffi:defcfun ("_wrap_btHinge2Constraint_setLowerLimit" #.(bullet-wrap::swig-lispify "btHinge2Constraint_setLowerLimit" 'function)) :void
   (self :pointer)
-  (ang1min :float))
+  (ang1min :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btHinge2Constraint_setLowerLimit" 'function))
 
@@ -15905,7 +18719,7 @@
 
 (cl:export '#.(bullet-wrap::swig-lispify "delete_btHinge2Constraint" 'function))
 
-(cl:defconstant #.(bullet-wrap::swig-lispify "btGearConstraintDataName" 'constant) "btGearConstraintFloatData")
+(cl:defconstant #.(bullet-wrap::swig-lispify "btGearConstraintDataName" 'constant) "btGearConstraintDoubleData")
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGearConstraintDataName" 'constant))
 
@@ -15916,7 +18730,7 @@
   (rbB :pointer)
   (axisInA :pointer)
   (axisInB :pointer)
-  (ratio :float))
+  (ratio :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "new_btGearConstraint" 'function))
 
@@ -15973,7 +18787,7 @@
 
 (cffi:defcfun ("_wrap_btGearConstraint_setRatio" #.(bullet-wrap::swig-lispify "btGearConstraint_setRatio" 'function)) :void
   (self :pointer)
-  (ratio :float))
+  (ratio :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGearConstraint_setRatio" 'function))
 
@@ -15993,7 +18807,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btGearConstraint_getRatio" 'function)))
 
-(cffi:defcfun ("_wrap_btGearConstraint_getRatio" #.(bullet-wrap::swig-lispify "btGearConstraint_getRatio" 'function)) :float
+(cffi:defcfun ("_wrap_btGearConstraint_getRatio" #.(bullet-wrap::swig-lispify "btGearConstraint_getRatio" 'function)) :double
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGearConstraint_getRatio" 'function))
@@ -16003,7 +18817,7 @@
 (cffi:defcfun ("_wrap_btGearConstraint_setParam__SWIG_0" #.(bullet-wrap::swig-lispify "btGearConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float)
+  (value :double)
   (axis :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGearConstraint_setParam" 'function))
@@ -16013,13 +18827,13 @@
 (cffi:defcfun ("_wrap_btGearConstraint_setParam__SWIG_1" #.(bullet-wrap::swig-lispify "btGearConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float))
+  (value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btGearConstraint_setParam" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btGearConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btGearConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btGearConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btGearConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btGearConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int)
   (axis :int))
@@ -16028,7 +18842,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btGearConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btGearConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btGearConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btGearConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btGearConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int))
 
@@ -16123,7 +18937,7 @@
 (cffi:defcfun ("_wrap_btFixedConstraint_setParam__SWIG_0" #.(bullet-wrap::swig-lispify "btFixedConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float)
+  (value :double)
   (axis :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btFixedConstraint_setParam" 'function))
@@ -16133,13 +18947,13 @@
 (cffi:defcfun ("_wrap_btFixedConstraint_setParam__SWIG_1" #.(bullet-wrap::swig-lispify "btFixedConstraint_setParam" 'function)) :void
   (self :pointer)
   (num :int)
-  (value :float))
+  (value :double))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btFixedConstraint_setParam" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btFixedConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btFixedConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btFixedConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btFixedConstraint_getParam__SWIG_0" #.(bullet-wrap::swig-lispify "btFixedConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int)
   (axis :int))
@@ -16148,11 +18962,73 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btFixedConstraint_getParam" 'function)))
 
-(cffi:defcfun ("_wrap_btFixedConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btFixedConstraint_getParam" 'function)) :float
+(cffi:defcfun ("_wrap_btFixedConstraint_getParam__SWIG_1" #.(bullet-wrap::swig-lispify "btFixedConstraint_getParam" 'function)) :double
   (self :pointer)
   (num :int))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btFixedConstraint_getParam" 'function))
+
+(cffi:defcenum #.(bullet-wrap::swig-lispify "btConstraintSolverType" 'enumname)
+	(#.(bullet-wrap::swig-lispify "BT_SEQUENTIAL_IMPULSE_SOLVER" 'enumvalue :keyword) #.1)
+	(#.(bullet-wrap::swig-lispify "BT_MLCP_SOLVER" 'enumvalue :keyword) #.2)
+	(#.(bullet-wrap::swig-lispify "BT_NNCG_SOLVER" 'enumvalue :keyword) #.4))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConstraintSolverType" 'enumname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btConstraintSolver" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btConstraintSolver" #.(bullet-wrap::swig-lispify "delete_btConstraintSolver" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btConstraintSolver" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConstraintSolver_prepareSolve" 'function)))
+
+(cffi:defcfun ("_wrap_btConstraintSolver_prepareSolve" #.(bullet-wrap::swig-lispify "btConstraintSolver_prepareSolve" 'function)) :void
+  (self :pointer)
+  (arg1 :int)
+  (arg2 :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConstraintSolver_prepareSolve" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConstraintSolver_solveGroup" 'function)))
+
+(cffi:defcfun ("_wrap_btConstraintSolver_solveGroup" #.(bullet-wrap::swig-lispify "btConstraintSolver_solveGroup" 'function)) :double
+  (self :pointer)
+  (bodies :pointer)
+  (numBodies :int)
+  (manifold :pointer)
+  (numManifolds :int)
+  (constraints :pointer)
+  (numConstraints :int)
+  (info :pointer)
+  (debugDrawer :pointer)
+  (dispatcher :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConstraintSolver_solveGroup" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConstraintSolver_allSolved" 'function)))
+
+(cffi:defcfun ("_wrap_btConstraintSolver_allSolved" #.(bullet-wrap::swig-lispify "btConstraintSolver_allSolved" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConstraintSolver_allSolved" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConstraintSolver_reset" 'function)))
+
+(cffi:defcfun ("_wrap_btConstraintSolver_reset" #.(bullet-wrap::swig-lispify "btConstraintSolver_reset" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConstraintSolver_reset" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btConstraintSolver_getSolverType" 'function)))
+
+(cffi:defcfun ("_wrap_btConstraintSolver_getSolverType" #.(bullet-wrap::swig-lispify "btConstraintSolver_getSolverType" 'function)) #.(bullet-wrap::swig-lispify "btConstraintSolverType" 'enumname)
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btConstraintSolver_getSolverType" 'function))
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_makeCPlusPlusInstance" 'function)))
 
@@ -16237,7 +19113,7 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_solveGroup" 'function)))
 
-(cffi:defcfun ("_wrap_btSequentialImpulseConstraintSolver_solveGroup" #.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_solveGroup" 'function)) :float
+(cffi:defcfun ("_wrap_btSequentialImpulseConstraintSolver_solveGroup" #.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_solveGroup" 'function)) :double
   (self :pointer)
   (bodies :pointer)
   (numBodies :int)
@@ -16290,9 +19166,1664 @@
 
 (cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_getSolverType" 'function)))
 
-(cffi:defcfun ("_wrap_btSequentialImpulseConstraintSolver_getSolverType" #.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_getSolverType" 'function)) :pointer
+(cffi:defcfun ("_wrap_btSequentialImpulseConstraintSolver_getSolverType" #.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_getSolverType" 'function)) #.(bullet-wrap::swig-lispify "btConstraintSolverType" 'enumname)
   (self :pointer))
 
 (cl:export '#.(bullet-wrap::swig-lispify "btSequentialImpulseConstraintSolver_getSolverType" 'function))
+
+(cffi:defcenum #.(bullet-wrap::swig-lispify "btDynamicsWorldType" 'enumname)
+	(#.(bullet-wrap::swig-lispify "BT_SIMPLE_DYNAMICS_WORLD" 'enumvalue :keyword) #.1)
+	(#.(bullet-wrap::swig-lispify "BT_DISCRETE_DYNAMICS_WORLD" 'enumvalue :keyword) #.2)
+	(#.(bullet-wrap::swig-lispify "BT_CONTINUOUS_DYNAMICS_WORLD" 'enumvalue :keyword) #.3)
+	(#.(bullet-wrap::swig-lispify "BT_SOFT_RIGID_DYNAMICS_WORLD" 'enumvalue :keyword) #.4)
+	(#.(bullet-wrap::swig-lispify "BT_GPU_DYNAMICS_WORLD" 'enumvalue :keyword) #.5))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorldType" 'enumname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btDynamicsWorld" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btDynamicsWorld" #.(bullet-wrap::swig-lispify "delete_btDynamicsWorld" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btDynamicsWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_stepSimulation__SWIG_0" #.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double)
+  (maxSubSteps :int)
+  (fixedTimeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_stepSimulation__SWIG_1" #.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double)
+  (maxSubSteps :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_stepSimulation__SWIG_2" #.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_debugDrawWorld" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_debugDrawWorld" #.(bullet-wrap::swig-lispify "btDynamicsWorld_debugDrawWorld" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_debugDrawWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_addConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_addConstraint__SWIG_0" #.(bullet-wrap::swig-lispify "btDynamicsWorld_addConstraint" 'function)) :void
+  (self :pointer)
+  (constraint :pointer)
+  (disableCollisionsBetweenLinkedBodies :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_addConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_addConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_addConstraint__SWIG_1" #.(bullet-wrap::swig-lispify "btDynamicsWorld_addConstraint" 'function)) :void
+  (self :pointer)
+  (constraint :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_addConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_removeConstraint" #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeConstraint" 'function)) :void
+  (self :pointer)
+  (constraint :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_addAction" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_addAction" #.(bullet-wrap::swig-lispify "btDynamicsWorld_addAction" 'function)) :void
+  (self :pointer)
+  (action :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_addAction" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeAction" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_removeAction" #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeAction" 'function)) :void
+  (self :pointer)
+  (action :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeAction" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_setGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_setGravity" #.(bullet-wrap::swig-lispify "btDynamicsWorld_setGravity" 'function)) :void
+  (self :pointer)
+  (gravity :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_setGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_getGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_getGravity" #.(bullet-wrap::swig-lispify "btDynamicsWorld_getGravity" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_getGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_synchronizeMotionStates" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_synchronizeMotionStates" #.(bullet-wrap::swig-lispify "btDynamicsWorld_synchronizeMotionStates" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_synchronizeMotionStates" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_addRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_addRigidBody__SWIG_0" #.(bullet-wrap::swig-lispify "btDynamicsWorld_addRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_addRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_addRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_addRigidBody__SWIG_1" #.(bullet-wrap::swig-lispify "btDynamicsWorld_addRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer)
+  (group :short)
+  (mask :short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_addRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_removeRigidBody" #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_setConstraintSolver" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_setConstraintSolver" #.(bullet-wrap::swig-lispify "btDynamicsWorld_setConstraintSolver" 'function)) :void
+  (self :pointer)
+  (solver :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_setConstraintSolver" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraintSolver" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_getConstraintSolver" #.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraintSolver" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraintSolver" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_getNumConstraints" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_getNumConstraints" #.(bullet-wrap::swig-lispify "btDynamicsWorld_getNumConstraints" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_getNumConstraints" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_getConstraint__SWIG_0" #.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraint" 'function)) :pointer
+  (self :pointer)
+  (index :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_getConstraint__SWIG_1" #.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraint" 'function)) :pointer
+  (self :pointer)
+  (index :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_getConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_getWorldType" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_getWorldType" #.(bullet-wrap::swig-lispify "btDynamicsWorld_getWorldType" 'function)) #.(bullet-wrap::swig-lispify "btDynamicsWorldType" 'enumname)
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_getWorldType" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_clearForces" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_clearForces" #.(bullet-wrap::swig-lispify "btDynamicsWorld_clearForces" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_clearForces" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_setInternalTickCallback__SWIG_0" #.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function)) :void
+  (self :pointer)
+  (cb :pointer)
+  (worldUserInfo :pointer)
+  (isPreTick :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_setInternalTickCallback__SWIG_1" #.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function)) :void
+  (self :pointer)
+  (cb :pointer)
+  (worldUserInfo :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_setInternalTickCallback__SWIG_2" #.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function)) :void
+  (self :pointer)
+  (cb :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_setInternalTickCallback" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_setWorldUserInfo" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_setWorldUserInfo" #.(bullet-wrap::swig-lispify "btDynamicsWorld_setWorldUserInfo" 'function)) :void
+  (self :pointer)
+  (worldUserInfo :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_setWorldUserInfo" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_getWorldUserInfo" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_getWorldUserInfo" #.(bullet-wrap::swig-lispify "btDynamicsWorld_getWorldUserInfo" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_getWorldUserInfo" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_getSolverInfo" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_getSolverInfo" #.(bullet-wrap::swig-lispify "btDynamicsWorld_getSolverInfo" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_getSolverInfo" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_addVehicle" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_addVehicle" #.(bullet-wrap::swig-lispify "btDynamicsWorld_addVehicle" 'function)) :void
+  (self :pointer)
+  (vehicle :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_addVehicle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeVehicle" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_removeVehicle" #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeVehicle" 'function)) :void
+  (self :pointer)
+  (vehicle :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeVehicle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_addCharacter" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_addCharacter" #.(bullet-wrap::swig-lispify "btDynamicsWorld_addCharacter" 'function)) :void
+  (self :pointer)
+  (character :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_addCharacter" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeCharacter" 'function)))
+
+(cffi:defcfun ("_wrap_btDynamicsWorld_removeCharacter" #.(bullet-wrap::swig-lispify "btDynamicsWorld_removeCharacter" 'function)) :void
+  (self :pointer)
+  (character :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorld_removeCharacter" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDynamicsWorldDoubleData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_solverInfo" 'slotname) #.(bullet-wrap::swig-lispify "btContactSolverInfoDoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_gravity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname)))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorldDoubleData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_solverInfo" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_gravity" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btDynamicsWorldFloatData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_solverInfo" 'slotname) #.(bullet-wrap::swig-lispify "btContactSolverInfoFloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_gravity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname)))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDynamicsWorldFloatData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_solverInfo" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_gravity" 'slotname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusPlusInstance__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusPlusInstance__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusPlusInstance" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (sizeInBytes :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusArray__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function)) :pointer
+  (self :pointer)
+  (arg1 :pointer)
+  (ptr :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_makeCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusArray__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer)
+  (arg2 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_deleteCPlusArray" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btDiscreteDynamicsWorld" 'function)))
+
+(cffi:defcfun ("_wrap_new_btDiscreteDynamicsWorld" #.(bullet-wrap::swig-lispify "new_btDiscreteDynamicsWorld" 'function)) :pointer
+  (dispatcher :pointer)
+  (pairCache :pointer)
+  (constraintSolver :pointer)
+  (collisionConfiguration :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btDiscreteDynamicsWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btDiscreteDynamicsWorld" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btDiscreteDynamicsWorld" #.(bullet-wrap::swig-lispify "delete_btDiscreteDynamicsWorld" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btDiscreteDynamicsWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double)
+  (maxSubSteps :int)
+  (fixedTimeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double)
+  (maxSubSteps :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_2" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeMotionStates" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_synchronizeMotionStates" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeMotionStates" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeMotionStates" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeSingleMotionState" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_synchronizeSingleMotionState" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeSingleMotionState" 'function)) :void
+  (self :pointer)
+  (body :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_synchronizeSingleMotionState" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addConstraint__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function)) :void
+  (self :pointer)
+  (constraint :pointer)
+  (disableCollisionsBetweenLinkedBodies :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addConstraint__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function)) :void
+  (self :pointer)
+  (constraint :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeConstraint" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeConstraint" 'function)) :void
+  (self :pointer)
+  (constraint :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addAction" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addAction" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addAction" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addAction" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeAction" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeAction" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeAction" 'function)) :void
+  (self :pointer)
+  (arg1 :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeAction" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getSimulationIslandManager__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getSimulationIslandManager__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSimulationIslandManager" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getCollisionWorld" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getCollisionWorld" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getCollisionWorld" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getCollisionWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setGravity" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setGravity" 'function)) :void
+  (self :pointer)
+  (gravity :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getGravity" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getGravity" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)) :void
+  (self :pointer)
+  (collisionObject :pointer)
+  (collisionFilterGroup :short)
+  (collisionFilterMask :short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)) :void
+  (self :pointer)
+  (collisionObject :pointer)
+  (collisionFilterGroup :short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_2" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function)) :void
+  (self :pointer)
+  (collisionObject :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCollisionObject" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addRigidBody__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addRigidBody__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer)
+  (group :short)
+  (mask :short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeRigidBody" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCollisionObject" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeCollisionObject" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCollisionObject" 'function)) :void
+  (self :pointer)
+  (collisionObject :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCollisionObject" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_debugDrawConstraint" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawConstraint" 'function)) :void
+  (self :pointer)
+  (constraint :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawWorld" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_debugDrawWorld" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawWorld" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_debugDrawWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setConstraintSolver" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setConstraintSolver" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setConstraintSolver" 'function)) :void
+  (self :pointer)
+  (solver :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setConstraintSolver" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraintSolver" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraintSolver" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraintSolver" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraintSolver" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getNumConstraints" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getNumConstraints" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getNumConstraints" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getNumConstraints" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraint__SWIG_0" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function)) :pointer
+  (self :pointer)
+  (index :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraint__SWIG_1" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function)) :pointer
+  (self :pointer)
+  (index :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getConstraint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getWorldType" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getWorldType" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getWorldType" 'function)) #.(bullet-wrap::swig-lispify "btDynamicsWorldType" 'enumname)
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getWorldType" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_clearForces" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_clearForces" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_clearForces" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_clearForces" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_applyGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_applyGravity" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_applyGravity" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_applyGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setNumTasks" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setNumTasks" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setNumTasks" 'function)) :void
+  (self :pointer)
+  (numTasks :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setNumTasks" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_updateVehicles" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_updateVehicles" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_updateVehicles" 'function)) :void
+  (self :pointer)
+  (timeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_updateVehicles" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addVehicle" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addVehicle" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addVehicle" 'function)) :void
+  (self :pointer)
+  (vehicle :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addVehicle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeVehicle" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeVehicle" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeVehicle" 'function)) :void
+  (self :pointer)
+  (vehicle :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeVehicle" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCharacter" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_addCharacter" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCharacter" 'function)) :void
+  (self :pointer)
+  (character :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_addCharacter" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCharacter" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_removeCharacter" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCharacter" 'function)) :void
+  (self :pointer)
+  (character :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_removeCharacter" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" 'function)) :void
+  (self :pointer)
+  (synchronizeAll :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setSynchronizeAllMotionStates" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getSynchronizeAllMotionStates" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" 'function)) :void
+  (self :pointer)
+  (enable :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setApplySpeculativeContactRestitution" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getApplySpeculativeContactRestitution" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_serialize" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_serialize" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_serialize" 'function)) :void
+  (self :pointer)
+  (serializer :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_serialize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" 'function)) :void
+  (self :pointer)
+  (latencyInterpolation :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_setLatencyMotionStateInterpolation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" 'function)))
+
+(cffi:defcfun ("_wrap_btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" #.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btDiscreteDynamicsWorld_getLatencyMotionStateInterpolation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btSimpleDynamicsWorld" 'function)))
+
+(cffi:defcfun ("_wrap_new_btSimpleDynamicsWorld" #.(bullet-wrap::swig-lispify "new_btSimpleDynamicsWorld" 'function)) :pointer
+  (dispatcher :pointer)
+  (pairCache :pointer)
+  (constraintSolver :pointer)
+  (collisionConfiguration :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btSimpleDynamicsWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btSimpleDynamicsWorld" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btSimpleDynamicsWorld" #.(bullet-wrap::swig-lispify "delete_btSimpleDynamicsWorld" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btSimpleDynamicsWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_stepSimulation__SWIG_0" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double)
+  (maxSubSteps :int)
+  (fixedTimeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_stepSimulation__SWIG_1" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double)
+  (maxSubSteps :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_stepSimulation__SWIG_2" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function)) :int
+  (self :pointer)
+  (timeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_stepSimulation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_setGravity" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setGravity" 'function)) :void
+  (self :pointer)
+  (gravity :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_getGravity" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getGravity" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_addRigidBody__SWIG_0" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_addRigidBody__SWIG_1" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer)
+  (group :short)
+  (mask :short))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_removeRigidBody" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeRigidBody" 'function)) :void
+  (self :pointer)
+  (body :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_debugDrawWorld" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_debugDrawWorld" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_debugDrawWorld" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_debugDrawWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addAction" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_addAction" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addAction" 'function)) :void
+  (self :pointer)
+  (action :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_addAction" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeAction" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_removeAction" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeAction" 'function)) :void
+  (self :pointer)
+  (action :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeAction" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeCollisionObject" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_removeCollisionObject" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeCollisionObject" 'function)) :void
+  (self :pointer)
+  (collisionObject :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_removeCollisionObject" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_updateAabbs" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_updateAabbs" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_updateAabbs" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_updateAabbs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_synchronizeMotionStates" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_synchronizeMotionStates" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_synchronizeMotionStates" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_synchronizeMotionStates" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setConstraintSolver" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_setConstraintSolver" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setConstraintSolver" 'function)) :void
+  (self :pointer)
+  (solver :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_setConstraintSolver" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getConstraintSolver" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_getConstraintSolver" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getConstraintSolver" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getConstraintSolver" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getWorldType" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_getWorldType" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getWorldType" 'function)) #.(bullet-wrap::swig-lispify "btDynamicsWorldType" 'enumname)
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_getWorldType" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_clearForces" 'function)))
+
+(cffi:defcfun ("_wrap_btSimpleDynamicsWorld_clearForces" #.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_clearForces" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btSimpleDynamicsWorld_clearForces" 'function))
+
+(cffi:defcvar ("gDeactivationTime" #.(bullet-wrap::swig-lispify "gDeactivationTime" 'variable))
+ :double)
+
+(cl:export '#.(bullet-wrap::swig-lispify "gDeactivationTime" 'variable))
+
+(cffi:defcvar ("gDisableDeactivation" #.(bullet-wrap::swig-lispify "gDisableDeactivation" 'variable))
+ :pointer)
+
+(cl:export '#.(bullet-wrap::swig-lispify "gDisableDeactivation" 'variable))
+
+(cl:defconstant #.(bullet-wrap::swig-lispify "btRigidBodyDataName" 'constant) "btRigidBodyDoubleData")
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBodyDataName" 'constant))
+
+(cffi:defcenum #.(bullet-wrap::swig-lispify "btRigidBodyFlags" 'enumname)
+	(#.(bullet-wrap::swig-lispify "BT_DISABLE_WORLD_GRAVITY" 'enumvalue :keyword) #.1)
+	(#.(bullet-wrap::swig-lispify "BT_ENABLE_GYROPSCOPIC_FORCE" 'enumvalue :keyword) #.2))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBodyFlags" 'enumname))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_0" #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)) :pointer
+  (constructionInfo :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_1" #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)) :pointer
+  (mass :double)
+  (motionState :pointer)
+  (collisionShape :pointer)
+  (localInertia :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_new_btRigidBody__SWIG_2" #.(bullet-wrap::swig-lispify "new_btRigidBody" 'function)) :pointer
+  (mass :double)
+  (motionState :pointer)
+  (collisionShape :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "new_btRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "delete_btRigidBody" 'function)))
+
+(cffi:defcfun ("_wrap_delete_btRigidBody" #.(bullet-wrap::swig-lispify "delete_btRigidBody" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "delete_btRigidBody" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_proceedToTransform" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_proceedToTransform" #.(bullet-wrap::swig-lispify "btRigidBody_proceedToTransform" 'function)) :void
+  (self :pointer)
+  (newTrans :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_proceedToTransform" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_upcast__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function)) :pointer
+  (colObj :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_upcast__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function)) :pointer
+  (colObj :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_upcast" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_predictIntegratedTransform" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_predictIntegratedTransform" #.(bullet-wrap::swig-lispify "btRigidBody_predictIntegratedTransform" 'function)) :void
+  (self :pointer)
+  (step :double)
+  (predictedTransform :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_predictIntegratedTransform" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_saveKinematicState" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_saveKinematicState" #.(bullet-wrap::swig-lispify "btRigidBody_saveKinematicState" 'function)) :void
+  (self :pointer)
+  (step :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_saveKinematicState" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_applyGravity" #.(bullet-wrap::swig-lispify "btRigidBody_applyGravity" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setGravity" #.(bullet-wrap::swig-lispify "btRigidBody_setGravity" 'function)) :void
+  (self :pointer)
+  (acceleration :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getGravity" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getGravity" #.(bullet-wrap::swig-lispify "btRigidBody_getGravity" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getGravity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setDamping" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setDamping" #.(bullet-wrap::swig-lispify "btRigidBody_setDamping" 'function)) :void
+  (self :pointer)
+  (lin_damping :double)
+  (ang_damping :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setDamping" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getLinearDamping" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getLinearDamping" #.(bullet-wrap::swig-lispify "btRigidBody_getLinearDamping" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getLinearDamping" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAngularDamping" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getAngularDamping" #.(bullet-wrap::swig-lispify "btRigidBody_getAngularDamping" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAngularDamping" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getLinearSleepingThreshold" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getLinearSleepingThreshold" #.(bullet-wrap::swig-lispify "btRigidBody_getLinearSleepingThreshold" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getLinearSleepingThreshold" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAngularSleepingThreshold" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getAngularSleepingThreshold" #.(bullet-wrap::swig-lispify "btRigidBody_getAngularSleepingThreshold" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAngularSleepingThreshold" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyDamping" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_applyDamping" #.(bullet-wrap::swig-lispify "btRigidBody_applyDamping" 'function)) :void
+  (self :pointer)
+  (timeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyDamping" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getCollisionShape__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getCollisionShape__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getCollisionShape" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setMassProps" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setMassProps" #.(bullet-wrap::swig-lispify "btRigidBody_setMassProps" 'function)) :void
+  (self :pointer)
+  (mass :double)
+  (inertia :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setMassProps" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getLinearFactor" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getLinearFactor" #.(bullet-wrap::swig-lispify "btRigidBody_getLinearFactor" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getLinearFactor" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setLinearFactor" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setLinearFactor" #.(bullet-wrap::swig-lispify "btRigidBody_setLinearFactor" 'function)) :void
+  (self :pointer)
+  (linearFactor :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setLinearFactor" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getInvMass" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getInvMass" #.(bullet-wrap::swig-lispify "btRigidBody_getInvMass" 'function)) :double
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getInvMass" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaTensorWorld" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getInvInertiaTensorWorld" #.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaTensorWorld" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaTensorWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_integrateVelocities" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_integrateVelocities" #.(bullet-wrap::swig-lispify "btRigidBody_integrateVelocities" 'function)) :void
+  (self :pointer)
+  (step :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_integrateVelocities" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setCenterOfMassTransform" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setCenterOfMassTransform" #.(bullet-wrap::swig-lispify "btRigidBody_setCenterOfMassTransform" 'function)) :void
+  (self :pointer)
+  (xform :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setCenterOfMassTransform" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyCentralForce" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_applyCentralForce" #.(bullet-wrap::swig-lispify "btRigidBody_applyCentralForce" 'function)) :void
+  (self :pointer)
+  (force :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyCentralForce" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getTotalForce" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getTotalForce" #.(bullet-wrap::swig-lispify "btRigidBody_getTotalForce" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getTotalForce" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getTotalTorque" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getTotalTorque" #.(bullet-wrap::swig-lispify "btRigidBody_getTotalTorque" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getTotalTorque" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaDiagLocal" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getInvInertiaDiagLocal" #.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaDiagLocal" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getInvInertiaDiagLocal" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setInvInertiaDiagLocal" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setInvInertiaDiagLocal" #.(bullet-wrap::swig-lispify "btRigidBody_setInvInertiaDiagLocal" 'function)) :void
+  (self :pointer)
+  (diagInvInertia :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setInvInertiaDiagLocal" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setSleepingThresholds" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setSleepingThresholds" #.(bullet-wrap::swig-lispify "btRigidBody_setSleepingThresholds" 'function)) :void
+  (self :pointer)
+  (linear :double)
+  (angular :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setSleepingThresholds" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyTorque" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_applyTorque" #.(bullet-wrap::swig-lispify "btRigidBody_applyTorque" 'function)) :void
+  (self :pointer)
+  (torque :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyTorque" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyForce" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_applyForce" #.(bullet-wrap::swig-lispify "btRigidBody_applyForce" 'function)) :void
+  (self :pointer)
+  (force :pointer)
+  (rel_pos :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyForce" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyCentralImpulse" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_applyCentralImpulse" #.(bullet-wrap::swig-lispify "btRigidBody_applyCentralImpulse" 'function)) :void
+  (self :pointer)
+  (impulse :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyCentralImpulse" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyTorqueImpulse" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_applyTorqueImpulse" #.(bullet-wrap::swig-lispify "btRigidBody_applyTorqueImpulse" 'function)) :void
+  (self :pointer)
+  (torque :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyTorqueImpulse" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_applyImpulse" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_applyImpulse" #.(bullet-wrap::swig-lispify "btRigidBody_applyImpulse" 'function)) :void
+  (self :pointer)
+  (impulse :pointer)
+  (rel_pos :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_applyImpulse" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_clearForces" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_clearForces" #.(bullet-wrap::swig-lispify "btRigidBody_clearForces" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_clearForces" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_updateInertiaTensor" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_updateInertiaTensor" #.(bullet-wrap::swig-lispify "btRigidBody_updateInertiaTensor" 'function)) :void
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_updateInertiaTensor" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassPosition" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getCenterOfMassPosition" #.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassPosition" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassPosition" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getOrientation" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getOrientation" #.(bullet-wrap::swig-lispify "btRigidBody_getOrientation" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getOrientation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassTransform" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getCenterOfMassTransform" #.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassTransform" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getCenterOfMassTransform" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getLinearVelocity" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getLinearVelocity" #.(bullet-wrap::swig-lispify "btRigidBody_getLinearVelocity" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getLinearVelocity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAngularVelocity" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getAngularVelocity" #.(bullet-wrap::swig-lispify "btRigidBody_getAngularVelocity" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAngularVelocity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setLinearVelocity" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setLinearVelocity" #.(bullet-wrap::swig-lispify "btRigidBody_setLinearVelocity" 'function)) :void
+  (self :pointer)
+  (lin_vel :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setLinearVelocity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setAngularVelocity" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setAngularVelocity" #.(bullet-wrap::swig-lispify "btRigidBody_setAngularVelocity" 'function)) :void
+  (self :pointer)
+  (ang_vel :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setAngularVelocity" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getVelocityInLocalPoint" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getVelocityInLocalPoint" #.(bullet-wrap::swig-lispify "btRigidBody_getVelocityInLocalPoint" 'function)) :pointer
+  (self :pointer)
+  (rel_pos :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getVelocityInLocalPoint" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_translate" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_translate" #.(bullet-wrap::swig-lispify "btRigidBody_translate" 'function)) :void
+  (self :pointer)
+  (v :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_translate" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAabb" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getAabb" #.(bullet-wrap::swig-lispify "btRigidBody_getAabb" 'function)) :void
+  (self :pointer)
+  (aabbMin :pointer)
+  (aabbMax :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAabb" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_computeImpulseDenominator" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_computeImpulseDenominator" #.(bullet-wrap::swig-lispify "btRigidBody_computeImpulseDenominator" 'function)) :double
+  (self :pointer)
+  (pos :pointer)
+  (normal :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_computeImpulseDenominator" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_computeAngularImpulseDenominator" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_computeAngularImpulseDenominator" #.(bullet-wrap::swig-lispify "btRigidBody_computeAngularImpulseDenominator" 'function)) :double
+  (self :pointer)
+  (axis :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_computeAngularImpulseDenominator" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_updateDeactivation" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_updateDeactivation" #.(bullet-wrap::swig-lispify "btRigidBody_updateDeactivation" 'function)) :void
+  (self :pointer)
+  (timeStep :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_updateDeactivation" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_wantsSleeping" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_wantsSleeping" #.(bullet-wrap::swig-lispify "btRigidBody_wantsSleeping" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_wantsSleeping" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getBroadphaseProxy__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getBroadphaseProxy__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getBroadphaseProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setNewBroadphaseProxy" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setNewBroadphaseProxy" #.(bullet-wrap::swig-lispify "btRigidBody_setNewBroadphaseProxy" 'function)) :void
+  (self :pointer)
+  (broadphaseProxy :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setNewBroadphaseProxy" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getMotionState__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getMotionState__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getMotionState" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setMotionState" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setMotionState" #.(bullet-wrap::swig-lispify "btRigidBody_setMotionState" 'function)) :void
+  (self :pointer)
+  (motionState :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setMotionState" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_set" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_m_contactSolverType_set" #.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_set" 'function)) :void
+  (self :pointer)
+  (m_contactSolverType :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_set" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_get" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_m_contactSolverType_get" #.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_get" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_m_contactSolverType_get" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_set" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_m_frictionSolverType_set" #.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_set" 'function)) :void
+  (self :pointer)
+  (m_frictionSolverType :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_set" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_get" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_m_frictionSolverType_get" #.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_get" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_m_frictionSolverType_get" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setAngularFactor__SWIG_0" #.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function)) :void
+  (self :pointer)
+  (angFac :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setAngularFactor__SWIG_1" #.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function)) :void
+  (self :pointer)
+  (angFac :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setAngularFactor" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getAngularFactor" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getAngularFactor" #.(bullet-wrap::swig-lispify "btRigidBody_getAngularFactor" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getAngularFactor" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_isInWorld" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_isInWorld" #.(bullet-wrap::swig-lispify "btRigidBody_isInWorld" 'function)) :pointer
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_isInWorld" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_checkCollideWithOverride" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_checkCollideWithOverride" #.(bullet-wrap::swig-lispify "btRigidBody_checkCollideWithOverride" 'function)) :pointer
+  (self :pointer)
+  (co :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_checkCollideWithOverride" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_addConstraintRef" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_addConstraintRef" #.(bullet-wrap::swig-lispify "btRigidBody_addConstraintRef" 'function)) :void
+  (self :pointer)
+  (c :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_addConstraintRef" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_removeConstraintRef" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_removeConstraintRef" #.(bullet-wrap::swig-lispify "btRigidBody_removeConstraintRef" 'function)) :void
+  (self :pointer)
+  (c :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_removeConstraintRef" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getConstraintRef" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getConstraintRef" #.(bullet-wrap::swig-lispify "btRigidBody_getConstraintRef" 'function)) :pointer
+  (self :pointer)
+  (index :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getConstraintRef" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getNumConstraintRefs" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getNumConstraintRefs" #.(bullet-wrap::swig-lispify "btRigidBody_getNumConstraintRefs" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getNumConstraintRefs" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_setFlags" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_setFlags" #.(bullet-wrap::swig-lispify "btRigidBody_setFlags" 'function)) :void
+  (self :pointer)
+  (flags :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_setFlags" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_getFlags" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_getFlags" #.(bullet-wrap::swig-lispify "btRigidBody_getFlags" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_getFlags" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_computeGyroscopicForce" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_computeGyroscopicForce" #.(bullet-wrap::swig-lispify "btRigidBody_computeGyroscopicForce" 'function)) :pointer
+  (self :pointer)
+  (maxGyroscopicForce :double))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_computeGyroscopicForce" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_calculateSerializeBufferSize" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_calculateSerializeBufferSize" #.(bullet-wrap::swig-lispify "btRigidBody_calculateSerializeBufferSize" 'function)) :int
+  (self :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_calculateSerializeBufferSize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_serialize" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_serialize" #.(bullet-wrap::swig-lispify "btRigidBody_serialize" 'function)) :string
+  (self :pointer)
+  (dataBuffer :pointer)
+  (serializer :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_serialize" 'function))
+
+(cl:declaim (cl:inline #.(bullet-wrap::swig-lispify "btRigidBody_serializeSingleObject" 'function)))
+
+(cffi:defcfun ("_wrap_btRigidBody_serializeSingleObject" #.(bullet-wrap::swig-lispify "btRigidBody_serializeSingleObject" 'function)) :void
+  (self :pointer)
+  (serializer :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBody_serializeSingleObject" 'function))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btRigidBodyFloatData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_collisionObjectData" 'slotname) #.(bullet-wrap::swig-lispify "btCollisionObjectFloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_invInertiaTensorWorld" 'slotname) #.(bullet-wrap::swig-lispify "btMatrix3x3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_linearVelocity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_angularVelocity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_angularFactor" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_linearFactor" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_gravity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_gravity_acceleration" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_invInertiaLocal" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_totalForce" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_totalTorque" 'slotname) #.(bullet-wrap::swig-lispify "btVector3FloatData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_inverseMass" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_linearDamping" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_angularDamping" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_additionalDampingFactor" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_additionalLinearDampingThresholdSqr" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_additionalAngularDampingThresholdSqr" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_additionalAngularDampingFactor" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_linearSleepingThreshold" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_angularSleepingThreshold" 'slotname) :float)
+	(#.(bullet-wrap::swig-lispify "m_additionalDamping" 'slotname) :int))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBodyFloatData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_collisionObjectData" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_invInertiaTensorWorld" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearVelocity" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_angularVelocity" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_angularFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_gravity" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_gravity_acceleration" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_invInertiaLocal" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_totalForce" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_totalTorque" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_inverseMass" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearDamping" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_angularDamping" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalDampingFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalLinearDampingThresholdSqr" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalAngularDampingThresholdSqr" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalAngularDampingFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearSleepingThreshold" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_angularSleepingThreshold" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalDamping" 'slotname))
+
+(cffi:defcstruct #.(bullet-wrap::swig-lispify "btRigidBodyDoubleData" 'classname)
+	(#.(bullet-wrap::swig-lispify "m_collisionObjectData" 'slotname) #.(bullet-wrap::swig-lispify "btCollisionObjectDoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_invInertiaTensorWorld" 'slotname) #.(bullet-wrap::swig-lispify "btMatrix3x3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_linearVelocity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_angularVelocity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_angularFactor" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_linearFactor" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_gravity" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_gravity_acceleration" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_invInertiaLocal" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_totalForce" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_totalTorque" 'slotname) #.(bullet-wrap::swig-lispify "btVector3DoubleData" 'classname))
+	(#.(bullet-wrap::swig-lispify "m_inverseMass" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_linearDamping" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_angularDamping" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_additionalDampingFactor" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_additionalLinearDampingThresholdSqr" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_additionalAngularDampingThresholdSqr" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_additionalAngularDampingFactor" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_linearSleepingThreshold" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_angularSleepingThreshold" 'slotname) :double)
+	(#.(bullet-wrap::swig-lispify "m_additionalDamping" 'slotname) :int)
+	(#.(bullet-wrap::swig-lispify "m_padding" 'slotname) :pointer))
+
+(cl:export '#.(bullet-wrap::swig-lispify "btRigidBodyDoubleData" 'classname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_collisionObjectData" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_invInertiaTensorWorld" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearVelocity" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_angularVelocity" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_angularFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_gravity" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_gravity_acceleration" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_invInertiaLocal" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_totalForce" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_totalTorque" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_inverseMass" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearDamping" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_angularDamping" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalDampingFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalLinearDampingThresholdSqr" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalAngularDampingThresholdSqr" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalAngularDampingFactor" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_linearSleepingThreshold" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_angularSleepingThreshold" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_additionalDamping" 'slotname))
+
+(cl:export '#.(bullet-wrap::swig-lispify "m_padding" 'slotname))
 
 

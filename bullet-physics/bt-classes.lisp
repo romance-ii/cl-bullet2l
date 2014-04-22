@@ -1,223 +1,164 @@
-(in-package :bullet)
+(in-package :bullet-physics)
 
 ;;; Worlds
 
 (defclass /c++-class/ ()
   ((ff-pointer :reader ff-pointer)))
 
-(defclass collision-world (/c++-class/)
-  ())
+(defmacro bt-class (name &optional (base-class '/c++-class/))
+  `(defclass ,name (,base-class) nil))
 
-(defclass discrete-dynamics-world (/c++-class/)
-  ())
+(bt-class collision-world)
 
-(defclass simple-dynamics-world (/c++-class/)
-  ())
+(bt-class discrete-dynamics-world)
+
+(bt-class simple-dynamics-world)
 
 ;;; Things in worlds (objects/bodies)
 
-(defclass collision-object (/c++-class/)
-  ())
+(bt-class collision-object)
 
-(defclass box-shape (/c++-class/)
-  ())
+(bt-class box-shape)
 
-(defclass sphere-shape (/c++-class/)
-  ())
+(bt-class sphere-shape)
 
-(defclass capsule-shape (/c++-class/)
-  ())
+(bt-class capsule-shape)
 
-(defclass capsule-shape-x (capsule-shape)
-  ())
+(bt-class capsule-shape-x capsule-shape)
 
-(defclass capsule-shape-z (capsule-shape)
-  ())
+(bt-class capsule-shape-z capsule-shape)
 
-(defclass cylinder-shape (/c++-class/)
-  ())
+(bt-class cylinder-shape)
 
-(defclass cylinder-shape-x (cylinder-shape)
-  ())
+(bt-class cylinder-shape-x cylinder-shape)
 
-(defclass cylinder-shape-z (cylinder-shape)
-  ())
+(bt-class cylinder-shape-z cylinder-shape)
 
-(defclass cone-shape (/c++-class/)
-  ())
+(bt-class cone-shape)
 
-(defclass cone-shape-x (cone-shape)
-  ())
+(bt-class cone-shape-x cone-shape)
 
-(defclass cone-shape-z (cone-shape)
-  ())
+(bt-class cone-shape-z cone-shape)
 
-(defclass static-plane-shape (/c++-class/)
-  ())
+(bt-class static-plane-shape)
 
-(defclass convex-hull-shape (/c++-class/)
-  ())
+(bt-class convex-hull-shape)
 
-(defclass triangle-mesh (/c++-class/)
-  ())
+(bt-class triangle-mesh)
 
-(defclass convex-triangle-mesh-shape (/c++-class/)
-  ())
+(bt-class convex-triangle-mesh-shape)
 
-(defclass bvh-triangle-mesh-shape (/c++-class/)
-  ())
+(bt-class bvh-triangle-mesh-shape)
 
-(defclass scaled-bvh-triangle-mesh-shape (/c++-class/)
-  ())
+(bt-class scaled-bvh-triangle-mesh-shape)
 
-(defclass triangle-mesh-shape (/c++-class/)
-  ())
+(bt-class triangle-mesh-shape)
 
-(defclass triangle-index-vertex-array (/c++-class/)
-  ())
+(bt-class triangle-index-vertex-array)
 
-(defclass compound-shape (/c++-class/)
-  ())
+(bt-class compound-shape)
 
 ;;; Constraints
 
+(bt-class constraint)
+
+(bt-class hinged-constraint constraint)
+(bt-class point->point-constraint constraint)
+(bt-class typed-constraint constraint)
+
 ;;; Vectors, matrices, et al.
 
-(defclass vector3 (/c++-class/)
-  ())
+(bt-class vector3)
 
-(defclass vector4 (vector3)
-  ())
+(bt-class vector4 vector3)
 
-(defclass quaternion (/c++-class/)
-  ())
+(bt-class quaternion)
 
-(defclass matrix-3x3 (/c++-class/)
-  ())
+(bt-class matrix-3x3)
 
-(defclass transform (/c++-class/)
-  ())
+(bt-class transform)
 
 ;;; Unsorted mass of things
 
-(defclass motion-state (/c++-class/)
-  ())
+(bt-class motion-state)
 
-(defclass bu-simplex1to4 (/c++-class/)
-  ())
+(bt-class bu-simplex1to4)
 
-(defclass empty-shape (/c++-class/)
-  ())
+(bt-class empty-shape)
 
-(defclass multi-sphere-shape (/c++-class/)
-  ())
+(bt-class multi-sphere-shape)
 
-(defclass uniform-scaling-shape (/c++-class/)
-  ())
+(bt-class uniform-scaling-shape)
 
-(defclass sphere-sphere-collision-algorithm (/c++-class/)
-  ())
+(bt-class sphere-sphere-collision-algorithm)
 
-(defclass default-collision-configuration (/c++-class/)
-  ())
+(bt-class default-collision-configuration)
 
-(defclass collision-dispatcher (/c++-class/)
-  ())
+(bt-class collision-dispatcher)
 
-(defclass simple-broadphase (/c++-class/)
-  ())
+(bt-class simple-broadphase)
 
-(defclass axis-sweep3 (/c++-class/)
-  ())
+(bt-class axis-sweep3)
 
-(defclass bt-32-bit-axis-sweep3 (/c++-class/)
-  ())
+(bt-class bt-32-bit-axis-sweep3)
 
-(defclass multi-sap-broadphase (/c++-class/)
-  ())
+(bt-class multi-sap-broadphase)
 
-(defclass clock (/c++-class/)
-  ())
+(bt-class clock)
 
-(defclass cprofile-node (/c++-class/)
-  ())
+(bt-class cprofile-node)
 
-(defclass cprofile-iterator (/c++-class/)
-  ())
+(bt-class cprofile-iterator)
 
-(defclass cprofile-manager (/c++-class/)
-  ())
+(bt-class cprofile-manager)
 
-(defclass cprofile-sample (/c++-class/)
-  ())
+(bt-class cprofile-sample)
 
-(defclass idebug-draw (/c++-class/)
-  ())
+(bt-class idebug-draw)
 
-(defclass chunk (/c++-class/)
-  ())
+(bt-class chunk)
 
-(defclass serializer (/c++-class/)
-  ())
+(bt-class serializer)
 
-(defclass default-serializer (serializer)
-  ())
+(bt-class default-serializer serializer)
 
-(defclass discrete-dynamics-world (/c++-class/)
-  ())
+(bt-class discrete-dynamics-world)
 
-(defclass simple-dynamics-world (/c++-class/)
-  ())
+(bt-class simple-dynamics-world)
 
-(defclass rigid-body (collision-object)
-  ())
+(bt-class rigid-body collision-object)
 
-(defclass typed-constraint (typed-object)
-  ())
+;;(bt-class typed-constraint typed-object)
 
-(defclass angular-limit (/c++-class/)
-  ())
+(bt-class angular-limit)
 
-(defclass point->point-constraint (typed-constraint)
-  ())
+(bt-class point->point-constraint typed-constraint)
 
-(defclass hinge-constraint (typed-constraint)
-  ())
+(bt-class hinge-constraint typed-constraint)
 
 (warn "Guessing at HINGE-2-CONSTRAINT")
-(defclass hinge-2-constraint (hinge-constraint)
-  ())
 
-(defclass cone-twist-constraint (typed-constraint)
-  ())
+(bt-class hinge-2-constraint hinge-constraint)
 
-(defclass rotational-limit-motor (/c++-class/)
-  ())
+(bt-class cone-twist-constraint typed-constraint)
 
-(defclass translational-limit-motor (/c++-class/)
-  ())
+(bt-class rotational-limit-motor)
 
-(defclass generic-6-dof-constraint (typed-constraint)
-  ())
+(bt-class translational-limit-motor)
 
-(defclass slider-constraint (typed-constraint)
-  ())
+(bt-class generic-6-dof-constraint typed-constraint)
 
-(defclass generic-6-dof-spring-constraint (generic-6dof-constraint)
-  ())
+(bt-class slider-constraint typed-constraint)
 
-(defclass universal-constraint (generic-6dof-constraint)
-  ())
+(bt-class generic-6-dof-spring-constraint generic-6dof-constraint)
 
-(defclass hinge2-constraint (generic-6dof-spring-constraint)
-  ())
+(bt-class universal-constraint generic-6dof-constraint)
 
-(defclass gear-constraint (typed-constraint)
-  ())
+(bt-class hinge2-constraint generic-6dof-spring-constraint)
 
-(defclass fixed-constraint (typed-constraint)
-  ())
+(bt-class gear-constraint typed-constraint)
 
-(defclass sequential-impulse-constraint-solver (/c++-class/)
-  ())
+(bt-class fixed-constraint typed-constraint)
+
+(bt-class sequential-impulse-constraint-solver)
 
