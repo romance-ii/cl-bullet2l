@@ -13,15 +13,11 @@ for CFFI."
   (let ((pointer-p (and (consp type)
                         (eql :pointer (car type)))))
     (cond
-      ((and pointer-p
-            (ff-class-name-p (second type))) 
-       (values `(check-type ,symbol ,(second type))
-               `(make-instance ',(second type)
-                               :ff-pointer ,symbol)))
-      ((and pointer-p
-            (eql 'scalar (second type)))
-       (values `(coerce ,symbol 'double-float)
-               `,symbol))
+      ((eql 'scalar type) (values `(check-type ,symbol 'double-float)
+                                  `(coerce ,symbol 'double-float)))
+      ((ff-class-name-p type) (values `()
+                                      `(make-instance ',type
+                                                      :ff-pointer ,symbol)))
       (t (values nil symbol)))))
 
 (defvar *alien-doubles/pdl*
@@ -58,16 +54,28 @@ for CFFI."
   (defun basic-type (type)
     (cond 
       ((consp type) (ecase (car type)
-                      (:pointer (list '* (basic-type (second type))))))
-      ((ff-class-name-p type) `(sb-alien:struct ,type))
+                      (:array `(sb-alien:array ,(basic-type (second type)) ,@(nthcdr 2 type)))
+                      (:enum '(integer 32)) ;; ?
+                      (:pointer (case (second type)
+                                  (:void :pointer)
+                                  (otherwise (list '* (basic-type (second type))))))))
+      ((ff-class-name-p type) (list '* type))
       (t (case type
            ((scalar :double :float) 'double-float)
            (:long    '(integer 64))
            (:int     '(integer 32))
            (:short   '(integer 16))
-           (:char    '(unsigned 8))
+           (:char    '(sb-alien:unsigned 8))
+           (:byte    '(sb-alien:unsigned 8))
+           (:unsigned-short  '(sb-alien:unsigned 16))
+           (:unsigned-int    '(sb-alien:unsigned 32))
+           (:unsigned-long   '(sb-alien:unsigned 64))
+           (:bytes   '(array (unsigned 8)))
+           (:string  'sb-alien:c-string)
            (:void    'sb-alien:void)
-           (:pointer (error 'bad-binding-pointer))
+           (:boolean 'sb-alien:boolean)
+           (:pointer (format *trace-output* "~&A void pointer is defined; that's unlikely to be correct")
+                     '(* t))
            (otherwise (error 'bad-binding-type :type type))))))
   (defun coercion-to-c++ (symbol type)
     "Given a Lisp symbol and a CFFI-style type or a wrapped C++ object,
@@ -78,8 +86,8 @@ Lisp type to the C++ type in the correct way for CFFI."
                           (eql :pointer (car type)))))
       (cond
         ((and pointer-p
-              (ff-class-name-p (second type))) (values '()
-              `(ff-pointer ,symbol)))
+              (ff-class-name-p (second type))) (values '() `(ff-pointer ,symbol)))
+        ((and pointer-p (eql :void (second type))) (values '() symbol))
         ((and pointer-p
               (eql 'scalar (second type))) (values `(check-type ,symbol 'number)
               `(pointer->double (coerce ,symbol
@@ -104,36 +112,58 @@ remarshalls them like this:
                     (basic-type (second arg))))
             args)))
 
+(defmacro defcenum (class &rest enums)
+  `(progn (cffi:defcenum ,class ,@enums)
+          (sb-alien:define-alien-type ,class
+              (sb-alien:enum ,class ,@enums))))
+
 (defmacro defcfun ((c-name lisp-name) returns &body args)
   (let* ((c++-package (sb-int:find-undeleted-package-or-lose
                        "BULLET-PHYSICS-C++"))
          (sym-name (intern (string lisp-name) c++-package)))
     (format *trace-output*
-            "~&C function \"~A\"~% = ƒ ~A~% = (ƒ ~S ⇐ ~S)~%" c-name lisp-name returns args)
+            (concatenate 'string "~2&~@<"
+                         (format nil "~(~S~) ⇐ ƒ ~A (" returns lisp-name)
+                         "~;~{~{~A◦~(~S~)~}~^, ~}~;)~:@>")
+            args )
+    (format *trace-output*
+            "~%~VT C* ƒ ~A"
+            (1- (length (format nil "~(~S~)" returns)))
+            c-name)
+    #+ (or)
     (handler-bind ((bullet-physics::bad-binding
                     (lambda (c)
                       (warn "Bad bindings for ƒ ~A; skipping~%~A" sym-name c)
-                      (continue))))
-      (let ((lambda-list (marshall-args args)))
-        `(block ,sym-name
-           (declaim (inline ,sym-name))
+                      (continue)))))
+    (let ((lambda-list (marshall-args args)))
+      `(progn
+         (declaim (inline ,sym-name))
+         (eval-when (:compile-toplevel :load-toplevel)
            (defun ,sym-name (,@(mapcar #'first-or-only args))
              (sb-alien:alien-funcall
               (sb-alien:extern-alien ,c-name
                                      (function ,(basic-type returns)
                                                ,@(mapcar #'cdr lambda-list)))
-              ,@(mapcar #'car lambda-list)))
+              #+ (or)              ,@(mapcar #'car lambda-list)))
+           #+ (or)
            (handler-bind
                ((sb-ext:name-conflict 
                  (lambda (c)
                    (declare (ignore c))
-                   (if-let ((r (find-restart 'take-new)))
-                     (invoke-restart r)
-                     (progn (warn "No TAKE-NEW restart available, trying to CONTINUE")
-                            (continue))))))
-             (format *trace-output* "~&I should be exporting ~S, but I'm not right now because HANDLER-BIND is wrong here ☠" ',sym-name)
-             ;; (export ',sym-name)
-             ))))))
+                   (when-let ((r (find-restart 'take-new)))
+                     (invoke-restart r))
+                   (when-let ((r (find-restart 'shadowing-import-it)))
+                     (invoke-restart r))))
+                (sb-kernel:simple-package-error
+                 (lambda (c)
+                   (declare (ignore c))
+                   (when-let ((r (find-restart 'continue)))
+                     (invoke-restart r)))))
+             #+ (or)
+             (format *trace-output* "~&I should be exporting ~S, but I'm not right now because HANDLER-BIND is wrong here ☠"
+                     ',sym-name)
+             (unintern ',sym-name :bullet)
+             (export ',sym-name :bullet)))))))
 
 (defmacro define-anonymous-enum (&body enums)
   "Converts anonymous enums to defconstants."
@@ -151,7 +181,7 @@ remarshalls them like this:
 (defcfun ("b2l_poke" b2l/poke) (:pointer scalar)
   (btscalar scalar))
 
-(defcfun ("b2l_makeVector3" b2l/make-vector3) (:pointer vector3)
+(defcfun ("b2l_makeVector3" b2l/make-vector3) vector3
   (x scalar)
   (y scalar)
   (z scalar))

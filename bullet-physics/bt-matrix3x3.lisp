@@ -2,141 +2,146 @@
 
 
 (defcfun ("_wrap_new_btMatrix3x3__SWIG_0"
-               make-matrix-3x3/naked) :pointer)
+          make-matrix-3x3/naked) matrix-3x3)
 
 (defcfun ("_wrap_new_btMatrix3x3__SWIG_1"
                make-matrix-3x3/quaternion)
-    :pointer
-  (q :pointer))
+    matrix-3x3
+  (q quaternion))
 
 (defcfun ("_wrap_new_btMatrix3x3__SWIG_2"
-               make-matrix-3x3/9) :pointer
-  (xx :pointer)
-  (xy :pointer)
-  (xz :pointer)
-  (yx :pointer)
-  (yy :pointer)
-  (yz :pointer)
-  (zx :pointer)
-  (zy :pointer)
-  (zz :pointer))
+          make-matrix-3x3/9) matrix-3x3
+  (xx scalar)
+  (xy scalar)
+  (xz scalar)
+  (yx scalar)
+  (yy scalar)
+  (yz scalar)
+  (zx scalar)
+  (zy scalar)
+  (zz scalar))
 
 (defcfun ("_wrap_new_btMatrix3x3__SWIG_3"
-               make-matrix-3x3/copy) :pointer
-  (other :pointer))
+          make-matrix-3x3/copy) matrix-3x3
+  (other matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_assignValue"
-               matrix-3x3/assign-value) :pointer
-  (self :pointer)
-  (other :pointer))
+               matrix-3x3/assign-value) matrix-3x3
+  (self matrix-3x3)
+  (other matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_getColumn"
-               matrix-3x3/get-column) :pointer
-  (self :pointer)
+          matrix-3x3/get-column) vector3
+  (self matrix-3x3)
   (i :int))
 
 (defcfun ("_wrap_btMatrix3x3_getRow"
-               MATRIX-3X3/GET-ROW) :pointer
-  (self :pointer)
+          MATRIX-3X3/GET-ROW) vector3
+  (self matrix-3x3)
   (i :int))
 
 (defcfun ("_wrap_btMatrix3x3___aref____SWIG_0"
-               matrix-3x3/aref) :pointer
-  (self :pointer)
+          matrix-3x3/aref) vector3
+  (self matrix-3x3)
   (i :int))
 #+ (or)
 (defcfun ("_wrap_btMatrix3x3___aref____SWIG_1"
                matrix-3x3/aref) :pointer
-  (self :pointer)
+  (self matrix-3x3)
   (i :int))
 
 (defcfun ("_wrap_btMatrix3x3_multiplyAndAssign"
-               MATRIX-3X3/MULTIPLY-AND-ASSIGN) :pointer
-  (self :pointer)
-  (m :pointer))
+               MATRIX-3X3/MULTIPLY-AND-ASSIGN) matrix-3x3
+  (self matrix-3x3)
+  (m matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_increment"
-               MATRIX-3X3/INCREMENT) :pointer
-  (self :pointer)
-  (m :pointer))
+               MATRIX-3X3/INCREMENT) matrix-3x3
+  (self matrix-3x3)
+  (m matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_decrement"
-               MATRIX-3X3/DECREMENT) :pointer
-  (self :pointer)
-  (m :pointer))
+               MATRIX-3X3/DECREMENT) matrix-3x3
+  (self matrix-3x3)
+  (m matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_setFromOpenGLSubMatrix"
                MATRIX-3X3/SET-FROM-OPENGL-SUB-MATRIX) :void
-  (self :pointer)
-  (m :pointer))
+  (self matrix-3x3)
+  (m (:array scalar 9)))
 
 (defcfun ("_wrap_btMatrix3x3_setValue"
                MATRIX-3X3/SET-VALUE) :void
-  (self :pointer)
-  (xx :pointer)
-  (xy :pointer)
-  (xz :pointer)
-  (yx :pointer)
-  (yy :pointer)
-  (yz :pointer)
-  (zx :pointer)
-  (zy :pointer)
-  (zz :pointer))
+  (self matrix-3x3)
+  (xx scalar)
+  (xy scalar)
+  (xz scalar)
+  (yx scalar)
+  (yy scalar)
+  (yz scalar)
+  (zx scalar)
+  (zy scalar)
+  (zz scalar))
 
 (defcfun ("_wrap_btMatrix3x3_setRotation"
                MATRIX-3X3/SET-ROTATION) :void
-  (self :pointer)
-  (q :pointer))
+  (self matrix-3x3)
+  (q quaternion))
 
 (defcfun ("_wrap_btMatrix3x3_setEulerYPR"
                MATRIX-3X3/SET-EULER-YPR) :void
-  (self :pointer)
-  (yaw :pointer)
-  (pitch :pointer)
-  (roll :pointer))
+  (self matrix-3x3)
+  (yaw scalar)
+  (pitch scalar)
+  (roll scalar))
 
 (defcfun ("_wrap_btMatrix3x3_setEulerZYX"
                MATRIX-3X3/SET-EULER-ZYX) :void
-  (self :pointer)
-  (eulerX :float)
-  (eulerY :float)
-  (eulerZ :float))
+  (self matrix-3x3)
+  (eulerX scalar)
+  (eulerY scalar)
+  (eulerZ scalar))
 
 (defcfun ("_wrap_btMatrix3x3_setIdentity"
                MATRIX-3X3/SET-IDENTITY) :void
-  (self :pointer))
+  (self matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_getIdentity"
-               MATRIX-3X3/GET-IDENTITY) :pointer)
+          MATRIX-3X3/GET-IDENTITY) :pointer)
 
 (defcfun ("_wrap_btMatrix3x3_getOpenGLSubMatrix"
-               MATRIX-3X3/GET-OPENGL-SUB-MATRIX) :void
-  (self :pointer)
-  (m :pointer))
+          MATRIX-3X3/GET-OPENGL-SUB-MATRIX/into-array-passed) :void
+  (self matrix-3x3)
+  (target (:array scalar)))
+
+(defun matrix-3x3/get-opengl-sub-matrix (self)
+  (sb-alien:with-alien ((target (sb-alien:array double-float 9)))
+    (MATRIX-3X3/GET-OPENGL-SUB-MATRIX/into-array-passed self target)
+    target))
 
 (defcfun ("_wrap_btMatrix3x3_getRotation"
                MATRIX-3X3/GET-ROTATION) :void
-  (self :pointer)
+  (self matrix-3x3)
   (q :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_getEulerYPR"
                MATRIX-3X3/GET-EULER-YPR) :void
-  (self :pointer)
+  (self matrix-3x3)
   (yaw :pointer)
   (pitch :pointer)
   (roll :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_getEulerZYX__SWIG_0"
                MATRIX-3X3/GET-EULER-ZYX/WITH-SOLUTION#) :void
-  (self :pointer)
+  (self matrix-3x3)
   (yaw :pointer)
   (pitch :pointer)
   (roll :pointer)
-  (solution_number :unsigned-int))
+  (solution-number :unsigned-int))
 
 (defcfun ("_wrap_btMatrix3x3_getEulerZYX__SWIG_1"
                MATRIX-3X3/GET-EULER-ZYX/WITHOUT-SOLUTION#) :void
-  (self :pointer)
+  (self matrix-3x3)
   (yaw :pointer)
   (pitch :pointer)
   (roll :pointer))
@@ -149,64 +154,64 @@
 
 (defcfun ("_wrap_btMatrix3x3_scaled"
                MATRIX-3X3/SCALED) :pointer
-  (self :pointer)
+  (self matrix-3x3)
   (s :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_determinant"
                MATRIX-3X3/DETERMINANT) :float
-  (self :pointer))
+  (self matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_adjoint"
                MATRIX-3X3/ADJOINT) :pointer
-  (self :pointer))
+  (self matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_absolute"
                MATRIX-3X3/ABSOLUTE) :pointer
-  (self :pointer))
+  (self matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_transpose"
                MATRIX-3X3/TRANSPOSE) :pointer
-  (self :pointer))
+  (self matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_inverse"
                MATRIX-3X3/INVERSE) :pointer
-  (self :pointer))
+  (self matrix-3x3))
 
 (defcfun ("_wrap_btMatrix3x3_transposeTimes"
                MATRIX-3X3/TRANSPOSE-TIMES) :pointer
-  (self :pointer)
+  (self matrix-3x3)
   (m :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_timesTranspose"
                MATRIX-3X3/TIMES-TRANSPOSE) :pointer
-  (self :pointer)
+  (self matrix-3x3)
   (m :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_tdotx"
                MATRIX-3X3/TDOTX) :float
-  (self :pointer)
+  (self matrix-3x3)
   (v :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_tdoty"
                MATRIX-3X3/TDOTY) :float
-  (self :pointer)
+  (self matrix-3x3)
   (v :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_tdotz"
                MATRIX-3X3/TDOTZ) :float
-  (self :pointer)
+  (self matrix-3x3)
   (v :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_diagonalize"
                MATRIX-3X3/DIAGONALIZE) :void
-  (self :pointer)
+  (self matrix-3x3)
   (rot :pointer)
   (threshold :float)
   (maxSteps :int))
 
 (defcfun ("_wrap_btMatrix3x3_cofac"
                MATRIX-3X3/COFAC) :float
-  (self :pointer)
+  (self matrix-3x3)
   (r1 :int)
   (c1 :int)
   (r2 :int)
@@ -214,32 +219,32 @@
 
 (defcfun ("_wrap_btMatrix3x3_serialize"
                MATRIX-3X3/SERIALIZE) :void
-  (self :pointer)
+  (self matrix-3x3)
   (dataOut :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_serializeFloat"
                MATRIX-3X3/SERIALIZE-FLOAT) :void
-  (self :pointer)
+  (self matrix-3x3)
   (dataOut :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_deSerialize"
                MATRIX-3X3/DE-SERIALIZE) :void
-  (self :pointer)
+  (self matrix-3x3)
   (dataIn :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_deSerializeFloat"
                MATRIX-3X3/DE-SERIALIZE-FLOAT) :void
-  (self :pointer)
+  (self matrix-3x3)
   (dataIn :pointer))
 
 (defcfun ("_wrap_btMatrix3x3_deSerializeDouble"
                MATRIX-3X3/DE-SERIALIZE-DOUBLE) :void
-  (self :pointer)
+  (self matrix-3x3)
   (dataIn :pointer))
 
 (defcfun ("_wrap_delete_btMatrix3x3"
                DELETE/BT-MATRIX-3X3) :void
-  (self :pointer))
+  (self matrix-3x3))
 
 (defmethod initialize-instance :after ((obj MATRIX-3X3) &key
                                                           (q nil q?) (mat nil mat?)

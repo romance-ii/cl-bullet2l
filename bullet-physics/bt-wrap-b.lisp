@@ -1,15 +1,15 @@
 (in-package #:bullet-physics)
 (defcfun ("_wrap_btCollisionWorld_getForceUpdateAllAabbs"
-               COLLISION-WORLD/GET-FORCE-UPDATE-ALL-AABBS) :pointer
+          collision-world/get-force-update-all-aabbs) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_setForceUpdateAllAabbs"
-               COLLISION-WORLD/SET-FORCE-UPDATE-ALL-AABBS) :void
+          collision-world/set-force-update-all-aabbs) :void
   (self :pointer)
   (forceUpdateAllAabbs :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_serialize"
-               COLLISION-WORLD/SERIALIZE) :void
+          collision-world/serialize) :void
   (self :pointer)
   (serializer :pointer))
 (define-constant +ACTIVE-TAG+ 1)
@@ -31,1051 +31,1051 @@
   (:ANISOTROPIC-ROLLING-FRICTION 2))
 
 (defcfun ("_wrap_btBoxShape_makeCPlusPlusInstance__SWIG_0"
-               BOX-SHAPE/MAKE-c++-INSTANCE) :pointer
+          box-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btBoxShape_deleteCPlusPlusInstance__SWIG_0"
-               BOX-SHAPE/DELETE-c++-INSTANCE) :void
+          box-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBoxShape_makeCPlusPlusInstance__SWIG_1"
-               BOX-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          box-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBoxShape_deleteCPlusPlusInstance__SWIG_1"
-               BOX-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          box-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btBoxShape_makeCPlusArray__SWIG_0"
-               BOX-SHAPE/MAKE-c++-ARRAY) :pointer
+          box-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btBoxShape_deleteCPlusArray__SWIG_0"
-               BOX-SHAPE/DELETE-c++-ARRAY) :void
+          box-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBoxShape_makeCPlusArray__SWIG_1"
-               BOX-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          box-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBoxShape_deleteCPlusArray__SWIG_1"
-               BOX-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          box-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btBoxShape_getHalfExtentsWithMargin"
-               BOX-SHAPE/GET-HALF-EXTENTS-WITH-MARGIN) :pointer
+          box-shape/get-half-extents-with-margin) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btBoxShape_getHalfExtentsWithoutMargin"
-               BOX-SHAPE/GET-HALF-EXTENTS-WITHOUT-MARGIN) :pointer
+          box-shape/get-half-extents-without-margin) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btBoxShape_localGetSupportingVertex"
-               BOX-SHAPE/LOCAL-GET-SUPPORTING-VERTEX) :pointer
+          box-shape/local-get-supporting-vertex) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btBoxShape_localGetSupportingVertexWithoutMargin"
-               BOX-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          box-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btBoxShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               BOX-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          box-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_new_btBoxShape"
-               MAKE-BOX-SHAPE) :pointer
+          make-box-shape) :pointer
   (boxHalfExtents :pointer))
 
 (defcfun ("_wrap_btBoxShape_setMargin"
-               BOX-SHAPE/SET-MARGIN) :void
+          box-shape/set-margin) :void
   (self :pointer)
   (collisionMargin :float))
 
 (defcfun ("_wrap_btBoxShape_setLocalScaling"
-               BOX-SHAPE/SET-LOCAL-SCALING) :void
+          box-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btBoxShape_getAabb"
-               BOX-SHAPE/GET-AABB) :void
+          box-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btBoxShape_calculateLocalInertia"
-               BOX-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          box-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btBoxShape_getPlane"
-               BOX-SHAPE/GET-PLANE) :void
+          box-shape/get-plane) :void
   (self :pointer)
   (planeNormal :pointer)
   (planeSupport :pointer)
   (i :int))
 
 (defcfun ("_wrap_btBoxShape_getNumPlanes"
-               BOX-SHAPE/GET-NUM-PLANES) :int
+          box-shape/get-num-planes) :int
   (self :pointer))
 
 (defcfun ("_wrap_btBoxShape_getNumVertices"
-               BOX-SHAPE/GET-NUM-VERTICES) :int
+          box-shape/get-num-vertices) :int
   (self :pointer))
 
 (defcfun ("_wrap_btBoxShape_getNumEdges"
-               BOX-SHAPE/GET-NUM-EDGES) :int
+          box-shape/get-num-edges) :int
   (self :pointer))
 
 (defcfun ("_wrap_btBoxShape_getVertex"
-               BOX-SHAPE/GET-VERTEX) :void
+          box-shape/get-vertex) :void
   (self :pointer)
   (i :int)
   (vtx :pointer))
 
 (defcfun ("_wrap_btBoxShape_getPlaneEquation"
-               BOX-SHAPE/GET-PLANE-EQUATION) :void
+          box-shape/get-plane-equation) :void
   (self :pointer)
   (plane :pointer)
   (i :int))
 
 (defcfun ("_wrap_btBoxShape_getEdge"
-               BOX-SHAPE/GET-EDGE) :void
+          box-shape/get-edge) :void
   (self :pointer)
   (i :int)
   (pa :pointer)
   (pb :pointer))
 
 (defcfun ("_wrap_btBoxShape_isInside"
-               BOX-SHAPE/IS-INSIDE) :pointer
+          box-shape/is-inside) :pointer
   (self :pointer)
   (pt :pointer)
   (tolerance :float))
 
 (defcfun ("_wrap_btBoxShape_getName"
-               BOX-SHAPE/GET-NAME) :string
+          box-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btBoxShape_getNumPreferredPenetrationDirections"
-               BOX-SHAPE/GET-NUM-PREFERRED-PENETRATION-DIRECTIONS) :int
+          box-shape/get-num-preferred-penetration-directions) :int
   (self :pointer))
 
 (defcfun ("_wrap_btBoxShape_getPreferredPenetrationDirection"
-               BOX-SHAPE/GET-PREFERRED-PENETRATION-DIRECTION) :void
+          box-shape/get-preferred-penetration-direction) :void
   (self :pointer)
   (index :int)
   (penetrationVector :pointer))
 
 (defcfun ("_wrap_delete_btBoxShape"
-               DELETE/BT-BOX-SHAPE) :void
+          delete/bt-box-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btSphereShape_makeCPlusPlusInstance__SWIG_0"
-               SPHERE-SHAPE/MAKE-c++-INSTANCE) :pointer
+          sphere-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btSphereShape_deleteCPlusPlusInstance__SWIG_0"
-               SPHERE-SHAPE/DELETE-c++-INSTANCE) :void
+          sphere-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btSphereShape_makeCPlusPlusInstance__SWIG_1"
-               SPHERE-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          sphere-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btSphereShape_deleteCPlusPlusInstance__SWIG_1"
-               SPHERE-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          sphere-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btSphereShape_makeCPlusArray__SWIG_0"
-               SPHERE-SHAPE/MAKE-c++-ARRAY) :pointer
+          sphere-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btSphereShape_deleteCPlusArray__SWIG_0"
-               SPHERE-SHAPE/DELETE-c++-ARRAY) :void
+          sphere-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btSphereShape_makeCPlusArray__SWIG_1"
-               SPHERE-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          sphere-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btSphereShape_deleteCPlusArray__SWIG_1"
-               SPHERE-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          sphere-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btSphereShape"
-               MAKE-SPHERE-SHAPE) :pointer
+          make-sphere-shape) :pointer
   (radius :float))
 
 (defcfun ("_wrap_btSphereShape_localGetSupportingVertex"
-               SPHERE-SHAPE/LOCAL-GET-SUPPORTING-VERTEX) :pointer
+          sphere-shape/local-get-supporting-vertex) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btSphereShape_localGetSupportingVertexWithoutMargin"
-               SPHERE-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          sphere-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btSphereShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               SPHERE-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          sphere-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btSphereShape_calculateLocalInertia"
-               SPHERE-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          sphere-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btSphereShape_getAabb"
-               SPHERE-SHAPE/GET-AABB) :void
+          sphere-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btSphereShape_getRadius"
-               SPHERE-SHAPE/GET-RADIUS) :float
+          sphere-shape/get-radius) :float
   (self :pointer))
 
 (defcfun ("_wrap_btSphereShape_setUnscaledRadius"
-               SPHERE-SHAPE/SET-UNSCALED-RADIUS) :void
+          sphere-shape/set-unscaled-radius) :void
   (self :pointer)
   (radius :float))
 
 (defcfun ("_wrap_btSphereShape_getName"
-               SPHERE-SHAPE/GET-NAME) :string
+          sphere-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btSphereShape_setMargin"
-               SPHERE-SHAPE/SET-MARGIN) :void
+          sphere-shape/set-margin) :void
   (self :pointer)
   (margin :float))
 
 (defcfun ("_wrap_btSphereShape_getMargin"
-               SPHERE-SHAPE/GET-MARGIN) :float
+          sphere-shape/get-margin) :float
   (self :pointer))
 
 (defcfun ("_wrap_delete_btSphereShape"
-               DELETE/BT-SPHERE-SHAPE) :void
+          delete/bt-sphere-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_makeCPlusPlusInstance__SWIG_0"
-               cAPSULE-SHAPE/MAKE-c++-INSTANCE) :pointer
+          capsule-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_deleteCPlusPlusInstance__SWIG_0"
-               cAPSULE-SHAPE/DELETE-c++-INSTANCE) :void
+          capsule-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_makeCPlusPlusInstance__SWIG_1"
-               CAPSULE-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          capsule-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_deleteCPlusPlusInstance__SWIG_1"
-               CAPSULE-SHAPE/DELETE-C++-INSTANCE/with-arg1&2) :void
+          capsule-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_makeCPlusArray__SWIG_0"
-               cAPSULE-SHAPE/MAKE-c++-ARRAY) :pointer
+          capsule-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_deleteCPlusArray__SWIG_0"
-               cAPSULE-SHAPE/DELETE-c++-ARRAY) :void
+          capsule-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_makeCPlusArray__SWIG_1"
-               CAPSULE-SHAPE/MAKE-C++-ARRAY/with-arg1&ptr) :pointer
+          capsule-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_deleteCPlusArray__SWIG_1"
-               CAPSULE-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          capsule-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btCapsuleShape__SWIG_1"
-               MAKE-CAPSULE-SHAPE) :pointer
+          make-capsule-shape) :pointer
   (radius :float)
   (height :float))
 
 (defcfun ("_wrap_btCapsuleShape_calculateLocalInertia"
-               cAPSULE-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          capsule-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_localGetSupportingVertexWithoutMargin"
-               cAPSULE-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          capsule-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               cAPSULE-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          capsule-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btCapsuleShape_setMargin"
-               cAPSULE-SHAPE/SET-MARGIN) :void
+          capsule-shape/set-margin) :void
   (self :pointer)
   (collisionMargin :float))
 
 (defcfun ("_wrap_btCapsuleShape_getAabb"
-               cAPSULE-SHAPE/GET-AABB) :void
+          capsule-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_getName"
-               cAPSULE-SHAPE/GET-NAME) :string
+          capsule-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_getUpAxis"
-               cAPSULE-SHAPE/GET-UP-AXIS) :int
+          capsule-shape/get-up-axis) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_getRadius"
-               cAPSULE-SHAPE/GET-RADIUS) :float
+          capsule-shape/get-radius) :float
   (self :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_getHalfHeight"
-               cAPSULE-SHAPE/GET-HALF-HEIGHT) :float
+          capsule-shape/get-half-height) :float
   (self :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_setLocalScaling"
-               cAPSULE-SHAPE/SET-LOCAL-SCALING) :void
+          capsule-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_getAnisotropicRollingFrictionDirection"
-               cAPSULE-SHAPE/GET-ANISOTROPIC-ROLLING-FRICTION-DIRECTION) :pointer
+          capsule-shape/get-anisotropic-rolling-friction-direction) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_calculateSerializeBufferSize"
-               cAPSULE-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          capsule-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCapsuleShape_serialize"
-               cAPSULE-SHAPE/SERIALIZE) :string
+          capsule-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 (defcfun ("_wrap_delete_btCapsuleShape"
-               DELETE/BT-CAPSULE-SHAPE) :void
+          delete/bt-capsule-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_new_btCapsuleShapeX"
-               MAKE-CAPSULE-SHAPE-X) :pointer
+          make-capsule-shape-x) :pointer
   (radius :float)
   (height :float))
 
 (defcfun ("_wrap_btCapsuleShapeX_getName"
-               cAPSULE-SHAPE-X/GET-NAME) :string
+          capsule-shape-x/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_delete_btCapsuleShapeX"
-               DELETE/BT-CAPSULE-SHAPE-X) :void
+          delete/bt-capsule-shape-x) :void
   (self :pointer))
 
 (defcfun ("_wrap_new_btCapsuleShapeZ"
-               MAKE-CAPSULE-SHAPE-Z) :pointer
+          make-capsule-shape-z) :pointer
   (radius :float)
   (height :float))
 
 (defcfun ("_wrap_btCapsuleShapeZ_getName"
-               cAPSULE-SHAPE-Z/GET-NAME) :string
+          capsule-shape-z/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_delete_btCapsuleShapeZ"
-               DELETE/BT-CAPSULE-SHAPE-Z) :void
+          delete/bt-capsule-shape-z) :void
   (self :pointer))
 
 
 (defcfun ("_wrap_btCylinderShape_makeCPlusPlusInstance__SWIG_0"
-               cYLINDER-SHAPE/MAKE-c++-INSTANCE) :pointer
+          cylinder-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCylinderShape_deleteCPlusPlusInstance__SWIG_0"
-               cYLINDER-SHAPE/DELETE-c++-INSTANCE) :void
+          cylinder-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShape_makeCPlusPlusInstance__SWIG_1"
-               CYLINDER-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          cylinder-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShape_deleteCPlusPlusInstance__SWIG_1"
-               CYLINDER-SHAPE/DELETE-C++-INSTANCE/with-arg1&2) :void
+          cylinder-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btCylinderShape_makeCPlusArray__SWIG_0"
-               cYLINDER-SHAPE/MAKE-c++-ARRAY) :pointer
+          cylinder-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCylinderShape_deleteCPlusArray__SWIG_0"
-               cYLINDER-SHAPE/DELETE-c++-ARRAY) :void
+          cylinder-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShape_makeCPlusArray__SWIG_1"
-               CYLINDER-SHAPE/MAKE-C++-ARRAY/with-arg1&ptr) :pointer
+          cylinder-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShape_deleteCPlusArray__SWIG_1"
-               CYLINDER-SHAPE/DELETE-C++-ARRAY/WITH-ARG1&2) :void
+          cylinder-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btCylinderShape_getHalfExtentsWithMargin"
-               cYLINDER-SHAPE/GET-HALF-EXTENTS-WITH-MARGIN) :pointer
+          cylinder-shape/get-half-extents-with-margin) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShape_getHalfExtentsWithoutMargin"
-               cYLINDER-SHAPE/GET-HALF-EXTENTS-WITHOUT-MARGIN) :pointer
+          cylinder-shape/get-half-extents-without-margin) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_new_btCylinderShape"
-               MAKE-CYLINDER-SHAPE) :pointer
+          make-cylinder-shape) :pointer
   (halfExtents :pointer))
 
 (defcfun ("_wrap_btCylinderShape_getAabb"
-               cYLINDER-SHAPE/GET-AABB) :void
+          cylinder-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btCylinderShape_calculateLocalInertia"
-               cYLINDER-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          cylinder-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btCylinderShape_localGetSupportingVertexWithoutMargin"
-               cYLINDER-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          cylinder-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btCylinderShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               cYLINDER-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          cylinder-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btCylinderShape_setMargin"
-               cYLINDER-SHAPE/SET-MARGIN) :void
+          cylinder-shape/set-margin) :void
   (self :pointer)
   (collisionMargin :float))
 
 (defcfun ("_wrap_btCylinderShape_localGetSupportingVertex"
-               cYLINDER-SHAPE/LOCAL-GET-SUPPORTING-VERTEX) :pointer
+          cylinder-shape/local-get-supporting-vertex) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btCylinderShape_getUpAxis"
-               cYLINDER-SHAPE/GET-UP-AXIS) :int
+          cylinder-shape/get-up-axis) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShape_getAnisotropicRollingFrictionDirection"
-               cYLINDER-SHAPE/GET-ANISOTROPIC-ROLLING-FRICTION-DIRECTION) :pointer
+          cylinder-shape/get-anisotropic-rolling-friction-direction) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShape_getRadius"
-               cYLINDER-SHAPE/GET-RADIUS) :float
+          cylinder-shape/get-radius) :float
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShape_setLocalScaling"
-               cYLINDER-SHAPE/SET-LOCAL-SCALING) :void
+          cylinder-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btCylinderShape_getName"
-               cYLINDER-SHAPE/GET-NAME) :string
+          cylinder-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShape_calculateSerializeBufferSize"
-               cYLINDER-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          cylinder-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShape_serialize"
-               cYLINDER-SHAPE/SERIALIZE) :string
+          cylinder-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 (defcfun ("_wrap_delete_btCylinderShape"
-               DELETE/BT-CYLINDER-SHAPE) :void
+          delete/bt-cylinder-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_makeCPlusPlusInstance__SWIG_0"
-               cYLINDER-SHAPE-X/MAKE-c++-INSTANCE) :pointer
+          cylinder-shape-x/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_deleteCPlusPlusInstance__SWIG_0"
-               cYLINDER-SHAPE-X/DELETE-c++-INSTANCE) :void
+          cylinder-shape-x/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_makeCPlusPlusInstance__SWIG_1"
-               CYLINDER-SHAPE-X/MAKE-C++-INSTANCE/with-arg1&ptr) :pointer
+          cylinder-shape-x/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_deleteCPlusPlusInstance__SWIG_1"
-               CYLINDER-SHAPE-X/DELETE-C++-INSTANCE/with-arg1&2) :void
+          cylinder-shape-x/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_makeCPlusArray__SWIG_0"
-               cYLINDER-SHAPE-X/MAKE-c++-ARRAY) :pointer
+          cylinder-shape-x/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_deleteCPlusArray__SWIG_0"
-               cYLINDER-SHAPE-X/DELETE-c++-ARRAY) :void
+          cylinder-shape-x/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_makeCPlusArray__SWIG_1"
-               CYLINDER-SHAPE-X/MAKE-C++-ARRAY/with-arg1&ptr) :pointer
+          cylinder-shape-x/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_deleteCPlusArray__SWIG_1"
-               CYLINDER-SHAPE-X/DELETE-c++-ARRAY/with-arg1&2) :void
+          cylinder-shape-x/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btCylinderShapeX"
-               MAKE-CYLINDER-SHAPE-X) :pointer
+          make-cylinder-shape-x) :pointer
   (halfExtents :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_localGetSupportingVertexWithoutMargin"
-               cYLINDER-SHAPE-X/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          cylinder-shape-x/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               cYLINDER-SHAPE-X/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          cylinder-shape-x/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btCylinderShapeX_getName"
-               cYLINDER-SHAPE-X/GET-NAME) :string
+          cylinder-shape-x/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShapeX_getRadius"
-               cYLINDER-SHAPE-X/GET-RADIUS) :float
+          cylinder-shape-x/get-radius) :float
   (self :pointer))
 
 (defcfun ("_wrap_delete_btCylinderShapeX"
-               DELETE/BT-CYLINDER-SHAPE-X) :void
+          delete/bt-cylinder-shape-x) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_makeCPlusPlusInstance__SWIG_0"
-               cYLINDER-SHAPE-Z/MAKE-c++-INSTANCE) :pointer
+          cylinder-shape-z/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_deleteCPlusPlusInstance__SWIG_0"
-               cYLINDER-SHAPE-Z/DELETE-c++-INSTANCE) :void
+          cylinder-shape-z/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_makeCPlusPlusInstance__SWIG_1"
-               CYLINDER-SHAPE-Z/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          cylinder-shape-z/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_deleteCPlusPlusInstance__SWIG_1"
-               CYLINDER-SHAPE-Z/DELETE-c++-INSTANCE/with-arg1&2) :void
+          cylinder-shape-z/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_makeCPlusArray__SWIG_0"
-               cYLINDER-SHAPE-Z/MAKE-c++-ARRAY) :pointer
+          cylinder-shape-z/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_deleteCPlusArray__SWIG_0"
-               cYLINDER-SHAPE-Z/DELETE-c++-ARRAY) :void
+          cylinder-shape-z/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_makeCPlusArray__SWIG_1"
-               CYLINDER-SHAPE-Z/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          cylinder-shape-z/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_deleteCPlusArray__SWIG_1"
-               CYLINDER-SHAPE-Z/DELETE-c++-ARRAY/with-arg1&2) :void
+          cylinder-shape-z/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btCylinderShapeZ"
-               MAKE-CYLINDER-SHAPE-Z) :pointer
+          make-cylinder-shape-z) :pointer
   (halfExtents :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_localGetSupportingVertexWithoutMargin"
-               cYLINDER-SHAPE-Z/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          cylinder-shape-z/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               cYLINDER-SHAPE-Z/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          cylinder-shape-z/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btCylinderShapeZ_getName"
-               cYLINDER-SHAPE-Z/GET-NAME) :string
+          cylinder-shape-z/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btCylinderShapeZ_getRadius"
-               cYLINDER-SHAPE-Z/GET-RADIUS) :float
+          cylinder-shape-z/get-radius) :float
   (self :pointer))
 
 (defcfun ("_wrap_delete_btCylinderShapeZ"
-               DELETE/BT-CYLINDER-SHAPE-Z) :void
+          delete/bt-cylinder-shape-z) :void
   (self :pointer))
 
 
 (defcfun ("_wrap_btConeShape_makeCPlusPlusInstance__SWIG_0"
-               CONE-SHAPE/MAKE-c++-INSTANCE) :pointer
+          cone-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btConeShape_deleteCPlusPlusInstance__SWIG_0"
-               CONE-SHAPE/DELETE-c++-INSTANCE) :void
+          cone-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConeShape_makeCPlusPlusInstance__SWIG_1"
-               CONE-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          cone-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConeShape_deleteCPlusPlusInstance__SWIG_1"
-               CONE-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          cone-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btConeShape_makeCPlusArray__SWIG_0"
-               CONE-SHAPE/MAKE-c++-ARRAY) :pointer
+          cone-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btConeShape_deleteCPlusArray__SWIG_0"
-               CONE-SHAPE/DELETE-c++-ARRAY) :void
+          cone-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConeShape_makeCPlusArray__SWIG_1"
-               CONE-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          cone-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConeShape_deleteCPlusArray__SWIG_1"
-               CONE-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          cone-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btConeShape"
-               MAKE-CONE-SHAPE) :pointer
+          make-cone-shape) :pointer
   (radius :float)
   (height :float))
 
 (defcfun ("_wrap_btConeShape_localGetSupportingVertex"
-               CONE-SHAPE/LOCAL-GET-SUPPORTING-VERTEX) :pointer
+          cone-shape/local-get-supporting-vertex) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btConeShape_localGetSupportingVertexWithoutMargin"
-               CONE-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          cone-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btConeShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               CONE-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          cone-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btConeShape_getRadius"
-               CONE-SHAPE/GET-RADIUS) :float
+          cone-shape/get-radius) :float
   (self :pointer))
 
 (defcfun ("_wrap_btConeShape_getHeight"
-               CONE-SHAPE/GET-HEIGHT) :float
+          cone-shape/get-height) :float
   (self :pointer))
 
 (defcfun ("_wrap_btConeShape_calculateLocalInertia"
-               CONE-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          cone-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btConeShape_getName"
-               CONE-SHAPE/GET-NAME) :string
+          cone-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btConeShape_setConeUpIndex"
-               CONE-SHAPE/SET-CONE-UP-INDEX) :void
+          cone-shape/set-cone-up-index) :void
   (self :pointer)
   (upIndex :int))
 
 (defcfun ("_wrap_btConeShape_getConeUpIndex"
-               CONE-SHAPE/GET-CONE-UP-INDEX) :int
+          cone-shape/get-cone-up-index) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConeShape_getAnisotropicRollingFrictionDirection"
-               CONE-SHAPE/GET-ANISOTROPIC-ROLLING-FRICTION-DIRECTION) :pointer
+          cone-shape/get-anisotropic-rolling-friction-direction) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btConeShape_setLocalScaling"
-               CONE-SHAPE/SET-LOCAL-SCALING) :void
+          cone-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btConeShape_calculateSerializeBufferSize"
-               CONE-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          cone-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConeShape_serialize"
-               CONE-SHAPE/SERIALIZE) :string
+          cone-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 (defcfun ("_wrap_delete_btConeShape"
-               DELETE/BT-CONE-SHAPE) :void
+          delete/bt-cone-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_new_btConeShapeX"
-               MAKE-CONE-SHAPE-X) :pointer
+          make-cone-shape-x) :pointer
   (radius :float)
   (height :float))
 
 (defcfun ("_wrap_btConeShapeX_getAnisotropicRollingFrictionDirection"
-               CONE-SHAPE-X/GET-ANISOTROPIC-ROLLING-FRICTION-DIRECTION) :pointer
+          cone-shape-x/get-anisotropic-rolling-friction-direction) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btConeShapeX_getName"
-               CONE-SHAPE-X/GET-NAME) :string
+          cone-shape-x/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_delete_btConeShapeX"
-               DELETE/BT-CONE-SHAPE-X) :void
+          delete/bt-cone-shape-x) :void
   (self :pointer))
 
 (defcfun ("_wrap_new_btConeShapeZ"
-               MAKE-CONE-SHAPE-Z) :pointer
+          make-cone-shape-z) :pointer
   (radius :float)
   (height :float))
 
 (defcfun ("_wrap_btConeShapeZ_getAnisotropicRollingFrictionDirection"
-               CONE-SHAPE-Z/GET-ANISOTROPIC-ROLLING-FRICTION-DIRECTION) :pointer
+          cone-shape-z/get-anisotropic-rolling-friction-direction) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btConeShapeZ_getName"
-               CONE-SHAPE-Z/GET-NAME) :string
+          cone-shape-z/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_delete_btConeShapeZ"
-               DELETE/BT-CONE-SHAPE-Z) :void
+          delete/bt-cone-shape-z) :void
   (self :pointer))
 
 
 (defcfun ("_wrap_btStaticPlaneShape_makeCPlusPlusInstance__SWIG_0"
-               STATIC-PLANE-SHAPE/MAKE-c++-INSTANCE) :pointer
+          static-plane-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_deleteCPlusPlusInstance__SWIG_0"
-               STATIC-PLANE-SHAPE/DELETE-c++-INSTANCE) :void
+          static-plane-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_makeCPlusPlusInstance__SWIG_1"
-               STATIC-PLANE-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          static-plane-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_deleteCPlusPlusInstance__SWIG_1"
-               STATIC-PLANE-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          static-plane-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_makeCPlusArray__SWIG_0"
-               STATIC-PLANE-SHAPE/MAKE-c++-ARRAY) :pointer
+          static-plane-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_deleteCPlusArray__SWIG_0"
-               STATIC-PLANE-SHAPE/DELETE-c++-ARRAY) :void
+          static-plane-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_makeCPlusArray__SWIG_1"
-               STATIC-PLANE-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          static-plane-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_deleteCPlusArray__SWIG_1"
-               STATIC-PLANE-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          static-plane-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btStaticPlaneShape"
-               MAKE-STATIC-PLANE-SHAPE) :pointer
+          make-static-plane-shape) :pointer
   (planeNormal :pointer)
   (planeConstant :float))
 
 (defcfun ("_wrap_delete_btStaticPlaneShape"
-               DELETE/BT-STATIC-PLANE-SHAPE) :void
+          delete/bt-static-plane-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_getAabb"
-               STATIC-PLANE-SHAPE/GET-AABB) :void
+          static-plane-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_processAllTriangles"
-               STATIC-PLANE-SHAPE/PROCESS-ALL-TRIANGLES) :void
+          static-plane-shape/process-all-triangles) :void
   (self :pointer)
   (callback :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_calculateLocalInertia"
-               STATIC-PLANE-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          static-plane-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_setLocalScaling"
-               STATIC-PLANE-SHAPE/SET-LOCAL-SCALING) :void
+          static-plane-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_getLocalScaling"
-               STATIC-PLANE-SHAPE/GET-LOCAL-SCALING) :pointer
+          static-plane-shape/get-local-scaling) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_getPlaneNormal"
-               STATIC-PLANE-SHAPE/GET-PLANE-NORMAL) :pointer
+          static-plane-shape/get-plane-normal) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_getPlaneConstant"
-               STATIC-PLANE-SHAPE/GET-PLANE-CONSTANT) :pointer
+          static-plane-shape/get-plane-constant) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_getName"
-               STATIC-PLANE-SHAPE/GET-NAME) :string
+          static-plane-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_calculateSerializeBufferSize"
-               STATIC-PLANE-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          static-plane-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btStaticPlaneShape_serialize"
-               STATIC-PLANE-SHAPE/SERIALIZE) :string
+          static-plane-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 
 (defcfun ("_wrap_btConvexHullShape_makeCPlusPlusInstance__SWIG_0"
-               CONVEX-HULL-SHAPE/MAKE-c++-INSTANCE) :pointer
+          convex-hull-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_deleteCPlusPlusInstance__SWIG_0"
-               CONVEX-HULL-SHAPE/DELETE-c++-INSTANCE) :void
+          convex-hull-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_makeCPlusPlusInstance__SWIG_1"
-               CONVEX-HULL-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          convex-hull-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_deleteCPlusPlusInstance__SWIG_1"
-               CONVEX-HULL-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          convex-hull-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_makeCPlusArray__SWIG_0"
-               CONVEX-HULL-SHAPE/MAKE-c++-ARRAY) :pointer
+          convex-hull-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_deleteCPlusArray__SWIG_0"
-               CONVEX-HULL-SHAPE/DELETE-c++-ARRAY) :void
+          convex-hull-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_makeCPlusArray__SWIG_1"
-               CONVEX-HULL-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          convex-hull-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_deleteCPlusArray__SWIG_1"
-               CONVEX-HULL-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          convex-hull-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btConvexHullShape__SWIG_0"
-               MAKE-CONVEX-HULL-SHAPE/with-num-points&stride) :pointer
+          make-convex-hull-shape/with-num-points&stride) :pointer
   (points :pointer)
   (numPoints :int)
   (stride :int))
 
 (defcfun ("_wrap_new_btConvexHullShape__SWIG_1"
-               MAKE-CONVEX-HULL-SHAPE/with-num-points) :pointer
+          make-convex-hull-shape/with-num-points) :pointer
   (points :pointer)
   (numPoints :int))
 
 (defcfun ("_wrap_new_btConvexHullShape__SWIG_2"
-               MAKE-CONVEX-HULL-SHAPE/with-points) :pointer
+          make-convex-hull-shape/with-points) :pointer
   (points :pointer))
 
 (defcfun ("_wrap_new_btConvexHullShape__SWIG_3"
-               MAKE-CONVEX-HULL-SHAPE/naked) :pointer)
+          make-convex-hull-shape/naked) :pointer)
 
 (defcfun ("_wrap_btConvexHullShape_addPoint__SWIG_0"
-               CONVEX-HULL-SHAPE/ADD-POINT/with-recalculate-local-aabb) :void
+          convex-hull-shape/add-point/with-recalculate-local-aabb) :void
   (self :pointer)
   (point :pointer)
   (recalculateLocalAabb :pointer))
 (defcfun ("_wrap_btConvexHullShape_addPoint__SWIG_1"
-               CONVEX-HULL-SHAPE/ADD-POINT) :void
+          convex-hull-shape/add-point) :void
   (self :pointer)
   (point :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getUnscaledPoints__SWIG_0"
-               CONVEX-HULL-SHAPE/GET-UNSCALED-POINTS) :pointer
+          convex-hull-shape/get-unscaled-points) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btConvexHullShape_getUnscaledPoints__SWIG_1"
-               CONVEX-HULL-SHAPE/GET-UNSCALED-POINTS) :pointer
+          convex-hull-shape/get-unscaled-points) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getPoints"
-               CONVEX-HULL-SHAPE/GET-POINTS) :pointer
+          convex-hull-shape/get-points) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getScaledPoint"
-               CONVEX-HULL-SHAPE/GET-SCALED-POINT) :pointer
+          convex-hull-shape/get-scaled-point) :pointer
   (self :pointer)
   (i :int))
 
 (defcfun ("_wrap_btConvexHullShape_getNumPoints"
-               CONVEX-HULL-SHAPE/GET-NUM-POINTS) :int
+          convex-hull-shape/get-num-points) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_localGetSupportingVertex"
-               CONVEX-HULL-SHAPE/LOCAL-GET-SUPPORTING-VERTEX) :pointer
+          convex-hull-shape/local-get-supporting-vertex) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_localGetSupportingVertexWithoutMargin"
-               CONVEX-HULL-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          convex-hull-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               CONVEX-HULL-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          convex-hull-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btConvexHullShape_project"
-               CONVEX-HULL-SHAPE/PROJECT) :void
+          convex-hull-shape/project) :void
   (self :pointer)
   (trans :pointer)
   (dir :pointer)
@@ -1085,98 +1085,98 @@
   (witnesPtMax :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getName"
-               CONVEX-HULL-SHAPE/GET-NAME) :string
+          convex-hull-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getNumVertices"
-               CONVEX-HULL-SHAPE/GET-NUM-VERTICES) :int
+          convex-hull-shape/get-num-vertices) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getNumEdges"
-               CONVEX-HULL-SHAPE/GET-NUM-EDGES) :int
+          convex-hull-shape/get-num-edges) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getEdge"
-               CONVEX-HULL-SHAPE/GET-EDGE) :void
+          convex-hull-shape/get-edge) :void
   (self :pointer)
   (i :int)
   (pa :pointer)
   (pb :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getVertex"
-               CONVEX-HULL-SHAPE/GET-VERTEX) :void
+          convex-hull-shape/get-vertex) :void
   (self :pointer)
   (i :int)
   (vtx :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getNumPlanes"
-               CONVEX-HULL-SHAPE/GET-NUM-PLANES) :int
+          convex-hull-shape/get-num-planes) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_getPlane"
-               CONVEX-HULL-SHAPE/GET-PLANE) :void
+          convex-hull-shape/get-plane) :void
   (self :pointer)
   (planeNormal :pointer)
   (planeSupport :pointer)
   (i :int))
 
 (defcfun ("_wrap_btConvexHullShape_isInside"
-               CONVEX-HULL-SHAPE/IS-INSIDE) :pointer
+          convex-hull-shape/is-inside) :pointer
   (self :pointer)
   (pt :pointer)
   (tolerance :float))
 
 (defcfun ("_wrap_btConvexHullShape_setLocalScaling"
-               CONVEX-HULL-SHAPE/SET-LOCAL-SCALING) :void
+          convex-hull-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_calculateSerializeBufferSize"
-               CONVEX-HULL-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          convex-hull-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConvexHullShape_serialize"
-               CONVEX-HULL-SHAPE/SERIALIZE) :string
+          convex-hull-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 (defcfun ("_wrap_delete_btConvexHullShape"
-               DELETE/BT-CONVEX-HULL-SHAPE) :void
+          delete/bt-convex-hull-shape) :void
   (self :pointer))
 
 
 (defcfun ("_wrap_btTriangleMesh_m_weldingThreshold_set"
-               TRIANGLE-MESH/WELDING-THRESHOLD/SET) :void
+          triangle-mesh/welding-threshold/set) :void
   (self :pointer)
   (m_weldingThreshold :float))
 
 (defcfun ("_wrap_btTriangleMesh_m_weldingThreshold_get"
-               TRIANGLE-MESH/WELDING-THRESHOLD/GET) :float
+          triangle-mesh/welding-threshold/get) :float
   (self :pointer))
 
 (defcfun ("_wrap_new_btTriangleMesh__SWIG_0"
-               MAKE-TRIANGLE-MESH/with-use-32-bit-indices&use-4-component-vertices) :pointer
+          make-triangle-mesh/with-use-32-bit-indices&use-4-component-vertices) :pointer
   (use32bitIndices :pointer)
   (use4componentVertices :pointer))
 
 (defcfun ("_wrap_new_btTriangleMesh__SWIG_1"
-               MAKE-TRIANGLE-MESH/with-use-32-bit-indices) :pointer
+          make-triangle-mesh/with-use-32-bit-indices) :pointer
   (use32bitIndices :pointer))
 
 (defcfun ("_wrap_new_btTriangleMesh__SWIG_2"
-               MAKE-TRIANGLE-MESH/naked) :pointer)
+          make-triangle-mesh/naked) :pointer)
 
 (defcfun ("_wrap_btTriangleMesh_getUse32bitIndices"
-               TRIANGLE-MESH/GET-USE-32BIT-INDICES) :pointer
+          triangle-mesh/get-use-32bit-indices) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMesh_getUse4componentVertices"
-               TRIANGLE-MESH/GET-USE-4COMPONENT-VERTICES) :pointer
+          triangle-mesh/get-use-4component-vertices) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMesh_addTriangle__SWIG_0"
-               TRIANGLE-MESH/ADD-TRIANGLE) :void
+          triangle-mesh/add-triangle) :void
   (self :pointer)
   (vertex0 :pointer)
   (vertex1 :pointer)
@@ -1184,239 +1184,239 @@
   (removeDuplicateVertices :pointer))
 
 (defcfun ("_wrap_btTriangleMesh_addTriangle__SWIG_1"
-               TRIANGLE-MESH/ADD-TRIANGLE/with-3-vertices) :void
+          triangle-mesh/add-triangle/with-3-vertices) :void
   (self :pointer)
   (vertex0 :pointer)
   (vertex1 :pointer)
   (vertex2 :pointer))
 
 (defcfun ("_wrap_btTriangleMesh_getNumTriangles"
-               TRIANGLE-MESH/GET-NUM-TRIANGLES) :int
+          triangle-mesh/get-num-triangles) :int
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMesh_preallocateVertices"
-               TRIANGLE-MESH/PREALLOCATE-VERTICES) :void
+          triangle-mesh/preallocate-vertices) :void
   (self :pointer)
   (numverts :int))
 
 (defcfun ("_wrap_btTriangleMesh_preallocateIndices"
-               TRIANGLE-MESH/PREALLOCATE-INDICES) :void
+          triangle-mesh/preallocate-indices) :void
   (self :pointer)
   (numindices :int))
 
 (defcfun ("_wrap_btTriangleMesh_findOrAddVertex"
-               TRIANGLE-MESH/FIND-OR-ADD-VERTEX) :int
+          triangle-mesh/find-or-add-vertex) :int
   (self :pointer)
   (vertex :pointer)
   (removeDuplicateVertices :pointer))
 
 (defcfun ("_wrap_btTriangleMesh_addIndex"
-               TRIANGLE-MESH/ADD-INDEX) :void
+          triangle-mesh/add-index) :void
   (self :pointer)
   (index :int))
 
 (defcfun ("_wrap_delete_btTriangleMesh"
-               DELETE/BT-TRIANGLE-MESH) :void
+          delete/bt-triangle-mesh) :void
   (self :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_makeCPlusPlusInstance__SWIG_0"
-               CONVEX-TRIANGLE-MESH-SHAPE/MAKE-c++-INSTANCE) :pointer
+          convex-triangle-mesh-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_deleteCPlusPlusInstance__SWIG_0"
-               CONVEX-TRIANGLE-MESH-SHAPE/DELETE-c++-INSTANCE) :void
+          convex-triangle-mesh-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_makeCPlusPlusInstance__SWIG_1"
-               CONVEX-TRIANGLE-MESH-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          convex-triangle-mesh-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_deleteCPlusPlusInstance__SWIG_1"
-               CONVEX-TRIANGLE-MESH-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          convex-triangle-mesh-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_makeCPlusArray__SWIG_0"
-               CONVEX-TRIANGLE-MESH-SHAPE/MAKE-c++-ARRAY) :pointer
+          convex-triangle-mesh-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_deleteCPlusArray__SWIG_0"
-               CONVEX-TRIANGLE-MESH-SHAPE/DELETE-c++-ARRAY) :void
+          convex-triangle-mesh-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_makeCPlusArray__SWIG_1"
-               CONVEX-TRIANGLE-MESH-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          convex-triangle-mesh-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_deleteCPlusArray__SWIG_1"
-               CONVEX-TRIANGLE-MESH-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          convex-triangle-mesh-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btConvexTriangleMeshShape__SWIG_0"
-               MAKE-CONVEX-TRIANGLE-MESH-SHAPE/with-calc-aabb) :pointer
+          make-convex-triangle-mesh-shape/with-calc-aabb) :pointer
   (meshInterface :pointer)
   (calcAabb :pointer))
 
 (defcfun ("_wrap_new_btConvexTriangleMeshShape__SWIG_1"
-               MAKE-CONVEX-TRIANGLE-MESH-SHAPE) :pointer
+          make-convex-triangle-mesh-shape) :pointer
   (meshInterface :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getMeshInterface__SWIG_0"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-MESH-INTERFACE) :pointer
+          convex-triangle-mesh-shape/get-mesh-interface) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btConvexTriangleMeshShape_getMeshInterface__SWIG_1"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-MESH-INTERFACE) :pointer
+          convex-triangle-mesh-shape/get-mesh-interface) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_localGetSupportingVertex"
-               CONVEX-TRIANGLE-MESH-SHAPE/LOCAL-GET-SUPPORTING-VERTEX) :pointer
+          convex-triangle-mesh-shape/local-get-supporting-vertex) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_localGetSupportingVertexWithoutMargin"
-               CONVEX-TRIANGLE-MESH-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          convex-triangle-mesh-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               CONVEX-TRIANGLE-MESH-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          convex-triangle-mesh-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getName"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-NAME) :string
+          convex-triangle-mesh-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getNumVertices"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-NUM-VERTICES) :int
+          convex-triangle-mesh-shape/get-num-vertices) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getNumEdges"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-NUM-EDGES) :int
+          convex-triangle-mesh-shape/get-num-edges) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getEdge"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-EDGE) :void
+          convex-triangle-mesh-shape/get-edge) :void
   (self :pointer)
   (i :int)
   (pa :pointer)
   (pb :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getVertex"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-VERTEX) :void
+          convex-triangle-mesh-shape/get-vertex) :void
   (self :pointer)
   (i :int)
   (vtx :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getNumPlanes"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-NUM-PLANES) :int
+          convex-triangle-mesh-shape/get-num-planes) :int
   (self :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getPlane"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-PLANE) :void
+          convex-triangle-mesh-shape/get-plane) :void
   (self :pointer)
   (planeNormal :pointer)
   (planeSupport :pointer)
   (i :int))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_isInside"
-               CONVEX-TRIANGLE-MESH-SHAPE/IS-INSIDE) :pointer
+          convex-triangle-mesh-shape/is-inside) :pointer
   (self :pointer)
   (pt :pointer)
   (tolerance :float))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_setLocalScaling"
-               CONVEX-TRIANGLE-MESH-SHAPE/SET-LOCAL-SCALING) :void
+          convex-triangle-mesh-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_getLocalScaling"
-               CONVEX-TRIANGLE-MESH-SHAPE/GET-LOCAL-SCALING) :pointer
+          convex-triangle-mesh-shape/get-local-scaling) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btConvexTriangleMeshShape_calculatePrincipalAxisTransform"
-               CONVEX-TRIANGLE-MESH-SHAPE/CALCULATE-PRINCIPAL-AXIS-TRANSFORM) :void
+          convex-triangle-mesh-shape/calculate-principal-axis-transform) :void
   (self :pointer)
   (principal :pointer)
   (inertia :pointer)
   (volume :pointer))
 
 (defcfun ("_wrap_delete_btConvexTriangleMeshShape"
-               DELETE/BT-CONVEX-TRIANGLE-MESH-SHAPE) :void
+          delete/bt-convex-triangle-mesh-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_makeCPlusPlusInstance__SWIG_0"
-               BVH-TRIANGLE-MESH-SHAPE/MAKE-c++-INSTANCE) :pointer
+          bvh-triangle-mesh-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_deleteCPlusPlusInstance__SWIG_0"
-               BVH-TRIANGLE-MESH-SHAPE/DELETE-c++-INSTANCE) :void
+          bvh-triangle-mesh-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_makeCPlusPlusInstance__SWIG_1"
-               BVH-TRIANGLE-MESH-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          bvh-triangle-mesh-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_deleteCPlusPlusInstance__SWIG_1"
-               BVH-TRIANGLE-MESH-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          bvh-triangle-mesh-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_makeCPlusArray__SWIG_0"
-               BVH-TRIANGLE-MESH-SHAPE/MAKE-c++-ARRAY) :pointer
+          bvh-triangle-mesh-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_deleteCPlusArray__SWIG_0"
-               BVH-TRIANGLE-MESH-SHAPE/DELETE-c++-ARRAY) :void
+          bvh-triangle-mesh-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_makeCPlusArray__SWIG_1"
-               BVH-TRIANGLE-MESH-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          bvh-triangle-mesh-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_deleteCPlusArray__SWIG_1"
-               BVH-TRIANGLE-MESH-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          bvh-triangle-mesh-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btBvhTriangleMeshShape__SWIG_0"
-               MAKE-BVH-TRIANGLE-MESH-SHAPE/with-mesh-interface&use-quantized-aabb-compression&Build-bvh)
+          make-bvh-triangle-mesh-shape/with-mesh-interface&use-quantized-aabb-compression&build-bvh)
     :pointer
   (meshInterface :pointer)
   (useQuantizedAabbCompression :pointer)
   (buildBvh :pointer))
 
 (defcfun ("_wrap_new_btBvhTriangleMeshShape__SWIG_1"
-               MAKE-BVH-TRIANGLE-MESH-SHAPE) :pointer
+          make-bvh-triangle-mesh-shape) :pointer
   (meshInterface :pointer)
   (useQuantizedAabbCompression :pointer))
 
 (defcfun ("_wrap_new_btBvhTriangleMeshShape__SWIG_2"
-               MAKE-BVH-TRIANGLE-MESH-SHAPE/with-mesh-interface&use-quantized-aabb-compression&bvhaabb-min&max&Build-bvh)
+          make-bvh-triangle-mesh-shape/with-mesh-interface&use-quantized-aabb-compression&bvhaabb-min&max&build-bvh)
     :pointer
   (meshInterface :pointer)
   (useQuantizedAabbCompression :pointer)
@@ -1425,7 +1425,7 @@
   (buildBvh :pointer))
 
 (defcfun ("_wrap_new_btBvhTriangleMeshShape__SWIG_3"
-               MAKE-BVH-TRIANGLE-MESH-SHAPE/with-mesh-interface&use-quantized-aabb-compression&bvhaabb-min&max)
+          make-bvh-triangle-mesh-shape/with-mesh-interface&use-quantized-aabb-compression&bvhaabb-min&max)
     :pointer
   (meshInterface :pointer)
   (useQuantizedAabbCompression :pointer)
@@ -1433,22 +1433,22 @@
   (bvhAabbMax :pointer))
 
 (defcfun ("_wrap_delete_btBvhTriangleMeshShape"
-               DELETE/BT-BVH-TRIANGLE-MESH-SHAPE) :void
+          delete/bt-bvh-triangle-mesh-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_getOwnsBvh"
-               BVH-TRIANGLE-MESH-SHAPE/GET-OWNS-BVH) :pointer
+          bvh-triangle-mesh-shape/get-owns-bvh) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_performRaycast"
-               BVH-TRIANGLE-MESH-SHAPE/PERFORM-RAYCAST) :void
+          bvh-triangle-mesh-shape/perform-raycast) :void
   (self :pointer)
   (callback :pointer)
   (raySource :pointer)
   (rayTarget :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_performConvexcast"
-               BVH-TRIANGLE-MESH-SHAPE/PERFORM-CONVEXCAST) :void
+          bvh-triangle-mesh-shape/perform-convexcast) :void
   (self :pointer)
   (callback :pointer)
   (boxSource :pointer)
@@ -1457,361 +1457,361 @@
   (boxMax :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_processAllTriangles"
-               BVH-TRIANGLE-MESH-SHAPE/PROCESS-ALL-TRIANGLES) :void
+          bvh-triangle-mesh-shape/process-all-triangles) :void
   (self :pointer)
   (callback :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_refitTree"
-               BVH-TRIANGLE-MESH-SHAPE/REFIT-TREE) :void
+          bvh-triangle-mesh-shape/refit-tree) :void
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_partialRefitTree"
-               BVH-TRIANGLE-MESH-SHAPE/PARTIAL-REFIT-TREE) :void
+          bvh-triangle-mesh-shape/partial-refit-tree) :void
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_getName"
-               BVH-TRIANGLE-MESH-SHAPE/GET-NAME) :string
+          bvh-triangle-mesh-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_setLocalScaling"
-               BVH-TRIANGLE-MESH-SHAPE/SET-LOCAL-SCALING) :void
+          bvh-triangle-mesh-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_getOptimizedBvh"
-               BVH-TRIANGLE-MESH-SHAPE/GET-OPTIMIZED-BVH) :pointer
+          bvh-triangle-mesh-shape/get-optimized-bvh) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_setOptimizedBvh__SWIG_0"
-               BVH-TRIANGLE-MESH-SHAPE/SET-OPTIMIZED-BVH/with-local-scaling) :void
+          bvh-triangle-mesh-shape/set-optimized-bvh/with-local-scaling) :void
   (self :pointer)
   (bvh :pointer)
   (localScaling :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_setOptimizedBvh__SWIG_1"
-               BVH-TRIANGLE-MESH-SHAPE/SET-OPTIMIZED-BVH) :void
+          bvh-triangle-mesh-shape/set-optimized-bvh) :void
   (self :pointer)
   (bvh :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_buildOptimizedBvh"
-               BVH-TRIANGLE-MESH-SHAPE/BUILD-OPTIMIZED-BVH) :void
+          bvh-triangle-mesh-shape/build-optimized-bvh) :void
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_usesQuantizedAabbCompression"
-               BVH-TRIANGLE-MESH-SHAPE/USES-QUANTIZED-AABB-COMPRESSION) :pointer
+          bvh-triangle-mesh-shape/uses-quantized-aabb-compression) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_setTriangleInfoMap"
-               BVH-TRIANGLE-MESH-SHAPE/SET-TRIANGLE-INFO-MAP) :void
+          bvh-triangle-mesh-shape/set-triangle-info-map) :void
   (self :pointer)
   (triangleInfoMap :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_getTriangleInfoMap__SWIG_0"
-               BVH-TRIANGLE-MESH-SHAPE/GET-TRIANGLE-INFO-MAP) :pointer
+          bvh-triangle-mesh-shape/get-triangle-info-map) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btBvhTriangleMeshShape_getTriangleInfoMap__SWIG_1"
-               BVH-TRIANGLE-MESH-SHAPE/GET-TRIANGLE-INFO-MAP) :pointer
+          bvh-triangle-mesh-shape/get-triangle-info-map) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_calculateSerializeBufferSize"
-               BVH-TRIANGLE-MESH-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          bvh-triangle-mesh-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_serialize"
-               BVH-TRIANGLE-MESH-SHAPE/SERIALIZE) :string
+          bvh-triangle-mesh-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_serializeSingleBvh"
-               BVH-TRIANGLE-MESH-SHAPE/SERIALIZE-SINGLE-BVH) :void
+          bvh-triangle-mesh-shape/serialize-single-bvh) :void
   (self :pointer)
   (serializer :pointer))
 
 (defcfun ("_wrap_btBvhTriangleMeshShape_serializeSingleTriangleInfoMap"
-               BVH-TRIANGLE-MESH-SHAPE/SERIALIZE-SINGLE-TRIANGLE-INFO-MAP) :void
+          bvh-triangle-mesh-shape/serialize-single-triangle-info-map) :void
   (self :pointer)
   (serializer :pointer))
 
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_makeCPlusPlusInstance__SWIG_0"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/MAKE-c++-INSTANCE) :pointer
+          scaled-bvh-triangle-mesh-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_deleteCPlusPlusInstance__SWIG_0"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/DELETE-c++-INSTANCE) :void
+          scaled-bvh-triangle-mesh-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_makeCPlusPlusInstance__SWIG_1"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          scaled-bvh-triangle-mesh-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_deleteCPlusPlusInstance__SWIG_1"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          scaled-bvh-triangle-mesh-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_makeCPlusArray__SWIG_0"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/MAKE-c++-ARRAY) :pointer
+          scaled-bvh-triangle-mesh-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_deleteCPlusArray__SWIG_0"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/DELETE-c++-ARRAY) :void
+          scaled-bvh-triangle-mesh-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_makeCPlusArray__SWIG_1"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          scaled-bvh-triangle-mesh-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_deleteCPlusArray__SWIG_1"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          scaled-bvh-triangle-mesh-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btScaledBvhTriangleMeshShape"
-               MAKE-SCALED-BVH-TRIANGLE-MESH-SHAPE) :pointer
+          make-scaled-bvh-triangle-mesh-shape) :pointer
   (childShape :pointer)
   (localScaling :pointer))
 
 (defcfun ("_wrap_delete_btScaledBvhTriangleMeshShape"
-               DELETE/BT-SCALED-BVH-TRIANGLE-MESH-SHAPE) :void
+          delete/bt-scaled-bvh-triangle-mesh-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_getAabb"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/GET-AABB) :void
+          scaled-bvh-triangle-mesh-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_setLocalScaling"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/SET-LOCAL-SCALING) :void
+          scaled-bvh-triangle-mesh-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_getLocalScaling"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/GET-LOCAL-SCALING) :pointer
+          scaled-bvh-triangle-mesh-shape/get-local-scaling) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_calculateLocalInertia"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          scaled-bvh-triangle-mesh-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_processAllTriangles"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/PROCESS-ALL-TRIANGLES) :void
+          scaled-bvh-triangle-mesh-shape/process-all-triangles) :void
   (self :pointer)
   (callback :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_getChildShape__SWIG_0"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/GET-CHILD-SHAPE) :pointer
+          scaled-bvh-triangle-mesh-shape/get-child-shape) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_getChildShape__SWIG_1"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/GET-CHILD-SHAPE) :pointer
+          scaled-bvh-triangle-mesh-shape/get-child-shape) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_getName"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/GET-NAME) :string
+          scaled-bvh-triangle-mesh-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_calculateSerializeBufferSize"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          scaled-bvh-triangle-mesh-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btScaledBvhTriangleMeshShape_serialize"
-               SCALED-BVH-TRIANGLE-MESH-SHAPE/SERIALIZE) :string
+          scaled-bvh-triangle-mesh-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 
 (defcfun ("_wrap_btTriangleMeshShape_makeCPlusPlusInstance__SWIG_0"
-               TRIANGLE-MESH-SHAPE/MAKE-c++-INSTANCE) :pointer
+          triangle-mesh-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_deleteCPlusPlusInstance__SWIG_0"
-               TRIANGLE-MESH-SHAPE/DELETE-c++-INSTANCE) :void
+          triangle-mesh-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_makeCPlusPlusInstance__SWIG_1"
-               TRIANGLE-MESH-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          triangle-mesh-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_deleteCPlusPlusInstance__SWIG_1"
-               TRIANGLE-MESH-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          triangle-mesh-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_makeCPlusArray__SWIG_0"
-               TRIANGLE-MESH-SHAPE/MAKE-c++-ARRAY) :pointer
+          triangle-mesh-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_deleteCPlusArray__SWIG_0"
-               TRIANGLE-MESH-SHAPE/DELETE-c++-ARRAY) :void
+          triangle-mesh-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_makeCPlusArray__SWIG_1"
-               TRIANGLE-MESH-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          triangle-mesh-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_deleteCPlusArray__SWIG_1"
-               TRIANGLE-MESH-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          triangle-mesh-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_delete_btTriangleMeshShape"
-               DELETE/BT-TRIANGLE-MESH-SHAPE) :void
+          delete/bt-triangle-mesh-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_localGetSupportingVertex"
-               TRIANGLE-MESH-SHAPE/LOCAL-GET-SUPPORTING-VERTEX) :pointer
+          triangle-mesh-shape/local-get-supporting-vertex) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_localGetSupportingVertexWithoutMargin"
-               TRIANGLE-MESH-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          triangle-mesh-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_recalcLocalAabb"
-               TRIANGLE-MESH-SHAPE/RECALC-LOCAL-AABB) :void
+          triangle-mesh-shape/recalc-local-aabb) :void
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_getAabb"
-               TRIANGLE-MESH-SHAPE/GET-AABB) :void
+          triangle-mesh-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_processAllTriangles"
-               TRIANGLE-MESH-SHAPE/PROCESS-ALL-TRIANGLES) :void
+          triangle-mesh-shape/process-all-triangles) :void
   (self :pointer)
   (callback :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_calculateLocalInertia"
-               TRIANGLE-MESH-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          triangle-mesh-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_setLocalScaling"
-               TRIANGLE-MESH-SHAPE/SET-LOCAL-SCALING) :void
+          triangle-mesh-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_getLocalScaling"
-               TRIANGLE-MESH-SHAPE/GET-LOCAL-SCALING) :pointer
+          triangle-mesh-shape/get-local-scaling) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_getMeshInterface__SWIG_0"
-               TRIANGLE-MESH-SHAPE/GET-MESH-INTERFACE) :pointer
+          triangle-mesh-shape/get-mesh-interface) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btTriangleMeshShape_getMeshInterface__SWIG_1"
-               TRIANGLE-MESH-SHAPE/GET-MESH-INTERFACE) :pointer
+          triangle-mesh-shape/get-mesh-interface) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_getLocalAabbMin"
-               TRIANGLE-MESH-SHAPE/GET-LOCAL-AABB-MIN) :pointer
+          triangle-mesh-shape/get-local-aabb-min) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_getLocalAabbMax"
-               TRIANGLE-MESH-SHAPE/GET-LOCAL-AABB-MAX) :pointer
+          triangle-mesh-shape/get-local-aabb-max) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleMeshShape_getName"
-               TRIANGLE-MESH-SHAPE/GET-NAME) :string
+          triangle-mesh-shape/get-name) :string
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusPlusInstance__SWIG_0"
-               TRIANGLE-INDEX-VERTEX-ARRAY/MAKE-c++-INSTANCE) :pointer
+          triangle-index-vertex-array/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusPlusInstance__SWIG_0"
-               TRIANGLE-INDEX-VERTEX-ARRAY/DELETE-c++-INSTANCE) :void
+          triangle-index-vertex-array/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusPlusInstance__SWIG_1"
-               TRIANGLE-INDEX-VERTEX-ARRAY/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          triangle-index-vertex-array/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusPlusInstance__SWIG_1"
-               TRIANGLE-INDEX-VERTEX-ARRAY/DELETE-c++-INSTANCE/with-arg1&2) :void
+          triangle-index-vertex-array/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusArray__SWIG_0"
-               TRIANGLE-INDEX-VERTEX-ARRAY/MAKE-c++-ARRAY) :pointer
+          triangle-index-vertex-array/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusArray__SWIG_0"
-               TRIANGLE-INDEX-VERTEX-ARRAY/DELETE-c++-ARRAY) :void
+          triangle-index-vertex-array/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_makeCPlusArray__SWIG_1"
-               TRIANGLE-INDEX-VERTEX-ARRAY/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          triangle-index-vertex-array/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_deleteCPlusArray__SWIG_1"
-               TRIANGLE-INDEX-VERTEX-ARRAY/DELETE-c++-ARRAY/with-arg1&2) :void
+          triangle-index-vertex-array/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btTriangleIndexVertexArray__SWIG_0"
-               MAKE-TRIANGLE-INDEX-VERTEX-ARRAY) :pointer)
+          make-triangle-index-vertex-array) :pointer)
 
 (defcfun ("_wrap_delete_btTriangleIndexVertexArray"
-               DELETE/BT-TRIANGLE-INDEX-VERTEX-ARRAY) :void
+          delete/bt-triangle-index-vertex-array) :void
   (self :pointer))
 
 (defcfun ("_wrap_new_btTriangleIndexVertexArray__SWIG_1"
-               MAKE-TRIANGLE-INDEX-VERTEX-ARRAY/with-triangle-index-base&stride&num-vertices&vertex-base&stride)
+          make-triangle-index-vertex-array/with-triangle-index-base&stride&num-vertices&vertex-base&stride)
     :pointer
   (numTriangles :int)
   (triangleIndexBase :pointer)
@@ -1821,18 +1821,18 @@
   (vertexStride :int))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_addIndexedMesh__SWIG_0"
-               TRIANGLE-INDEX-VERTEX-ARRAY/ADD-INDEXED-MESH/with-index-type) :void
+          triangle-index-vertex-array/add-indexed-mesh/with-index-type) :void
   (self :pointer)
   (mesh :pointer)
   (indexType :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_addIndexedMesh__SWIG_1"
-               TRIANGLE-INDEX-VERTEX-ARRAY/ADD-INDEXED-MESH) :void
+          triangle-index-vertex-array/add-indexed-mesh) :void
   (self :pointer)
   (mesh :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_getLockedVertexIndexBase__SWIG_0"
-               TRIANGLE-INDEX-VERTEX-ARRAY/GET-LOCKED-VERTEX-INDEX-BASE/with-v&n&t&v&i&i&n&i&s) :void
+          triangle-index-vertex-array/get-locked-vertex-index-base/with-v&n&t&v&i&i&n&i&s) :void
   (self :pointer)
   (vertexbase :pointer)
   (numverts :pointer)
@@ -1845,7 +1845,7 @@
   (subpart :int))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_getLockedVertexIndexBase__SWIG_1"
-               TRIANGLE-INDEX-VERTEX-ARRAY/GET-LOCKED-VERTEX-INDEX-BASE/with-v&n&t&v&i&i&n&i) :void
+          triangle-index-vertex-array/get-locked-vertex-index-base/with-v&n&t&v&i&i&n&i) :void
   (self :pointer)
   (vertexbase :pointer)
   (numverts :pointer)
@@ -1857,7 +1857,7 @@
   (indicestype :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase__SWIG_0"
-               TRIANGLE-INDEX-VERTEX-ARRAY/GET-LOCKED-READ-ONLY-VERTEX-INDEX-BASE/with-v&n&t&v&i&i&n&i&s) :void
+          triangle-index-vertex-array/get-locked-read-only-vertex-index-base/with-v&n&t&v&i&i&n&i&s) :void
   (self :pointer)
   (vertexbase :pointer)
   (numverts :pointer)
@@ -1870,7 +1870,7 @@
   (subpart :int))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_getLockedReadOnlyVertexIndexBase__SWIG_1"
-               TRIANGLE-INDEX-VERTEX-ARRAY/GET-LOCKED-READ-ONLY-VERTEX-INDEX-BASE/with-v&n&t&v&i&i&n&i) :void
+          triangle-index-vertex-array/get-locked-read-only-vertex-index-base/with-v&n&t&v&i&i&n&i) :void
   (self :pointer)
   (vertexbase :pointer)
   (numverts :pointer)
@@ -1882,94 +1882,94 @@
   (indicestype :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_unLockVertexBase"
-               TRIANGLE-INDEX-VERTEX-ARRAY/UN-LOCK-VERTEX-BASE) :void
+          triangle-index-vertex-array/un-lock-vertex-base) :void
   (self :pointer)
   (subpart :int))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_unLockReadOnlyVertexBase"
-               TRIANGLE-INDEX-VERTEX-ARRAY/UN-LOCK-READ-ONLY-VERTEX-BASE) :void
+          triangle-index-vertex-array/un-lock-read-only-vertex-base) :void
   (self :pointer)
   (subpart :int))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_getNumSubParts"
-               TRIANGLE-INDEX-VERTEX-ARRAY/GET-NUM-SUB-PARTS) :int
+          triangle-index-vertex-array/get-num-sub-parts) :int
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_getIndexedMeshArray__SWIG_0"
-               TRIANGLE-INDEX-VERTEX-ARRAY/GET-INDEXED-MESH-ARRAY) :pointer
+          triangle-index-vertex-array/get-indexed-mesh-array) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btTriangleIndexVertexArray_getIndexedMeshArray__SWIG_1"
-               TRIANGLE-INDEX-VERTEX-ARRAY/GET-INDEXED-MESH-ARRAY) :pointer
+          triangle-index-vertex-array/get-indexed-mesh-array) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_preallocateVertices"
-               TRIANGLE-INDEX-VERTEX-ARRAY/PREALLOCATE-VERTICES) :void
+          triangle-index-vertex-array/preallocate-vertices) :void
   (self :pointer)
   (numverts :int))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_preallocateIndices"
-               TRIANGLE-INDEX-VERTEX-ARRAY/PREALLOCATE-INDICES) :void
+          triangle-index-vertex-array/preallocate-indices) :void
   (self :pointer)
   (numindices :int))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_hasPremadeAabb"
-               TRIANGLE-INDEX-VERTEX-ARRAY/HAS-PREMADE-AABB) :pointer
+          triangle-index-vertex-array/has-premade-aabb) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_setPremadeAabb"
-               TRIANGLE-INDEX-VERTEX-ARRAY/SET-PREMADE-AABB) :void
+          triangle-index-vertex-array/set-premade-aabb) :void
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btTriangleIndexVertexArray_getPremadeAabb"
-               TRIANGLE-INDEX-VERTEX-ARRAY/GET-PREMADE-AABB) :void
+          triangle-index-vertex-array/get-premade-aabb) :void
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 
 (defcfun ("_wrap_btCompoundShape_makeCPlusPlusInstance__SWIG_0"
-               COMPOUND-SHAPE/MAKE-c++-INSTANCE) :pointer
+          compound-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCompoundShape_deleteCPlusPlusInstance__SWIG_0"
-               COMPOUND-SHAPE/DELETE-c++-INSTANCE) :void
+          compound-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCompoundShape_makeCPlusPlusInstance__SWIG_1"
-               COMPOUND-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          compound-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCompoundShape_deleteCPlusPlusInstance__SWIG_1"
-               COMPOUND-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          compound-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btCompoundShape_makeCPlusArray__SWIG_0"
-               COMPOUND-SHAPE/MAKE-c++-ARRAY) :pointer
+          compound-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btCompoundShape_deleteCPlusArray__SWIG_0"
-               COMPOUND-SHAPE/DELETE-c++-ARRAY) :void
+          compound-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCompoundShape_makeCPlusArray__SWIG_1"
-               COMPOUND-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          compound-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCompoundShape_deleteCPlusArray__SWIG_1"
-               COMPOUND-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          compound-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))

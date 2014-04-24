@@ -2,85 +2,84 @@
 
 
 (defcfun ("_wrap_new_btCollisionWorld"
-               MAKE-COLLISION-WORLD) :pointer
+          make-collision-world) collision-world
   (dispatcher :pointer)
-  (broadphasePairCache :pointer)
-  (collisionConfiguration :pointer))
+  (broadphase-pair-cache :pointer)
+  (collision-configuration :pointer))
 
 (defcfun ("_wrap_delete_btCollisionWorld"
-               DELETE/BT-COLLISION-WORLD) :void
-  (self :pointer))
+          delete/bt-collision-world) :void
+  (self collision-world))
 
 (defcfun ("_wrap_btCollisionWorld_setBroadphase"
-               COLLISION-WORLD/SET-BROADPHASE) :void
+          collision-world/set-broadphase) :void
   (self :pointer)
-  (pairCache :pointer))
+  (pair-cache :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_getBroadphase__SWIG_0"
-               COLLISION-WORLD/GET-BROADPHASE) :pointer
+          collision-world/get-broadphase) :pointer
   (self :pointer))
+
 #+ (or)
-(progn
-  
-  (defcfun ("_wrap_btCollisionWorld_getBroadphase__SWIG_1"
-                 COLLISION-WORLD/GET-BROADPHASE) :pointer
-    (self :pointer))
-  )
+(defcfun ("_wrap_btCollisionWorld_getBroadphase__SWIG_1"
+          collision-world/get-broadphase) :pointer
+  (self :pointer))
+
 
 (defcfun ("_wrap_btCollisionWorld_getPairCache"
-               COLLISION-WORLD/GET-PAIR-CACHE) :pointer
+          collision-world/get-pair-cache) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_getDispatcher__SWIG_0"
-               COLLISION-WORLD/GET-DISPATCHER) :pointer
+          collision-world/get-dispatcher) :pointer
   (self :pointer))
 #+ (or)
 (progn
   
   (defcfun ("_wrap_btCollisionWorld_getDispatcher__SWIG_1"
-                 COLLISION-WORLD/GET-DISPATCHER) :pointer
+            collision-world/get-dispatcher) :pointer
     (self :pointer))
   )
 
 (defcfun ("_wrap_btCollisionWorld_updateSingleAabb"
-               COLLISION-WORLD/UPDATE-SINGLE-AABB) :void
+          collision-world/update-single-aabb) :void
   (self :pointer)
   (colObj :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_updateAabbs"
-               COLLISION-WORLD/UPDATE-AABBS) :void
+          collision-world/update-aabbs) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_computeOverlappingPairs"
-               COLLISION-WORLD/COMPUTE-OVERLAPPING-PAIRS) :void
+          collision-world/compute-overlapping-pairs) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_setDebugDrawer"
-               COLLISION-WORLD/SET-DEBUG-DRAWER) :void
+          collision-world/set-debug-drawer) :void
   (self :pointer)
   (debugDrawer :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_getDebugDrawer"
-               COLLISION-WORLD/GET-DEBUG-DRAWER) :pointer
+          collision-world/get-debug-drawer) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_debugDrawWorld"
-               COLLISION-WORLD/DEBUG-DRAW-WORLD) :void
+          collision-world/debug-draw-world) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_debugDrawObject"
-               COLLISION-WORLD/DEBUG-DRAW-OBJECT) :void
+          collision-world/debug-draw-object) :void
   (self :pointer)
   (worldTransform :pointer)
   (shape :pointer)
   (color :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_getNumCollisionObjects"
-               COLLISION-WORLD/GET-NUM-COLLISION-OBJECTS) :int
+          collision-world/get-num-collision-objects) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_rayTest"
-               COLLISION-WORLD/RAY-TEST) :void
+          collision-world/ray-test) :void
   (self :pointer)
   (rayFromWorld :pointer)
   (rayToWorld :pointer)
@@ -88,7 +87,7 @@
 (declaim (inline
           COLLISION-WORLD/CONVEX-SWEEP-TEST/WITH-CCD-PENETRATION))
 (defcfun ("_wrap_btCollisionWorld_convexSweepTest__SWIG_0"
-               COLLISION-WORLD/CONVEX-SWEEP-TEST/WITH-CCD-PENETRATION) :void
+          collision-world/convex-sweep-test/with-ccd-penetration) :void
   (self :pointer)
   (castShape :pointer)
   (from :pointer)
@@ -98,7 +97,7 @@
 (declaim (inline
           COLLISION-WORLD/CONVEX-SWEEP-TEST/WITHOUT-CCD-PENETRATION))
 (defcfun ("_wrap_btCollisionWorld_convexSweepTest__SWIG_1"
-               COLLISION-WORLD/CONVEX-SWEEP-TEST/WITHOUT-CCD-PENETRATION) :void
+          collision-world/convex-sweep-test/without-ccd-penetration) :void
   (self :pointer)
   (castShape :pointer)
   (from :pointer)
@@ -114,20 +113,20 @@
        self cast-shape from to result-callback)))
 
 (defcfun ("_wrap_btCollisionWorld_contactTest"
-               COLLISION-WORLD/CONTACT-TEST) :void
+          collision-world/contact-test) :void
   (self :pointer)
   (colObj :pointer)
   (resultCallback :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_contactPairTest"
-               COLLISION-WORLD/CONTACT-PAIR-TEST) :void
+          collision-world/contact-pair-test) :void
   (self :pointer)
   (colObjA :pointer)
   (colObjB :pointer)
   (resultCallback :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_rayTestSingle"
-               COLLISION-WORLD/RAY-TEST-SINGLE) :void
+          collision-world/ray-test-single) :void
   (rayFromTrans :pointer)
   (rayToTrans :pointer)
   (collisionObject :pointer)
@@ -136,14 +135,14 @@
   (resultCallback :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_rayTestSingleInternal"
-               COLLISION-WORLD/RAY-TEST-SINGLE-INTERNAL) :void
+          collision-world/ray-test-single-internal) :void
   (rayFromTrans :pointer)
   (rayToTrans :pointer)
   (collisionObjectWrap :pointer)
   (resultCallback :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_objectQuerySingle"
-               COLLISION-WORLD/OBJECT-QUERY-SINGLE) :void
+          collision-world/object-query-single) :void
   (castShape :pointer)
   (rayFromTrans :pointer)
   (rayToTrans :pointer)
@@ -154,7 +153,7 @@
   (allowedPenetration :float))
 
 (defcfun ("_wrap_btCollisionWorld_objectQuerySingleInternal"
-               COLLISION-WORLD/OBJECT-QUERY-SINGLE-INTERNAL) :void
+          collision-world/object-query-single-internal) :void
   (castShape :pointer)
   (convexFromTrans :pointer)
   (convexToTrans :pointer)
@@ -163,20 +162,20 @@
   (allowedPenetration :float))
 
 (defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_0"
-               COLLISION-WORLD/ADD-COLLISION-OBJECT/with-filter-group&mask) :void
+          collision-world/add-collision-object/with-filter-group&mask) :void
   (self :pointer)
   (collisionObject :pointer)
   (collisionFilterGroup :short)
   (collisionFilterMask :short))
 
 (defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_1"
-               COLLISION-WORLD/ADD-COLLISION-OBJECT/with-filter-group) :void
+          collision-world/add-collision-object/with-filter-group) :void
   (self :pointer)
   (collisionObject :pointer)
   (collisionFilterGroup :short))
 
 (defcfun ("_wrap_btCollisionWorld_addCollisionObject__SWIG_2"
-               COLLISION-WORLD/ADD-COLLISION-OBJECT/simple) :void
+          collision-world/add-collision-object/simple) :void
   (self :pointer)
   (collisionObject :pointer))
 
@@ -193,48 +192,48 @@
         self collision-object))))
 
 (defcfun ("_wrap_btCollisionWorld_getCollisionObjectArray__SWIG_0"
-               COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY) :pointer
+          collision-world/get-collision-object-array) :pointer
   (self :pointer))
 #+ (or)
 (progn
   
   (defcfun ("_wrap_btCollisionWorld_getCollisionObjectArray__SWIG_1"
-                 COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY) :pointer
+            collision-world/get-collision-object-array) :pointer
     (self :pointer))
 
   )
 
 (defcfun ("_wrap_btCollisionWorld_removeCollisionObject"
-               COLLISION-WORLD/REMOVE-COLLISION-OBJECT) :void
+          collision-world/remove-collision-object) :void
   (self :pointer)
   (collisionObject :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_performDiscreteCollisionDetection"
-               COLLISION-WORLD/PERFORM-DISCRETE-COLLISION-DETECTION) :void
+          collision-world/perform-discrete-collision-detection) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_getDispatchInfo__SWIG_0"
-               COLLISION-WORLD/GET-DISPATCH-INFO) :pointer
+          collision-world/get-dispatch-info) :pointer
   (self :pointer))
 #+ (or)
 (progn
   
   (defcfun ("_wrap_btCollisionWorld_getDispatchInfo__SWIG_1"
-                 COLLISION-WORLD/GET-DISPATCH-INFO) :pointer
+            collision-world/get-dispatch-info) :pointer
     (self :pointer))
   )
 
 (defcfun ("_wrap_btCollisionWorld_getForceUpdateAllAabbs"
-               COLLISION-WORLD/GET-FORCE-UPDATE-ALL-AABBS) :pointer
+          collision-world/get-force-update-all-aabbs) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_setForceUpdateAllAabbs"
-               COLLISION-WORLD/SET-FORCE-UPDATE-ALL-AABBS) :void
+          collision-world/set-force-update-all-aabbs) :void
   (self :pointer)
   (forceUpdateAllAabbs :pointer))
 
 (defcfun ("_wrap_btCollisionWorld_serialize"
-               COLLISION-WORLD/SERIALIZE) :void
+          collision-world/serialize) :void
   (self :pointer)
   (serializer :pointer))
 (define-constant +ACTIVE-TAG+ 1)
@@ -421,114 +420,114 @@
 (define-constant +BULLET-VERSION+ 282)
 
 (defcfun ("_wrap_btGetVersion"
-               GET-VERSION) :int)
+          get-version) :int)
 (define-constant +LARGE-FLOAT+ 1d18)
 (cffi:defcvar ("btInfinityMask"
                *INFINITY-MASK*)
     :int)
 
 (defcfun ("_wrap_btGetInfinityMask"
-               GET-INFINITY-MASK) :int)
+          get-infinity-mask) :int)
 
 (defcfun ("_wrap_btSqrt"
-               square-root) :float
+          square-root) :float
   (y :float))
 
 (defcfun ("_wrap_btFabs"
-               FABS) :float
+          fabs) :float
   (x :float))
 
 (defcfun ("_wrap_btCos"
-               cosine) :float
+          cosine) :float
   (x :float))
 
 (defcfun ("_wrap_btSin"
-               sine) :float
+          sine) :float
   (x :float))
 
 (defcfun ("_wrap_btTan"
-               tangent) :float
+          tangent) :float
   (x :float))
 
 (defcfun ("_wrap_btAcos"
-               arc-cosine) :float
+          arc-cosine) :float
   (x :float))
 
 (defcfun ("_wrap_btAsin"
-               arc-sine) :float
+          arc-sine) :float
   (x :float))
 
 (defcfun ("_wrap_btAtan"
-               arc-tangent) :float
+          arc-tangent) :float
   (x :float))
 
 (defcfun ("_wrap_btAtan2"
-               ATAN-2) :float
+          atan-2) :float
   (x :float)
   (y :float))
 
 (defcfun ("_wrap_btExp"
-               exponent) :float
+          exponent) :float
   (x :float))
 
 (defcfun ("_wrap_btLog"
-               logarithm) :float
+          logarithm) :float
   (x :float))
 
 (defcfun ("_wrap_btPow"
-               power) :float
+          power) :float
   (x :float)
   (y :float))
 
 (defcfun ("_wrap_btFmod"
-               FMOD) :float
+          fmod) :float
   (x :float)
   (y :float))
 
 (defcfun ("_wrap_btAtan2Fast"
-               ATAN-2-FAST) :float
+          atan-2-fast) :float
   (y :float)
   (x :float))
 
 (defcfun ("_wrap_btFuzzyZero"
-               FUZZY-ZERO) :pointer
+          fuzzy-zero) :pointer
   (x :float))
 
 (defcfun ("_wrap_btEqual"
-               equals) :pointer
+          equals) :pointer
   (a :float)
   (eps :float))
 
 (defcfun ("_wrap_btGreaterEqual"
-               GREATER-EQUAL) :pointer
+          greater-equal) :pointer
   (a :float)
   (eps :float))
 
 (defcfun ("_wrap_btIsNegative"
-               IS-NEGATIVE) :int
+          is-negative) :int
   (x :float))
 
 (defcfun ("_wrap_btRadians"
-               RADIANS) :float
+          radians) :float
   (x :float))
 
 (defcfun ("_wrap_btDegrees"
-               DEGREES) :float
+          degrees) :float
   (x :float))
 
 (defcfun ("_wrap_btFsel"
-               FSEL) :float
+          fsel) :float
   (a :float)
   (b :float)
   (c :float))
 
 (defcfun ("_wrap_btMachineIsLittleEndian"
-               MACHINE-IS-LITTLE-ENDIAN) :pointer)
+          machine-is-little-endian) :pointer)
 #+ need-funky-select-forms
 (progn
   
   (defcfun ("_wrap_btSelect__SWIG_0"
-                 SELECT) :unsigned-int
+            select) :unsigned-int
     (condition :unsigned-int)
     (valueIfConditionNonZero :unsigned-int)
     (valueIfConditionZero :unsigned-int))
@@ -550,83 +549,83 @@
   )
 
 (defcfun ("_wrap_btSwapEndian__SWIG_0"
-               SWAP-ENDIAN) :unsigned-int
+          swap-endian) :unsigned-int
   (val :unsigned-int))
 
 (defcfun ("_wrap_btSwapEndian__SWIG_1"
-               swap-endian/unsigned-short) :unsigned-short
+          swap-endian/unsigned-short) :unsigned-short
   (val :unsigned-short))
 
 (defcfun ("_wrap_btSwapEndian__SWIG_2"
-               swap-endian/int) :unsigned-int
+          swap-endian/int) :unsigned-int
   (val :int))
 
 (defcfun ("_wrap_btSwapEndian__SWIG_3"
-               swap-endian/short)
+          swap-endian/short)
     :unsigned-short
   (val :short))
 
 (defcfun ("_wrap_btSwapEndianFloat"
-               swap-endian/float) :unsigned-int
+          swap-endian/float) :unsigned-int
   (d :float))
 
 (defcfun ("_wrap_btUnswapEndianFloat"
-               unswap-endian/float) :float
+          unswap-endian/float) :float
   (a :unsigned-int))
 
 (defcfun ("_wrap_btSwapEndianDouble"
-               swap-endian/double) :void
+          swap-endian/double) :void
   (d :double)
   (dst :pointer))
 
 (defcfun ("_wrap_btUnswapEndianDouble"
-               unswap-endian/double) :double
+          unswap-endian/double) :double
   (src :pointer))
 
 (defcfun ("_wrap_btLargeDot"
-               LARGE-DOT) :float
+          large-dot) :float
   (a :pointer)
   (b :pointer)
   (n :int))
 
 (defcfun ("_wrap_btNormalizeAngle"
-               NORMALIZE-ANGLE) :float
+          normalize-angle) :float
   (angleInRadians :float))
 
 
 (defcfun ("_wrap_btSwapScalarEndian"
-               SWAP-SCALAR-ENDIAN) :void
+          swap-scalar-endian) :void
   (sourceVal :pointer)
   (destVal :pointer))
 
 (defcfun ("_wrap_inverse"
-               INVERSE) :pointer
+          inverse) :pointer
   (q :pointer))
 
 
 (defcfun ("_wrap_new_btTransform__SWIG_0"
-               MAKE-TRANSFORM/naked) :pointer)
+          make-transform/naked) :pointer)
 
 (defcfun ("_wrap_new_btTransform__SWIG_1"
-               MAKE-TRANSFORM/with-q&c) :pointer
+          make-transform/with-q&c) :pointer
   (q :pointer)
   (c :pointer))
 
 (defcfun ("_wrap_new_btTransform__SWIG_2"
-               MAKE-TRANSFORM/with-q) :pointer
+          make-transform/with-q) :pointer
   (q :pointer))
 
 (defcfun ("_wrap_new_btTransform__SWIG_3"
-               MAKE-TRANSFORM/with-b&c) :pointer
+          make-transform/with-b&c) :pointer
   (b :pointer)
   (c :pointer))
 
 (defcfun ("_wrap_new_btTransform__SWIG_4"
-               MAKE-TRANSFORM/with-b) :pointer
+          make-transform/with-b) :pointer
   (b :pointer))
 
 (defcfun ("_wrap_new_btTransform__SWIG_5"
-               MAKE-TRANSFORM/with-other) :pointer
+          make-transform/with-other) :pointer
   (other :pointer))
 
 (defun make-transform (&key (b nil b?) (c nil c?)
@@ -649,152 +648,152 @@
     (t (make-transform/naked))))
 
 (defcfun ("_wrap_btTransform_assignValue"
-               TRANSFORM/ASSIGN-VALUE) :pointer
+          transform/assign-value) :pointer
   (self :pointer)
   (other :pointer))
 
 (defcfun ("_wrap_btTransform_mult"
-               TRANSFORM/MULT) :void
+          transform/mult) :void
   (self :pointer)
   (t1 :pointer)
   (t2 :pointer))
 
 (defcfun ("_wrap_btTransform___funcall__"
-               TRANSFORM///FUNCALL//) :pointer
+          transform///funcall//) :pointer
   (self :pointer)
   (x :pointer))
 
 (defcfun ("_wrap_btTransform_multiply__SWIG_0"
-               TRANSFORM/MULTIPLY/by-x) :pointer
+          transform/multiply/by-x) :pointer
   (self :pointer)
   (x :pointer))
 
 (defcfun ("_wrap_btTransform_multiply__SWIG_1"
-               TRANSFORM/MULTIPLY/by-q) :pointer
+          transform/multiply/by-q) :pointer
   (self :pointer)
   (q :pointer))
 
 (defcfun ("_wrap_btTransform_getBasis__SWIG_0"
-               TRANSFORM/GET-BASIS) :pointer
+          transform/get-basis) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btTransform_getBasis__SWIG_1"
-               TRANSFORM/GET-BASIS) :pointer
+          transform/get-basis) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTransform_getOrigin__SWIG_0"
-               TRANSFORM/GET-ORIGIN) :pointer
+          transform/get-origin) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btTransform_getOrigin__SWIG_1"
-               TRANSFORM/GET-ORIGIN) :pointer
+          transform/get-origin) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTransform_getRotation"
-               TRANSFORM/GET-ROTATION) :pointer
+          transform/get-rotation) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTransform_setFromOpenGLMatrix"
-               TRANSFORM/SET-FROM-OPENGL-MATRIX) :void
+          transform/set-from-opengl-matrix) :void
   (self :pointer)
   (m :pointer))
 
 (defcfun ("_wrap_btTransform_getOpenGLMatrix"
-               TRANSFORM/GET-OPENGL-MATRIX) :void
+          transform/get-opengl-matrix) :void
   (self :pointer)
   (m :pointer))
 
 (defcfun ("_wrap_btTransform_setOrigin"
-               TRANSFORM/SET-ORIGIN) :void
+          transform/set-origin) :void
   (self :pointer)
   (origin :pointer))
 
 (defcfun ("_wrap_btTransform_invXform"
-               TRANSFORM/INV-XFORM) :pointer
+          transform/inv-xform) :pointer
   (self :pointer)
   (inVec :pointer))
 
 (defcfun ("_wrap_btTransform_setBasis"
-               TRANSFORM/SET-BASIS) :void
+          transform/set-basis) :void
   (self :pointer)
   (basis :pointer))
 
 (defcfun ("_wrap_btTransform_setRotation"
-               TRANSFORM/SET-ROTATION) :void
+          transform/set-rotation) :void
   (self :pointer)
   (q :pointer))
 
 (defcfun ("_wrap_btTransform_setIdentity"
-               TRANSFORM/SET-IDENTITY) :void
+          transform/set-identity) :void
   (self :pointer))
 
 (defcfun ("_wrap_btTransform_multiplyAndAssign"
-               TRANSFORM/MULTIPLY-AND-ASSIGN) :pointer
+          transform/multiply-and-assign) :pointer
   (self :pointer)
   (t_arg1 :pointer))
 
 (defcfun ("_wrap_btTransform_inverse"
-               TRANSFORM/INVERSE) :pointer
+          transform/inverse) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btTransform_inverseTimes"
-               TRANSFORM/INVERSE-TIMES) :pointer
+          transform/inverse-times) :pointer
   (self :pointer)
   (t_arg1 :pointer))
 
 (defcfun ("_wrap_btTransform_multiply__SWIG_2"
-               TRANSFORM/MULTIPLY) :pointer
+          transform/multiply) :pointer
   (self :pointer)
   (t_arg1 :pointer))
 
 (defcfun ("_wrap_btTransform_getIdentity"
-               TRANSFORM/GET-IDENTITY) :pointer)
+          transform/get-identity) :pointer)
 
 (defcfun ("_wrap_btTransform_serialize"
-               TRANSFORM/SERIALIZE) :void
+          transform/serialize) :void
   (self :pointer)
   (dataOut :pointer))
 
 (defcfun ("_wrap_btTransform_serializeFloat"
-               TRANSFORM/SERIALIZE-FLOAT) :void
+          transform/serialize-float) :void
   (self :pointer)
   (dataOut :pointer))
 
 (defcfun ("_wrap_btTransform_deSerialize"
-               TRANSFORM/DE-SERIALIZE) :void
+          transform/de-serialize) :void
   (self :pointer)
   (dataIn :pointer))
 
 (defcfun ("_wrap_btTransform_deSerializeDouble"
-               TRANSFORM/DE-SERIALIZE-DOUBLE) :void
+          transform/de-serialize-double) :void
   (self :pointer)
   (dataIn :pointer))
 
 (defcfun ("_wrap_btTransform_deSerializeFloat"
-               TRANSFORM/DE-SERIALIZE-FLOAT) :void
+          transform/de-serialize-float) :void
   (self :pointer)
   (dataIn :pointer))
 
 (defcfun ("_wrap_delete_btTransform"
-               DELETE/BT-TRANSFORM) :void
+          delete/bt-transform) :void
   (self :pointer))
 
 (defcfun ("_wrap_delete_btMotionState"
-               DELETE/BT-MOTION-STATE) :void
+          delete/bt-motion-state) :void
   (self :pointer))
 
 (defcfun ("_wrap_btMotionState_getWorldTransform"
-               MOTION-STATE/GET-WORLD-TRANSFORM) :void
+          motion-state/get-world-transform) :void
   (self :pointer)
   (worldTrans :pointer))
 
 (defcfun ("_wrap_btMotionState_setWorldTransform"
-               MOTION-STATE/SET-WORLD-TRANSFORM) :void
+          motion-state/set-world-transform) :void
   (self :pointer)
   (worldTrans :pointer))
 (define-constant +USE-PLACEMENT-NEW+ 1)
 (defcfun ("_wrap_new_btCollisionWorld"
-               MAKE-COLLISION-WORLD/with-dispatcher&broadphase-pair-cache&collision-configuration)
+          make-collision-world/with-dispatcher&broadphase-pair-cache&collision-configuration)
     :pointer
   (dispatcher :pointer)
   (broadphasePairCache :pointer)

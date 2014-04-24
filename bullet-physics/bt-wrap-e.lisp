@@ -3,188 +3,188 @@
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_limitSoftness_set"
-               TRANSLATIONAL-LIMIT-MOTOR/LIMIT-SOFTNESS/SET) :void
+          translational-limit-motor/limit-softness/set) :void
   (self :pointer)
   (m_limitSoftness :float))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_limitSoftness_get"
-               TRANSLATIONAL-LIMIT-MOTOR/LIMIT-SOFTNESS/GET) :float
+          translational-limit-motor/limit-softness/get) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_damping_set"
-               TRANSLATIONAL-LIMIT-MOTOR/DAMPING/SET) :void
+          translational-limit-motor/damping/set) :void
   (self :pointer)
   (m_damping :float))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_damping_get"
-               TRANSLATIONAL-LIMIT-MOTOR/DAMPING/GET) :float
+          translational-limit-motor/damping/get) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_restitution_set"
-               TRANSLATIONAL-LIMIT-MOTOR/RESTITUTION/SET) :void
+          translational-limit-motor/restitution/set) :void
   (self :pointer)
   (m_restitution :float))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_restitution_get"
-               TRANSLATIONAL-LIMIT-MOTOR/RESTITUTION/GET) :float
+          translational-limit-motor/restitution/get) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_normalCFM_set"
-               TRANSLATIONAL-LIMIT-MOTOR/NORMAL-CFM/SET) :void
+          translational-limit-motor/normal-cfm/set) :void
   (self :pointer)
   (m_normalCFM :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_normalCFM_get"
-               TRANSLATIONAL-LIMIT-MOTOR/NORMAL-CFM/GET) :pointer
+          translational-limit-motor/normal-cfm/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_stopERP_set"
-               TRANSLATIONAL-LIMIT-MOTOR/STOP-ERP/SET) :void
+          translational-limit-motor/stop-erp/set) :void
   (self :pointer)
   (m_stopERP :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_stopERP_get"
-               TRANSLATIONAL-LIMIT-MOTOR/STOP-ERP/GET) :pointer
+          translational-limit-motor/stop-erp/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_stopCFM_set"
-               TRANSLATIONAL-LIMIT-MOTOR/STOP-CFM/SET) :void
+          translational-limit-motor/stop-cfm/set) :void
   (self :pointer)
   (m_stopCFM :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_stopCFM_get"
-               TRANSLATIONAL-LIMIT-MOTOR/STOP-CFM/GET) :pointer
+          translational-limit-motor/stop-cfm/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_enableMotor_set"
-               TRANSLATIONAL-LIMIT-MOTOR/ENABLE-MOTOR/SET) :void
+          translational-limit-motor/enable-motor/set) :void
   (self :pointer)
   (m_enableMotor :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_enableMotor_get"
-               TRANSLATIONAL-LIMIT-MOTOR/ENABLE-MOTOR/GET) :pointer
+          translational-limit-motor/enable-motor/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_targetVelocity_set"
-               TRANSLATIONAL-LIMIT-MOTOR/TARGET-VELOCITY/SET) :void
+          translational-limit-motor/target-velocity/set) :void
   (self :pointer)
   (m_targetVelocity :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_targetVelocity_get"
-               TRANSLATIONAL-LIMIT-MOTOR/TARGET-VELOCITY/GET) :pointer
+          translational-limit-motor/target-velocity/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_maxMotorForce_set"
-               TRANSLATIONAL-LIMIT-MOTOR/MAX-MOTOR-FORCE/SET) :void
+          translational-limit-motor/max-motor-force/set) :void
   (self :pointer)
   (m_maxMotorForce :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_maxMotorForce_get"
-               TRANSLATIONAL-LIMIT-MOTOR/MAX-MOTOR-FORCE/GET) :pointer
+          translational-limit-motor/max-motor-force/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_currentLimitError_set"
-               TRANSLATIONAL-LIMIT-MOTOR/CURRENT-LIMIT-ERROR/SET) :void
+          translational-limit-motor/current-limit-error/set) :void
   (self :pointer)
   (m_currentLimitError :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_currentLimitError_get"
-               TRANSLATIONAL-LIMIT-MOTOR/CURRENT-LIMIT-ERROR/GET) :pointer
+          translational-limit-motor/current-limit-error/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_currentLinearDiff_set"
-               TRANSLATIONAL-LIMIT-MOTOR/CURRENT-LINEAR-DIFF/SET) :void
+          translational-limit-motor/current-linear-diff/set) :void
   (self :pointer)
   (m_currentLinearDiff :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_currentLinearDiff_get"
-               TRANSLATIONAL-LIMIT-MOTOR/CURRENT-LINEAR-DIFF/GET) :pointer
+          translational-limit-motor/current-linear-diff/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_currentLimit_set"
-               TRANSLATIONAL-LIMIT-MOTOR/CURRENT-LIMIT/SET) :void
+          translational-limit-motor/current-limit/set) :void
   (self :pointer)
   (m_currentLimit :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_m_currentLimit_get"
-               TRANSLATIONAL-LIMIT-MOTOR/CURRENT-LIMIT/GET) :pointer
+          translational-limit-motor/current-limit/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_new_btTranslationalLimitMotor__SWIG_0"
-               MAKE-TRANSLATIONAL-LIMIT-MOTOR) :pointer)
+          make-translational-limit-motor) :pointer)
 
 
 
 (defcfun ("_wrap_new_btTranslationalLimitMotor__SWIG_1"
-               MAKE-TRANSLATIONAL-LIMIT-MOTOR/with-other) :pointer
+          make-translational-limit-motor/with-other) :pointer
   (other :pointer))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_isLimited"
-               TRANSLATIONAL-LIMIT-MOTOR/IS-LIMITED) :pointer
+          translational-limit-motor/is-limited) :pointer
   (self :pointer)
   (limitIndex :int))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_needApplyForce"
-               TRANSLATIONAL-LIMIT-MOTOR/NEED-APPLY-FORCE) :pointer
+          translational-limit-motor/need-apply-force) :pointer
   (self :pointer)
   (limitIndex :int))
 
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_testLimitValue"
-               TRANSLATIONAL-LIMIT-MOTOR/TEST-LIMIT-VALUE) :int
+          translational-limit-motor/test-limit-value) :int
   (self :pointer)
   (limitIndex :int)
   (test_value :float))
@@ -192,7 +192,7 @@
 
 
 (defcfun ("_wrap_btTranslationalLimitMotor_solveLinearAxis"
-               TRANSLATIONAL-LIMIT-MOTOR/SOLVE-LINEAR-AXIS) :float
+          translational-limit-motor/solve-linear-axis) :float
   (self :pointer)
   (timeStep :float)
   (jacDiagABInv :float)
@@ -207,7 +207,7 @@
 
 
 (defcfun ("_wrap_delete_btTranslationalLimitMotor"
-               DELETE/BT-TRANSLATIONAL-LIMIT-MOTOR) :void
+          delete/bt-translational-limit-motor) :void
   (self :pointer))
 
 (cffi:defcenum 6-DOF-FLAGS
@@ -220,21 +220,21 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_makeCPlusPlusInstance__SWIG_0"
-               GENERIC-6-DOF-CONSTRAINT/MAKE-c++-INSTANCE) :pointer
+          generic-6-dof-constraint/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_deleteCPlusPlusInstance__SWIG_0"
-               GENERIC-6-DOF-CONSTRAINT/DELETE-c++-INSTANCE) :void
+          generic-6-dof-constraint/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_makeCPlusPlusInstance__SWIG_1"
-               GENERIC-6-DOF-CONSTRAINT/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          generic-6-dof-constraint/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
@@ -242,7 +242,7 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_deleteCPlusPlusInstance__SWIG_1"
-               GENERIC-6-DOF-CONSTRAINT/DELETE-c++-INSTANCE/with-arg1&2) :void
+          generic-6-dof-constraint/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
@@ -250,21 +250,21 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_makeCPlusArray__SWIG_0"
-               GENERIC-6-DOF-CONSTRAINT/MAKE-c++-ARRAY) :pointer
+          generic-6-dof-constraint/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_deleteCPlusArray__SWIG_0"
-               GENERIC-6-DOF-CONSTRAINT/DELETE-c++-ARRAY) :void
+          generic-6-dof-constraint/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_makeCPlusArray__SWIG_1"
-               GENERIC-6-DOF-CONSTRAINT/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          generic-6-dof-constraint/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
@@ -272,7 +272,7 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_deleteCPlusArray__SWIG_1"
-               GENERIC-6-DOF-CONSTRAINT/DELETE-c++-ARRAY/with-arg1&2) :void
+          generic-6-dof-constraint/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
@@ -280,20 +280,20 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_m_useSolveConstraintObsolete_set"
-               GENERIC-6-DOF-CONSTRAINT/USE-SOLVE-CONSTRAINT-OBSOLETE/SET) :void
+          generic-6-dof-constraint/use-solve-constraint-obsolete/set) :void
   (self :pointer)
   (m_useSolveConstraintObsolete :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_m_useSolveConstraintObsolete_get"
-               GENERIC-6-DOF-CONSTRAINT/USE-SOLVE-CONSTRAINT-OBSOLETE/GET) :pointer
+          generic-6-dof-constraint/use-solve-constraint-obsolete/get) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_new_btGeneric6DofConstraint__SWIG_0"
-               MAKE-GENERIC-6-DOF-CONSTRAINT) :pointer
+          make-generic-6-dof-constraint) :pointer
   (rbA :pointer)
   (rbB :pointer)
   (frameInA :pointer)
@@ -303,7 +303,7 @@
 
 
 (defcfun ("_wrap_new_btGeneric6DofConstraint__SWIG_1"
-               MAKE-GENERIC-6-DOF-CONSTRAINT/with-linear-reference-frame-b) :pointer
+          make-generic-6-dof-constraint/with-linear-reference-frame-b) :pointer
   (rbB :pointer)
   (frameInB :pointer)
   (useLinearReferenceFrameB :pointer))
@@ -311,7 +311,7 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_calculateTransforms__SWIG_0"
-               GENERIC-6-DOF-CONSTRAINT/CALCULATE-TRANSFORMS) :void
+          generic-6-dof-constraint/calculate-transforms) :void
   (self :pointer)
   (transA :pointer)
   (transB :pointer))
@@ -319,71 +319,70 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_calculateTransforms__SWIG_1"
-               GENERIC-6-DOF-CONSTRAINT/CALCULATE-TRANSFORMS/naked) :void
+          generic-6-dof-constraint/calculate-transforms/naked) :void
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getCalculatedTransformA"
-               GENERIC-6-DOF-CONSTRAINT/GET-CALCULATED-TRANSFORM-A) :pointer
+          generic-6-dof-constraint/get-calculated-transform-a) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getCalculatedTransformB"
-               GENERIC-6-DOF-CONSTRAINT/GET-CALCULATED-TRANSFORM-B) :pointer
+          generic-6-dof-constraint/get-calculated-transform-b) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getFrameOffsetA__SWIG_0"
-               GENERIC-6-DOF-CONSTRAINT/GET-FRAME-OFFSET-A) :pointer
+          generic-6-dof-constraint/get-frame-offset-a) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getFrameOffsetB__SWIG_0"
-               GENERIC-6-DOF-CONSTRAINT/GET-FRAME-OFFSET-B) :pointer
+          generic-6-dof-constraint/get-frame-offset-b) :pointer
   (self :pointer))
-#+ (or) (progn 
-               (defcfun ("_wrap_btGeneric6DofConstraint_getFrameOffsetA__SWIG_1"
-                              GENERIC-6-DOF-CONSTRAINT/GET-FRAME-OFFSET-A) :pointer
-                 (self :pointer))
-               
-               (defcfun ("_wrap_btGeneric6DofConstraint_getFrameOffsetB__SWIG_1"
-                              GENERIC-6-DOF-CONSTRAINT/GET-FRAME-OFFSET-B) :pointer
-                 (self :pointer)))
+#+ (or) (defcfun ("_wrap_btGeneric6DofConstraint_getFrameOffsetA__SWIG_1"
+                  generic-6-dof-constraint/get-frame-offset-a) :pointer
+          (self :pointer))
+#+ (or)
+(defcfun ("_wrap_btGeneric6DofConstraint_getFrameOffsetB__SWIG_1"
+          generic-6-dof-constraint/get-frame-offset-b) :pointer
+  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_buildJacobian"
-               GENERIC-6-DOF-CONSTRAINT/BUILD-JACOBIAN) :void  (self :pointer))
+          generic-6-dof-constraint/build-jacobian) :void  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getInfo1"
-               GENERIC-6-DOF-CONSTRAINT/GET-INFO-1) :void
+          generic-6-dof-constraint/get-info-1) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getInfo1NonVirtual"
-               GENERIC-6-DOF-CONSTRAINT/GET-INFO-1-NON-VIRTUAL) :void
+          generic-6-dof-constraint/get-info-1-non-virtual) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getInfo2"
-               GENERIC-6-DOF-CONSTRAINT/GET-INFO-2) :void
+          generic-6-dof-constraint/get-info-2) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getInfo2NonVirtual"
-               GENERIC-6-DOF-CONSTRAINT/GET-INFO-2-NON-VIRTUAL) :void
+          generic-6-dof-constraint/get-info-2-non-virtual) :void
   (self :pointer)
   (info :pointer)
   (transA :pointer)
@@ -396,35 +395,35 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_updateRHS"
-               GENERIC-6-DOF-CONSTRAINT/UPDATE-RHS) :void
+          generic-6-dof-constraint/update-rhs) :void
   (self :pointer)
   (timeStep :float))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getAxis"
-               GENERIC-6-DOF-CONSTRAINT/GET-AXIS) :pointer
+          generic-6-dof-constraint/get-axis) :pointer
   (self :pointer)
   (axis_index :int))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getAngle"
-               GENERIC-6-DOF-CONSTRAINT/GET-ANGLE) :float
+          generic-6-dof-constraint/get-angle) :float
   (self :pointer)
   (axis_index :int))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getRelativePivotPosition"
-               GENERIC-6-DOF-CONSTRAINT/GET-RELATIVE-PIVOT-POSITION) :float
+          generic-6-dof-constraint/get-relative-pivot-position) :float
   (self :pointer)
   (axis_index :int))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_setFrames"
-               GENERIC-6-DOF-CONSTRAINT/SET-FRAMES) :void
+          generic-6-dof-constraint/set-frames) :void
   (self :pointer)
   (frameA :pointer)
   (frameB :pointer))
@@ -432,82 +431,82 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_testAngularLimitMotor"
-               GENERIC-6-DOF-CONSTRAINT/TEST-ANGULAR-LIMIT-MOTOR) :pointer
+          generic-6-dof-constraint/test-angular-limit-motor) :pointer
   (self :pointer)
   (axis_index :int))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_setLinearLowerLimit"
-               GENERIC-6-DOF-CONSTRAINT/SET-LINEAR-LOWER-LIMIT) :void
+          generic-6-dof-constraint/set-linear-lower-limit) :void
   (self :pointer)
   (linearLower :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getLinearLowerLimit"
-               GENERIC-6-DOF-CONSTRAINT/GET-LINEAR-LOWER-LIMIT) :void
+          generic-6-dof-constraint/get-linear-lower-limit) :void
   (self :pointer)
   (linearLower :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_setLinearUpperLimit"
-               GENERIC-6-DOF-CONSTRAINT/SET-LINEAR-UPPER-LIMIT) :void
+          generic-6-dof-constraint/set-linear-upper-limit) :void
   (self :pointer)
   (linearUpper :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getLinearUpperLimit"
-               GENERIC-6-DOF-CONSTRAINT/GET-LINEAR-UPPER-LIMIT) :void
+          generic-6-dof-constraint/get-linear-upper-limit) :void
   (self :pointer)
   (linearUpper :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_setAngularLowerLimit"
-               GENERIC-6-DOF-CONSTRAINT/SET-ANGULAR-LOWER-LIMIT) :void
+          generic-6-dof-constraint/set-angular-lower-limit) :void
   (self :pointer)
   (angularLower :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getAngularLowerLimit"
-               GENERIC-6-DOF-CONSTRAINT/GET-ANGULAR-LOWER-LIMIT) :void
+          generic-6-dof-constraint/get-angular-lower-limit) :void
   (self :pointer)
   (angularLower :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_setAngularUpperLimit"
-               GENERIC-6-DOF-CONSTRAINT/SET-ANGULAR-UPPER-LIMIT) :void
+          generic-6-dof-constraint/set-angular-upper-limit) :void
   (self :pointer)
   (angularUpper :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getAngularUpperLimit"
-               GENERIC-6-DOF-CONSTRAINT/GET-ANGULAR-UPPER-LIMIT) :void
+          generic-6-dof-constraint/get-angular-upper-limit) :void
   (self :pointer)
   (angularUpper :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getRotationalLimitMotor"
-               GENERIC-6-DOF-CONSTRAINT/GET-ROTATIONAL-LIMIT-MOTOR) :pointer
+          generic-6-dof-constraint/get-rotational-limit-motor) :pointer
   (self :pointer)
   (index :int))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getTranslationalLimitMotor"
-               GENERIC-6-DOF-CONSTRAINT/GET-TRANSLATIONAL-LIMIT-MOTOR) :pointer  (self :pointer))
+          generic-6-dof-constraint/get-translational-limit-motor) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_setLimit"
-               GENERIC-6-DOF-CONSTRAINT/SET-LIMIT) :void
+          generic-6-dof-constraint/set-limit) :void
   (self :pointer)
   (axis :int)
   (lo :float)
@@ -516,19 +515,19 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_isLimited"
-               GENERIC-6-DOF-CONSTRAINT/IS-LIMITED) :pointer
+          generic-6-dof-constraint/is-limited) :pointer
   (self :pointer)
   (limitIndex :int))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_calcAnchorPos"
-               GENERIC-6-DOF-CONSTRAINT/CALC-ANCHOR-POS) :void  (self :pointer))
+          generic-6-dof-constraint/calc-anchor-pos) :void  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_get_limit_motor_info2__SWIG_0"
-               GENERIC-6-DOF-CONSTRAINT/GET-LIMIT-MOTOR-INFO-2) :int
+          generic-6-dof-constraint/get-limit-motor-info-2) :int
   (self :pointer)
   (limot :pointer)
   (transA :pointer)
@@ -546,7 +545,7 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_get_limit_motor_info2__SWIG_1"
-               GENERIC-6-DOF-CONSTRAINT/GET-LIMIT-MOTOR-INFO-2*) :int
+          generic-6-dof-constraint/get-limit-motor-info-2*) :int
   (self :pointer)
   (limot :pointer)
   (transA :pointer)
@@ -563,19 +562,19 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_getUseFrameOffset"
-               GENERIC-6-DOF-CONSTRAINT/GET-USE-FRAME-OFFSET) :pointer  (self :pointer))
+          generic-6-dof-constraint/get-use-frame-offset) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_setUseFrameOffset"
-               GENERIC-6-DOF-CONSTRAINT/SET-USE-FRAME-OFFSET) :void
+          generic-6-dof-constraint/set-use-frame-offset) :void
   (self :pointer)
   (frameOffsetOnOff :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_setAxis"
-               GENERIC-6-DOF-CONSTRAINT/SET-AXIS) :void
+          generic-6-dof-constraint/set-axis) :void
   (self :pointer)
   (axis1 :pointer)
   (axis2 :pointer))
@@ -583,13 +582,13 @@
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_calculateSerializeBufferSize"
-               GENERIC-6-DOF-CONSTRAINT/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          generic-6-dof-constraint/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofConstraint_serialize"
-               GENERIC-6-DOF-CONSTRAINT/SERIALIZE) :string
+          generic-6-dof-constraint/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
@@ -597,7 +596,7 @@
 
 
 (defcfun ("_wrap_delete_btGeneric6DofConstraint"
-               DELETE/BT-GENERIC-6-DOF-CONSTRAINT) :void
+          delete/bt-generic-6-dof-constraint) :void
   (self :pointer))
 
 
@@ -631,21 +630,21 @@
 
 
 (defcfun ("_wrap_btSliderConstraint_makeCPlusPlusInstance__SWIG_0"
-               SLIDER-CONSTRAINT/MAKE-c++-INSTANCE) :pointer
+          slider-constraint/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_deleteCPlusPlusInstance__SWIG_0"
-               SLIDER-CONSTRAINT/DELETE-c++-INSTANCE) :void
+          slider-constraint/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_makeCPlusPlusInstance__SWIG_1"
-               SLIDER-CONSTRAINT/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          slider-constraint/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
@@ -653,7 +652,7 @@
 
 
 (defcfun ("_wrap_btSliderConstraint_deleteCPlusPlusInstance__SWIG_1"
-               SLIDER-CONSTRAINT/DELETE-c++-INSTANCE/with-arg1&2) :void
+          slider-constraint/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
@@ -661,21 +660,21 @@
 
 
 (defcfun ("_wrap_btSliderConstraint_makeCPlusArray__SWIG_0"
-               SLIDER-CONSTRAINT/MAKE-c++-ARRAY) :pointer
+          slider-constraint/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_deleteCPlusArray__SWIG_0"
-               SLIDER-CONSTRAINT/DELETE-c++-ARRAY) :void
+          slider-constraint/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_makeCPlusArray__SWIG_1"
-               SLIDER-CONSTRAINT/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          slider-constraint/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
@@ -683,7 +682,7 @@
 
 
 (defcfun ("_wrap_btSliderConstraint_deleteCPlusArray__SWIG_1"
-               SLIDER-CONSTRAINT/DELETE-c++-ARRAY/with-arg1&2) :void
+          slider-constraint/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
@@ -691,7 +690,7 @@
 
 
 (defcfun ("_wrap_new_btSliderConstraint__SWIG_0"
-               MAKE-SLIDER-CONSTRAINT) :pointer
+          make-slider-constraint) :pointer
   (rbA :pointer)
   (rbB :pointer)
   (frameInA :pointer)
@@ -701,7 +700,7 @@
 
 
 (defcfun ("_wrap_new_btSliderConstraint__SWIG_1"
-               make-slider-constraint/with-linear-reference-frame-a) :pointer
+          make-slider-constraint/with-linear-reference-frame-a) :pointer
   (rbB :pointer)
   (frameInB :pointer)
   (useLinearReferenceFrameA :pointer))
@@ -709,28 +708,28 @@
 
 
 (defcfun ("_wrap_btSliderConstraint_getInfo1"
-               SLIDER-CONSTRAINT/GET-INFO-1) :void
+          slider-constraint/get-info-1) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getInfo1NonVirtual"
-               SLIDER-CONSTRAINT/GET-INFO-1-NON-VIRTUAL) :void
+          slider-constraint/get-info-1-non-virtual) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getInfo2"
-               SLIDER-CONSTRAINT/GET-INFO-2) :void
+          slider-constraint/get-info-2) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getInfo2NonVirtual"
-               SLIDER-CONSTRAINT/GET-INFO-2-NON-VIRTUAL) :void
+          slider-constraint/get-info-2-non-virtual) :void
   (self :pointer)
   (info :pointer)
   (transA :pointer)
@@ -743,438 +742,437 @@
 
 
 (defcfun ("_wrap_btSliderConstraint_getRigidBodyA"
-               SLIDER-CONSTRAINT/GET-RIGID-BODY-A) :pointer
+          slider-constraint/get-rigid-body-a) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getRigidBodyB"
-               SLIDER-CONSTRAINT/GET-RIGID-BODY-B) :pointer
+          slider-constraint/get-rigid-body-b) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getCalculatedTransformA"
-               SLIDER-CONSTRAINT/GET-CALCULATED-TRANSFORM-A) :pointer
+          slider-constraint/get-calculated-transform-a) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getCalculatedTransformB"
-               SLIDER-CONSTRAINT/GET-CALCULATED-TRANSFORM-B) :pointer
+          slider-constraint/get-calculated-transform-b) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getFrameOffsetA__SWIG_0"
-               SLIDER-CONSTRAINT/GET-FRAME-OFFSET-A) :pointer  (self :pointer))
+          slider-constraint/get-frame-offset-a) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getFrameOffsetB__SWIG_0"
-               SLIDER-CONSTRAINT/GET-FRAME-OFFSET-B) :pointer  (self :pointer))
-#+ (or) (progn 
-               (defcfun ("_wrap_btSliderConstraint_getFrameOffsetA__SWIG_1"
-                              SLIDER-CONSTRAINT/GET-FRAME-OFFSET-A) :pointer
-                 (self :pointer))
-               
-               (defcfun ("_wrap_btSliderConstraint_getFrameOffsetB__SWIG_1"
-                              SLIDER-CONSTRAINT/GET-FRAME-OFFSET-B) :pointer  (self :pointer)))
+          slider-constraint/get-frame-offset-b) :pointer  (self :pointer))
+#+ (or) (defcfun ("_wrap_btSliderConstraint_getFrameOffsetA__SWIG_1"
+                  slider-constraint/get-frame-offset-a) :pointer
+          (self :pointer))
+#+ (or)
+(defcfun ("_wrap_btSliderConstraint_getFrameOffsetB__SWIG_1"
+          slider-constraint/get-frame-offset-b) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getLowerLinLimit"
-               SLIDER-CONSTRAINT/GET-LOWER-LIN-LIMIT) :float  (self :pointer))
+          slider-constraint/get-lower-lin-limit) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setLowerLinLimit"
-               SLIDER-CONSTRAINT/SET-LOWER-LIN-LIMIT) :void
+          slider-constraint/set-lower-lin-limit) :void
   (self :pointer)
   (lower-Limit :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getUpperLinLimit"
-               SLIDER-CONSTRAINT/GET-UPPER-LIN-LIMIT) :float  (self :pointer))
+          slider-constraint/get-upper-lin-limit) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setUpperLinLimit"
-               SLIDER-CONSTRAINT/SET-UPPER-LIN-LIMIT) :void
+          slider-constraint/set-upper-lin-limit) :void
   (self :pointer)
   (upperLimit :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getLowerAngLimit"
-               SLIDER-CONSTRAINT/GET-LOWER-ANG-LIMIT) :float  (self :pointer))
+          slider-constraint/get-lower-ang-limit) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setLowerAngLimit"
-               SLIDER-CONSTRAINT/SET-LOWER-ANG-LIMIT) :void
+          slider-constraint/set-lower-ang-limit) :void
   (self :pointer)
   (lowerLimit :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getUpperAngLimit"
-               SLIDER-CONSTRAINT/GET-UPPER-ANG-LIMIT) :float  (self :pointer))
+          slider-constraint/get-upper-ang-limit) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setUpperAngLimit"
-               SLIDER-CONSTRAINT/SET-UPPER-ANG-LIMIT) :void
+          slider-constraint/set-upper-ang-limit) :void
   (self :pointer)
   (upperLimit :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getUseLinearReferenceFrameA"
-               SLIDER-CONSTRAINT/GET-USE-LINEAR-REFERENCE-FRAME-A) :pointer
+          slider-constraint/get-use-linear-reference-frame-a) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getSoftnessDirLin"
-               SLIDER-CONSTRAINT/GET-SOFTNESS-DIR-LIN) :float
+          slider-constraint/get-softness-dir-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getRestitutionDirLin"
-               SLIDER-CONSTRAINT/GET-RESTITUTION-DIR-LIN) :float
+          slider-constraint/get-restitution-dir-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getDampingDirLin"
-               SLIDER-CONSTRAINT/GET-DAMPING-DIR-LIN) :float
+          slider-constraint/get-damping-dir-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getSoftnessDirAng"
-               SLIDER-CONSTRAINT/GET-SOFTNESS-DIR-ANG) :float
+          slider-constraint/get-softness-dir-ang) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getRestitutionDirAng"
-               SLIDER-CONSTRAINT/GET-RESTITUTION-DIR-ANG) :float
+          slider-constraint/get-restitution-dir-ang) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getDampingDirAng"
-               SLIDER-CONSTRAINT/GET-DAMPING-DIR-ANG) :float
+          slider-constraint/get-damping-dir-ang) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getSoftnessLimLin"
-               SLIDER-CONSTRAINT/GET-SOFTNESS-LIM-LIN) :float
+          slider-constraint/get-softness-lim-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getRestitutionLimLin"
-               SLIDER-CONSTRAINT/GET-RESTITUTION-LIM-LIN) :float
+          slider-constraint/get-restitution-lim-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getDampingLimLin"
-               SLIDER-CONSTRAINT/GET-DAMPING-LIM-LIN) :float
+          slider-constraint/get-damping-lim-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getSoftnessLimAng"
-               SLIDER-CONSTRAINT/GET-SOFTNESS-LIM-ANG) :float
+          slider-constraint/get-softness-lim-ang) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getRestitutionLimAng"
-               SLIDER-CONSTRAINT/GET-RESTITUTION-LIM-ANG) :float  (self :pointer))
+          slider-constraint/get-restitution-lim-ang) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getDampingLimAng"
-               SLIDER-CONSTRAINT/GET-DAMPING-LIM-ANG) :float  (self :pointer))
+          slider-constraint/get-damping-lim-ang) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getSoftnessOrthoLin"
-               SLIDER-CONSTRAINT/GET-SOFTNESS-ORTHO-LIN) :float
+          slider-constraint/get-softness-ortho-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getRestitutionOrthoLin"
-               SLIDER-CONSTRAINT/GET-RESTITUTION-ORTHO-LIN) :float
+          slider-constraint/get-restitution-ortho-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getDampingOrthoLin"
-               SLIDER-CONSTRAINT/GET-DAMPING-ORTHO-LIN) :float
+          slider-constraint/get-damping-ortho-lin) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getSoftnessOrthoAng"
-               SLIDER-CONSTRAINT/GET-SOFTNESS-ORTHO-ANG) :float  (self :pointer))
+          slider-constraint/get-softness-ortho-ang) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getRestitutionOrthoAng"
-               SLIDER-CONSTRAINT/GET-RESTITUTION-ORTHO-ANG) :float  (self :pointer))
+          slider-constraint/get-restitution-ortho-ang) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getDampingOrthoAng"
-               SLIDER-CONSTRAINT/GET-DAMPING-ORTHO-ANG) :float
+          slider-constraint/get-damping-ortho-ang) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setSoftnessDirLin"
-               SLIDER-CONSTRAINT/SET-SOFTNESS-DIR-LIN) :void
+          slider-constraint/set-softness-dir-lin) :void
   (self :pointer)
   (softnessDirLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setRestitutionDirLin"
-               SLIDER-CONSTRAINT/SET-RESTITUTION-DIR-LIN) :void
+          slider-constraint/set-restitution-dir-lin) :void
   (self :pointer)
   (restitutionDirLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setDampingDirLin"
-               SLIDER-CONSTRAINT/SET-DAMPING-DIR-LIN) :void
+          slider-constraint/set-damping-dir-lin) :void
   (self :pointer)
   (dampingDirLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setSoftnessDirAng"
-               SLIDER-CONSTRAINT/SET-SOFTNESS-DIR-ANG) :void
+          slider-constraint/set-softness-dir-ang) :void
   (self :pointer)
   (softnessDirAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setRestitutionDirAng"
-               SLIDER-CONSTRAINT/SET-RESTITUTION-DIR-ANG) :void
+          slider-constraint/set-restitution-dir-ang) :void
   (self :pointer)
   (restitutionDirAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setDampingDirAng"
-               SLIDER-CONSTRAINT/SET-DAMPING-DIR-ANG) :void
+          slider-constraint/set-damping-dir-ang) :void
   (self :pointer)
   (dampingDirAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setSoftnessLimLin"
-               SLIDER-CONSTRAINT/SET-SOFTNESS-LIM-LIN) :void
+          slider-constraint/set-softness-lim-lin) :void
   (self :pointer)
   (softnessLimLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setRestitutionLimLin"
-               SLIDER-CONSTRAINT/SET-RESTITUTION-LIM-LIN) :void
+          slider-constraint/set-restitution-lim-lin) :void
   (self :pointer)
   (restitutionLimLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setDampingLimLin"
-               SLIDER-CONSTRAINT/SET-DAMPING-LIM-LIN) :void
+          slider-constraint/set-damping-lim-lin) :void
   (self :pointer)
   (dampingLimLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setSoftnessLimAng"
-               SLIDER-CONSTRAINT/SET-SOFTNESS-LIM-ANG) :void
+          slider-constraint/set-softness-lim-ang) :void
   (self :pointer)
   (softnessLimAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setRestitutionLimAng"
-               SLIDER-CONSTRAINT/SET-RESTITUTION-LIM-ANG) :void
+          slider-constraint/set-restitution-lim-ang) :void
   (self :pointer)
   (restitutionLimAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setDampingLimAng"
-               SLIDER-CONSTRAINT/SET-DAMPING-LIM-ANG) :void
+          slider-constraint/set-damping-lim-ang) :void
   (self :pointer)
   (dampingLimAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setSoftnessOrthoLin"
-               SLIDER-CONSTRAINT/SET-SOFTNESS-ORTHO-LIN) :void
+          slider-constraint/set-softness-ortho-lin) :void
   (self :pointer)
   (softnessOrthoLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setRestitutionOrthoLin"
-               SLIDER-CONSTRAINT/SET-RESTITUTION-ORTHO-LIN) :void
+          slider-constraint/set-restitution-ortho-lin) :void
   (self :pointer)
   (restitutionOrthoLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setDampingOrthoLin"
-               SLIDER-CONSTRAINT/SET-DAMPING-ORTHO-LIN) :void
+          slider-constraint/set-damping-ortho-lin) :void
   (self :pointer)
   (dampingOrthoLin :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setSoftnessOrthoAng"
-               SLIDER-CONSTRAINT/SET-SOFTNESS-ORTHO-ANG) :void
+          slider-constraint/set-softness-ortho-ang) :void
   (self :pointer)
   (softnessOrthoAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setRestitutionOrthoAng"
-               SLIDER-CONSTRAINT/SET-RESTITUTION-ORTHO-ANG) :void
+          slider-constraint/set-restitution-ortho-ang) :void
   (self :pointer)
   (restitutionOrthoAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setDampingOrthoAng"
-               SLIDER-CONSTRAINT/SET-DAMPING-ORTHO-ANG) :void
+          slider-constraint/set-damping-ortho-ang) :void
   (self :pointer)
   (dampingOrthoAng :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setPoweredLinMotor"
-               SLIDER-CONSTRAINT/SET-POWERED-LIN-MOTOR) :void
+          slider-constraint/set-powered-lin-motor) :void
   (self :pointer)
   (onOff :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getPoweredLinMotor"
-               SLIDER-CONSTRAINT/GET-POWERED-LIN-MOTOR) :pointer  (self :pointer))
+          slider-constraint/get-powered-lin-motor) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setTargetLinMotorVelocity"
-               SLIDER-CONSTRAINT/SET-TARGET-LIN-MOTOR-VELOCITY) :void
+          slider-constraint/set-target-lin-motor-velocity) :void
   (self :pointer)
   (targetLinMotorVelocity :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getTargetLinMotorVelocity"
-               SLIDER-CONSTRAINT/GET-TARGET-LIN-MOTOR-VELOCITY) :float  (self :pointer))
+          slider-constraint/get-target-lin-motor-velocity) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setMaxLinMotorForce"
-               SLIDER-CONSTRAINT/SET-MAX-LIN-MOTOR-FORCE) :void
+          slider-constraint/set-max-lin-motor-force) :void
   (self :pointer)
   (maxLinMotorForce :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getMaxLinMotorForce"
-               SLIDER-CONSTRAINT/GET-MAX-LIN-MOTOR-FORCE) :float  (self :pointer))
+          slider-constraint/get-max-lin-motor-force) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setPoweredAngMotor"
-               SLIDER-CONSTRAINT/SET-POWERED-ANG-MOTOR) :void
+          slider-constraint/set-powered-ang-motor) :void
   (self :pointer)
   (onOff :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getPoweredAngMotor"
-               SLIDER-CONSTRAINT/GET-POWERED-ANG-MOTOR) :pointer  (self :pointer))
+          slider-constraint/get-powered-ang-motor) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setTargetAngMotorVelocity"
-               SLIDER-CONSTRAINT/SET-TARGET-ANG-MOTOR-VELOCITY) :void
+          slider-constraint/set-target-ang-motor-velocity) :void
   (self :pointer)
   (targetAngMotorVelocity :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getTargetAngMotorVelocity"
-               SLIDER-CONSTRAINT/GET-TARGET-ANG-MOTOR-VELOCITY) :float
+          slider-constraint/get-target-ang-motor-velocity) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setMaxAngMotorForce"
-               SLIDER-CONSTRAINT/SET-MAX-ANG-MOTOR-FORCE) :void
+          slider-constraint/set-max-ang-motor-force) :void
   (self :pointer)
   (maxAngMotorForce :float))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getMaxAngMotorForce"
-               SLIDER-CONSTRAINT/GET-MAX-ANG-MOTOR-FORCE) :float  (self :pointer))
+          slider-constraint/get-max-ang-motor-force) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getLinearPos"
-               SLIDER-CONSTRAINT/GET-LINEAR-POS) :float
+          slider-constraint/get-linear-pos) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getAngularPos"
-               SLIDER-CONSTRAINT/GET-ANGULAR-POS) :float
+          slider-constraint/get-angular-pos) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getSolveLinLimit"
-               SLIDER-CONSTRAINT/GET-SOLVE-LIN-LIMIT) :pointer  (self :pointer))
+          slider-constraint/get-solve-lin-limit) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getLinDepth"
-               SLIDER-CONSTRAINT/GET-LIN-DEPTH) :float  (self :pointer))
+          slider-constraint/get-lin-depth) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getSolveAngLimit"
-               SLIDER-CONSTRAINT/GET-SOLVE-ANG-LIMIT) :pointer
+          slider-constraint/get-solve-ang-limit) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getAngDepth"
-               SLIDER-CONSTRAINT/GET-ANG-DEPTH) :float  (self :pointer))
+          slider-constraint/get-ang-depth) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_calculateTransforms"
-               SLIDER-CONSTRAINT/CALCULATE-TRANSFORMS) :void
+          slider-constraint/calculate-transforms) :void
   (self :pointer)
   (transA :pointer)
   (transB :pointer))
@@ -1182,40 +1180,40 @@
 
 
 (defcfun ("_wrap_btSliderConstraint_testLinLimits"
-               SLIDER-CONSTRAINT/TEST-LIN-LIMITS) :void  (self :pointer))
+          slider-constraint/test-lin-limits) :void  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_testAngLimits"
-               SLIDER-CONSTRAINT/TEST-ANG-LIMITS) :void
+          slider-constraint/test-ang-limits) :void
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getAncorInA"
-               SLIDER-CONSTRAINT/GET-ANCOR-IN-A) :pointer  (self :pointer))
+          slider-constraint/get-ancor-in-a) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getAncorInB"
-               SLIDER-CONSTRAINT/GET-ANCOR-IN-B) :pointer  (self :pointer))
+          slider-constraint/get-ancor-in-b) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_getUseFrameOffset"
-               SLIDER-CONSTRAINT/GET-USE-FRAME-OFFSET) :pointer  (self :pointer))
+          slider-constraint/get-use-frame-offset) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setUseFrameOffset"
-               SLIDER-CONSTRAINT/SET-USE-FRAME-OFFSET) :void
+          slider-constraint/set-use-frame-offset) :void
   (self :pointer)
   (frameOffsetOnOff :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_setFrames"
-               SLIDER-CONSTRAINT/SET-FRAMES) :void
+          slider-constraint/set-frames) :void
   (self :pointer)
   (frameA :pointer)
   (frameB :pointer))
@@ -1223,12 +1221,12 @@
 
 
 (defcfun ("_wrap_btSliderConstraint_calculateSerializeBufferSize"
-               SLIDER-CONSTRAINT/CALCULATE-SERIALIZE-BUFFER-SIZE) :int  (self :pointer))
+          slider-constraint/calculate-serialize-buffer-size) :int  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSliderConstraint_serialize"
-               SLIDER-CONSTRAINT/SERIALIZE) :string
+          slider-constraint/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
@@ -1236,7 +1234,7 @@
 
 
 (defcfun ("_wrap_delete_btSliderConstraint"
-               DELETE/BT-SLIDER-CONSTRAINT) :void
+          delete/bt-slider-constraint) :void
   (self :pointer))
 
 
@@ -1250,27 +1248,27 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_makeCPlusPlusInstance__SWIG_0"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/MAKE-c++-INSTANCE) :pointer
+          generic-6-dof-spring-constraint/make-c++-instance) :pointer
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_deleteCPlusPlusInstance__SWIG_0"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/DELETE-c++-INSTANCE) :void
+          generic-6-dof-spring-constraint/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_makeCPlusPlusInstance__SWIG_1"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          generic-6-dof-spring-constraint/make-c++-instance/with-arg1&ptr) :pointer
   (arg1 :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_deleteCPlusPlusInstance__SWIG_1"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/DELETE-c++-INSTANCE/with-arg1&2) :void
+          generic-6-dof-spring-constraint/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
@@ -1278,20 +1276,20 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_makeCPlusArray__SWIG_0"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/MAKE-c++-ARRAY) :pointer
+          generic-6-dof-spring-constraint/make-c++-array) :pointer
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_deleteCPlusArray__SWIG_0"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/DELETE-c++-ARRAY) :void
+          generic-6-dof-spring-constraint/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_makeCPlusArray__SWIG_1"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          generic-6-dof-spring-constraint/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
@@ -1299,14 +1297,14 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_deleteCPlusArray__SWIG_1"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/DELETE-c++-ARRAY/with-arg1&2) :void
+          generic-6-dof-spring-constraint/delete-c++-array/with-arg1&2) :void
   (arg1 :pointer)
   (arg2 :pointer))
 
 
 
 (defcfun ("_wrap_new_btGeneric6DofSpringConstraint__SWIG_0"
-               MAKE-GENERIC-6-DOF-SPRING-CONSTRAINT/with-a&b&use-a) :pointer
+          make-generic-6-dof-spring-constraint/with-a&b&use-a) :pointer
   (rbA :pointer)
   (rbB :pointer)
   (frameInA :pointer)
@@ -1316,7 +1314,7 @@
 
 
 (defcfun ("_wrap_new_btGeneric6DofSpringConstraint__SWIG_1"
-               MAKE-GENERIC-6-DOF-SPRING-CONSTRAINT/with-rb-b&frame-in-b/using-linear-reference-frame-b)
+          make-generic-6-dof-spring-constraint/with-rb-b&frame-in-b/using-linear-reference-frame-b)
     :pointer
   (rbB :pointer)
   (frameInB :pointer)
@@ -1325,7 +1323,7 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_enableSpring"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/ENABLE-SPRING) :void
+          generic-6-dof-spring-constraint/enable-spring) :void
   (self :pointer)
   (index :int)
   (onOff :pointer))
@@ -1333,7 +1331,7 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_setStiffness"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/SET-STIFFNESS) :void
+          generic-6-dof-spring-constraint/set-stiffness) :void
   (self :pointer)
   (index :int)
   (stiffness :float))
@@ -1341,7 +1339,7 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_setDamping"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/SET-DAMPING) :void
+          generic-6-dof-spring-constraint/set-damping) :void
   (self :pointer)
   (index :int)
   (damping :float))
@@ -1349,20 +1347,20 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_setEquilibriumPoint__SWIG_0"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/SET-EQUILIBRIUM-POINT) :void
+          generic-6-dof-spring-constraint/set-equilibrium-point) :void
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_setEquilibriumPoint__SWIG_1"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/SET-EQUILIBRIUM-POINT/with-index) :void
+          generic-6-dof-spring-constraint/set-equilibrium-point/with-index) :void
   (self :pointer)
   (index :int))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_setEquilibriumPoint__SWIG_2"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/SET-EQUILIBRIUM-POINT/with-index&float)
+          generic-6-dof-spring-constraint/set-equilibrium-point/with-index&float)
     :void
   (self :pointer)
   (index :int)
@@ -1371,7 +1369,7 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_setAxis"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/SET-AXIS) :void
+          generic-6-dof-spring-constraint/set-axis) :void
   (self :pointer)
   (axis1 :pointer)
   (axis2 :pointer))
@@ -1379,20 +1377,20 @@
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_getInfo2"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/GET-INFO-2) :void
+          generic-6-dof-spring-constraint/get-info-2) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_calculateSerializeBufferSize"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          generic-6-dof-spring-constraint/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btGeneric6DofSpringConstraint_serialize"
-               GENERIC-6-DOF-SPRING-CONSTRAINT/SERIALIZE) :string
+          generic-6-dof-spring-constraint/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
@@ -1400,7 +1398,7 @@
 
 
 (defcfun ("_wrap_delete_btGeneric6DofSpringConstraint"
-               DELETE/BT-GENERIC-6-DOF-SPRING-CONSTRAINT) :void
+          delete/bt-generic-6-dof-spring-constraint) :void
   (self :pointer))
 
 
@@ -1409,21 +1407,21 @@
 
 
 (defcfun ("_wrap_btUniversalConstraint_makeCPlusPlusInstance__SWIG_0"
-               UNIVERSAL-CONSTRAINT/MAKE-c++-INSTANCE) :pointer
+          universal-constraint/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_deleteCPlusPlusInstance__SWIG_0"
-               UNIVERSAL-CONSTRAINT/DELETE-c++-INSTANCE) :void
+          universal-constraint/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_makeCPlusPlusInstance__SWIG_1"
-               UNIVERSAL-CONSTRAINT/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          universal-constraint/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
@@ -1431,7 +1429,7 @@
 
 
 (defcfun ("_wrap_btUniversalConstraint_deleteCPlusPlusInstance__SWIG_1"
-               UNIVERSAL-CONSTRAINT/DELETE-c++-INSTANCE/with-arg1&2) :void
+          universal-constraint/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
@@ -1439,21 +1437,21 @@
 
 
 (defcfun ("_wrap_btUniversalConstraint_makeCPlusArray__SWIG_0"
-               UNIVERSAL-CONSTRAINT/MAKE-c++-ARRAY) :pointer
+          universal-constraint/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_deleteCPlusArray__SWIG_0"
-               UNIVERSAL-CONSTRAINT/DELETE-c++-ARRAY) :void
+          universal-constraint/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_makeCPlusArray__SWIG_1"
-               UNIVERSAL-CONSTRAINT/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          universal-constraint/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
@@ -1461,7 +1459,7 @@
 
 
 (defcfun ("_wrap_btUniversalConstraint_deleteCPlusArray__SWIG_1"
-               UNIVERSAL-CONSTRAINT/DELETE-c++-ARRAY/with-arg1&2) :void
+          universal-constraint/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
@@ -1469,7 +1467,7 @@
 
 
 (defcfun ("_wrap_new_btUniversalConstraint"
-               MAKE-UNIVERSAL-CONSTRAINT) :pointer
+          make-universal-constraint) :pointer
   (rbA :pointer)
   (rbB :pointer)
   (anchor :pointer)
@@ -1479,56 +1477,56 @@
 
 
 (defcfun ("_wrap_btUniversalConstraint_getAnchor"
-               UNIVERSAL-CONSTRAINT/GET-ANCHOR) :pointer
+          universal-constraint/get-anchor) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_getAnchor2"
-               UNIVERSAL-CONSTRAINT/GET-ANCHOR-2) :pointer
+          universal-constraint/get-anchor-2) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_getAxis1"
-               UNIVERSAL-CONSTRAINT/GET-AXIS-1) :pointer
+          universal-constraint/get-axis-1) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_getAxis2"
-               UNIVERSAL-CONSTRAINT/GET-AXIS-2) :pointer
+          universal-constraint/get-axis-2) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_getAngle1"
-               UNIVERSAL-CONSTRAINT/GET-ANGLE-1) :float
+          universal-constraint/get-angle-1) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_getAngle2"
-               UNIVERSAL-CONSTRAINT/GET-ANGLE-2) :float  (self :pointer))
+          universal-constraint/get-angle-2) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_setUpperLimit"
-               UNIVERSAL-CONSTRAINT/SET-UPPER-LIMIT) :void
+          universal-constraint/set-upper-limit) :void
   (self :pointer)  (ang1max :float)
   (ang2max :float))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_setLowerLimit"
-               UNIVERSAL-CONSTRAINT/SET-LOWER-LIMIT) :void
+          universal-constraint/set-lower-limit) :void
   (self :pointer) (ang1min :float)
   (ang2min :float))
 
 
 
 (defcfun ("_wrap_btUniversalConstraint_setAxis"
-               UNIVERSAL-CONSTRAINT/SET-AXIS) :void
+          universal-constraint/set-axis) :void
   (self :pointer)
   (axis1 :pointer)
   (axis2 :pointer))
@@ -1536,50 +1534,50 @@
 
 
 (defcfun ("_wrap_delete_btUniversalConstraint"
-               DELETE/BT-UNIVERSAL-CONSTRAINT) :void  (self :pointer))
+          delete/bt-universal-constraint) :void  (self :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_makeCPlusPlusInstance__SWIG_0"
-               HINGE-2-CONSTRAINT/MAKE-c++-INSTANCE) :pointer
+          hinge-2-constraint/make-c++-instance) :pointer
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_deleteCPlusPlusInstance__SWIG_0"
-               HINGE-2-CONSTRAINT/DELETE-c++-INSTANCE) :void
+          hinge-2-constraint/delete-c++-instance) :void
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_makeCPlusPlusInstance__SWIG_1"
-               HINGE-2-CONSTRAINT/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          hinge-2-constraint/make-c++-instance/with-arg1&ptr) :pointer
   (arg1 :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_deleteCPlusPlusInstance__SWIG_1"
-               HINGE-2-CONSTRAINT/DELETE-c++-INSTANCE/with-arg1&2) :void
+          hinge-2-constraint/delete-c++-instance/with-arg1&2) :void
   (arg1 :pointer)
   (arg2 :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_makeCPlusArray__SWIG_0"
-               HINGE-2-CONSTRAINT/MAKE-c++-ARRAY) :pointer
+          hinge-2-constraint/make-c++-array) :pointer
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_deleteCPlusArray__SWIG_0"
-               HINGE-2-CONSTRAINT/DELETE-c++-ARRAY) :void
+          hinge-2-constraint/delete-c++-array) :void
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_makeCPlusArray__SWIG_1"
-               HINGE-2-CONSTRAINT/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          hinge-2-constraint/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
@@ -1587,7 +1585,7 @@
 
 
 (defcfun ("_wrap_btHinge2Constraint_deleteCPlusArray__SWIG_1"
-               HINGE-2-CONSTRAINT/DELETE-c++-ARRAY/with-arg1&2) :void
+          hinge-2-constraint/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
@@ -1595,7 +1593,7 @@
 
 
 (defcfun ("_wrap_new_btHinge2Constraint"
-               MAKE-HINGE-2-CONSTRAINT) :pointer
+          make-hinge-2-constraint) :pointer
   (rbA :pointer)
   (rbB :pointer)
   (anchor :pointer)
@@ -1605,53 +1603,53 @@
 
 
 (defcfun ("_wrap_btHinge2Constraint_getAnchor"
-               HINGE-2-CONSTRAINT/GET-ANCHOR) :pointer  (self :pointer))
+          hinge-2-constraint/get-anchor) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_getAnchor2"
-               HINGE-2-CONSTRAINT/GET-ANCHOR-2) :pointer
+          hinge-2-constraint/get-anchor-2) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_getAxis1"
-               HINGE-2-CONSTRAINT/GET-AXIS-1) :pointer  (self :pointer))
+          hinge-2-constraint/get-axis-1) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_getAxis2"
-               HINGE-2-CONSTRAINT/GET-AXIS-2) :pointer
+          hinge-2-constraint/get-axis-2) :pointer
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_getAngle1"
-               HINGE-2-CONSTRAINT/GET-ANGLE-1) :float
+          hinge-2-constraint/get-angle-1) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_getAngle2"
-               HINGE-2-CONSTRAINT/GET-ANGLE-2) :float
+          hinge-2-constraint/get-angle-2) :float
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_setUpperLimit"
-               HINGE-2-CONSTRAINT/SET-UPPER-LIMIT) :void
+          hinge-2-constraint/set-upper-limit) :void
   (self :pointer)  (ang1max :float))
 
 
 
 (defcfun ("_wrap_btHinge2Constraint_setLowerLimit"
-               HINGE-2-CONSTRAINT/SET-LOWER-LIMIT) :void
+          hinge-2-constraint/set-lower-limit) :void
   (self :pointer)(ang1min :float))
 
 
 
 (defcfun ("_wrap_delete_btHinge2Constraint"
-               DELETE/BT-HINGE-2-CONSTRAINT) :void
+          delete/bt-hinge-2-constraint) :void
   (self :pointer))
 
 (define-constant +GEAR-CONSTRAINT-DATA-NAME+ "btGearConstraintFloatData"
@@ -1660,7 +1658,7 @@
 
 
 (defcfun ("_wrap_new_btGearConstraint__SWIG_0"
-               MAKE-GEAR-CONSTRAINT/with-ratio) :pointer
+          make-gear-constraint/with-ratio) :pointer
   (rbA :pointer)
   (rbB :pointer)
   (axisInA :pointer)
@@ -1670,7 +1668,7 @@
 
 
 (defcfun ("_wrap_new_btGearConstraint__SWIG_1"
-               make-gear-constraint) :pointer
+          make-gear-constraint) :pointer
   (rbA :pointer)
   (rbB :pointer)
   (axisInA :pointer)
@@ -1679,67 +1677,67 @@
 
 
 (defcfun ("_wrap_delete_btGearConstraint"
-               DELETE/BT-GEAR-CONSTRAINT) :void  (self :pointer))
+          delete/bt-gear-constraint) :void  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_getInfo1"
-               GEAR-CONSTRAINT/GET-INFO-1) :void
+          gear-constraint/get-info-1) :void
   (self :pointer)(info :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_getInfo2"
-               GEAR-CONSTRAINT/GET-INFO-2) :void
+          gear-constraint/get-info-2) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_setAxisA"
-               GEAR-CONSTRAINT/SET-AXIS-A) :void
+          gear-constraint/set-axis-a) :void
   (self :pointer)
   (axisA :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_setAxisB"
-               GEAR-CONSTRAINT/SET-AXIS-B) :void
+          gear-constraint/set-axis-b) :void
   (self :pointer)
   (axisB :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_setRatio"
-               GEAR-CONSTRAINT/SET-RATIO) :void
+          gear-constraint/set-ratio) :void
   (self :pointer)
   (ratio :float))
 
 
 
 (defcfun ("_wrap_btGearConstraint_getAxisA"
-               GEAR-CONSTRAINT/GET-AXIS-A) :pointer  (self :pointer))
+          gear-constraint/get-axis-a) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_getAxisB"
-               GEAR-CONSTRAINT/GET-AXIS-B) :pointer  (self :pointer))
+          gear-constraint/get-axis-b) :pointer  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_getRatio"
-               GEAR-CONSTRAINT/GET-RATIO) :float  (self :pointer))
+          gear-constraint/get-ratio) :float  (self :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_calculateSerializeBufferSize"
-               GEAR-CONSTRAINT/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          gear-constraint/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btGearConstraint_serialize"
-               GEAR-CONSTRAINT/SERIALIZE) :string
+          gear-constraint/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
@@ -1752,90 +1750,90 @@
 
 
 (defcfun ("_wrap_delete_btFixedConstraint"
-               DELETE/BT-FIXED-CONSTRAINT) :void  (self :pointer))
+          delete/bt-fixed-constraint) :void  (self :pointer))
 
 
 
 (defcfun ("_wrap_btFixedConstraint_getInfo1"
-               FIXED-CONSTRAINT/GET-INFO-1) :void
+          fixed-constraint/get-info-1) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btFixedConstraint_getInfo2"
-               FIXED-CONSTRAINT/GET-INFO-2) :void
+          fixed-constraint/get-info-2) :void
   (self :pointer)
   (info :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_makeCPlusPlusInstance__SWIG_0"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/MAKE-c++-INSTANCE) :pointer
+          sequential-impulse-constraint-solver/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_deleteCPlusPlusInstance__SWIG_0"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/DELETE-c++-INSTANCE) :void
+          sequential-impulse-constraint-solver/delete-c++-instance) :void
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_makeCPlusPlusInstance__SWIG_1"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          sequential-impulse-constraint-solver/make-c++-instance/with-arg1&ptr) :pointer
   (arg1 :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_deleteCPlusPlusInstance__SWIG_1"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/DELETE-c++-INSTANCE/with-arg1&2) :void
+          sequential-impulse-constraint-solver/delete-c++-instance/with-arg1&2) :void
   (arg1 :pointer)
   (arg2 :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_makeCPlusArray__SWIG_0"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/MAKE-c++-ARRAY) :pointer
+          sequential-impulse-constraint-solver/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_deleteCPlusArray__SWIG_0"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/DELETE-c++-ARRAY) :void
+          sequential-impulse-constraint-solver/delete-c++-array) :void
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_makeCPlusArray__SWIG_1"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          sequential-impulse-constraint-solver/make-c++-array/with-arg1&ptr) :pointer
   (arg1 :pointer)
   (ptr :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_deleteCPlusArray__SWIG_1"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/DELETE-c++-ARRAY/with-arg1&2) :void
+          sequential-impulse-constraint-solver/delete-c++-array/with-arg1&2) :void
   (arg1 :pointer)
   (arg2 :pointer))
 
 
 
 (defcfun ("_wrap_new_btSequentialImpulseConstraintSolver"
-               MAKE-SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER) :pointer)
+          make-sequential-impulse-constraint-solver) :pointer)
 
 
 
 (defcfun ("_wrap_delete_btSequentialImpulseConstraintSolver"
-               DELETE/BT-SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER) :void  (self :pointer))
+          delete/bt-sequential-impulse-constraint-solver) :void  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_solveGroup"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/SOLVE-GROUP) :float
+          sequential-impulse-constraint-solver/solve-group) :float
   (self :pointer)
   (bodies :pointer)
   (numBodies :int)
@@ -1850,37 +1848,37 @@
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_reset"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/RESET) :void  (self :pointer))
+          sequential-impulse-constraint-solver/reset) :void  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_btRand2"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/BT-RAND-2) :unsigned-long  (self :pointer))
+          sequential-impulse-constraint-solver/bt-rand-2) :unsigned-long  (self :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_btRandInt2"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/BT-RAND-INT-2) :int
+          sequential-impulse-constraint-solver/bt-rand-int-2) :int
   (self :pointer)
   (n :int))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_setRandSeed"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/SET-RAND-SEED) :void
+          sequential-impulse-constraint-solver/set-rand-seed) :void
   (self :pointer)
   (seed :unsigned-long))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_getRandSeed"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/GET-RAND-SEED) :unsigned-long
+          sequential-impulse-constraint-solver/get-rand-seed) :unsigned-long
   (self :pointer))
 
 
 
 (defcfun ("_wrap_btSequentialImpulseConstraintSolver_getSolverType"
-               SEQUENTIAL-IMPULSE-CONSTRAINT-SOLVER/GET-SOLVER-TYPE) :pointer
+          sequential-impulse-constraint-solver/get-solver-type) :pointer
   (self :pointer))
 
 
@@ -1902,127 +1900,128 @@
                 other?)                      (MAKE-TRANSFORM/with-other other))
           (t (error "Transform constructor requires different argument set")))))
 
-(defmethod (setf ncopy) ( (other TRANSFORM) (self TRANSFORM))
-  (TRANSFORM/ASSIGN-VALUE (ff-pointer self) (ff-pointer other)))
+(defmethod (setf ncopy) ( (other transform) (self transform))
+  (transform/assign-value (ff-pointer self) (ff-pointer other)))
 
-(defmethod transform* ((self TRANSFORM) (t1 TRANSFORM) &optional t2)
+(defmethod transform* ((self transform) (t1 transform) &optional t2)
   (check-type t2 transform)
-  (TRANSFORM/MULT (ff-pointer self) (ff-pointer t1) (ff-pointer t2)))
+  (transform/mult (ff-pointer self) (ff-pointer t1) (ff-pointer t2)))
 
-(defmethod apply-transform ((self TRANSFORM) (x VECTOR3))
-  (TRANSFORM///FUNCALL// (ff-pointer self) x))
+(defmethod apply-transform ((self transform) (x vector3))
+  (transform///funcall// (ff-pointer self) x))
 
-(defmethod transform* ((self TRANSFORM) (x VECTOR3) &optional _)
+(defmethod transform* ((self transform) (x vector3) &optional _)
   (declare (ignore _))
-  (TRANSFORM/MULTIPLY (ff-pointer self) x))
+  (transform/multiply (ff-pointer self) x))
 
-(defmethod transform* ((self TRANSFORM) (q QUATERNION) &optional _)
+(defmethod transform* ((self transform) (q quaternion) &optional _)
   (declare (ignore _))
-  (TRANSFORM/MULTIPLY (ff-pointer self) q))
+  (transform/multiply (ff-pointer self) q))
 
-(defmethod BASIS ((self TRANSFORM))
-  (TRANSFORM/GET-BASIS (ff-pointer self)))
+(defmethod basis ((self transform))
+  (transform/get-basis (ff-pointer self)))
 
-(defmethod ORIGIN ((self TRANSFORM))
-  (TRANSFORM/GET-ORIGIN (ff-pointer self)))
+(defmethod origin ((self transform))
+  (transform/get-origin (ff-pointer self)))
 
-(defmethod ROTATION ((self TRANSFORM))
-  (TRANSFORM/GET-ROTATION (ff-pointer self)))
+(defmethod rotation ((self transform))
+  (transform/get-rotation (ff-pointer self)))
 
-(defmethod (SETF FROM-OPENGL-MATRIX) ( m (self TRANSFORM))
-  (TRANSFORM/SET-FROM-OPENGL-MATRIX (ff-pointer self) m))
+(defmethod (setf from-opengl-matrix) ( m (self transform))
+  (transform/set-from-opengl-matrix (ff-pointer self) m))
 
-(defmethod OPENGL-MATRIX-m ((self TRANSFORM) m)
-  (TRANSFORM/GET-OPENGL-MATRIX (ff-pointer self) m))
+(defmethod opengl-matrix-m ((self transform) m)
+  (transform/get-opengl-matrix (ff-pointer self) m))
 
-(defmethod (SETF ORIGIN) ( (origin VECTOR3) (self TRANSFORM))
-  (TRANSFORM/SET-ORIGIN (ff-pointer self) origin))
+(defmethod (setf origin) ( (origin vector3) (self transform))
+  (transform/set-origin (ff-pointer self) origin))
 
-(defmethod INVERT-TRANSFORM ((self TRANSFORM) (inVec VECTOR3))
-  (TRANSFORM/INV-XFORM (ff-pointer self) inVec))
+(defmethod invert-transform ((self transform) (invec vector3))
+  (transform/inv-xform (ff-pointer self) invec))
 
-(defmethod (SETF BASIS) ( (basis MATRIX-3X3) (self TRANSFORM))
-  (TRANSFORM/SET-BASIS (ff-pointer self) basis))
+(defmethod (setf basis) ( (basis matrix-3x3) (self transform))
+  (transform/set-basis (ff-pointer self) basis))
 
-(defmethod (SETF GET-ROTATION) ( (q QUATERNION) (self TRANSFORM))
-  (TRANSFORM/SET-ROTATION (ff-pointer self) q))
+(defmethod (setf get-rotation) ( (q quaternion) (self transform))
+  (transform/set-rotation (ff-pointer self) q))
 
-(defmethod SET-IDENTITY ((self TRANSFORM))
-  (TRANSFORM/SET-IDENTITY (ff-pointer self)))
+(defmethod set-identity ((self transform))
+  (transform/set-identity (ff-pointer self)))
 
-(defmethod *f ((self TRANSFORM) (t-arg1 TRANSFORM))
-  (TRANSFORM/MULTIPLY-AND-ASSIGN (ff-pointer self) (ff-pointer t-arg1)))
+(defmethod *f ((self transform) (t-arg1 transform))
+  (transform/multiply-and-assign (ff-pointer self) (ff-pointer t-arg1)))
 
-(defmethod INVERSE-TRANSFORM ((self TRANSFORM))
-  (TRANSFORM/INVERSE (ff-pointer self)))
+(defmethod inverse-transform ((self transform))
+  (transform/inverse (ff-pointer self)))
 
-(defmethod INVERSE-TIMES ((self TRANSFORM) (t-arg1 TRANSFORM))
-  (TRANSFORM/INVERSE-TIMES (ff-pointer self) (ff-pointer t-arg1)))
+(defmethod inverse-times ((self transform) (t-arg1 transform))
+  (transform/inverse-times (ff-pointer self) (ff-pointer t-arg1)))
 
-(defmethod transform* ((self TRANSFORM) (t-arg1 TRANSFORM) &optional _)
+(defmethod transform* ((self transform) (t-arg1 transform) &optional _)
   (declare (ignore _))
-  (TRANSFORM/MULTIPLY (ff-pointer self) (ff-pointer t-arg1)))
+  (transform/multiply (ff-pointer self) (ff-pointer t-arg1)))
 
-(defmethod ->serial ((self TRANSFORM) &key data-Out format &allow-other-keys)
+(defmethod ->serial ((self transform) &key data-out format &allow-other-keys)
   (ecase format
-    (:default       (TRANSFORM/SERIALIZE (ff-pointer self) data-Out))
-    (:single-float  (TRANSFORM/SERIALIZE-FLOAT (ff-pointer self) data-Out))))
+    (:default       (transform/serialize (ff-pointer self) data-out))
+    (:single-float  (transform/serialize-float (ff-pointer self) data-out))))
 
-(defmethod <-SERIAL ((self TRANSFORM) &key data-In format &allow-other-keys)
+(defmethod <-serial ((self transform) &key data-in format &allow-other-keys)
   (ecase format
-    (:default       (TRANSFORM/DE-SERIALIZE (ff-pointer self) data-In))
-    (:single-float  (TRANSFORM/DE-SERIALIZE-DOUBLE (ff-pointer self) data-In))
-    (:double-float  (TRANSFORM/DE-SERIALIZE-FLOAT (ff-pointer self) data-In))))
+    (:default       (transform/de-serialize (ff-pointer self) data-in))
+    (:single-float  (transform/de-serialize-double (ff-pointer self) data-in))
+    (:double-float  (transform/de-serialize-float (ff-pointer self) data-in))))
 
-(defmethod WORLD-TRANSFORM-PUSH ((self MOTION-STATE) (worldTrans TRANSFORM))
-  (MOTION-STATE/GET-WORLD-TRANSFORM (ff-pointer self) worldTrans))
+(defmethod world-transform-push ((self motion-state) (worldtrans transform))
+  (motion-state/get-world-transform (ff-pointer self) worldtrans))
 
-(defmethod (SETF WORLD-TRANSFORM) ((worldTrans TRANSFORM) (self MOTION-STATE))
-  (MOTION-STATE/SET-WORLD-TRANSFORM (ff-pointer self) worldTrans))
+(defmethod (setf world-transform) ((worldtrans transform) (self motion-state))
+  (motion-state/set-world-transform (ff-pointer self) worldtrans))
 
-(defmethod DEBUG-DRAW-OBJECT ((self COLLISION-WORLD) (worldTransform TRANSFORM)
-                              shape (color VECTOR3))
-  (COLLISION-WORLD/DEBUG-DRAW-OBJECT (ff-pointer self) worldTransform shape color))
+(defmethod debug-draw-object ((self collision-world) (worldtransform transform)
+                              shape (color vector3))
+  (collision-world/debug-draw-object (ff-pointer self) worldtransform shape color))
 
-(defmethod RAY-TEST ((self COLLISION-WORLD) (rayFromWorld VECTOR3) (rayToWorld VECTOR3) resultCallback
+(defmethod ray-test ((self collision-world) (rayfromworld vector3) (raytoworld vector3) resultcallback
                      &optional _ __)
   (declare (ignore _ __))
-  (COLLISION-WORLD/RAY-TEST (ff-pointer self) rayFromWorld rayToWorld resultCallback))
-#+(or) (defmethod NEW~size ((self COLLISION-OBJECT) sizeInBytes)
-         (COLLISION-OBJECT/MAKE-c++-INSTANCE (ff-pointer self) sizeInBytes))
-#+(or) (defmethod DELETE ((self COLLISION-OBJECT) ptr)
-         (COLLISION-OBJECT/DELETE-c++-INSTANCE (ff-pointer self) ptr))
-#+(or) (defmethod NEW~arg1&ptr ((self COLLISION-OBJECT) arg1 ptr)
-         (COLLISION-OBJECT/MAKE-c++-INSTANCE/with-arg1&ptr (ff-pointer self) arg1 ptr))
-#+(or) (defmethod DELETE ((self COLLISION-OBJECT) arg1 arg2)
-         (COLLISION-OBJECT/DELETE-c++-INSTANCE/with-arg1&arg2 (ff-pointer self) arg1 arg2))
-#+(or) (defmethod NEW[] ((self COLLISION-OBJECT) sizeInBytes)
-         (COLLISION-OBJECT/MAKE-c++-ARRAY (ff-pointer self) sizeInBytes))
-#+(or) (defmethod DELETE[] ((self COLLISION-OBJECT) ptr)
-         (COLLISION-OBJECT/DELETE-c++-ARRAY (ff-pointer self) ptr))
-#+(or) (defmethod NEW[] ((self COLLISION-OBJECT) arg1 ptr)
-         (COLLISION-OBJECT/MAKE-c++-ARRAY/with-arg1&ptr (ff-pointer self) arg1 ptr))
-#+(or) (defmethod DELETE[] ((self COLLISION-OBJECT) arg1 arg2)
-         (COLLISION-OBJECT/DELETE-c++-ARRAY/with-arg1&2 (ff-pointer self) arg1 arg2))
+  (collision-world/ray-test (ff-pointer self) rayfromworld raytoworld resultcallback))
+#+(or) (defmethod new~size ((self collision-object) sizeinbytes)
+         (collision-object/make-c++-instance (ff-pointer self) sizeinbytes))
+#+(or) (defmethod delete ((self collision-object) ptr)
+         (collision-object/delete-c++-instance (ff-pointer self) ptr))
+#+(or) (defmethod new~arg1&ptr ((self collision-object) arg1 ptr)
+         (collision-object/make-c++-instance/with-arg1&ptr (ff-pointer self) arg1 ptr))
+#+(or) (defmethod delete ((self collision-object) arg1 arg2)
+         (collision-object/delete-c++-instance/with-arg1&arg2 (ff-pointer self) arg1 arg2))
+#+(or) (defmethod new[] ((self collision-object) sizeinbytes)
+         (collision-object/make-c++-array (ff-pointer self) sizeinbytes))
+#+(or) (defmethod delete[] ((self collision-object) ptr)
+         (collision-object/delete-c++-array (ff-pointer self) ptr))
+#+(or) (defmethod new[] ((self collision-object) arg1 ptr)
+         (collision-object/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
+#+(or) (defmethod delete[] ((self collision-object) arg1 arg2)
+         (collision-object/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
 
-(defmethod (SETF ANISOTROPIC-FRICTION) ((friction cons) (self COLLISION-OBJECT) )
+(defmethod (setf anisotropic-friction) ((friction cons) (self collision-object) )
   (destructuring-bind (anisotropic-friction friction-mode) friction
-    (check-type anisotropic-Friction VECTOR3)
+    (check-type anisotropic-friction vector3)
     (check-type friction-mode (or null integer)))
-  ;; TODO
+  ;; todo
   )
 
 
-(defmethod (SETF WORLD-TRANSFORM) ( (worldTrans TRANSFORM) (self COLLISION-OBJECT)))
+(defmethod (setf world-transform) ( (worldtrans transform) (self collision-object)))
 
-(defmethod (SETF INTERPOLATION-WORLD-TRANSFORM) ( (trans TRANSFORM) (self COLLISION-OBJECT))
-  (COLLISION-OBJECT/SET-INTERPOLATION-WORLD-TRANSFORM (ff-pointer self) trans))
+(defmethod (setf interpolation-world-transform) ( (trans transform) (self collision-object))
+  (collision-object/set-interpolation-world-transform (ff-pointer self) trans))
 
-(defmethod (SETF INTERPOLATION-LINEAR-VELOCITY) ( (linvel VECTOR3) (self COLLISION-OBJECT))
-  (COLLISION-OBJECT/SET-INTERPOLATION-WORLD-TRANSFORM (ff-pointer self) linvel ;trans
+(defmethod (setf interpolation-linear-velocity) ( (linvel vector3) (self collision-object))
+  (collision-object/set-interpolation-world-transform (ff-pointer self) linvel ;trans
                                                       ))
 
-(defmethod (SETF INTERPOLATION-ANGULAR-VELOCITY) ( (angvel VECTOR3) (self COLLISION-OBJECT))
-  (COLLISION-OBJECT/SET-INTERPOLATION-WORLD-TRANSFORM (ff-pointer self) angvel;trans
+(defmethod (setf interpolation-angular-velocity) ( (angvel vector3) (self collision-object))
+  (collision-object/set-interpolation-world-transform (ff-pointer self) angvel;trans
                                                       ))
+
 

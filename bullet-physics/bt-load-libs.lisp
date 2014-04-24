@@ -1,20 +1,21 @@
 (in-package :bullet-physics)
 
-;; (cffi:define-foreign-library lib-linear-math
-;;   (t (:default "libLinearMath")))
-;; (cffi:use-foreign-library lib-linear-math)
+#+cl-bullet2l-alternate-libs-load
+((cffi:define-foreign-library lib-linear-math
+   (t (:default "libLinearMath")))
+ (cffi:use-foreign-library lib-linear-math)
 
-;; (cffi:define-foreign-library lib-bullet-collision
-;;   (t (:default "libBulletCollision")))
-;; (cffi:use-foreign-library lib-bullet-collision)
+ (cffi:define-foreign-library lib-bullet-collision
+   (t (:default "libBulletCollision")))
+ (cffi:use-foreign-library lib-bullet-collision)
 
-;; (cffi:define-foreign-library lib-bullet-dynamics
-;;   (t (:default "libBulletDynamics")))
-;; (cffi:use-foreign-library lib-bullet-dynamics)
+ (cffi:define-foreign-library lib-bullet-dynamics
+   (t (:default "libBulletDynamics")))
+ (cffi:use-foreign-library lib-bullet-dynamics)
 
-;; (cffi:define-foreign-library lib-bullet-soft-body
-;;   (t (:default "libBulletSoftBody")))
-;; (cffi:use-foreign-library lib-bullet-soft-body)
+ (cffi:define-foreign-library lib-bullet-soft-body
+   (t (:default "libBulletSoftBody")))
+ (cffi:use-foreign-library lib-bullet-soft-body))
 
 (cffi:define-foreign-library lib-cl-bullet-2l
   (t (:default "libcl-bullet2l")))

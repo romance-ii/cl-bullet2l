@@ -74,7 +74,12 @@ Swig properly.")
    #:origin
    #:point->point-constraint
    #:quaternion
-   #:quaternion
+   #:add-rigid-body
+   #:calculate-local-inertia
+   #:step-simulation
+   #:world-transform
+   #:remove-rigid-body
+   #:gravity
    #:rigid-body
    #:rotational-limit-motor
    #:scaled-bvh-triangle-mesh-shape

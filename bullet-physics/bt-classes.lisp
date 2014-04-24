@@ -2,11 +2,16 @@
 
 ;;; Worlds
 
-(defclass /c++-class/ ()
-  ((ff-pointer :reader ff-pointer)))
+(defclass /c++-class/ (cffi::enhanced-foreign-type)
+  ((ff-pointer :accessor ff-pointer)))
 
-(defmacro bt-class (name &optional (base-class '/c++-class/))
-  `(defclass ,name (,base-class) nil))
+(defmacro bt-class (name &optional (base-class '/c++-class/ ))
+  `(progn 
+     (cffi:define-foreign-type ,name (,base-class)
+      nil
+      (:actual-type :pointer))
+    (sb-alien:define-alien-type ,name
+        (sb-alien:struct ,name (binary-data (* sb-alien:char))))))
 
 (bt-class collision-world)
 
@@ -16,47 +21,49 @@
 
 ;;; Things in worlds (objects/bodies)
 
+(bt-class collision-shape)
+
 (bt-class collision-object)
 
-(bt-class box-shape)
+(bt-class box-shape collision-shape)
 
-(bt-class sphere-shape)
+(bt-class sphere-shape collision-shape)
 
-(bt-class capsule-shape)
+(bt-class capsule-shape collision-shape)
 
 (bt-class capsule-shape-x capsule-shape)
 
 (bt-class capsule-shape-z capsule-shape)
 
-(bt-class cylinder-shape)
+(bt-class cylinder-shape collision-shape)
 
 (bt-class cylinder-shape-x cylinder-shape)
 
 (bt-class cylinder-shape-z cylinder-shape)
 
-(bt-class cone-shape)
+(bt-class cone-shape collision-shape)
 
 (bt-class cone-shape-x cone-shape)
 
 (bt-class cone-shape-z cone-shape)
 
-(bt-class static-plane-shape)
+(bt-class static-plane-shape collision-shape)
 
-(bt-class convex-hull-shape)
+(bt-class convex-hull-shape collision-shape)
 
-(bt-class triangle-mesh)
+(bt-class triangle-mesh collision-shape)
 
-(bt-class convex-triangle-mesh-shape)
+(bt-class convex-triangle-mesh-shape collision-shape)
 
-(bt-class bvh-triangle-mesh-shape)
+(bt-class bvh-triangle-mesh-shape collision-shape)
 
-(bt-class scaled-bvh-triangle-mesh-shape)
+(bt-class scaled-bvh-triangle-mesh-shape collision-shape)
 
-(bt-class triangle-mesh-shape)
+(bt-class triangle-mesh-shape collision-shape)
 
-(bt-class triangle-index-vertex-array)
+(bt-class triangle-index-vertex-array collision-shape)
 
-(bt-class compound-shape)
+(bt-class compound-shape collision-shape)
 
 ;;; Constraints
 
@@ -92,17 +99,21 @@
 
 (bt-class sphere-sphere-collision-algorithm)
 
-(bt-class default-collision-configuration)
+(bt-class collision-configuration)
+
+(bt-class default-collision-configuration  collision-configuration)
 
 (bt-class collision-dispatcher)
 
-(bt-class simple-broadphase)
+(bt-class broadphase)
 
-(bt-class axis-sweep3)
+(bt-class simple-broadphase broadphase)
 
-(bt-class bt-32-bit-axis-sweep3)
+(bt-class axis-sweep3 broadphase)
 
-(bt-class multi-sap-broadphase)
+(bt-class bt-32-bit-axis-sweep3 broadphase)
+
+(bt-class multi-sap-broadphase broadphase)
 
 (bt-class clock)
 
@@ -137,7 +148,6 @@
 (bt-class hinge-constraint typed-constraint)
 
 (warn "Guessing at HINGE-2-CONSTRAINT")
-
 (bt-class hinge-2-constraint hinge-constraint)
 
 (bt-class cone-twist-constraint typed-constraint)

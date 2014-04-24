@@ -1,58 +1,58 @@
 (in-package #:bullet-physics)
 
 (defcfun ("_wrap_new_btCompoundShape__SWIG_0"
-               make-compound-shape/with-enable-dynamic-aabb-tree) :pointer
+          make-compound-shape/with-enable-dynamic-aabb-tree) :pointer
   (enable-dynamic-aabb-tree :pointer))
 
 (defcfun ("_wrap_new_btCompoundShape__SWIG_1"
-               make-compound-shape) :pointer)
+          make-compound-shape) :pointer)
 
 (defcfun ("_wrap_delete_btCompoundShape"
-               delete/bt-compound-shape) :void
+          delete/bt-compound-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_addChildShape"
-               compound-shape/add-child-shape) :void
+          compound-shape/add-child-shape) :void
   (self :pointer)
   (local-Transform :pointer)
   (shape :pointer))
 
 (defcfun ("_wrap_btCompoundShape_removeChildShape"
-               COMPOUND-SHAPE/REMOVE-CHILD-SHAPE) :void
+          compound-shape/remove-child-shape) :void
   (self :pointer)
   (shape :pointer))
 
 (defcfun ("_wrap_btCompoundShape_removeChildShapeByIndex"
-               COMPOUND-SHAPE/REMOVE-CHILD-SHAPE-BY-INDEX) :void
+          compound-shape/remove-child-shape-by-index) :void
   (self :pointer)
   (childShapeindex :int))
 
 (defcfun ("_wrap_btCompoundShape_getNumChildShapes"
-               COMPOUND-SHAPE/GET-NUM-CHILD-SHAPES) :int
+          compound-shape/get-num-child-shapes) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getChildShape__SWIG_0"
-               COMPOUND-SHAPE/GET-CHILD-SHAPE) :pointer
+          compound-shape/get-child-shape) :pointer
   (self :pointer)
   (index :int))
 #+ (or)
 (defcfun ("_wrap_btCompoundShape_getChildShape__SWIG_1"
-               COMPOUND-SHAPE/GET-CHILD-SHAPE) :pointer
+          compound-shape/get-child-shape) :pointer
   (self :pointer)
   (index :int))
 
 (defcfun ("_wrap_btCompoundShape_getChildTransform__SWIG_0"
-               COMPOUND-SHAPE/GET-CHILD-TRANSFORM) :pointer
+          compound-shape/get-child-transform) :pointer
   (self :pointer)
   (index :int))
 #+ (or)
 (defcfun ("_wrap_btCompoundShape_getChildTransform__SWIG_1"
-               COMPOUND-SHAPE/GET-CHILD-TRANSFORM) :pointer
+          compound-shape/get-child-transform) :pointer
   (self :pointer)
   (index :int))
 
 (defcfun ("_wrap_btCompoundShape_updateChildTransform__SWIG_0"
-               COMPOUND-SHAPE/UPDATE-CHILD-TRANSFORM/with-child-index&new-child-transform&should-recalculate-local-aabb)
+          compound-shape/update-child-transform/with-child-index&new-child-transform&should-recalculate-local-aabb)
     :void
   (self :pointer)
   (childIndex :int)
@@ -60,557 +60,557 @@
   (shouldRecalculateLocalAabb :pointer))
 
 (defcfun ("_wrap_btCompoundShape_updateChildTransform__SWIG_1"
-               COMPOUND-SHAPE/UPDATE-CHILD-TRANSFORM/with-child-index&new-child-transform)
+          compound-shape/update-child-transform/with-child-index&new-child-transform)
     :void
   (self :pointer)
   (childIndex :int)
   (newChildTransform :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getChildList"
-               COMPOUND-SHAPE/GET-CHILD-LIST) :pointer
+          compound-shape/get-child-list) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getAabb"
-               COMPOUND-SHAPE/GET-AABB) :void
+          compound-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btCompoundShape_recalculateLocalAabb"
-               COMPOUND-SHAPE/RECALCULATE-LOCAL-AABB) :void
+          compound-shape/recalculate-local-aabb) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_setLocalScaling"
-               COMPOUND-SHAPE/SET-LOCAL-SCALING) :void
+          compound-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getLocalScaling"
-               COMPOUND-SHAPE/GET-LOCAL-SCALING) :pointer
+          compound-shape/get-local-scaling) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_calculateLocalInertia"
-               COMPOUND-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          compound-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btCompoundShape_setMargin"
-               COMPOUND-SHAPE/SET-MARGIN) :void
+          compound-shape/set-margin) :void
   (self :pointer)
   (margin :float))
 
 (defcfun ("_wrap_btCompoundShape_getMargin"
-               COMPOUND-SHAPE/GET-MARGIN) :float
+          compound-shape/get-margin) :float
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getName"
-               COMPOUND-SHAPE/GET-NAME) :string
+          compound-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getDynamicAabbTree__SWIG_0"
-               COMPOUND-SHAPE/GET-DYNAMIC-AABB-TREE) :pointer
+          compound-shape/get-dynamic-aabb-tree) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btCompoundShape_getDynamicAabbTree__SWIG_1"
-               COMPOUND-SHAPE/GET-DYNAMIC-AABB-TREE) :pointer
+          compound-shape/get-dynamic-aabb-tree) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_createAabbTreeFromChildren"
-               COMPOUND-SHAPE/CREATE-AABB-TREE-FROM-CHILDREN) :void
+          compound-shape/create-aabb-tree-from-children) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_calculatePrincipalAxisTransform"
-               COMPOUND-SHAPE/CALCULATE-PRINCIPAL-AXIS-TRANSFORM) :void
+          compound-shape/calculate-principal-axis-transform) :void
   (self :pointer)
   (masses :pointer)
   (principal :pointer)
   (inertia :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getUpdateRevision"
-               COMPOUND-SHAPE/GET-UPDATE-REVISION) :int
+          compound-shape/get-update-revision) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_calculateSerializeBufferSize"
-               COMPOUND-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          compound-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCompoundShape_serialize"
-               COMPOUND-SHAPE/SERIALIZE) :string
+          compound-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 
 (defcfun ("_wrap_btBU_Simplex1to4_makeCPlusPlusInstance__SWIG_0"
-               BU/SIMPLEX-1TO-4/MAKE-c++-INSTANCE) :pointer
+          bu/simplex-1to-4/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_deleteCPlusPlusInstance__SWIG_0"
-               BU/SIMPLEX-1TO-4/DELETE-c++-INSTANCE) :void
+          bu/simplex-1to-4/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_makeCPlusPlusInstance__SWIG_1"
-               BU/SIMPLEX-1TO-4/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          bu/simplex-1to-4/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_deleteCPlusPlusInstance__SWIG_1"
-               BU/SIMPLEX-1TO-4/DELETE-c++-INSTANCE/with-arg1&2) :void
+          bu/simplex-1to-4/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_makeCPlusArray__SWIG_0"
-               BU/SIMPLEX-1TO-4/MAKE-c++-ARRAY) :pointer
+          bu/simplex-1to-4/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_deleteCPlusArray__SWIG_0"
-               BU/SIMPLEX-1TO-4/DELETE-c++-ARRAY) :void
+          bu/simplex-1to-4/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_makeCPlusArray__SWIG_1"
-               BU/SIMPLEX-1TO-4/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          bu/simplex-1to-4/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_deleteCPlusArray__SWIG_1"
-               BU/SIMPLEX-1TO-4/DELETE-c++-ARRAY/with-arg1&2) :void
+          bu/simplex-1to-4/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btBU_Simplex1to4__SWIG_0"
-               MAKE-BU/SIMPLEX-1TO-4) :pointer)
+          make-bu/simplex-1to-4) :pointer)
 
 (defcfun ("_wrap_new_btBU_Simplex1to4__SWIG_1"
-               MAKE-BU/SIMPLEX-1TO-4/with-pt0) :pointer
+          make-bu/simplex-1to-4/with-pt0) :pointer
   (pt0 :pointer))
 
 (defcfun ("_wrap_new_btBU_Simplex1to4__SWIG_2"
-               MAKE-BU/SIMPLEX-1TO-4/with-pt0&1) :pointer
+          make-bu/simplex-1to-4/with-pt0&1) :pointer
   (pt0 :pointer)
   (pt1 :pointer))
 
 (defcfun ("_wrap_new_btBU_Simplex1to4__SWIG_3"
-               MAKE-BU/SIMPLEX-1TO-4/with-pt0-2) :pointer
+          make-bu/simplex-1to-4/with-pt0-2) :pointer
   (pt0 :pointer)
   (pt1 :pointer)
   (pt2 :pointer))
 
 (defcfun ("_wrap_new_btBU_Simplex1to4__SWIG_4"
-               MAKE-BU/SIMPLEX-1TO-4/with-pt0-3) :pointer
+          make-bu/simplex-1to-4/with-pt0-3) :pointer
   (pt0 :pointer)
   (pt1 :pointer)
   (pt2 :pointer)
   (pt3 :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_reset"
-               BU/SIMPLEX-1TO-4/RESET) :void
+          bu/simplex-1to-4/reset) :void
   (self :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getAabb"
-               BU/SIMPLEX-1TO-4/GET-AABB) :void
+          bu/simplex-1to-4/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_addVertex"
-               BU/SIMPLEX-1TO-4/ADD-VERTEX) :void
+          bu/simplex-1to-4/add-vertex) :void
   (self :pointer)
   (pt :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getNumVertices"
-               BU/SIMPLEX-1TO-4/GET-NUM-VERTICES) :int
+          bu/simplex-1to-4/get-num-vertices) :int
   (self :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getNumEdges"
-               BU/SIMPLEX-1TO-4/GET-NUM-EDGES) :int
+          bu/simplex-1to-4/get-num-edges) :int
   (self :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getEdge"
-               BU/SIMPLEX-1TO-4/GET-EDGE) :void
+          bu/simplex-1to-4/get-edge) :void
   (self :pointer)
   (i :int)
   (pa :pointer)
   (pb :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getVertex"
-               BU/SIMPLEX-1TO-4/GET-VERTEX) :void
+          bu/simplex-1to-4/get-vertex) :void
   (self :pointer)
   (i :int)
   (vtx :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getNumPlanes"
-               BU/SIMPLEX-1TO-4/GET-NUM-PLANES) :int
+          bu/simplex-1to-4/get-num-planes) :int
   (self :pointer))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getPlane"
-               BU/SIMPLEX-1TO-4/GET-PLANE) :void
+          bu/simplex-1to-4/get-plane) :void
   (self :pointer)
   (planeNormal :pointer)
   (planeSupport :pointer)
   (i :int))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getIndex"
-               BU/SIMPLEX-1TO-4/GET-INDEX) :int
+          bu/simplex-1to-4/get-index) :int
   (self :pointer)
   (i :int))
 
 (defcfun ("_wrap_btBU_Simplex1to4_isInside"
-               BU/SIMPLEX-1TO-4/IS-INSIDE) :pointer
+          bu/simplex-1to-4/is-inside) :pointer
   (self :pointer)
   (pt :pointer)
   (tolerance :float))
 
 (defcfun ("_wrap_btBU_Simplex1to4_getName"
-               BU/SIMPLEX-1TO-4/GET-NAME) :string
+          bu/simplex-1to-4/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_delete_btBU_Simplex1to4"
-               DELETE/BT-BU/SIMPLEX-1TO-4) :void
+          delete/bt-bu/simplex-1to-4) :void
   (self :pointer))
 
 (defcfun ("_wrap_btEmptyShape_makeCPlusPlusInstance__SWIG_0"
-               EMPTY-SHAPE/MAKE-c++-INSTANCE) :pointer
+          empty-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btEmptyShape_deleteCPlusPlusInstance__SWIG_0"
-               EMPTY-SHAPE/DELETE-c++-INSTANCE) :void
+          empty-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btEmptyShape_makeCPlusPlusInstance__SWIG_1"
-               EMPTY-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          empty-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btEmptyShape_deleteCPlusPlusInstance__SWIG_1"
-               EMPTY-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          empty-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btEmptyShape_makeCPlusArray__SWIG_0"
-               EMPTY-SHAPE/MAKE-c++-ARRAY) :pointer
+          empty-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btEmptyShape_deleteCPlusArray__SWIG_0"
-               EMPTY-SHAPE/DELETE-c++-ARRAY) :void
+          empty-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btEmptyShape_makeCPlusArray__SWIG_1"
-               EMPTY-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          empty-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btEmptyShape_deleteCPlusArray__SWIG_1"
-               EMPTY-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          empty-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btEmptyShape"
-               MAKE-EMPTY-SHAPE) :pointer)
+          make-empty-shape) :pointer)
 
 (defcfun ("_wrap_delete_btEmptyShape"
-               DELETE/BT-EMPTY-SHAPE) :void
+          delete/bt-empty-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btEmptyShape_getAabb"
-               EMPTY-SHAPE/GET-AABB) :void
+          empty-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btEmptyShape_setLocalScaling"
-               EMPTY-SHAPE/SET-LOCAL-SCALING) :void
+          empty-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btEmptyShape_getLocalScaling"
-               EMPTY-SHAPE/GET-LOCAL-SCALING) :pointer
+          empty-shape/get-local-scaling) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btEmptyShape_calculateLocalInertia"
-               EMPTY-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          empty-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btEmptyShape_getName"
-               EMPTY-SHAPE/GET-NAME) :string
+          empty-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btEmptyShape_processAllTriangles"
-               EMPTY-SHAPE/PROCESS-ALL-TRIANGLES) :void
+          empty-shape/process-all-triangles) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer)
   (arg3 :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_makeCPlusPlusInstance__SWIG_0"
-               MULTI-SPHERE-SHAPE/MAKE-c++-INSTANCE) :pointer
+          multi-sphere-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_deleteCPlusPlusInstance__SWIG_0"
-               MULTI-SPHERE-SHAPE/DELETE-c++-INSTANCE) :void
+          multi-sphere-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_makeCPlusPlusInstance__SWIG_1"
-               MULTI-SPHERE-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          multi-sphere-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_deleteCPlusPlusInstance__SWIG_1"
-               MULTI-SPHERE-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          multi-sphere-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_makeCPlusArray__SWIG_0"
-               MULTI-SPHERE-SHAPE/MAKE-c++-ARRAY) :pointer
+          multi-sphere-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_deleteCPlusArray__SWIG_0"
-               MULTI-SPHERE-SHAPE/DELETE-c++-ARRAY) :void
+          multi-sphere-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_makeCPlusArray__SWIG_1"
-               MULTI-SPHERE-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          multi-sphere-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_deleteCPlusArray__SWIG_1"
-               MULTI-SPHERE-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          multi-sphere-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btMultiSphereShape"
-               MAKE-MULTI-SPHERE-SHAPE) :pointer
+          make-multi-sphere-shape) :pointer
   (positions :pointer)
   (radi :pointer)
   (numSpheres :int))
 
 (defcfun ("_wrap_btMultiSphereShape_calculateLocalInertia"
-               MULTI-SPHERE-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          multi-sphere-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_localGetSupportingVertexWithoutMargin"
-               MULTI-SPHERE-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          multi-sphere-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               MULTI-SPHERE-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          multi-sphere-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btMultiSphereShape_getSphereCount"
-               MULTI-SPHERE-SHAPE/GET-SPHERE-COUNT) :int
+          multi-sphere-shape/get-sphere-count) :int
   (self :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_getSpherePosition"
-               MULTI-SPHERE-SHAPE/GET-SPHERE-POSITION) :pointer
+          multi-sphere-shape/get-sphere-position) :pointer
   (self :pointer)
   (index :int))
 
 (defcfun ("_wrap_btMultiSphereShape_getSphereRadius"
-               MULTI-SPHERE-SHAPE/GET-SPHERE-RADIUS) :float
+          multi-sphere-shape/get-sphere-radius) :float
   (self :pointer)
   (index :int))
 
 (defcfun ("_wrap_btMultiSphereShape_getName"
-               MULTI-SPHERE-SHAPE/GET-NAME) :string
+          multi-sphere-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_calculateSerializeBufferSize"
-               MULTI-SPHERE-SHAPE/CALCULATE-SERIALIZE-BUFFER-SIZE) :int
+          multi-sphere-shape/calculate-serialize-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btMultiSphereShape_serialize"
-               MULTI-SPHERE-SHAPE/SERIALIZE) :string
+          multi-sphere-shape/serialize) :string
   (self :pointer)
   (dataBuffer :pointer)
   (serializer :pointer))
 
 (defcfun ("_wrap_delete_btMultiSphereShape"
-               DELETE/BT-MULTI-SPHERE-SHAPE) :void
+          delete/bt-multi-sphere-shape) :void
   (self :pointer))
 
 
 (defcfun ("_wrap_btUniformScalingShape_makeCPlusPlusInstance__SWIG_0"
-               UNIFORM-SCALING-SHAPE/MAKE-c++-INSTANCE) :pointer
+          uniform-scaling-shape/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_deleteCPlusPlusInstance__SWIG_0"
-               UNIFORM-SCALING-SHAPE/DELETE-c++-INSTANCE) :void
+          uniform-scaling-shape/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_makeCPlusPlusInstance__SWIG_1"
-               UNIFORM-SCALING-SHAPE/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          uniform-scaling-shape/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_deleteCPlusPlusInstance__SWIG_1"
-               UNIFORM-SCALING-SHAPE/DELETE-c++-INSTANCE/with-arg1&2) :void
+          uniform-scaling-shape/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_makeCPlusArray__SWIG_0"
-               UNIFORM-SCALING-SHAPE/MAKE-c++-ARRAY) :pointer
+          uniform-scaling-shape/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_deleteCPlusArray__SWIG_0"
-               UNIFORM-SCALING-SHAPE/DELETE-c++-ARRAY) :void
+          uniform-scaling-shape/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_makeCPlusArray__SWIG_1"
-               UNIFORM-SCALING-SHAPE/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          uniform-scaling-shape/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_deleteCPlusArray__SWIG_1"
-               UNIFORM-SCALING-SHAPE/DELETE-c++-ARRAY/with-arg1&2) :void
+          uniform-scaling-shape/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btUniformScalingShape"
-               MAKE-UNIFORM-SCALING-SHAPE) :pointer
+          make-uniform-scaling-shape) :pointer
   (convexChildShape :pointer)
   (uniformScalingFactor :float))
 
 (defcfun ("_wrap_delete_btUniformScalingShape"
-               DELETE/BT-UNIFORM-SCALING-SHAPE) :void
+          delete/bt-uniform-scaling-shape) :void
   (self :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_localGetSupportingVertexWithoutMargin"
-               UNIFORM-SCALING-SHAPE/LOCAL-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :pointer
+          uniform-scaling-shape/local-get-supporting-vertex-without-margin) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_localGetSupportingVertex"
-               UNIFORM-SCALING-SHAPE/LOCAL-GET-SUPPORTING-VERTEX) :pointer
+          uniform-scaling-shape/local-get-supporting-vertex) :pointer
   (self :pointer)
   (vec :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_batchedUnitVectorGetSupportingVertexWithoutMargin"
-               UNIFORM-SCALING-SHAPE/BATCHED-UNIT-VECTOR-GET-SUPPORTING-VERTEX-WITHOUT-MARGIN) :void
+          uniform-scaling-shape/batched-unit-vector-get-supporting-vertex-without-margin) :void
   (self :pointer)
   (vectors :pointer)
   (supportVerticesOut :pointer)
   (numVectors :int))
 
 (defcfun ("_wrap_btUniformScalingShape_calculateLocalInertia"
-               UNIFORM-SCALING-SHAPE/CALCULATE-LOCAL-INERTIA) :void
+          uniform-scaling-shape/calculate-local-inertia) :void
   (self :pointer)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_getUniformScalingFactor"
-               UNIFORM-SCALING-SHAPE/GET-UNIFORM-SCALING-FACTOR) :float
+          uniform-scaling-shape/get-uniform-scaling-factor) :float
   (self :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_getChildShape__SWIG_0"
-               UNIFORM-SCALING-SHAPE/GET-CHILD-SHAPE) :pointer
+          uniform-scaling-shape/get-child-shape) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btUniformScalingShape_getChildShape__SWIG_1"
-               UNIFORM-SCALING-SHAPE/GET-CHILD-SHAPE) :pointer
+          uniform-scaling-shape/get-child-shape) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_getName"
-               UNIFORM-SCALING-SHAPE/GET-NAME) :string
+          uniform-scaling-shape/get-name) :string
   (self :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_getAabb"
-               UNIFORM-SCALING-SHAPE/GET-AABB) :void
+          uniform-scaling-shape/get-aabb) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_getAabbSlow"
-               UNIFORM-SCALING-SHAPE/GET-AABB-SLOW) :void
+          uniform-scaling-shape/get-aabb-slow) :void
   (self :pointer)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_setLocalScaling"
-               UNIFORM-SCALING-SHAPE/SET-LOCAL-SCALING) :void
+          uniform-scaling-shape/set-local-scaling) :void
   (self :pointer)
   (scaling :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_getLocalScaling"
-               UNIFORM-SCALING-SHAPE/GET-LOCAL-SCALING) :pointer
+          uniform-scaling-shape/get-local-scaling) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_setMargin"
-               UNIFORM-SCALING-SHAPE/SET-MARGIN) :void
+          uniform-scaling-shape/set-margin) :void
   (self :pointer)
   (margin :float))
 
 (defcfun ("_wrap_btUniformScalingShape_getMargin"
-               UNIFORM-SCALING-SHAPE/GET-MARGIN) :float
+          uniform-scaling-shape/get-margin) :float
   (self :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_getNumPreferredPenetrationDirections"
-               UNIFORM-SCALING-SHAPE/GET-NUM-PREFERRED-PENETRATION-DIRECTIONS) :int
+          uniform-scaling-shape/get-num-preferred-penetration-directions) :int
   (self :pointer))
 
 (defcfun ("_wrap_btUniformScalingShape_getPreferredPenetrationDirection"
-               UNIFORM-SCALING-SHAPE/GET-PREFERRED-PENETRATION-DIRECTION) :void
+          uniform-scaling-shape/get-preferred-penetration-direction) :void
   (self :pointer)
   (index :int)
   (penetrationVector :pointer))
 
 (defcfun ("_wrap_new_btSphereSphereCollisionAlgorithm__SWIG_0"
-               MAKE-SPHERE-SPHERE-COLLISION-ALGORITHM/with-mf&ci&cal0&1wrap) :pointer
+          make-sphere-sphere-collision-algorithm/with-mf&ci&cal0&1wrap) :pointer
   (mf :pointer)
   (ci :pointer)
   (col0Wrap :pointer)
   (col1Wrap :pointer))
 
 (defcfun ("_wrap_new_btSphereSphereCollisionAlgorithm__SWIG_1"
-               MAKE-SPHERE-SPHERE-COLLISION-ALGORITHM/with-ci) :pointer
+          make-sphere-sphere-collision-algorithm/with-ci) :pointer
   (ci :pointer))
 
 (defcfun ("_wrap_btSphereSphereCollisionAlgorithm_processCollision"
-               SPHERE-SPHERE-COLLISION-ALGORITHM/PROCESS-COLLISION) :void
+          sphere-sphere-collision-algorithm/process-collision) :void
   (self :pointer)
   (body0Wrap :pointer)
   (body1Wrap :pointer)
@@ -618,7 +618,7 @@
   (resultOut :pointer))
 
 (defcfun ("_wrap_btSphereSphereCollisionAlgorithm_calculateTimeOfImpact"
-               SPHERE-SPHERE-COLLISION-ALGORITHM/CALCULATE-TIME-OF-IMPACT) :float
+          sphere-sphere-collision-algorithm/calculate-time-of-impact) :float
   (self :pointer)
   (body0 :pointer)
   (body1 :pointer)
@@ -626,76 +626,76 @@
   (resultOut :pointer))
 
 (defcfun ("_wrap_btSphereSphereCollisionAlgorithm_getAllContactManifolds"
-               SPHERE-SPHERE-COLLISION-ALGORITHM/GET-ALL-CONTACT-MANIFOLDS) :void
+          sphere-sphere-collision-algorithm/get-all-contact-manifolds) :void
   (self :pointer)
   (manifoldArray :pointer))
 
 (defcfun ("_wrap_delete_btSphereSphereCollisionAlgorithm"
-               DELETE/BT-SPHERE-SPHERE-COLLISION-ALGORITHM) :void
+          delete/bt-sphere-sphere-collision-algorithm) :void
   (self :pointer))
 
 
 (defcfun ("_wrap_new_btDefaultCollisionConfiguration__SWIG_0"
-               MAKE-DEFAULT-COLLISION-CONFIGURATION/with-construction-info) :pointer
+          make-default-collision-configuration/with-construction-info) :pointer
   (constructionInfo :pointer))
 
 (defcfun ("_wrap_new_btDefaultCollisionConfiguration__SWIG_1"
-               MAKE-DEFAULT-COLLISION-CONFIGURATION) :pointer)
+          make-default-collision-configuration) :pointer)
 
 (defcfun ("_wrap_delete_btDefaultCollisionConfiguration"
-               DELETE/BT-DEFAULT-COLLISION-CONFIGURATION) :void
+          delete/bt-default-collision-configuration) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_getPersistentManifoldPool"
-               DEFAULT-COLLISION-CONFIGURATION/GET-PERSISTENT-MANIFOLD-POOL) :pointer
+          default-collision-configuration/get-persistent-manifold-pool) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_getCollisionAlgorithmPool"
-               DEFAULT-COLLISION-CONFIGURATION/GET-COLLISION-ALGORITHM-POOL) :pointer
+          default-collision-configuration/get-collision-algorithm-pool) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_getSimplexSolver"
-               DEFAULT-COLLISION-CONFIGURATION/GET-SIMPLEX-SOLVER) :pointer
+          default-collision-configuration/get-simplex-solver) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_getCollisionAlgorithmCreateFunc"
-               DEFAULT-COLLISION-CONFIGURATION/GET-COLLISION-ALGORITHM-CREATE-FUNC) :pointer
+          default-collision-configuration/get-collision-algorithm-create-func) :pointer
   (self :pointer)
   (proxyType0 :int)
   (proxyType1 :int))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_setConvexConvexMultipointIterations__SWIG_0"
-               DEFAULT-COLLISION-CONFIGURATION/SET-CONVEX-CONVEX-MULTIPOINT-ITERATIONS/with-num&max)
+          default-collision-configuration/set-convex-convex-multipoint-iterations/with-num&max)
     :void
   (self :pointer)
   (numPerturbationIterations :int)
   (minimumPointsPerturbationThreshold :int))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_setConvexConvexMultipointIterations__SWIG_1"
-               DEFAULT-COLLISION-CONFIGURATION/SET-CONVEX-CONVEX-MULTIPOINT-ITERATIONS/with-num)
+          default-collision-configuration/set-convex-convex-multipoint-iterations/with-num)
     :void
   (self :pointer)
   (numPerturbationIterations :int))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_setConvexConvexMultipointIterations__SWIG_2"
-               DEFAULT-COLLISION-CONFIGURATION/SET-CONVEX-CONVEX-MULTIPOINT-ITERATIONS) :void
+          default-collision-configuration/set-convex-convex-multipoint-iterations) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations__SWIG_0"
-               DEFAULT-COLLISION-CONFIGURATION/SET-PLANE-CONVEX-MULTIPOINT-ITERATIONS/with-num&min)
+          default-collision-configuration/set-plane-convex-multipoint-iterations/with-num&min)
     :void
   (self :pointer)
   (numPerturbationIterations :int)
   (minimumPointsPerturbationThreshold :int))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations__SWIG_1"
-               DEFAULT-COLLISION-CONFIGURATION/SET-PLANE-CONVEX-MULTIPOINT-ITERATIONS/with-num)
+          default-collision-configuration/set-plane-convex-multipoint-iterations/with-num)
     :void
   (self :pointer)
   (numPerturbationIterations :int))
 
 (defcfun ("_wrap_btDefaultCollisionConfiguration_setPlaneConvexMultipointIterations__SWIG_2"
-               DEFAULT-COLLISION-CONFIGURATION/SET-PLANE-CONVEX-MULTIPOINT-ITERATIONS) :void
+          default-collision-configuration/set-plane-convex-multipoint-iterations) :void
   (self :pointer))
 (define-constant +USE-DISPATCH-REGISTRY-ARRAY+ 1)
 (cffi:defcenum DISPATCHER-FLAGS
@@ -704,165 +704,165 @@
   (:CD-DISABLE-CONTACTPOOL-DYNAMIC-ALLOCATION 4))
 
 (defcfun ("_wrap_btCollisionDispatcher_getDispatcherFlags"
-               COLLISION-DISPATCHER/GET-DISPATCHER-FLAGS) :int
+          collision-dispatcher/get-dispatcher-flags) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_setDispatcherFlags"
-               COLLISION-DISPATCHER/SET-DISPATCHER-FLAGS) :void
+          collision-dispatcher/set-dispatcher-flags) :void
   (self :pointer)
   (flags :int))
 
 (defcfun ("_wrap_btCollisionDispatcher_registerCollisionCreateFunc"
-               COLLISION-DISPATCHER/REGISTER-COLLISION-CREATE-FUNC) :void
+          collision-dispatcher/register-collision-create-func) :void
   (self :pointer)
   (proxyType0 :int)
   (proxyType1 :int)
   (createFunc :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_getNumManifolds"
-               COLLISION-DISPATCHER/GET-NUM-MANIFOLDS) :int
+          collision-dispatcher/get-num-manifolds) :int
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_getInternalManifoldPointer"
-               COLLISION-DISPATCHER/GET-INTERNAL-MANIFOLD-POINTER) :pointer
+          collision-dispatcher/get-internal-manifold-pointer) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_getManifoldByIndexInternal__SWIG_0"
-               COLLISION-DISPATCHER/GET-MANIFOLD-BY-INDEX-INTERNAL) :pointer
+          collision-dispatcher/get-manifold-by-index-internal) :pointer
   (self :pointer)
   (index :int))
 #+ (or)
 (defcfun ("_wrap_btCollisionDispatcher_getManifoldByIndexInternal__SWIG_1"
-               COLLISION-DISPATCHER/GET-MANIFOLD-BY-INDEX-INTERNAL) :pointer
+          collision-dispatcher/get-manifold-by-index-internal) :pointer
   (self :pointer)
   (index :int))
 
 (defcfun ("_wrap_new_btCollisionDispatcher"
-               MAKE-COLLISION-DISPATCHER) :pointer
-  (collisionConfiguration :pointer))
+          make-collision-dispatcher) collision-dispatcher
+  (collision-configuration collision-configuration))
 
 (defcfun ("_wrap_delete_btCollisionDispatcher"
-               DELETE/BT-COLLISION-DISPATCHER) :void
+          delete/bt-collision-dispatcher) :void
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_getNewManifold"
-               COLLISION-DISPATCHER/GET-NEW-MANIFOLD) :pointer
+          collision-dispatcher/get-new-manifold) :pointer
   (self :pointer)
   (b0 :pointer)
   (b1 :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_releaseManifold"
-               COLLISION-DISPATCHER/RELEASE-MANIFOLD) :void
+          collision-dispatcher/release-manifold) :void
   (self :pointer)
   (manifold :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_clearManifold"
-               COLLISION-DISPATCHER/CLEAR-MANIFOLD) :void
+          collision-dispatcher/clear-manifold) :void
   (self :pointer)
   (manifold :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_findAlgorithm__SWIG_0"
-               COLLISION-DISPATCHER/FIND-ALGORITHM/with-body0&1wrap&shared-manifold) :pointer
+          collision-dispatcher/find-algorithm/with-body0&1wrap&shared-manifold) :pointer
   (self :pointer)
   (body0Wrap :pointer)
   (body1Wrap :pointer)
   (sharedManifold :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_findAlgorithm__SWIG_1"
-               COLLISION-DISPATCHER/FIND-ALGORITHM/with-body0&1wrap) :pointer
+          collision-dispatcher/find-algorithm/with-body0&1wrap) :pointer
   (self :pointer)
   (body0Wrap :pointer)
   (body1Wrap :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_needsCollision"
-               COLLISION-DISPATCHER/NEEDS-COLLISION) :pointer
+          collision-dispatcher/needs-collision) :pointer
   (self :pointer)
   (body0 :pointer)
   (body1 :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_needsResponse"
-               COLLISION-DISPATCHER/NEEDS-RESPONSE) :pointer
+          collision-dispatcher/needs-response) :pointer
   (self :pointer)
   (body0 :pointer)
   (body1 :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_dispatchAllCollisionPairs"
-               COLLISION-DISPATCHER/DISPATCH-ALL-COLLISION-PAIRS) :void
+          collision-dispatcher/dispatch-all-collision-pairs) :void
   (self :pointer)
   (pairCache :pointer)
   (dispatchInfo :pointer)
   (dispatcher :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_setNearCallback"
-               COLLISION-DISPATCHER/SET-NEAR-CALLBACK) :void
+          collision-dispatcher/set-near-callback) :void
   (self :pointer)
   (nearCallback :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_getNearCallback"
-               COLLISION-DISPATCHER/GET-NEAR-CALLBACK) :pointer
+          collision-dispatcher/get-near-callback) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_defaultNearCallback"
-               COLLISION-DISPATCHER/DEFAULT-NEAR-CALLBACK) :void
+          collision-dispatcher/default-near-callback) :void
   (collisionPair :pointer)
   (dispatcher :pointer)
   (dispatchInfo :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_allocateCollisionAlgorithm"
-               COLLISION-DISPATCHER/ALLOCATE-COLLISION-ALGORITHM) :pointer
+          collision-dispatcher/allocate-collision-algorithm) :pointer
   (self :pointer)
   (size :int))
 
 (defcfun ("_wrap_btCollisionDispatcher_freeCollisionAlgorithm"
-               COLLISION-DISPATCHER/FREE-COLLISION-ALGORITHM) :void
+          collision-dispatcher/free-collision-algorithm) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_getCollisionConfiguration__SWIG_0"
-               COLLISION-DISPATCHER/GET-COLLISION-CONFIGURATION) :pointer
+          collision-dispatcher/get-collision-configuration) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btCollisionDispatcher_getCollisionConfiguration__SWIG_1"
-               COLLISION-DISPATCHER/GET-COLLISION-CONFIGURATION) :pointer
+          collision-dispatcher/get-collision-configuration) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_setCollisionConfiguration"
-               COLLISION-DISPATCHER/SET-COLLISION-CONFIGURATION) :void
+          collision-dispatcher/set-collision-configuration) :void
   (self :pointer)
   (config :pointer))
 
 (defcfun ("_wrap_btCollisionDispatcher_getInternalManifoldPool__SWIG_0"
-               COLLISION-DISPATCHER/GET-INTERNAL-MANIFOLD-POOL) :pointer
+          collision-dispatcher/get-internal-manifold-pool) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btCollisionDispatcher_getInternalManifoldPool__SWIG_1"
-               COLLISION-DISPATCHER/GET-INTERNAL-MANIFOLD-POOL) :pointer
+          collision-dispatcher/get-internal-manifold-pool) :pointer
   (self :pointer))
 
 
 (defcfun ("_wrap_new_btSimpleBroadphase__SWIG_0"
-               make-simple-broadphase/with-max-proxies&overlapping-pair-cache) :pointer
+          make-simple-broadphase/with-max-proxies&overlapping-pair-cache) :pointer
   (max-proxies :int)
   (overlapping-pair-cache :pointer))
 
 (defcfun ("_wrap_new_btSimpleBroadphase__SWIG_1"
-               make-simple-broadphase/with-max-proxies) :pointer
+          make-simple-broadphase/with-max-proxies) :pointer
   (max-proxies :int))
 
 (defcfun ("_wrap_new_btSimpleBroadphase__SWIG_2"
-               make-simple-broadphase) :pointer)
+          make-simple-broadphase) :pointer)
 
 (defcfun ("_wrap_delete_btSimpleBroadphase"
-               DELETE/BT-SIMPLE-BROADPHASE) :void
+          delete/bt-simple-broadphase) :void
   (self :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_aabbOverlap"
-               SIMPLE-BROADPHASE/AABB-OVERLAP) :pointer
+          simple-broadphase/aabb-overlap) :pointer
   (proxy0 :pointer)
   (proxy1 :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_createProxy"
-               SIMPLE-BROADPHASE/CREATE-PROXY) :pointer
+          simple-broadphase/create-proxy) :pointer
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer)
@@ -874,18 +874,18 @@
   (multiSapProxy :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_calculateOverlappingPairs"
-               SIMPLE-BROADPHASE/CALCULATE-OVERLAPPING-PAIRS) :void
+          simple-broadphase/calculate-overlapping-pairs) :void
   (self :pointer)
   (dispatcher :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_destroyProxy"
-               SIMPLE-BROADPHASE/DESTROY-PROXY) :void
+          simple-broadphase/destroy-proxy) :void
   (self :pointer)
   (proxy :pointer)
   (dispatcher :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_setAabb"
-               SIMPLE-BROADPHASE/SET-AABB) :void
+          simple-broadphase/set-aabb) :void
   (self :pointer)
   (proxy :pointer)
   (aabbMin :pointer)
@@ -893,14 +893,14 @@
   (dispatcher :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_getAabb"
-               SIMPLE-BROADPHASE/GET-AABB) :void
+          simple-broadphase/get-aabb) :void
   (self :pointer)
   (proxy :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_0"
-               SIMPLE-BROADPHASE/RAY-TEST/with-ray-from&to&callback&aabb-min&max) :void
+          simple-broadphase/ray-test/with-ray-from&to&callback&aabb-min&max) :void
   (self :pointer)
   (rayFrom :pointer)
   (rayTo :pointer)
@@ -909,7 +909,7 @@
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_1"
-               SIMPLE-BROADPHASE/RAY-TEST/with-ray-from&to&callback&aabb-min) :void
+          simple-broadphase/ray-test/with-ray-from&to&callback&aabb-min) :void
   (self :pointer)
   (rayFrom :pointer)
   (rayTo :pointer)
@@ -917,41 +917,41 @@
   (aabbMin :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_rayTest__SWIG_2"
-               SIMPLE-BROADPHASE/RAY-TEST/with-ray-from&to&callback) :void
+          simple-broadphase/ray-test/with-ray-from&to&callback) :void
   (self :pointer)
   (rayFrom :pointer)
   (rayTo :pointer)
   (rayCallback :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_aabbTest"
-               SIMPLE-BROADPHASE/AABB-TEST/with-aabb-min&max&callback) :void
+          simple-broadphase/aabb-test/with-aabb-min&max&callback) :void
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer)
   (callback :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_getOverlappingPairCache__SWIG_0"
-               SIMPLE-BROADPHASE/GET-OVERLAPPING-PAIR-CACHE) :pointer
+          simple-broadphase/get-overlapping-pair-cache) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btSimpleBroadphase_getOverlappingPairCache__SWIG_1"
-               SIMPLE-BROADPHASE/GET-OVERLAPPING-PAIR-CACHE) :pointer
+          simple-broadphase/get-overlapping-pair-cache) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_testAabbOverlap"
-               SIMPLE-BROADPHASE/TEST-AABB-OVERLAP) :pointer
+          simple-broadphase/test-aabb-overlap) :pointer
   (self :pointer)
   (proxy0 :pointer)
   (proxy1 :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_getBroadphaseAabb"
-               SIMPLE-BROADPHASE/GET-BROADPHASE-AABB) :void
+          simple-broadphase/get-broadphase-aabb) :void
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btSimpleBroadphase_printStats"
-               SIMPLE-BROADPHASE/PRINT-STATS) :void
+          simple-broadphase/print-stats) :void
   (self :pointer))
 (define-constant +USE-OVERLAP-TEST-ON-REMOVES+ 1)
 (cffi:defcvar ("gOverlappingPairs"
@@ -959,7 +959,7 @@
     :int)
 
 (defcfun ("_wrap_new_btAxisSweep3__SWIG_0"
-               MAKE-AXIS-SWEEP-3/with-world-aabb-min&max&max-handles&pair-cache&d.r.a.) :pointer
+          make-axis-sweep-3/with-world-aabb-min&max&max-handles&pair-cache&d.r.a.) :pointer
   (worldAabbMin :pointer)
   (worldAabbMax :pointer)
   (maxHandles :unsigned-short)
@@ -967,29 +967,29 @@
   (disableRaycastAccelerator :pointer))
 
 (defcfun ("_wrap_new_btAxisSweep3__SWIG_1"
-               MAKE-AXIS-SWEEP-3/with-world-aabb-min&max&max-handles&pair-cache) :pointer
+          make-axis-sweep-3/with-world-aabb-min&max&max-handles&pair-cache) :pointer
   (worldAabbMin :pointer)
   (worldAabbMax :pointer)
   (maxHandles :unsigned-short)
   (pairCache :pointer))
 
 (defcfun ("_wrap_new_btAxisSweep3__SWIG_2"
-               MAKE-AXIS-SWEEP-3/with-world-aabb-min&max&max-handles) :pointer
+          make-axis-sweep-3/with-world-aabb-min&max&max-handles) :pointer
   (worldAabbMin :pointer)
   (worldAabbMax :pointer)
   (maxHandles :unsigned-short))
 
 (defcfun ("_wrap_new_btAxisSweep3__SWIG_3"
-               MAKE-AXIS-SWEEP-3/with-world-aabb-min&max) :pointer
+          make-axis-sweep-3/with-world-aabb-min&max) :pointer
   (worldAabbMin :pointer)
   (worldAabbMax :pointer))
 
 (defcfun ("_wrap_delete_btAxisSweep3"
-               DELETE/BT-AXIS-SWEEP-3) :void
+          delete/bt-axis-sweep-3) :void
   (self :pointer))
 
 (defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_0"
-               MAKE-32-BIT-AXIS-SWEEP-3/with-world-aabb-min&max&max-handles&pair-cache&d.r.a.)
+          make-32-bit-axis-sweep-3/with-world-aabb-min&max&max-handles&pair-cache&d.r.a.)
     :pointer
   (worldAabbMin :pointer)
   (worldAabbMax :pointer)
@@ -998,7 +998,7 @@
   (disableRaycastAccelerator :pointer))
 
 (defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_1"
-               MAKE-32-BIT-AXIS-SWEEP-3/with-world-aabb-min&max&max-handles&pair-cache)
+          make-32-bit-axis-sweep-3/with-world-aabb-min&max&max-handles&pair-cache)
     :pointer
   (worldAabbMin :pointer)
   (worldAabbMax :pointer)
@@ -1006,34 +1006,34 @@
   (pairCache :pointer))
 
 (defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_2"
-               MAKE-32-BIT-AXIS-SWEEP-3/with-world-aabb-min&max&max-handles) :pointer
+          make-32-bit-axis-sweep-3/with-world-aabb-min&max&max-handles) :pointer
   (worldAabbMin :pointer)
   (worldAabbMax :pointer)
   (maxHandles :unsigned-int))
 
 (defcfun ("_wrap_new_bt32BitAxisSweep3__SWIG_3"
-               MAKE-32-BIT-AXIS-SWEEP-3/with-world-aabb-min&max) :pointer
+          make-32-bit-axis-sweep-3/with-world-aabb-min&max) :pointer
   (worldAabbMin :pointer)
   (worldAabbMax :pointer))
 
 (defcfun ("_wrap_delete_bt32BitAxisSweep3"
-               DELETE/BT-32-BIT-AXIS-SWEEP-3) :void
+          delete/bt-32-bit-axis-sweep-3) :void
   (self :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseArray__SWIG_0"
-               MULTI-SAP-BROADPHASE/GET-BROADPHASE-ARRAY) :pointer
+          multi-sap-broadphase/get-broadphase-array) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseArray__SWIG_1"
-               MULTI-SAP-BROADPHASE/GET-BROADPHASE-ARRAY) :pointer
+          multi-sap-broadphase/get-broadphase-array) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_delete_btMultiSapBroadphase"
-               DELETE/BT-MULTI-SAP-BROADPHASE) :void
+          delete/bt-multi-sap-broadphase) :void
   (self :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_createProxy"
-               MULTI-SAP-BROADPHASE/CREATE-PROXY) :pointer
+          multi-sap-broadphase/create-proxy) :pointer
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer)
@@ -1045,13 +1045,13 @@
   (multiSapProxy :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_destroyProxy"
-               MULTI-SAP-BROADPHASE/DESTROY-PROXY) :void
+          multi-sap-broadphase/destroy-proxy) :void
   (self :pointer)
   (proxy :pointer)
   (dispatcher :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_setAabb"
-               MULTI-SAP-BROADPHASE/SET-AABB) :void
+          multi-sap-broadphase/set-aabb) :void
   (self :pointer)
   (proxy :pointer)
   (aabbMin :pointer)
@@ -1059,14 +1059,14 @@
   (dispatcher :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_getAabb"
-               MULTI-SAP-BROADPHASE/GET-AABB) :void
+          multi-sap-broadphase/get-aabb) :void
   (self :pointer)
   (proxy :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_0"
-               MULTI-SAP-BROADPHASE/RAY-TEST/with-ray-from&to&callback&aabb-min&max) :void
+          multi-sap-broadphase/ray-test/with-ray-from&to&callback&aabb-min&max) :void
   (self :pointer)
   (rayFrom :pointer)
   (rayTo :pointer)
@@ -1075,7 +1075,7 @@
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_1"
-               MULTI-SAP-BROADPHASE/RAY-TEST/with-ray-from&to&callback&aabb-min) :void
+          multi-sap-broadphase/ray-test/with-ray-from&to&callback&aabb-min) :void
   (self :pointer)
   (rayFrom :pointer)
   (rayTo :pointer)
@@ -1083,63 +1083,63 @@
   (aabbMin :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_rayTest__SWIG_2"
-               MULTI-SAP-BROADPHASE/RAY-TEST/with-ray-from&to&callback) :void
+          multi-sap-broadphase/ray-test/with-ray-from&to&callback) :void
   (self :pointer)
   (rayFrom :pointer)
   (rayTo :pointer)
   (rayCallback :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_addToChildBroadphase"
-               MULTI-SAP-BROADPHASE/ADD-TO-CHILD-BROADPHASE) :void
+          multi-sap-broadphase/add-to-child-broadphase) :void
   (self :pointer)
   (parentMultiSapProxy :pointer)
   (childProxy :pointer)
   (childBroadphase :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_calculateOverlappingPairs"
-               MULTI-SAP-BROADPHASE/CALCULATE-OVERLAPPING-PAIRS) :void
+          multi-sap-broadphase/calculate-overlapping-pairs) :void
   (self :pointer)
   (dispatcher :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_testAabbOverlap"
-               MULTI-SAP-BROADPHASE/TEST-AABB-OVERLAP) :pointer
+          multi-sap-broadphase/test-aabb-overlap) :pointer
   (self :pointer)
   (proxy0 :pointer)
   (proxy1 :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_getOverlappingPairCache__SWIG_0"
-               MULTI-SAP-BROADPHASE/GET-OVERLAPPING-PAIR-CACHE) :pointer
+          multi-sap-broadphase/get-overlapping-pair-cache) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btMultiSapBroadphase_getOverlappingPairCache__SWIG_1"
-               MULTI-SAP-BROADPHASE/GET-OVERLAPPING-PAIR-CACHE) :pointer
+          multi-sap-broadphase/get-overlapping-pair-cache) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_getBroadphaseAabb"
-               MULTI-SAP-BROADPHASE/GET-BROADPHASE-AABB) :void
+          multi-sap-broadphase/get-broadphase-aabb) :void
   (self :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_buildTree"
-               MULTI-SAP-BROADPHASE/BUILD-TREE) :void
+          multi-sap-broadphase/build-tree) :void
   (self :pointer)
   (bvhAabbMin :pointer)
   (bvhAabbMax :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_printStats"
-               MULTI-SAP-BROADPHASE/PRINT-STATS) :void
+          multi-sap-broadphase/print-stats) :void
   (self :pointer))
 
 (defcfun ("_wrap_btMultiSapBroadphase_quicksort"
-               MULTI-SAP-BROADPHASE/QUICKSORT) :void
+          multi-sap-broadphase/quicksort) :void
   (self :pointer)
   (a :pointer)
   (lo :int)
   (hi :int))
 
 (defcfun ("_wrap_btMultiSapBroadphase_resetPool"
-               MULTI-SAP-BROADPHASE/RESET-POOL) :void
+          multi-sap-broadphase/reset-pool) :void
   (self :pointer)
   (dispatcher :pointer))
 (define-constant +DBVT-BP-PROFILE+ 0)
@@ -1151,212 +1151,212 @@
 (define-constant +USE-BT-CLOCK+ 1)
 
 (defcfun ("_wrap_new_btClock__SWIG_0"
-               MAKE-CLOCK) :pointer)
+          make-clock) :pointer)
 
 (defcfun ("_wrap_new_btClock__SWIG_1"
-               MAKE-CLOCK/with-other) :pointer
+          make-clock/with-other) :pointer
   (other :pointer))
 
 (defcfun ("_wrap_btClock_assignValue"
-               cLOCK/ASSIGN-VALUE) :pointer
+          clock/assign-value) :pointer
   (self :pointer)
   (other :pointer))
 
 (defcfun ("_wrap_delete_btClock"
-               DELETE/BT-CLOCK) :void
+          delete/bt-clock) :void
   (self :pointer))
 
 (defcfun ("_wrap_btClock_reset"
-               cLOCK/RESET) :void
+          clock/reset) :void
   (self :pointer))
 
 (defcfun ("_wrap_btClock_getTimeMilliseconds"
-               cLOCK/GET-TIME-MILLISECONDS) :unsigned-long
+          clock/get-time-milliseconds) :unsigned-long
   (self :pointer))
 
 (defcfun ("_wrap_btClock_getTimeMicroseconds"
-               cLOCK/GET-TIME-MICROSECONDS) :unsigned-long
+          clock/get-time-microseconds) :unsigned-long
   (self :pointer))
 
 (defcfun ("_wrap_new_CProfileNode"
-               MAKE-CPROFILE-NODE) :pointer
+          make-cprofile-node) :pointer
   (name :string)
   (parent :pointer))
 
 (defcfun ("_wrap_delete_CProfileNode"
-               DELETE/CPROFILE-NODE) :void
+          delete/cprofile-node) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Get_Sub_Node"
-               cPROFILE-NODE/GET/SUB/NODE) :pointer
+          cprofile-node/get/sub/node) :pointer
   (self :pointer)
   (name :string))
 
 (defcfun ("_wrap_CProfileNode_Get_Parent"
-               cPROFILE-NODE/GET/PARENT) :pointer
+          cprofile-node/get/parent) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Get_Sibling"
-               cPROFILE-NODE/GET/SIBLING) :pointer
+          cprofile-node/get/sibling) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Get_Child"
-               cPROFILE-NODE/GET/CHILD) :pointer
+          cprofile-node/get/child) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_CleanupMemory"
-               cPROFILE-NODE/CLEANUP-MEMORY) :void
+          cprofile-node/cleanup-memory) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Reset"
-               cPROFILE-NODE/RESET) :void
+          cprofile-node/reset) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Call"
-               cPROFILE-NODE/CALL) :void
+          cprofile-node/call) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Return"
-               cPROFILE-NODE/RETURN) :pointer
+          cprofile-node/return) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Get_Name"
-               cPROFILE-NODE/GET/NAME) :string
+          cprofile-node/get/name) :string
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Get_Total_Calls"
-               cPROFILE-NODE/GET/TOTAL/CALLS) :int
+          cprofile-node/get/total/calls) :int
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_Get_Total_Time"
-               cPROFILE-NODE/GET/TOTAL/TIME) :float
+          cprofile-node/get/total/time) :float
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_GetUserPointer"
-               cPROFILE-NODE/GET-USER-POINTER) :pointer
+          cprofile-node/get-user-pointer) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_CProfileNode_SetUserPointer"
-               cPROFILE-NODE/SET-USER-POINTER) :void
+          cprofile-node/set-user-pointer) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_CProfileIterator_First"
-               cPROFILE-ITERATOR/FIRST) :void
+          cprofile-iterator/first) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Next"
-               cPROFILE-ITERATOR/NEXT) :void
+          cprofile-iterator/next) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Is_Done"
-               cPROFILE-ITERATOR/IS/DONE) :pointer
+          cprofile-iterator/is/done) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Is_Root"
-               cPROFILE-ITERATOR/IS/ROOT) :pointer
+          cprofile-iterator/is/root) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Enter_Child"
-               cPROFILE-ITERATOR/ENTER/CHILD) :void
+          cprofile-iterator/enter/child) :void
   (self :pointer)
   (index :int))
 
 (defcfun ("_wrap_CProfileIterator_Enter_Largest_Child"
-               cPROFILE-ITERATOR/ENTER/LARGEST/CHILD) :void
+          cprofile-iterator/enter/largest/child) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Enter_Parent"
-               cPROFILE-ITERATOR/ENTER/PARENT) :void
+          cprofile-iterator/enter/parent) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Get_Current_Name"
-               cPROFILE-ITERATOR/GET/CURRENT/NAME) :string
+          cprofile-iterator/get/current/name) :string
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Get_Current_Total_Calls"
-               cPROFILE-ITERATOR/GET/CURRENT/TOTAL/CALLS) :int
+          cprofile-iterator/get/current/total/calls) :int
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Get_Current_Total_Time"
-               cPROFILE-ITERATOR/GET/CURRENT/TOTAL/TIME) :float
+          cprofile-iterator/get/current/total/time) :float
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Get_Current_UserPointer"
-               cPROFILE-ITERATOR/GET/CURRENT/USER-POINTER) :pointer
+          cprofile-iterator/get/current/user-pointer) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Set_Current_UserPointer"
-               cPROFILE-ITERATOR/SET/CURRENT/USER-POINTER) :void
+          cprofile-iterator/set/current/user-pointer) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Get_Current_Parent_Name"
-               cPROFILE-ITERATOR/GET/CURRENT/PARENT/NAME) :string
+          cprofile-iterator/get/current/parent/name) :string
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Get_Current_Parent_Total_Calls"
-               cPROFILE-ITERATOR/GET/CURRENT/PARENT/TOTAL/CALLS) :int
+          cprofile-iterator/get/current/parent/total/calls) :int
   (self :pointer))
 
 (defcfun ("_wrap_CProfileIterator_Get_Current_Parent_Total_Time"
-               cPROFILE-ITERATOR/GET/CURRENT/PARENT/TOTAL/TIME) :float
+          cprofile-iterator/get/current/parent/total/time) :float
   (self :pointer))
 
 (defcfun ("_wrap_delete_CProfileIterator"
-               DELETE/CPROFILE-ITERATOR) :void
+          delete/cprofile-iterator) :void
   (self :pointer))
 
 (defcfun ("_wrap_CProfileManager_Start_Profile"
-               cPROFILE-MANAGER/START/PROFILE) :void
+          cprofile-manager/start/profile) :void
   (name :string))
 
 (defcfun ("_wrap_CProfileManager_Stop_Profile"
-               cPROFILE-MANAGER/STOP/PROFILE) :void)
+          cprofile-manager/stop/profile) :void)
 
 (defcfun ("_wrap_CProfileManager_CleanupMemory"
-               cPROFILE-MANAGER/CLEANUP-MEMORY) :void)
+          cprofile-manager/cleanup-memory) :void)
 
 (defcfun ("_wrap_CProfileManager_Reset"
-               cPROFILE-MANAGER/RESET) :void)
+          cprofile-manager/reset) :void)
 
 (defcfun ("_wrap_CProfileManager_Increment_Frame_Counter"
-               cPROFILE-MANAGER/INCREMENT/FRAME/COUNTER) :void)
+          cprofile-manager/increment/frame/counter) :void)
 
 (defcfun ("_wrap_CProfileManager_Get_Frame_Count_Since_Reset"
-               cPROFILE-MANAGER/GET/FRAME/COUNT/SINCE/RESET) :int)
+          cprofile-manager/get/frame/count/since/reset) :int)
 
 (defcfun ("_wrap_CProfileManager_Get_Time_Since_Reset"
-               cPROFILE-MANAGER/GET/TIME/SINCE/RESET) :float)
+          cprofile-manager/get/time/since/reset) :float)
 
 (defcfun ("_wrap_CProfileManager_Get_Iterator"
-               cPROFILE-MANAGER/GET/ITERATOR) :pointer)
+          cprofile-manager/get/iterator) :pointer)
 
 (defcfun ("_wrap_CProfileManager_Release_Iterator"
-               cPROFILE-MANAGER/RELEASE/ITERATOR) :void
+          cprofile-manager/release/iterator) :void
   (iterator :pointer))
 
 (defcfun ("_wrap_CProfileManager_dumpRecursive"
-               cPROFILE-MANAGER/DUMP-RECURSIVE) :void
+          cprofile-manager/dump-recursive) :void
   (profileIterator :pointer)
   (spacing :int))
 
 (defcfun ("_wrap_CProfileManager_dumpAll"
-               cPROFILE-MANAGER/DUMP-ALL) :void)
+          cprofile-manager/dump-all) :void)
 
 (defcfun ("_wrap_new_CProfileManager"
-               MAKE-CPROFILE-MANAGER) :pointer)
+          make-cprofile-manager) :pointer)
 
 (defcfun ("_wrap_delete_CProfileManager"
-               DELETE/CPROFILE-MANAGER) :void
+          delete/cprofile-manager) :void
   (self :pointer))
 
 (defcfun ("_wrap_new_CProfileSample"
-               MAKE-CPROFILE-SAMPLE) :pointer
+          make-cprofile-sample) :pointer
   (name :string))
 
 (defcfun ("_wrap_delete_CProfileSample"
-               DELETE/CPROFILE-SAMPLE) :void
+          delete/cprofile-sample) :void
   (self :pointer))
 (cffi:defcenum DEBUG-DRAW-MODES
   (:DBG-NO-DEBUG 0)
@@ -1378,18 +1378,18 @@
   :DBG-MAX-DEBUG-DRAW-MODE)
 
 (defcfun ("_wrap_delete_btIDebugDraw"
-               DELETE/BT-IDEBUG-DRAW) :void
+          delete/bt-idebug-draw) :void
   (self :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawLine__SWIG_0"
-               IDEBUG-DRAW/DRAW-LINE/with-from&to&color) :void
+          idebug-draw/draw-line/with-from&to&color) :void
   (self :pointer)
   (from :pointer)
   (to :pointer)
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawLine__SWIG_1"
-               IDEBUG-DRAW/DRAW-LINE/with-from&to&from-&to-color) :void
+          idebug-draw/draw-line/with-from&to&from-&to-color) :void
   (self :pointer)
   (from :pointer)
   (to :pointer)
@@ -1397,21 +1397,21 @@
   (toColor :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawSphere__SWIG_0"
-               IDEBUG-DRAW/DRAW-SPHERE/with-radius&transform&color) :void
+          idebug-draw/draw-sphere/with-radius&transform&color) :void
   (self :pointer)
   (radius :float)
   (transform :pointer)
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawSphere__SWIG_1"
-               IDEBUG-DRAW/DRAW-SPHERE/with-p&radius&color) :void
+          idebug-draw/draw-sphere/with-p&radius&color) :void
   (self :pointer)
   (p :pointer)
   (radius :float)
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawTriangle__SWIG_0"
-               IDEBUG-DRAW/DRAW-TRIANGLE/with-v0&1&2&arg4&5&6&color&alpha) :void
+          idebug-draw/draw-triangle/with-v0&1&2&arg4&5&6&color&alpha) :void
   (self :pointer)
   (v0 :pointer)
   (v1 :pointer)
@@ -1423,7 +1423,7 @@
   (alpha :float))
 
 (defcfun ("_wrap_btIDebugDraw_drawTriangle__SWIG_1"
-               IDEBUG-DRAW/DRAW-TRIANGLE/with-v0&1&2&color&arg5) :void
+          idebug-draw/draw-triangle/with-v0&1&2&color&arg5) :void
   (self :pointer)
   (v0 :pointer)
   (v1 :pointer)
@@ -1432,7 +1432,7 @@
   (arg5 :float))
 
 (defcfun ("_wrap_btIDebugDraw_drawContactPoint"
-               IDEBUG-DRAW/DRAW-CONTACT-POINT) :void
+          idebug-draw/draw-contact-point) :void
   (self :pointer)
   (PointOnB :pointer)
   (normalOnB :pointer)
@@ -1441,40 +1441,40 @@
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_reportErrorWarning"
-               IDEBUG-DRAW/REPORT-ERROR-WARNING) :void
+          idebug-draw/report-error-warning) :void
   (self :pointer)
   (warningString :string))
 
 (defcfun ("_wrap_btIDebugDraw_draw3dText"
-               IDEBUG-DRAW/DRAW-3D-TEXT) :void
+          idebug-draw/draw-3d-text) :void
   (self :pointer)
   (location :pointer)
   (textString :string))
 
 (defcfun ("_wrap_btIDebugDraw_setDebugMode"
-               IDEBUG-DRAW/SET-DEBUG-MODE) :void
+          idebug-draw/set-debug-mode) :void
   (self :pointer)
   (debugMode :int))
 
 (defcfun ("_wrap_btIDebugDraw_getDebugMode"
-               IDEBUG-DRAW/GET-DEBUG-MODE) :int
+          idebug-draw/get-debug-mode) :int
   (self :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawAabb"
-               IDEBUG-DRAW/DRAW-AABB) :void
+          idebug-draw/draw-aabb) :void
   (self :pointer)
   (from :pointer)
   (to :pointer)
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawTransform"
-               IDEBUG-DRAW/DRAW-TRANSFORM) :void
+          idebug-draw/draw-transform) :void
   (self :pointer)
   (transform :pointer)
   (orthoLen :float))
 
 (defcfun ("_wrap_btIDebugDraw_drawArc__SWIG_0"
-               IDEBUG-DRAW/DRAW-ARC) :void
+          idebug-draw/draw-arc) :void
   (self :pointer)
   (center :pointer)
   (normal :pointer)
@@ -1488,7 +1488,7 @@
   (stepDegrees :float))
 
 (defcfun ("_wrap_btIDebugDraw_drawArc__SWIG_1"
-               IDEBUG-DRAW/DRAW-ARC/with-center&normal&axis&radius-a&&b&&min-&max-angle&color&draw-sect)
+          idebug-draw/draw-arc/with-center&normal&axis&radius-a&&b&&min-&max-angle&color&draw-sect)
     :void
   (self :pointer)
   (center :pointer)
@@ -1502,7 +1502,7 @@
   (drawSect :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawSpherePatch__SWIG_0"
-               IDEBUG-DRAW/DRAW-SPHERE-PATCH/with-c&u&a&r&m&m&m&m&c&s&d) :void
+          idebug-draw/draw-sphere-patch/with-c&u&a&r&m&m&m&m&c&s&d) :void
   (self :pointer)
   (center :pointer)
   (up :pointer)
@@ -1517,7 +1517,7 @@
   (drawCenter :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawSpherePatch__SWIG_1"
-               IDEBUG-DRAW/DRAW-SPHERE-PATCH/with-c&u&a&r&m&m&m&m&c&s) :void
+          idebug-draw/draw-sphere-patch/with-c&u&a&r&m&m&m&m&c&s) :void
   (self :pointer)
   (center :pointer)
   (up :pointer)
@@ -1531,7 +1531,7 @@
   (stepDegrees :float))
 
 (defcfun ("_wrap_btIDebugDraw_drawSpherePatch__SWIG_2"
-               IDEBUG-DRAW/DRAW-SPHERE-PATCH/with-c&u&a&r&m&m&m&m&c) :void
+          idebug-draw/draw-sphere-patch/with-c&u&a&r&m&m&m&m&c) :void
   (self :pointer)
   (center :pointer)
   (up :pointer)
@@ -1544,14 +1544,14 @@
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawBox__SWIG_0"
-               IDEBUG-DRAW/DRAW-BOX/with-bb-min&max&color) :void
+          idebug-draw/draw-box/with-bb-min&max&color) :void
   (self :pointer)
   (bbMin :pointer)
   (bbMax :pointer)
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawBox__SWIG_1"
-               IDEBUG-DRAW/DRAW-BOX/with-bb-min&max&trans&color) :void
+          idebug-draw/draw-box/with-bb-min&max&trans&color) :void
   (self :pointer)
   (bbMin :pointer)
   (bbMax :pointer)
@@ -1559,7 +1559,7 @@
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawCapsule"
-               IDEBUG-DRAW/DRAW-CAPSULE) :void
+          idebug-draw/draw-capsule) :void
   (self :pointer)
   (radius :float)
   (halfHeight :float)
@@ -1568,7 +1568,7 @@
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawCylinder"
-               IDEBUG-DRAW/DRAW-CYLINDER) :void
+          idebug-draw/draw-cylinder) :void
   (self :pointer)
   (radius :float)
   (halfHeight :float)
@@ -1577,7 +1577,7 @@
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawCone"
-               IDEBUG-DRAW/DRAW-CONE) :void
+          idebug-draw/draw-cone) :void
   (self :pointer)
   (radius :float)
   (height :float)
@@ -1586,7 +1586,7 @@
   (color :pointer))
 
 (defcfun ("_wrap_btIDebugDraw_drawPlane"
-               IDEBUG-DRAW/DRAW-PLANE) :void
+          idebug-draw/draw-plane) :void
   (self :pointer)
   (planeNormal :pointer)
   (planeConst :float)
@@ -1606,59 +1606,59 @@
     :int)
 
 (defcfun ("_wrap_btStrLen"
-               STR-LEN) :int
+          str-len) :int
   (str :string))
 
 (defcfun ("_wrap_btChunk_m_chunkCode_set"
-               cHUNK/CHUNK-CODE/SET) :void
+          chunk/chunk-code/set) :void
   (self :pointer)
   (m_chunkCode :int))
 
 (defcfun ("_wrap_btChunk_m_chunkCode_get"
-               cHUNK/CHUNK-CODE/GET) :int
+          chunk/chunk-code/get) :int
   (self :pointer))
 
 (defcfun ("_wrap_btChunk_m_length_set"
-               cHUNK/LENGTH/SET) :void
+          chunk/length/set) :void
   (self :pointer)
   (m_length :int))
 
 (defcfun ("_wrap_btChunk_m_length_get"
-               cHUNK/LENGTH/GET) :int
+          chunk/length/get) :int
   (self :pointer))
 
 (defcfun ("_wrap_btChunk_m_oldPtr_set"
-               cHUNK/OLD-PTR/SET) :void
+          chunk/old-ptr/set) :void
   (self :pointer)
   (m_oldPtr :pointer))
 
 (defcfun ("_wrap_btChunk_m_oldPtr_get"
-               cHUNK/OLD-PTR/GET) :pointer
+          chunk/old-ptr/get) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btChunk_m_dna_nr_set"
-               cHUNK/DNA/NR/SET) :void
+          chunk/dna/nr/set) :void
   (self :pointer)
   (m_dna_nr :int))
 
 (defcfun ("_wrap_btChunk_m_dna_nr_get"
-               cHUNK/DNA/NR/GET) :int
+          chunk/dna/nr/get) :int
   (self :pointer))
 
 (defcfun ("_wrap_btChunk_m_number_set"
-               cHUNK/NUMBER/SET) :void
+          chunk/number/set) :void
   (self :pointer)
   (m_number :int))
 
 (defcfun ("_wrap_btChunk_m_number_get"
-               cHUNK/NUMBER/GET) :int
+          chunk/number/get) :int
   (self :pointer))
 
 (defcfun ("_wrap_new_btChunk"
-               MAKE-CHUNK) :pointer)
+          make-chunk) :pointer)
 
 (defcfun ("_wrap_delete_btChunk"
-               DELETE/BT-CHUNK) :void
+          delete/bt-chunk) :void
   (self :pointer))
 (cffi:defcenum SERIALIZATION-FLAGS
   (:SERIALIZE-NO-BVH 1)
@@ -1666,25 +1666,25 @@
   (:SERIALIZE-NO-DUPLICATE-ASSERT 4))
 
 (defcfun ("_wrap_delete_btSerializer"
-               DELETE/BT-SERIALIZER) :void
+          delete/bt-serializer) :void
   (self :pointer))
 
 (defcfun ("_wrap_btSerializer_getBufferPointer"
-               SERIALIZER/GET-BUFFER-POINTER) :pointer
+          serializer/get-buffer-pointer) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btSerializer_getCurrentBufferSize"
-               SERIALIZER/GET-CURRENT-BUFFER-SIZE) :int
+          serializer/get-current-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btSerializer_allocate"
-               SERIALIZER/ALLOCATE) :pointer
+          serializer/allocate) :pointer
   (self :pointer)
   (size :pointer)
   (numElements :int))
 
 (defcfun ("_wrap_btSerializer_finalizeChunk"
-               SERIALIZER/FINALIZE-CHUNK) :void
+          serializer/finalize-chunk) :void
   (self :pointer)
   (chunk :pointer)
   (structType :string)
@@ -1692,89 +1692,89 @@
   (oldPtr :pointer))
 
 (defcfun ("_wrap_btSerializer_findPointer"
-               SERIALIZER/FIND-POINTER) :pointer
+          serializer/find-pointer) :pointer
   (self :pointer)
   (oldPtr :pointer))
 
 (defcfun ("_wrap_btSerializer_getUniquePointer"
-               SERIALIZER/GET-UNIQUE-POINTER) :pointer
+          serializer/get-unique-pointer) :pointer
   (self :pointer)
   (oldPtr :pointer))
 
 (defcfun ("_wrap_btSerializer_startSerialization"
-               SERIALIZER/START-SERIALIZATION) :void
+          serializer/start-serialization) :void
   (self :pointer))
 
 (defcfun ("_wrap_btSerializer_finishSerialization"
-               SERIALIZER/FINISH-SERIALIZATION) :void
+          serializer/finish-serialization) :void
   (self :pointer))
 
 (defcfun ("_wrap_btSerializer_findNameForPointer"
-               SERIALIZER/FIND-NAME-FOR-POINTER) :string
+          serializer/find-name-for-pointer) :string
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btSerializer_registerNameForPointer"
-               SERIALIZER/REGISTER-NAME-FOR-POINTER) :void
+          serializer/register-name-for-pointer) :void
   (self :pointer)
   (ptr :pointer)
   (name :string))
 
 (defcfun ("_wrap_btSerializer_serializeName"
-               SERIALIZER/SERIALIZE-NAME) :void
+          serializer/serialize-name) :void
   (self :pointer)
   (ptr :string))
 
 (defcfun ("_wrap_btSerializer_getSerializationFlags"
-               SERIALIZER/GET-SERIALIZATION-FLAGS) :int
+          serializer/get-serialization-flags) :int
   (self :pointer))
 
 (defcfun ("_wrap_btSerializer_setSerializationFlags"
-               SERIALIZER/SET-SERIALIZATION-FLAGS) :void
+          serializer/set-serialization-flags) :void
   (self :pointer)
   (flags :int))
 (define-constant +HEADER-LENGTH+ 12)
 
 
 (defcfun ("_wrap_new_btDefaultSerializer__SWIG_0"
-               MAKE-DEFAULT-SERIALIZER/with-total-size) :pointer
+          make-default-serializer/with-total-size) :pointer
   (totalSize :int))
 
 (defcfun ("_wrap_new_btDefaultSerializer__SWIG_1"
-               MAKE-DEFAULT-SERIALIZER) :pointer)
+          make-default-serializer) :pointer)
 
 (defcfun ("_wrap_delete_btDefaultSerializer"
-               DELETE/BT-DEFAULT-SERIALIZER) :void
+          delete/bt-default-serializer) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_writeHeader"
-               DEFAULT-SERIALIZER/WRITE-HEADER) :void
+          default-serializer/write-header) :void
   (self :pointer)
   (buffer :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_startSerialization"
-               DEFAULT-SERIALIZER/START-SERIALIZATION) :void
+          default-serializer/start-serialization) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_finishSerialization"
-               DEFAULT-SERIALIZER/FINISH-SERIALIZATION) :void
+          default-serializer/finish-serialization) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_getUniquePointer"
-               DEFAULT-SERIALIZER/GET-UNIQUE-POINTER) :pointer
+          default-serializer/get-unique-pointer) :pointer
   (self :pointer)
   (oldPtr :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_getBufferPointer"
-               DEFAULT-SERIALIZER/GET-BUFFER-POINTER) :pointer
+          default-serializer/get-buffer-pointer) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_getCurrentBufferSize"
-               DEFAULT-SERIALIZER/GET-CURRENT-BUFFER-SIZE) :int
+          default-serializer/get-current-buffer-size) :int
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_finalizeChunk"
-               DEFAULT-SERIALIZER/FINALIZE-CHUNK) :void
+          default-serializer/finalize-chunk) :void
   (self :pointer)
   (chunk :pointer)
   (structType :string)
@@ -1782,98 +1782,98 @@
   (oldPtr :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_internalAlloc"
-               DEFAULT-SERIALIZER/INTERNAL-ALLOC) :pointer
+          default-serializer/internal-alloc) :pointer
   (self :pointer)
   (size :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_allocate"
-               DEFAULT-SERIALIZER/ALLOCATE) :pointer
+          default-serializer/allocate) :pointer
   (self :pointer)
   (size :pointer)
   (numElements :int))
 
 (defcfun ("_wrap_btDefaultSerializer_findNameForPointer"
-               DEFAULT-SERIALIZER/FIND-NAME-FOR-POINTER) :string
+          default-serializer/find-name-for-pointer) :string
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_registerNameForPointer"
-               DEFAULT-SERIALIZER/REGISTER-NAME-FOR-POINTER) :void
+          default-serializer/register-name-for-pointer) :void
   (self :pointer)
   (ptr :pointer)
   (name :string))
 
 (defcfun ("_wrap_btDefaultSerializer_serializeName"
-               DEFAULT-SERIALIZER/SERIALIZE-NAME) :void
+          default-serializer/serialize-name) :void
   (self :pointer)
   (name :string))
 
 (defcfun ("_wrap_btDefaultSerializer_getSerializationFlags"
-               DEFAULT-SERIALIZER/GET-SERIALIZATION-FLAGS) :int
+          default-serializer/get-serialization-flags) :int
   (self :pointer))
 
 (defcfun ("_wrap_btDefaultSerializer_setSerializationFlags"
-               DEFAULT-SERIALIZER/SET-SERIALIZATION-FLAGS) :void
+          default-serializer/set-serialization-flags) :void
   (self :pointer)
   (flags :int))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusPlusInstance__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/MAKE-c++-INSTANCE) :pointer
+          discrete-dynamics-world/make-c++-instance) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusPlusInstance__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/DELETE-c++-INSTANCE) :void
+          discrete-dynamics-world/delete-c++-instance) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusPlusInstance__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/MAKE-c++-INSTANCE/with-arg1&ptr) :pointer
+          discrete-dynamics-world/make-c++-instance/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusPlusInstance__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/DELETE-c++-INSTANCE/with-arg1&2) :void
+          discrete-dynamics-world/delete-c++-instance/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusArray__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/MAKE-c++-ARRAY) :pointer
+          discrete-dynamics-world/make-c++-array) :pointer
   (self :pointer)
   (sizeInBytes :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusArray__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/DELETE-c++-ARRAY) :void
+          discrete-dynamics-world/delete-c++-array) :void
   (self :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_makeCPlusArray__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/MAKE-c++-ARRAY/with-arg1&ptr) :pointer
+          discrete-dynamics-world/make-c++-array/with-arg1&ptr) :pointer
   (self :pointer)
   (arg1 :pointer)
   (ptr :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_deleteCPlusArray__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/DELETE-c++-ARRAY/with-arg1&2) :void
+          discrete-dynamics-world/delete-c++-array/with-arg1&2) :void
   (self :pointer)
   (arg1 :pointer)
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btDiscreteDynamicsWorld"
-               MAKE-DISCRETE-DYNAMICS-WORLD) :pointer
+          make-discrete-dynamics-world) :pointer
   (dispatcher :pointer)
   (pairCache :pointer)
   (constraintSolver :pointer)
   (collisionConfiguration :pointer))
 
 (defcfun ("_wrap_delete_btDiscreteDynamicsWorld"
-               DELETE/BT-DISCRETE-DYNAMICS-WORLD) :void
+          delete/bt-discrete-dynamics-world) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/STEP-SIMULATION/with-time-step&max-sub-steps&fixed-time-step)
+          discrete-dynamics-world/step-simulation/with-time-step&max-sub-steps&fixed-time-step)
     :int
   (self :pointer)
   (timeStep :float)
@@ -1881,180 +1881,180 @@
   (fixedTimeStep :float))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/STEP-SIMULATION/with-time-step&max-sub-steps)
+          discrete-dynamics-world/step-simulation/with-time-step&max-sub-steps)
     :int
   (self :pointer)
   (timeStep :float)
   (maxSubSteps :int))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_2"
-               DISCRETE-DYNAMICS-WORLD/STEP-SIMULATION/with-time-step) :int
+          discrete-dynamics-world/step-simulation/with-time-step) :int
   (self :pointer)
   (timeStep :float))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_synchronizeMotionStates"
-               DISCRETE-DYNAMICS-WORLD/SYNCHRONIZE-MOTION-STATES) :void
+          discrete-dynamics-world/synchronize-motion-states) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_synchronizeSingleMotionState"
-               DISCRETE-DYNAMICS-WORLD/SYNCHRONIZE-SINGLE-MOTION-STATE) :void
+          discrete-dynamics-world/synchronize-single-motion-state) :void
   (self :pointer)
   (body :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addConstraint__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/ADD-CONSTRAINT/with-disable-collision-between-linked-bodies) 
+          discrete-dynamics-world/add-constraint/with-disable-collision-between-linked-bodies) 
     :void
   (self :pointer)
   (constraint :pointer)
   (disableCollisionsBetweenLinkedBodies :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addConstraint__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/ADD-CONSTRAINT) :void
+          discrete-dynamics-world/add-constraint) :void
   (self :pointer)
   (constraint :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_removeConstraint"
-               DISCRETE-DYNAMICS-WORLD/REMOVE-CONSTRAINT) :void
+          discrete-dynamics-world/remove-constraint) :void
   (self :pointer)
   (constraint :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addAction"
-               DISCRETE-DYNAMICS-WORLD/ADD-ACTION) :void
+          discrete-dynamics-world/add-action) :void
   (self :pointer)
   (arg1 :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_removeAction"
-               DISCRETE-DYNAMICS-WORLD/REMOVE-ACTION) :void
+          discrete-dynamics-world/remove-action) :void
   (self :pointer)
   (arg1 :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getSimulationIslandManager__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/GET-SIMULATION-ISLAND-MANAGER) :pointer
+          discrete-dynamics-world/get-simulation-island-manager) :pointer
   (self :pointer))
 #+ (or)
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getSimulationIslandManager__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/GET-SIMULATION-ISLAND-MANAGER) :pointer
+          discrete-dynamics-world/get-simulation-island-manager) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getCollisionWorld"
-               DISCRETE-DYNAMICS-WORLD/GET-COLLISION-WORLD) :pointer
+          discrete-dynamics-world/get-collision-world) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_setGravity"
-               DISCRETE-DYNAMICS-WORLD/SET-GRAVITY) :void
+          discrete-dynamics-world/set-gravity) :void
   (self :pointer)
   (gravity :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getGravity"
-               DISCRETE-DYNAMICS-WORLD/GET-GRAVITY) :pointer
+          discrete-dynamics-world/get-gravity) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/ADD-COLLISION-OBJECT/with-filter-group&mask) :void
+          discrete-dynamics-world/add-collision-object/with-filter-group&mask) :void
   (self :pointer)
   (collisionObject :pointer)
   (collisionFilterGroup :short)
   (collisionFilterMask :short))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/ADD-COLLISION-OBJECT/with-filter-group) :void
+          discrete-dynamics-world/add-collision-object/with-filter-group) :void
   (self :pointer)
   (collisionObject :pointer)
   (collisionFilterGroup :short))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_2"
-               DISCRETE-DYNAMICS-WORLD/ADD-COLLISION-OBJECT) :void
+          discrete-dynamics-world/add-collision-object) :void
   (self :pointer)
   (collisionObject :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addRigidBody__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/ADD-RIGID-BODY) :void
+          discrete-dynamics-world/add-rigid-body) :void
   (self :pointer)
   (body :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addRigidBody__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/ADD-RIGID-BODY/with-group&mask) :void
+          discrete-dynamics-world/add-rigid-body/with-group&mask) :void
   (self :pointer)
   (body :pointer)
   (group :short)
   (mask :short))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_removeRigidBody"
-               DISCRETE-DYNAMICS-WORLD/REMOVE-RIGID-BODY) :void
+          discrete-dynamics-world/remove-rigid-body) :void
   (self :pointer)
   (body :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_removeCollisionObject"
-               DISCRETE-DYNAMICS-WORLD/REMOVE-COLLISION-OBJECT) :void
+          discrete-dynamics-world/remove-collision-object) :void
   (self :pointer)
   (collisionObject :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_debugDrawConstraint"
-               DISCRETE-DYNAMICS-WORLD/DEBUG-DRAW-CONSTRAINT) :void
+          discrete-dynamics-world/debug-draw-constraint) :void
   (self :pointer)
   (constraint :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_debugDrawWorld"
-               DISCRETE-DYNAMICS-WORLD/DEBUG-DRAW-WORLD) :void
+          discrete-dynamics-world/debug-draw-world) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_setConstraintSolver"
-               DISCRETE-DYNAMICS-WORLD/SET-CONSTRAINT-SOLVER) :void
+          discrete-dynamics-world/set-constraint-solver) :void
   (self :pointer)
   (solver :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraintSolver"
-               DISCRETE-DYNAMICS-WORLD/GET-CONSTRAINT-SOLVER) :pointer
+          discrete-dynamics-world/get-constraint-solver) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getNumConstraints"
-               DISCRETE-DYNAMICS-WORLD/GET-NUM-CONSTRAINTS) :int
+          discrete-dynamics-world/get-num-constraints) :int
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraint__SWIG_0"
-               DISCRETE-DYNAMICS-WORLD/GET-CONSTRAINT) :pointer
+          discrete-dynamics-world/get-constraint) :pointer
   (self :pointer)
   (index :int))
 #+ (or)
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getConstraint__SWIG_1"
-               DISCRETE-DYNAMICS-WORLD/GET-CONSTRAINT) :pointer
+          discrete-dynamics-world/get-constraint) :pointer
   (self :pointer)
   (index :int))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getWorldType"
-               DISCRETE-DYNAMICS-WORLD/GET-WORLD-TYPE) :pointer
+          discrete-dynamics-world/get-world-type) :pointer
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_clearForces"
-               DISCRETE-DYNAMICS-WORLD/CLEAR-FORCES) :void
+          discrete-dynamics-world/clear-forces) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_applyGravity"
-               DISCRETE-DYNAMICS-WORLD/APPLY-GRAVITY) :void
+          discrete-dynamics-world/apply-gravity) :void
   (self :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_setNumTasks"
-               DISCRETE-DYNAMICS-WORLD/SET-NUM-TASKS) :void
+          discrete-dynamics-world/set-num-tasks) :void
   (self :pointer)
   (numTasks :int))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_updateVehicles"
-               DISCRETE-DYNAMICS-WORLD/UPDATE-VEHICLES) :void
+          discrete-dynamics-world/update-vehicles) :void
   (self :pointer)
   (timeStep :float))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addVehicle"
-               DISCRETE-DYNAMICS-WORLD/ADD-VEHICLE) :void
+          discrete-dynamics-world/add-vehicle) :void
   (self :pointer)
   (vehicle :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_removeVehicle"
-               DISCRETE-DYNAMICS-WORLD/REMOVE-VEHICLE) :void
+          discrete-dynamics-world/remove-vehicle) :void
   (self :pointer)
   (vehicle :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addCharacter"
-               DISCRETE-DYNAMICS-WORLD/ADD-CHARACTER) :void
+          discrete-dynamics-world/add-character) :void
   (self :pointer)
   (character :pointer))
 
