@@ -10,15 +10,13 @@ returns multiple values as evaluatable forms for checking the value of
 SYMBOL can be converted into type TYPE, and the evaluatable form for
 casting form the C++ type to the Lisp type in the correct way
 for CFFI."
-  (let ((pointer-p (and (consp type)
-                        (eql :pointer (car type)))))
-    (cond
-      ((eql 'scalar type) (values `(check-type ,symbol 'double-float)
-                                  `(coerce ,symbol 'double-float)))
-      ((ff-class-name-p type) (values `()
-                                      `(make-instance ',type
-                                                      :ff-pointer ,symbol)))
-      (t (values nil symbol)))))
+  (cond
+    ((eql 'scalar type) (values `(check-type ,symbol 'double-float)
+                                `(coerce ,symbol 'double-float)))
+    ((ff-class-name-p type) (values `()
+                                    `(make-instance ',type
+                                                    :ff-pointer ,symbol)))
+    (t (values nil symbol))))
 
 (defvar *alien-doubles/pdl*
   (make-array 1 :element-type 'double-float :adjustable t :fill-pointer t)
@@ -31,6 +29,9 @@ for CFFI."
   (check-type double double-float)
   (let ((e (vector-push-extend double *alien-doubles/pdl*)))
     (sb-alien:alien-sap (elt *alien-doubles/pdl* e))))
+
+(define-condition null-pointer ()
+  ())
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (define-condition bad-binding ()
@@ -55,6 +56,7 @@ for CFFI."
     (cond 
       ((consp type) (ecase (car type)
                       (:array `(sb-alien:array ,(basic-type (second type)) ,@(nthcdr 2 type)))
+                      (:struct `(sb-alien:struct ,@(cdr type)))
                       (:enum '(integer 32)) ;; ?
                       (:pointer (case (second type)
                                   (:void :pointer)
@@ -74,7 +76,7 @@ for CFFI."
            (:string  'sb-alien:c-string)
            (:void    'sb-alien:void)
            (:boolean 'sb-alien:boolean)
-           (:pointer (format *trace-output* "~&A void pointer is defined; that's unlikely to be correct")
+           (:pointer (format *trace-output* "~&A void pointer is defined; it will not be considered a match for any Lisp type.")
                      '(* t))
            (otherwise (error 'bad-binding-type :type type))))))
   (defun coercion-to-c++ (symbol type)
@@ -85,6 +87,8 @@ Lisp type to the C++ type in the correct way for CFFI."
     (let ((pointer-p (and (consp type)
                           (eql :pointer (car type)))))
       (cond
+        ((ff-class-name-p type) (values (list 'check-type symbol (basic-type type))
+                                        `(ff-pointer ,symbol)))
         ((and pointer-p
               (ff-class-name-p (second type))) (values '() `(ff-pointer ,symbol)))
         ((and pointer-p (eql :void (second type))) (values '() symbol))
@@ -93,7 +97,9 @@ Lisp type to the C++ type in the correct way for CFFI."
               `(pointer->double (coerce ,symbol
                                         'double-float))))
         (t (values `(check-type ,symbol ,(basic-type type))
-                   `(coerce ,symbol ',(basic-type type)))))))
+                   ;; `(coerce ,symbol ',(basic-type type))
+                   symbol)))))
+  
   (defun marshall-args (args) 
     "Given a set of arguments and their types like this:
 
@@ -144,7 +150,7 @@ remarshalls them like this:
               (sb-alien:extern-alien ,c-name
                                      (function ,(basic-type returns)
                                                ,@(mapcar #'cdr lambda-list)))
-              #+ (or)              ,@(mapcar #'car lambda-list)))
+              ,@(mapcar #'car lambda-list)))
            #+ (or)
            (handler-bind
                ((sb-ext:name-conflict 

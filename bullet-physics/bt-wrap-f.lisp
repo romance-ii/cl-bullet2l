@@ -17,17 +17,17 @@
            (check-type triangle-index-stride integer)
            (check-type num-vertices integer)
            (check-type vertex-stride integer)
-           (make-triangle-index-vertex-array/with-triangle-index-base&stride&num-vertices&vertex-base&stride
+           (bullet-physics-c++::make-triangle-index-vertex-array/with-triangle-index-base&stride&num-vertices&vertex-base&stride
             num-triangles triangle-index-base triangle-index-stride
             num-vertices vertex-base vertex-stride))
-         (t (make-triangle-index-vertex-array)))))
+          (t (bullet-physics-c++::make-triangle-index-vertex-array)))))
 
 (defmethod add-indexed-mesh ((self triangle-index-vertex-array) mesh 
                              &optional (index-type nil type?))
   (cond
-    (type? (triangle-index-vertex-array/add-indexed-mesh/with-index-type
+    (type? (bullet-physics-c++::triangle-index-vertex-array/add-indexed-mesh/with-index-type
             (ff-pointer self) mesh index-type))
-    (t (triangle-index-vertex-array/add-indexed-mesh (ff-pointer self) mesh))))
+    (t (bullet-physics-c++::triangle-index-vertex-array/add-indexed-mesh (ff-pointer self) mesh))))
 
 (defmethod locked-vertex-index-base ((self triangle-index-vertex-array)
                                      vertex-base num-vertices type vertex-stride
@@ -39,178 +39,178 @@
     
     ((and read-only-p subpart)
      (check-type subpart integer) 
-     (triangle-index-vertex-array/get-locked-read-only-vertex-index-base/with-subpart
+     (bullet-physics-c++::triangle-index-vertex-array/get-locked-read-only-vertex-index-base/with-subpart
       (ff-pointer self) vertex-base num-vertices type vertex-stride
       index-base index-stride num-faces indices-type subpart))
 
     ((and read-only-p (not subpart)) 
-     (triangle-index-vertex-array/get-locked-read-only-vertex-index-base
+     (bullet-physics-c++::triangle-index-vertex-array/get-locked-read-only-vertex-index-base
       (ff-pointer self) vertex-base num-vertices type vertex-stride
       index-base index-stride num-faces indices-type))
     
     (subpart
      (check-type subpart integer)
-     (triangle-index-vertex-array/get-locked-vertex-index-base/with-subpart
+     (bullet-physics-c++::triangle-index-vertex-array/get-locked-vertex-index-base/with-subpart
       (ff-pointer self) vertex-base num-vertices type vertex-stride
       index-base index-stride num-faces indices-type subpart))
     
-    (t (triangle-index-vertex-array/get-locked-vertex-index-base
+    (t (bullet-physics-c++::triangle-index-vertex-array/get-locked-vertex-index-base
         (ff-pointer self) vertex-base num-vertices type vertex-stride
         index-base index-stride num-faces indices-type))))
 
 (defmethod un-lock-vertex-base ((self triangle-index-vertex-array) (subpart integer))
-  (triangle-index-vertex-array/un-lock-vertex-base (ff-pointer self) subpart))
+  (bullet-physics-c++::triangle-index-vertex-array/un-lock-vertex-base (ff-pointer self) subpart))
 
 (defmethod un-lock-read-only-vertex-base
     ((self triangle-index-vertex-array) (subpart integer))
-  (triangle-index-vertex-array/un-lock-read-only-vertex-base (ff-pointer self) subpart))
+  (bullet-physics-c++::triangle-index-vertex-array/un-lock-read-only-vertex-base (ff-pointer self) subpart))
 
 (defmethod num-sub-parts ((self triangle-index-vertex-array))
-  (triangle-index-vertex-array/get-num-sub-parts (ff-pointer self)))
+  (bullet-physics-c++::triangle-index-vertex-array/get-num-sub-parts (ff-pointer self)))
 
 (defmethod indexed-mesh-array ((self triangle-index-vertex-array))
-  (triangle-index-vertex-array/get-indexed-mesh-array (ff-pointer self)))
+  (bullet-physics-c++::triangle-index-vertex-array/get-indexed-mesh-array (ff-pointer self)))
 
 (defmethod indexed-mesh-array ((self triangle-index-vertex-array))
-  (triangle-index-vertex-array/get-indexed-mesh-array (ff-pointer self)))
+  (bullet-physics-c++::triangle-index-vertex-array/get-indexed-mesh-array (ff-pointer self)))
 
 (defmethod preallocate-vertices ((self triangle-index-vertex-array) (numverts integer))
-  (triangle-index-vertex-array/preallocate-vertices (ff-pointer self) numverts))
+  (bullet-physics-c++::triangle-index-vertex-array/preallocate-vertices (ff-pointer self) numverts))
 
 (defmethod preallocate-indices
     ((self triangle-index-vertex-array) (numindices integer))
-  (triangle-index-vertex-array/preallocate-indices (ff-pointer self) numindices))
+  (bullet-physics-c++::triangle-index-vertex-array/preallocate-indices (ff-pointer self) numindices))
 
 (defmethod has-premade-aabb-p ((self triangle-index-vertex-array))
-  (triangle-index-vertex-array/has-premade-aabb (ff-pointer self)))
+  (bullet-physics-c++::triangle-index-vertex-array/has-premade-aabb (ff-pointer self)))
 
 (defmethod (setf premade-aabb)
     ( (aabbmin vector3) (self triangle-index-vertex-array) (aabbmax vector3))
-  (triangle-index-vertex-array/set-premade-aabb (ff-pointer self) aabbmin aabbmax))
+  (bullet-physics-c++::triangle-index-vertex-array/set-premade-aabb (ff-pointer self) aabbmin aabbmax))
 
 (defmethod premade-aabb
     ((self triangle-index-vertex-array) (aabbmin vector3) (aabbmax vector3))
-  (triangle-index-vertex-array/get-premade-aabb (ff-pointer self) aabbmin aabbmax))
+  (bullet-physics-c++::triangle-index-vertex-array/get-premade-aabb (ff-pointer self) aabbmin aabbmax))
 #+(or) (defmethod new ((self compound-shape) sizeinbytes)
-  (compound-shape/make-c++-instance (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::compound-shape/make-c++-instance (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete((self compound-shape) ptr)
-  (compound-shape/delete-c++-instance (ff-pointer self) ptr))
+  (bullet-physics-c++::compound-shape/delete-c++-instance (ff-pointer self) ptr))
 #+(or) (defmethod new ((self compound-shape) arg1 ptr)
-  (compound-shape/make-c++-instance/with-arg1&ptr (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::compound-shape/make-c++-instance/with-arg1&ptr (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete((self compound-shape) arg1 arg2)
-  (compound-shape/delete-c++-instance/with-arg1&2 (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::compound-shape/delete-c++-instance/with-arg1&2 (ff-pointer self) arg1 arg2))
 #+(or) (defmethod new[] ((self compound-shape) sizeinbytes)
-  (compound-shape/make-c++-array (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::compound-shape/make-c++-array (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete[] ((self compound-shape) ptr)
-  (compound-shape/delete-c++-array (ff-pointer self) ptr))
+  (bullet-physics-c++::compound-shape/delete-c++-array (ff-pointer self) ptr))
 #+(or) (defmethod new[] ((self compound-shape) arg1 ptr)
-  (compound-shape/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::compound-shape/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete[] ((self compound-shape) arg1 arg2)
-  (compound-shape/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::compound-shape/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
 
 (defmethod initialize-instance :after ((obj compound-shape) 
                                        &key (enable-dynamic-aabb-tree-p t aabb?))
   (setf (ff-pointer obj)
         (if aabb?
-            (make-compound-shape/with-enable-dynamic-aabb-tree enable-dynamic-aabb-tree-p)
-            (make-compound-shape))))
+            (bullet-physics-c++::make-compound-shape/with-enable-dynamic-aabb-tree enable-dynamic-aabb-tree-p)
+            (bullet-physics-c++::make-compound-shape))))
 
 (defmethod add-child-shape ((self compound-shape) (localtransform transform) shape)
-  (compound-shape/add-child-shape (ff-pointer self) localtransform shape))
+  (bullet-physics-c++::compound-shape/add-child-shape (ff-pointer self) localtransform shape))
 
 (defmethod remove-child-shape ((self compound-shape) shape)
-  (compound-shape/remove-child-shape (ff-pointer self) shape))
+  (bullet-physics-c++::compound-shape/remove-child-shape (ff-pointer self) shape))
 
 (defmethod remove-child-shape-by-index ((self compound-shape) (childshapeindex integer))
-  (compound-shape/remove-child-shape-by-index (ff-pointer self) childshapeindex))
+  (bullet-physics-c++::compound-shape/remove-child-shape-by-index (ff-pointer self) childshapeindex))
 
 (defmethod num-child-shapes ((self compound-shape))
-  (compound-shape/get-num-child-shapes (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/get-num-child-shapes (ff-pointer self)))
 
 (defmethod child-shape-elt ((self compound-shape) (index integer))
-  (compound-shape/get-child-shape (ff-pointer self) index))
+  (bullet-physics-c++::compound-shape/get-child-shape (ff-pointer self) index))
 
 (defmethod child-shape-elt ((self compound-shape) (index integer))
-  (compound-shape/get-child-shape (ff-pointer self) index))
+  (bullet-physics-c++::compound-shape/get-child-shape (ff-pointer self) index))
 
 (defmethod child-transform ((self compound-shape) (index integer))
-  (compound-shape/get-child-transform (ff-pointer self) index))
+  (bullet-physics-c++::compound-shape/get-child-transform (ff-pointer self) index))
 
 (defmethod child-transform ((self compound-shape) (index integer))
-  (compound-shape/get-child-transform (ff-pointer self) index))
+  (bullet-physics-c++::compound-shape/get-child-transform (ff-pointer self) index))
 
 (defmethod update-child-transform ((self compound-shape) (child-index integer)
                                    (new-child-transform transform) &optional (should-recalculate-local-aabb-p t aabb?))
   (if aabb?
-      (compound-shape/update-child-transform/with-recalc
+      (bullet-physics-c++::compound-shape/update-child-transform/with-recalc
        (ff-pointer self) child-index new-child-transform
        should-recalculate-local-aabb-p)
-      (compound-shape/update-child-transform
+      (bullet-physics-c++::compound-shape/update-child-transform
        (ff-pointer self) child-index new-child-transform)))
 
 (defmethod child-list ((self compound-shape))
-  (compound-shape/get-child-list (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/get-child-list (ff-pointer self)))
 
 (defmethod aabb+ ((self compound-shape) (t-arg1 transform) (aabbmin vector3) (aabbmax vector3))
-  (compound-shape/get-aabb (ff-pointer self) t-arg1 aabbmin aabbmax))
+  (bullet-physics-c++::compound-shape/get-aabb (ff-pointer self) t-arg1 aabbmin aabbmax))
 
 (defmethod recalculate-local-aabb ((self compound-shape))
-  (compound-shape/recalculate-local-aabb (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/recalculate-local-aabb (ff-pointer self)))
 
 (defmethod (setf local-scaling) ( (scaling vector3) (self compound-shape))
-  (compound-shape/set-local-scaling (ff-pointer self) scaling))
+  (bullet-physics-c++::compound-shape/set-local-scaling (ff-pointer self) scaling))
 
 (defmethod local-scaling ((self compound-shape))
-  (compound-shape/get-local-scaling (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/get-local-scaling (ff-pointer self)))
 
 (defmethod calculate-local-inertia ((self compound-shape) (mass number) (inertia vector3))
-  (compound-shape/calculate-local-inertia (ff-pointer self) mass inertia))
+  (bullet-physics-c++::compound-shape/calculate-local-inertia (ff-pointer self) mass inertia))
 
 (defmethod (setf margin) ( (margin number) (self compound-shape))
-  (compound-shape/set-margin (ff-pointer self) margin))
+  (bullet-physics-c++::compound-shape/set-margin (ff-pointer self) margin))
 
 (defmethod margin ((self compound-shape))
-  (compound-shape/get-margin (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/get-margin (ff-pointer self)))
 
 (defmethod name ((self compound-shape))
-  (compound-shape/get-name (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/get-name (ff-pointer self)))
 
 (defmethod dynamic-aabb-tree ((self compound-shape))
-  (compound-shape/get-dynamic-aabb-tree (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/get-dynamic-aabb-tree (ff-pointer self)))
 
 (defmethod dynamic-aabb-tree ((self compound-shape))
-  (compound-shape/get-dynamic-aabb-tree (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/get-dynamic-aabb-tree (ff-pointer self)))
 
 (defmethod create-aabb-tree-from-children ((self compound-shape))
-  (compound-shape/create-aabb-tree-from-children (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/create-aabb-tree-from-children (ff-pointer self)))
 
 (defmethod calculate-principal-axis-transform ((self compound-shape) masses (principal transform) (inertia vector3))
-  (compound-shape/calculate-principal-axis-transform (ff-pointer self) masses principal inertia))
+  (bullet-physics-c++::compound-shape/calculate-principal-axis-transform (ff-pointer self) masses principal inertia))
 
 (defmethod update-revision ((self compound-shape))
-  (compound-shape/get-update-revision (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/get-update-revision (ff-pointer self)))
 
 (defmethod calculate-serialize-buffer-size ((self compound-shape))
-  (compound-shape/calculate-serialize-buffer-size (ff-pointer self)))
+  (bullet-physics-c++::compound-shape/calculate-serialize-buffer-size (ff-pointer self)))
 
 (defmethod ->serial ((self compound-shape) &key data-buffer serializer &allow-other-keys)
-  (compound-shape/serialize (ff-pointer self) data-buffer serializer))
+  (bullet-physics-c++::compound-shape/serialize (ff-pointer self) data-buffer serializer))
 #+(or) (defmethod new ((self bu-simplex1to4) sizeinbytes)
-  (bu/simplex1to4/make-c++-instance/with-size (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::bu/simplex1to4/make-c++-instance/with-size (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete((self bu-simplex1to4) ptr)
-  (bu/simplex1to4/delete-c++-instance (ff-pointer self) ptr))
+  (bullet-physics-c++::bu/simplex1to4/delete-c++-instance (ff-pointer self) ptr))
 #+(or) (defmethod new ((self bu-simplex1to4) arg1 ptr)
-  (bu/simplex1to4/make-c++-instance/with-arg1&ptr (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::bu/simplex1to4/make-c++-instance/with-arg1&ptr (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete((self bu-simplex1to4) arg1 arg2)
-  (bu/simplex1to4/delete-c++-instance/with-arg1&2 (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::bu/simplex1to4/delete-c++-instance/with-arg1&2 (ff-pointer self) arg1 arg2))
 #+(or) (defmethod new[] ((self bu-simplex1to4) sizeinbytes)
-  (bu/simplex1to4/make-c++-array (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::bu/simplex1to4/make-c++-array (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete[] ((self bu-simplex1to4) ptr)
-  (bu/simplex1to4/delete-c++-array (ff-pointer self) ptr))
+  (bullet-physics-c++::bu/simplex1to4/delete-c++-array (ff-pointer self) ptr))
 #+(or) (defmethod new[] ((self bu-simplex1to4) arg1 ptr)
-  (bu/simplex1to4/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::bu/simplex1to4/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete[] ((self bu-simplex1to4) arg1 arg2)
-  (bu/simplex1to4/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::bu/simplex1to4/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
 
 (defmethod initialize-instance :after ((obj bu-simplex1to4) 
                                        &key
@@ -225,239 +225,239 @@
   (setf (ff-pointer obj) 
         (cond
           ((and pt3? pt2? pt1? pt0?)
-           (make-bu/simplex1to4/with-pt0&1&2&3  pt0 pt1 pt2 pt3))
+           (bullet-physics-c++::make-bu/simplex1to4/with-pt0&1&2&3  pt0 pt1 pt2 pt3))
           ((and (not pt3?) pt2? pt1? pt0? )
-           (make-bu/simplex1to4/with-pt0&1&2    pt0 pt1 pt2))
+           (bullet-physics-c++::make-bu/simplex1to4/with-pt0&1&2    pt0 pt1 pt2))
           ((and (not pt2?) (not pt3?) pt1? pt0?)
-           (make-bu/simplex1to4/with-pt0&1      pt0 pt1))
+           (bullet-physics-c++::make-bu/simplex1to4/with-pt0&1      pt0 pt1))
           ((and pt0? (not pt1?) (not pt2?) (not pt3?))
-           (make-bu/simplex1to4/with-pt0        pt0))
+           (bullet-physics-c++::make-bu/simplex1to4/with-pt0        pt0))
           ((and (not pt0?) (not pt1?) (not pt2?) (not pt3?))
-           (make-bu/simplex1to4))
+           (bullet-physics-c++::make-bu/simplex1to4))
           (t (error 'foo)))))
 
 (defmethod reset ((self bu-simplex1to4))
-  (bu/simplex1to4/reset (ff-pointer self)))
+  (bullet-physics-c++::bu/simplex1to4/reset (ff-pointer self)))
 
 (defmethod aabb+ ((self bu-simplex1to4) (t-arg1 transform) (aabbmin vector3) (aabbmax vector3))
-  (bu/simplex1to4/get-aabb (ff-pointer self) t-arg1 aabbmin aabbmax))
+  (bullet-physics-c++::bu/simplex1to4/get-aabb (ff-pointer self) t-arg1 aabbmin aabbmax))
 
 (defmethod add-vertex ((self bu-simplex1to4) (pt vector3))
-  (bu/simplex1to4/add-vertex (ff-pointer self) pt))
+  (bullet-physics-c++::bu/simplex1to4/add-vertex (ff-pointer self) pt))
 
 (defmethod num-vertices ((self bu-simplex1to4))
-  (bu/simplex1to4/get-num-vertices (ff-pointer self)))
+  (bullet-physics-c++::bu/simplex1to4/get-num-vertices (ff-pointer self)))
 
 (defmethod num-edges ((self bu-simplex1to4))
-  (bu/simplex1to4/get-num-edges (ff-pointer self)))
+  (bullet-physics-c++::bu/simplex1to4/get-num-edges (ff-pointer self)))
 
 (defmethod edge ((self bu-simplex1to4) (i integer) (pa vector3) (pb vector3))
-  (bu/simplex1to4/get-edge (ff-pointer self) i pa pb))
+  (bullet-physics-c++::bu/simplex1to4/get-edge (ff-pointer self) i pa pb))
 
 (defmethod vertex ((self bu-simplex1to4) (i integer) (vtx vector3))
-  (bu/simplex1to4/get-vertex (ff-pointer self) i vtx))
+  (bullet-physics-c++::bu/simplex1to4/get-vertex (ff-pointer self) i vtx))
 
 (defmethod num-planes ((self bu-simplex1to4))
-  (bu/simplex1to4/get-num-planes (ff-pointer self)))
+  (bullet-physics-c++::bu/simplex1to4/get-num-planes (ff-pointer self)))
 
 (defmethod plane ((self bu-simplex1to4) (planenormal vector3) (planesupport vector3) (i integer))
-  (bu/simplex1to4/get-plane (ff-pointer self) planenormal planesupport i))
+  (bullet-physics-c++::bu/simplex1to4/get-plane (ff-pointer self) planenormal planesupport i))
 
 (defmethod index ((self bu-simplex1to4) (i integer))
-  (bu/simplex1to4/get-index (ff-pointer self) i))
+  (bullet-physics-c++::bu/simplex1to4/get-index (ff-pointer self) i))
 
 (defmethod insidep ((self bu-simplex1to4) (pt vector3) (tolerance number))
-  (bu/simplex1to4/is-inside (ff-pointer self) pt tolerance))
+  (bullet-physics-c++::bu/simplex1to4/is-inside (ff-pointer self) pt tolerance))
 
 (defmethod name ((self bu-simplex1to4))
-  (bu/simplex1to4/get-name (ff-pointer self)))
+  (bullet-physics-c++::bu/simplex1to4/get-name (ff-pointer self)))
 #+(or) (defmethod new ((self empty-shape) sizeinbytes)
-  (empty-shape/make-c++-instance (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::empty-shape/make-c++-instance (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete((self empty-shape) ptr)
-  (empty-shape/delete-c++-instance (ff-pointer self) ptr))
+  (bullet-physics-c++::empty-shape/delete-c++-instance (ff-pointer self) ptr))
 #+(or) (defmethod new ((self empty-shape) arg1 ptr)
-  (empty-shape/make-c++-instance (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::empty-shape/make-c++-instance (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete((self empty-shape) arg1 arg2)
-  (empty-shape/delete-c++-instance (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::empty-shape/delete-c++-instance (ff-pointer self) arg1 arg2))
 #+(or) (defmethod new[] ((self empty-shape) sizeinbytes)
-  (empty-shape/make-c++-array (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::empty-shape/make-c++-array (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete[] ((self empty-shape) ptr)
-  (empty-shape/delete-c++-array (ff-pointer self) ptr))
+  (bullet-physics-c++::empty-shape/delete-c++-array (ff-pointer self) ptr))
 #+(or) (defmethod new[] ((self empty-shape) arg1 ptr)
-  (empty-shape/make-c++-array (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::empty-shape/make-c++-array (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete[] ((self empty-shape) arg1 arg2)
-  (empty-shape/delete-c++-array (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::empty-shape/delete-c++-array (ff-pointer self) arg1 arg2))
 
 (defmethod initialize-instance :after ((obj empty-shape) &key)
-  (setf (ff-pointer obj) (make-empty-shape)))
+  (setf (ff-pointer obj) (bullet-physics-c++::make-empty-shape)))
 
 (defmethod aabb+ ((self empty-shape) (t-arg1 transform) (aabbmin vector3) (aabbmax vector3))
-  (empty-shape/get-aabb (ff-pointer self) t-arg1 aabbmin aabbmax))
+  (bullet-physics-c++::empty-shape/get-aabb (ff-pointer self) t-arg1 aabbmin aabbmax))
 
 (defmethod (setf local-scaling) ( (scaling vector3) (self empty-shape))
-  (empty-shape/set-local-scaling (ff-pointer self) scaling))
+  (bullet-physics-c++::empty-shape/set-local-scaling (ff-pointer self) scaling))
 
 (defmethod local-scaling ((self empty-shape))
-  (empty-shape/get-local-scaling (ff-pointer self)))
+  (bullet-physics-c++::empty-shape/get-local-scaling (ff-pointer self)))
 
 (defmethod calculate-local-inertia ((self empty-shape) (mass number) (inertia vector3))
-  (empty-shape/calculate-local-inertia (ff-pointer self) mass inertia))
+  (bullet-physics-c++::empty-shape/calculate-local-inertia (ff-pointer self) mass inertia))
 
 (defmethod name ((self empty-shape))
-  (empty-shape/get-name (ff-pointer self)))
+  (bullet-physics-c++::empty-shape/get-name (ff-pointer self)))
 
 (defmethod process-all-triangles ((self empty-shape) arg1 (arg2 vector3) (arg3 vector3))
-  (empty-shape/process-all-triangles (ff-pointer self) arg1 arg2 arg3))
+  (bullet-physics-c++::empty-shape/process-all-triangles (ff-pointer self) arg1 arg2 arg3))
 #+(or) (defmethod new ((self multi-sphere-shape) sizeinbytes)
-  (multi-sphere-shape/make-c++-instance (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::multi-sphere-shape/make-c++-instance (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete((self multi-sphere-shape) ptr)
-  (multi-sphere-shape/delete-c++-instance (ff-pointer self) ptr))
+  (bullet-physics-c++::multi-sphere-shape/delete-c++-instance (ff-pointer self) ptr))
 #+(or) (defmethod new ((self multi-sphere-shape) arg1 ptr)
-  (multi-sphere-shape/make-c++-instance (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::multi-sphere-shape/make-c++-instance (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete((self multi-sphere-shape) arg1 arg2)
-  (multi-sphere-shape/delete-c++-instance (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::multi-sphere-shape/delete-c++-instance (ff-pointer self) arg1 arg2))
 #+(or) (defmethod new[] ((self multi-sphere-shape) sizeinbytes)
-  (multi-sphere-shape/make-c++-array (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::multi-sphere-shape/make-c++-array (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete[] ((self multi-sphere-shape) ptr)
-  (multi-sphere-shape/delete-c++-array (ff-pointer self) ptr))
+  (bullet-physics-c++::multi-sphere-shape/delete-c++-array (ff-pointer self) ptr))
 #+(or) (defmethod new[] ((self multi-sphere-shape) arg1 ptr)
-  (multi-sphere-shape/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::multi-sphere-shape/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete[] ((self multi-sphere-shape) arg1 arg2)
-  (multi-sphere-shape/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::multi-sphere-shape/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
 
 (defmethod initialize-instance :after ((obj multi-sphere-shape) 
                                        &key positions radi num-spheres)
   (check-type num-spheres integer)
   (check-type positions vector3)
   (setf (ff-pointer obj)
-        (make-multi-sphere-shape (ff-pointer positions) radi num-spheres)))
+        (bullet-physics-c++::make-multi-sphere-shape (ff-pointer positions) radi num-spheres)))
 
 (defmethod calculate-local-inertia ((self multi-sphere-shape) (mass number) (inertia vector3))
-  (multi-sphere-shape/calculate-local-inertia (ff-pointer self) mass inertia))
+  (bullet-physics-c++::multi-sphere-shape/calculate-local-inertia (ff-pointer self) mass inertia))
 
 (defmethod local-supporting-vertex-without-margin ((self multi-sphere-shape) (vec vector3))
-  (multi-sphere-shape/local-get-supporting-vertex-without-margin (ff-pointer self) vec))
+  (bullet-physics-c++::multi-sphere-shape/local-get-supporting-vertex-without-margin (ff-pointer self) vec))
 
 (defmethod batched-unit-vector-supporting-vertex-without-margin ((self multi-sphere-shape) (vectors vector3) (supportverticesout vector3) (numvectors integer))
-  (multi-sphere-shape/batched-unit-vector-get-supporting-vertex-without-margin (ff-pointer self) vectors supportverticesout numvectors))
+  (bullet-physics-c++::multi-sphere-shape/batched-unit-vector-get-supporting-vertex-without-margin (ff-pointer self) vectors supportverticesout numvectors))
 
 (defmethod sphere-count ((self multi-sphere-shape))
-  (multi-sphere-shape/get-sphere-count (ff-pointer self)))
+  (bullet-physics-c++::multi-sphere-shape/get-sphere-count (ff-pointer self)))
 
 (defmethod sphere-position ((self multi-sphere-shape) (index integer))
-  (multi-sphere-shape/get-sphere-position (ff-pointer self) index))
+  (bullet-physics-c++::multi-sphere-shape/get-sphere-position (ff-pointer self) index))
 
 (defmethod sphere-radius ((self multi-sphere-shape) (index integer))
-  (multi-sphere-shape/get-sphere-radius (ff-pointer self) index))
+  (bullet-physics-c++::multi-sphere-shape/get-sphere-radius (ff-pointer self) index))
 
 (defmethod name ((self multi-sphere-shape))
-  (multi-sphere-shape/get-name (ff-pointer self)))
+  (bullet-physics-c++::multi-sphere-shape/get-name (ff-pointer self)))
 
 (defmethod calculate-serialize-buffer-size ((self multi-sphere-shape))
-  (multi-sphere-shape/calculate-serialize-buffer-size (ff-pointer self)))
+  (bullet-physics-c++::multi-sphere-shape/calculate-serialize-buffer-size (ff-pointer self)))
 
 (defmethod ->serial ((self multi-sphere-shape) &key data-buffer serializer &allow-other-keys)
-  (multi-sphere-shape/serialize (ff-pointer self) data-buffer serializer))
+  (bullet-physics-c++::multi-sphere-shape/serialize (ff-pointer self) data-buffer serializer))
 #+(or) (defmethod new ((self uniform-scaling-shape) sizeinbytes)
-  (uniform-scaling-shape/make-c++-instance (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::uniform-scaling-shape/make-c++-instance (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete((self uniform-scaling-shape) ptr)
-  (uniform-scaling-shape/delete-c++-instance (ff-pointer self) ptr))
+  (bullet-physics-c++::uniform-scaling-shape/delete-c++-instance (ff-pointer self) ptr))
 #+(or) (defmethod new ((self uniform-scaling-shape) arg1 ptr)
-  (uniform-scaling-shape/make-c++-instance/with-arg1&ptr (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::uniform-scaling-shape/make-c++-instance/with-arg1&ptr (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete((self uniform-scaling-shape) arg1 arg2)
-  (uniform-scaling-shape/delete-c++-instance/with-arg1&2 (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::uniform-scaling-shape/delete-c++-instance/with-arg1&2 (ff-pointer self) arg1 arg2))
 #+(or) (defmethod new[] ((self uniform-scaling-shape) sizeinbytes)
-  (uniform-scaling-shape/make-c++-array (ff-pointer self) sizeinbytes))
+  (bullet-physics-c++::uniform-scaling-shape/make-c++-array (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete[] ((self uniform-scaling-shape) ptr)
-  (uniform-scaling-shape/delete-c++-array (ff-pointer self) ptr))
+  (bullet-physics-c++::uniform-scaling-shape/delete-c++-array (ff-pointer self) ptr))
 #+(or) (defmethod new[] ((self uniform-scaling-shape) arg1 ptr)
-  (uniform-scaling-shape/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
+  (bullet-physics-c++::uniform-scaling-shape/make-c++-array/with-arg1&ptr (ff-pointer self) arg1 ptr))
 #+(or) (defmethod delete[] ((self uniform-scaling-shape) arg1 arg2)
-  (uniform-scaling-shape/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
+  (bullet-physics-c++::uniform-scaling-shape/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
 
 (defmethod initialize-instance :after ((obj uniform-scaling-shape)
                                        &key convex-child-shape uniform-scaling-factor)
   (check-type uniform-scaling-factor number)
   (setf (ff-pointer obj)
-        (make-uniform-scaling-shape convex-child-shape uniform-scaling-factor)))
+        (bullet-physics-c++::make-uniform-scaling-shape convex-child-shape uniform-scaling-factor)))
 
 (defmethod local-supporting-vertex-without-margin
     ((self uniform-scaling-shape) (vec vector3))
-  (uniform-scaling-shape/local-get-supporting-vertex-without-margin (ff-pointer self) vec))
+  (bullet-physics-c++::uniform-scaling-shape/local-get-supporting-vertex-without-margin (ff-pointer self) vec))
 
 (defmethod local-supporting-vertex ((self uniform-scaling-shape) (vec vector3))
-  (uniform-scaling-shape/local-get-supporting-vertex (ff-pointer self) vec))
+  (bullet-physics-c++::uniform-scaling-shape/local-get-supporting-vertex (ff-pointer self) vec))
 
 (defmethod batched-unit-vector-supporting-vertex-without-margin 
     ((self uniform-scaling-shape) (vectors vector3)
      (supportverticesout vector3) (numvectors integer))
-  (uniform-scaling-shape/batched-unit-vector-get-supporting-vertex-without-margin (ff-pointer self) vectors supportverticesout numvectors))
+  (bullet-physics-c++::uniform-scaling-shape/batched-unit-vector-get-supporting-vertex-without-margin (ff-pointer self) vectors supportverticesout numvectors))
 
 (defmethod calculate-local-inertia ((self uniform-scaling-shape)
                                     (mass number) (inertia vector3))
-  (uniform-scaling-shape/calculate-local-inertia (ff-pointer self) mass inertia))
+  (bullet-physics-c++::uniform-scaling-shape/calculate-local-inertia (ff-pointer self) mass inertia))
 
 (defmethod uniform-scaling-factor ((self uniform-scaling-shape))
-  (uniform-scaling-shape/get-uniform-scaling-factor (ff-pointer self)))
+  (bullet-physics-c++::uniform-scaling-shape/get-uniform-scaling-factor (ff-pointer self)))
 
 (defmethod child-shape ((self uniform-scaling-shape))
-  (uniform-scaling-shape/get-child-shape (ff-pointer self)))
+  (bullet-physics-c++::uniform-scaling-shape/get-child-shape (ff-pointer self)))
 
 (defmethod child-shape ((self uniform-scaling-shape))
-  (uniform-scaling-shape/get-child-shape (ff-pointer self)))
+  (bullet-physics-c++::uniform-scaling-shape/get-child-shape (ff-pointer self)))
 
 (defmethod name ((self uniform-scaling-shape))
-  (uniform-scaling-shape/get-name (ff-pointer self)))
+  (bullet-physics-c++::uniform-scaling-shape/get-name (ff-pointer self)))
 
 (defmethod aabb+ ((self uniform-scaling-shape) (t-arg1 transform)
                  (aabbmin vector3) (aabbmax vector3))
-  (uniform-scaling-shape/get-aabb (ff-pointer self) t-arg1 aabbmin aabbmax))
+  (bullet-physics-c++::uniform-scaling-shape/get-aabb (ff-pointer self) t-arg1 aabbmin aabbmax))
 
 (defmethod aabb+-slow ((self uniform-scaling-shape) (t-arg1 transform)
                       (aabbmin vector3) (aabbmax vector3))
-  (uniform-scaling-shape/get-aabb-slow (ff-pointer self) t-arg1 aabbmin aabbmax))
+  (bullet-physics-c++::uniform-scaling-shape/get-aabb-slow (ff-pointer self) t-arg1 aabbmin aabbmax))
 
 (defmethod (setf local-scaling) ( (scaling vector3) (self uniform-scaling-shape))
-  (uniform-scaling-shape/set-local-scaling (ff-pointer self) scaling))
+  (bullet-physics-c++::uniform-scaling-shape/set-local-scaling (ff-pointer self) scaling))
 
 (defmethod local-scaling ((self uniform-scaling-shape))
-  (uniform-scaling-shape/get-local-scaling (ff-pointer self)))
+  (bullet-physics-c++::uniform-scaling-shape/get-local-scaling (ff-pointer self)))
 
 (defmethod (setf margin) ( (margin number) (self uniform-scaling-shape))
-  (uniform-scaling-shape/set-margin (ff-pointer self) margin))
+  (bullet-physics-c++::uniform-scaling-shape/set-margin (ff-pointer self) margin))
 
 (defmethod margin ((self uniform-scaling-shape))
-  (uniform-scaling-shape/get-margin (ff-pointer self)))
+  (bullet-physics-c++::uniform-scaling-shape/get-margin (ff-pointer self)))
 
 (defmethod num-preferred-penetration-directions ((self uniform-scaling-shape))
-  (uniform-scaling-shape/get-num-preferred-penetration-directions (ff-pointer self)))
+  (bullet-physics-c++::uniform-scaling-shape/get-num-preferred-penetration-directions (ff-pointer self)))
 
 (defmethod preferred-penetration-direction ((self uniform-scaling-shape)
                                             (index integer) (penetrationvector vector3))
-  (uniform-scaling-shape/get-preferred-penetration-direction (ff-pointer self) index penetrationvector))
+  (bullet-physics-c++::uniform-scaling-shape/get-preferred-penetration-direction (ff-pointer self) index penetrationvector))
 
 (defmethod initialize-instance :after ((obj sphere-sphere-collision-algorithm) &key mf ci col0wrap col1wrap)
   (setf (ff-pointer obj)
-        (make-sphere-sphere-collision-algorithm mf ci col0wrap col1wrap)))
+        (bullet-physics-c++::make-sphere-sphere-collision-algorithm mf ci col0wrap col1wrap)))
 
 (defmethod initialize-instance :after ((obj sphere-sphere-collision-algorithm) &key ci)
-  (setf (ff-pointer obj) (make-sphere-sphere-collision-algorithm ci)))
+  (setf (ff-pointer obj) (bullet-physics-c++::make-sphere-sphere-collision-algorithm ci)))
 
 (defmethod process-collision ((self sphere-sphere-collision-algorithm) body0wrap body1wrap dispatchinfo resultout)
-  (sphere-sphere-collision-algorithm/process-collision (ff-pointer self) body0wrap body1wrap dispatchinfo resultout))
+  (bullet-physics-c++::sphere-sphere-collision-algorithm/process-collision (ff-pointer self) body0wrap body1wrap dispatchinfo resultout))
 
 (defmethod calculate-time-of-impact ((self sphere-sphere-collision-algorithm) (body0 collision-object) (body1 collision-object) dispatchinfo resultout)
-  (sphere-sphere-collision-algorithm/calculate-time-of-impact (ff-pointer self) body0 body1 dispatchinfo resultout))
+  (bullet-physics-c++::sphere-sphere-collision-algorithm/calculate-time-of-impact (ff-pointer self) body0 body1 dispatchinfo resultout))
 
 (defmethod all-contact-manifolds ((self sphere-sphere-collision-algorithm) manifoldarray)
-  (sphere-sphere-collision-algorithm/get-all-contact-manifolds (ff-pointer self) manifoldarray))
+  (bullet-physics-c++::sphere-sphere-collision-algorithm/get-all-contact-manifolds (ff-pointer self) manifoldarray))
 
 
 (defmethod initialize-instance 
     :after ((obj default-collision-configuration) &key
                                                     construction-info)
   (setf (ff-pointer obj) 
-        (make-default-collision-configuration/with-construction-info construction-info)))
+        (bullet-physics-c++::make-default-collision-configuration/with-construction-info construction-info)))
 
 (defmethod initialize-instance :after ((obj default-collision-configuration) &key)
   (setf (ff-pointer obj) (bullet-physics-c++::make-default-collision-configuration)))
@@ -548,8 +548,8 @@
 
 (defmethod find-algorithm ((self collision-dispatcher) body0wrap body1wrap &optional sharedmanifold)
   (if sharedmanifold
-      (collision-dispatcher/find-algorithm (ff-pointer self) body0wrap body1wrap sharedmanifold)
-   (collision-dispatcher/find-algorithm (ff-pointer self) body0wrap body1wrap)))
+      (bullet-physics-c++::collision-dispatcher/find-algorithm (ff-pointer self) body0wrap body1wrap sharedmanifold)
+      (bullet-physics-c++::collision-dispatcher/find-algorithm (ff-pointer self) body0wrap body1wrap)))
 
 
 (defmethod needs-collision ((self collision-dispatcher) (body0 collision-object) (body1 collision-object))
@@ -593,12 +593,12 @@
                                          (overlapping-pair-cache nil cache?))
   (setf (ff-pointer obj) 
         (cond ((and max? cache?)
-               (make-simple-broadphase/with-max-proxies&overlapping-pair-cache
+               (bullet-physics-c++::make-simple-broadphase/with-max-proxies&overlapping-pair-cache
                 max-proxies overlapping-pair-cache))
               (max?
-               (make-simple-broadphase/with-max-proxies max-proxies))
+               (bullet-physics-c++::make-simple-broadphase/with-max-proxies max-proxies))
               (t
-               (make-simple-broadphase)))))
+               (bullet-physics-c++::make-simple-broadphase)))))
 
 (defmethod create-proxy ((self simple-broadphase) (aabbmin vector3) (aabbmax vector3)
                          (shapetype integer) userptr (collisionfiltergroup integer)
@@ -630,7 +630,7 @@
         (t (bullet-physics-c++::simple-broadphase/ray-test (ff-pointer self)
                                        ray-from ray-to ray-callback))))
 
-(defmethod aabb-test ((self simple-broadphase) (aabbmin vector3) (aabbmax vector3) callback)
+(defmethod test-aabb ((self simple-broadphase) (aabbmin vector3) (aabbmax vector3) callback)
   (bullet-physics-c++::simple-broadphase/aabb-test (ff-pointer self) aabbmin aabbmax callback))
 
 (defmethod overlapping-pair-cache ((self simple-broadphase))
@@ -715,8 +715,8 @@
 (defmethod initialize-instance :after ((obj clock) &key other)
   (setf (ff-pointer obj) 
         (etypecase other
-          (null (make-clock))
-          (clock (make-clock/with-other (ff-pointer other))))))
+          (null (bullet-physics-c++::make-clock))
+          (clock (bullet-physics-c++::make-clock/with-other (ff-pointer other))))))
 
 (defmethod (setf clock) ( (other clock) (self clock))
   (bullet-physics-c++::clock/assign-value (ff-pointer self) (ff-pointer other)))
@@ -732,7 +732,7 @@
 
 (defmethod initialize-instance :after ((obj cprofile-node) &key name parent)
   (check-type name string) (check-type parent cprofile-node)
-  (setf (ff-pointer obj) (make-cprofile-node name (ff-pointer parent))))
+  (setf (ff-pointer obj) (bullet-physics-c++::make-cprofile-node name (ff-pointer parent))))
 
 (defmethod sub-node ((self cprofile-node) (name string))
   (bullet-physics-c++::cprofile-node/get/sub/node (ff-pointer self) name))
@@ -819,11 +819,11 @@
   (bullet-physics-c++::cprofile-iterator/get/current/parent/total/time (ff-pointer self)))
 
 (defmethod initialize-instance :after ((obj cprofile-manager) &key)
-  (setf (ff-pointer obj) (make-cprofile-manager)))
+  (setf (ff-pointer obj) (bullet-physics-c++::make-cprofile-manager)))
 #+ (or)
 
 (defmethod initialize-instance :after ((obj cprofile-sample) &key (name string))
-  (setf (ff-pointer obj) (make-cprofile-sample name)))
+  (setf (ff-pointer obj) (bullet-physics-c++::make-cprofile-sample name)))
 #+ (or)
 
 (defmethod draw-line ((self idebug-draw) (from vector3) (to vector3) (color vector3))
@@ -936,7 +936,7 @@
   (bullet-physics-c++::chunk/number/get (ff-pointer obj)))
 
 (defmethod initialize-instance :after ((obj chunk) &key)
-  (bullet-physics-c++::setf (ff-pointer obj) (make-chunk)))
+  (bullet-physics-c++::setf (ff-pointer obj) (bullet-physics-c++::make-chunk)))
 
 (defmethod buffer-pointer ((self serializer))
   (bullet-physics-c++::serializer/get-buffer-pointer (ff-pointer self)))
@@ -981,8 +981,8 @@
   (check-type total-size (or null integer))
   (setf (ff-pointer obj) 
         (cond
-          (total-size (make-default-serializer/with-total-size total-size))
-          (t (make-default-serializer)))))
+          (total-size (bullet-physics-c++::make-default-serializer/with-total-size total-size))
+          (t (bullet-physics-c++::make-default-serializer)))))
 
 (defmethod write-header ((self default-serializer) buffer)
   (bullet-physics-c++::default-serializer/write-header (ff-pointer self) buffer))
@@ -1042,8 +1042,10 @@
 #+(or) (defmethod delete[] ((self discrete-dynamics-world) arg1 arg2)
   (bullet-physics-c++::discrete-dynamics-world/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
 
-(defmethod initialize-instance :after ((obj discrete-dynamics-world) &key dispatcher paircache constraintsolver collisionconfiguration)
-  (setf (ff-pointer obj) (make-discrete-dynamics-world dispatcher paircache constraintsolver collisionconfiguration)))
+(defmethod initialize-instance :after ((obj discrete-dynamics-world)
+                                       &key dispatcher broadphase constraint-solver collision-configuration)
+  (setf (ff-pointer obj) (bullet-physics-c++::make-discrete-dynamics-world
+                          dispatcher broadphase constraint-solver collision-configuration)))
 
 (defmethod step-simulation ((self discrete-dynamics-world) (time-step number)
                             &optional max-sub-steps fixed-time-step)
@@ -1051,13 +1053,13 @@
   (check-type fixed-time-step (or null number))
   (cond
     ((and fixed-time-step max-sub-steps)
-     (discrete-dynamics-world/step-simulation/with-time-step&max-sub-steps&fixed-time-step
+     (bullet-physics-c++::discrete-dynamics-world/step-simulation/with-time-step&max-sub-steps&fixed-time-step
       (ff-pointer self) time-step max-sub-steps fixed-time-step))
     (max-sub-steps
-     (discrete-dynamics-world/step-simulation/with-time-step&max-sub-steps
+     (bullet-physics-c++::discrete-dynamics-world/step-simulation/with-time-step&max-sub-steps
       (ff-pointer self) time-step max-sub-steps))
     (t
-     (discrete-dynamics-world/step-simulation/with-time-step (ff-pointer self) time-step))))
+     (bullet-physics-c++::discrete-dynamics-world/step-simulation/with-time-step (ff-pointer self) time-step))))
 
 
 (defmethod synchronize-motion-states ((self discrete-dynamics-world))
@@ -1069,9 +1071,9 @@
 (defmethod add-constraint ((self discrete-dynamics-world) constraint
                            &key (disable-collisions-between-linked-bodies-p t disable?))
   (if disable?
-      (discrete-dynamics-world/add-constraint/with-disable-collision-between-linked-bodies
+      (bullet-physics-c++::discrete-dynamics-world/add-constraint/with-disable-collision-between-linked-bodies
        (ff-pointer self) constraint disable-collisions-between-linked-bodies-p)
-      (discrete-dynamics-world/add-constraint (ff-pointer self) constraint)))
+      (bullet-physics-c++::discrete-dynamics-world/add-constraint (ff-pointer self) constraint)))
 
 (defmethod remove-constraint ((self discrete-dynamics-world) constraint)
   (bullet-physics-c++::discrete-dynamics-world/remove-constraint (ff-pointer self) constraint))

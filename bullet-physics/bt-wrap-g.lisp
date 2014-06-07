@@ -12,7 +12,7 @@
   (frame-in-b :pointer))
 
 (defmethod gravity ((self discrete-dynamics-world))
-  (discrete-dynamics-world/get-gravity (ff-pointer self)))
+  (bullet-physics-c++::discrete-dynamics-world/get-gravity (ff-pointer self)))
 
 (defmethod add-collision-object ((self discrete-dynamics-world)
                                  (collision-object collision-object)
@@ -24,31 +24,31 @@
   (cond
     ((and collision-filter-mask
           collision-filter-group)
-     (discrete-dynamics-world/add-collision-object/with-filter-group&mask
+     (bullet-physics-c++::discrete-dynamics-world/add-collision-object/with-filter-group&mask
       (ff-pointer self) collision-object collision-filter-group collision-filter-mask))
     (collision-filter-group
-     (discrete-dynamics-world/add-collision-object/with-filter-group
+     (bullet-physics-c++::discrete-dynamics-world/add-collision-object/with-filter-group
       (ff-pointer self) collision-object collision-filter-group))
     (t
-     (discrete-dynamics-world/add-collision-object (ff-pointer self) collision-object))))
+     (bullet-physics-c++::discrete-dynamics-world/add-collision-object (ff-pointer self) collision-object))))
 
 (defmethod remove-rigid-body ((self discrete-dynamics-world) body)
-  (discrete-dynamics-world/remove-rigid-body (ff-pointer self) body))
+  (bullet-physics-c++::discrete-dynamics-world/remove-rigid-body (ff-pointer self) body))
 
 (defmethod remove-collision-object ((self discrete-dynamics-world)
                                     (collisionobject collision-object))
-  (discrete-dynamics-world/remove-collision-object (ff-pointer self) collisionobject))
+  (bullet-physics-c++::discrete-dynamics-world/remove-collision-object (ff-pointer self) collisionobject))
 
 (defmethod debug-draw-constraint ((self discrete-dynamics-world) constraint)
-  (discrete-dynamics-world/debug-draw-constraint (ff-pointer self) constraint))
+  (bullet-physics-c++::discrete-dynamics-world/debug-draw-constraint (ff-pointer self) constraint))
 
-(defmethod debug-draw-world ((self discrete-dynamics-world))  (discrete-dynamics-world/debug-draw-world (ff-pointer self)))
+(defmethod debug-draw-world ((self discrete-dynamics-world))  (bullet-physics-c++::discrete-dynamics-world/debug-draw-world (ff-pointer self)))
 
 (defmethod (setf constraint-solver) ( solver (self discrete-dynamics-world))
-  (discrete-dynamics-world/set-constraint-solver (ff-pointer self) solver))
+  (bullet-physics-c++::discrete-dynamics-world/set-constraint-solver (ff-pointer self) solver))
 
 (defmethod constraint-solver ((self discrete-dynamics-world))
-  (discrete-dynamics-world/get-constraint-solver (ff-pointer self)))
+  (bullet-physics-c++::discrete-dynamics-world/get-constraint-solver (ff-pointer self)))
 
 (defmethod num-constraints ((self discrete-dynamics-world))
   (discrete-dynamics-world/get-num-constraints (ff-pointer self)))
@@ -1231,35 +1231,43 @@
 (defmethod relative-pivot-position ((self generic-6-dof-constraint) (axis_index integer))
   (generic-6-dof-constraint/get-relative-pivot-position (ff-pointer self) axis_index))
 
-(defmethod (setf frames) ( (framea transform) (self generic-6-dof-constraint) (frameb transform))
+(defmethod (setf frames) ((framea transform) (self generic-6-dof-constraint) (frameb transform))
   (generic-6-dof-constraint/set-frames (ff-pointer self) framea frameb))
 
 (defmethod test-angular-limit-motor ((self generic-6-dof-constraint) (axis_index integer))
   (generic-6-dof-constraint/test-angular-limit-motor (ff-pointer self) axis_index))
 
-(defmethod (setf linear-lower-limit) ( (linearlower vector3) (self generic-6-dof-constraint))
+(defmethod (setf linear-lower-limit) ((linearlower vector3) (self generic-6-dof-constraint))
   (generic-6-dof-constraint/set-linear-lower-limit (ff-pointer self) linearlower))
 
-(defmethod linear-lower-limit ((self generic-6-dof-constraint) (linearlower vector3))
-  (generic-6-dof-constraint/get-linear-lower-limit (ff-pointer self) linearlower))
+(defmethod linear-lower-limit ((self generic-6-dof-constraint))
+  (cffi:with-foreign-object (linear-lower vector3)
+    (generic-6-dof-constraint/get-linear-lower-limit (ff-pointer self) linear-lower)
+    linear-lower))
 
 (defmethod (setf linear-upper-limit) ( (linearupper vector3) (self generic-6-dof-constraint))
   (generic-6-dof-constraint/set-linear-upper-limit (ff-pointer self) linearupper))
 
-(defmethod linear-upper-limit ((self generic-6-dof-constraint) (linearupper vector3))
-  (generic-6-dof-constraint/get-linear-upper-limit (ff-pointer self) linearupper))
+(defmethod linear-upper-limit ((self generic-6-dof-constraint))
+  (cffi:with-foreign-object (linear-upper vector3)
+    (generic-6-dof-constraint/get-linear-upper-limit (ff-pointer self) linear-upper)
+    linear-upper))
 
 (defmethod (setf angular-lower-limit) ( (angularlower vector3) (self generic-6-dof-constraint))
   (generic-6-dof-constraint/set-angular-lower-limit (ff-pointer self) angularlower))
 
-(defmethod angular-lower-limit ((self generic-6-dof-constraint) (angularlower vector3))
-  (generic-6-dof-constraint/get-angular-lower-limit (ff-pointer self) angularlower))
+(defmethod angular-lower-limit ((self generic-6-dof-constraint))
+  (cffi:with-foreign-object (angularlower vector3)
+    (generic-6-dof-constraint/get-angular-lower-limit (ff-pointer self) angularlower)
+    angularlower))
 
 (defmethod (setf angular-upper-limit) ( (angularupper vector3) (self generic-6-dof-constraint))
   (generic-6-dof-constraint/set-angular-upper-limit (ff-pointer self) angularupper))
 
-(defmethod angular-upper-limit ((self generic-6-dof-constraint) (angularupper vector3))
-  (generic-6-dof-constraint/get-angular-upper-limit (ff-pointer self) angularupper))
+(defmethod angular-upper-limit ((self generic-6-dof-constraint))
+  (cffi:with-foreign-object  (angularupper vector3)
+    (generic-6-dof-constraint/get-angular-upper-limit (ff-pointer self) angularupper)
+    angularupper))
 
 (defmethod rotational-limit-motor ((self generic-6-dof-constraint) (index integer))
   (generic-6-dof-constraint/get-rotational-limit-motor (ff-pointer self) index))
@@ -1651,23 +1659,21 @@
 (defmethod (setf elt-damping) ((damping number) (self generic-6-dof-spring-constraint) (index integer))
   (generic-6-dof-spring-constraint/set-damping (ff-pointer self) index damping))
 
-(defmethod (setf equilibrium-point) ((self generic-6-dof-spring-constraint)
-                                     (index null) (val null))
+(defmethod (setf equilibrium-point) ((val null) (self generic-6-dof-spring-constraint)
+                                     (index null))
            (generic-6-dof-spring-constraint/set-equilibrium-point (ff-pointer self)))
 
-(defmethod (setf equilibrium-point) ((val null)
-                                     (self generic-6-dof-spring-constraint)
+(defmethod (setf equilibrium-point) ((val null) (self generic-6-dof-spring-constraint)
                                      (index integer))
   (generic-6-dof-spring-constraint/set-equilibrium-point/with-index (ff-pointer self) index))
 
-(defmethod (setf equilibrium-point) ((val number)
-                                     (self generic-6-dof-spring-constraint)
+(defmethod (setf equilibrium-point) ((val number) (self generic-6-dof-spring-constraint)
                                      (index integer))
   (generic-6-dof-spring-constraint/set-equilibrium-point/with-index&float
    (ff-pointer self) index val))
 
-(defmethod (setf axes) ((self generic-6-dof-spring-constraint)
-                        (axis1 vector3) (axis2 vector3))
+(defmethod (setf axes) ((axis1 vector3) (self generic-6-dof-spring-constraint)
+                         (axis2 vector3))
   (generic-6-dof-spring-constraint/set-axis (ff-pointer self) axis1 axis2))
 
 (defmethod info-2 ((self generic-6-dof-spring-constraint) info)
@@ -1911,14 +1917,14 @@
   (sequential-impulse-constraint-solver/delete-c++-array (ff-pointer self) arg1 arg2))
 
 (defmethod initialize-instance :after ((obj sequential-impulse-constraint-solver) &key)
-  (setf (slot-value obj 'ff-pointer) (make-sequential-impulse-constraint-solver)))
+  (setf (slot-value obj 'ff-pointer) (bullet-physics-c++::make-sequential-impulse-constraint-solver)))
 
 (defmethod solve-group ((self sequential-impulse-constraint-solver)
                         bodies (num-bodies integer)
                         manifold (num-manifolds integer)
                         constraints (num-constraints integer)
                         info (debug-drawer idebug-draw) dispatcher)
-  (sequential-impulse-constraint-solver/solve-group
+  (bullet-physics-c++::sequential-impulse-constraint-solver/solve-group
    (ff-pointer self) bodies num-bodies manifold num-manifolds constraints num-constraints
    info debug-drawer dispatcher))
 

@@ -236,293 +236,253 @@
           collision-world/serialize) :void
   (self :pointer)
   (serializer :pointer))
-(define-constant +ACTIVE-TAG+ 1)
-(define-constant +ISLAND-SLEEPING+ 2)
-(define-constant +WANTS-DEACTIVATION+ 3)
-(define-constant +DISABLE-DEACTIVATION+ 4)
-(define-constant +DISABLE-SIMULATION+ 5)
-(alexandria:define-constant +COLLISION-OBJECT-DATA-NAME+
+(define-constant +active-tag+ 1)
+(define-constant +island-sleeping+ 2)
+(define-constant +wants-deactivation+ 3)
+(define-constant +disable-deactivation+ 4)
+(define-constant +disable-simulation+ 5)
+(alexandria:define-constant +collision-object-data-name+
     "btCollisionObjectFloatData"
   :test 'equal)
-(cffi:defcenum COLLISION-FLAGS
-  (:STATIC-OBJECT 1)
-  (:KINEMATIC-OBJECT 2)
-  (:NO-CONTACT-RESPONSE 4)
-  (:CUSTOM-MATERIAL-CALLBACK 8)
-  (:CHARACTER-OBJECT 16)
-  (:DISABLE-VISUALIZE-OBJECT 32)
-  (:DISABLE-SPU-COLLISION-PROCESSING 64))
-(cffi:defcenum COLLISION-OBJECT-TYPES
-  (:COLLISION-OBJECT 1)
-  (:RIGID-BODY 2)
-  (:GHOST-OBJECT 4)
-  (:SOFT-BODY 8)
-  (:HF-FLUID 16)
-  (:USER-TYPE 32)
-  (:FEATHERSTONE-LINK 64))
-(cffi:defcenum ANISOTROPIC-FRICTION-FLAGS
-  (:ANISOTROPIC-FRICTION-DISABLED 0)
-  (:ANISOTROPIC-FRICTION 1)
-  (:ANISOTROPIC-ROLLING-FRICTION 2))
-(cffi:defcenum DISPATCHER-FLAGS
-  (:STATIC-STATIC-REPORTED 1)
-  (:USE-RELATIVE-CONTACT-BREAKING-THRESHOLD 2)
-  (:DISABLE-CONTACTPOOL-DYNAMIC-ALLOCATION 4))
+(cffi:defcenum collision-flags
+  (:static-object 1)
+  (:kinematic-object 2)
+  (:no-contact-response 4)
+  (:custom-material-callback 8)
+  (:character-object 16)
+  (:disable-visualize-object 32)
+  (:disable-spu-collision-processing 64))
+(cffi:defcenum collision-object-types
+  (:collision-object 1)
+  (:rigid-body 2)
+  (:ghost-object 4)
+  (:soft-body 8)
+  (:hf-fluid 16)
+  (:user-type 32)
+  (:featherstone-link 64))
+(cffi:defcenum anisotropic-friction-flags
+  (:anisotropic-friction-disabled 0)
+  (:anisotropic-friction 1)
+  (:anisotropic-rolling-friction 2))
+(cffi:defcenum dispatcher-flags
+  (:static-static-reported 1)
+  (:use-relative-contact-breaking-threshold 2)
+  (:disable-contactpool-dynamic-allocation 4))
 (define-anonymous-enum
-  (DYNAMIC-SET 0)
-  (FIXED-SET 1)
-  (STAGECOUNT 2))
-(cffi:defcenum DEBUG-DRAW-MODES
-  (:NO-DEBUG 0)
-  (:DRAW-WIREFRAME 1)
-  (:DRAW-AABB 2)
-  (:DRAW-FEATURES-TEXT 4)
-  (:DRAW-CONTACT-POINTS 8)
-  (:NO-DEACTIVATION 16)
-  (:NO-HELP-TEXT #.32)
-  (:DRAW-TEXT #.64)
-  (:PROFILE-TIMINGS 128)
-  (:ENABLE-SAT-COMPARISON 256)
-  (:DISABLE-BULLET-LCP #.512)
-  (:ENABLE-CCD 1024)
-  (:DRAW-CONSTRAINTS #.(ash 1 11))
-  (:DRAW-CONSTRAINT-LIMITS #.(ash 1 12))
-  (:FAST-WIREFRAME #.(ash 1 13))
-  (:DRAW-NORMALS #.(ash 1 14))
-  :MAX-DEBUG-DRAW-MODE)
-(cffi:defcenum SERIALIZATION-FLAGS
-  (:NO-BVH 1)
-  (:NO-TRIANGLEINFOMAP 2)
-  (:NO-DUPLICATE-ASSERT 4))
-(cffi:defcenum RIGID-BODY-FLAGS
-  (:DISABLE-WORLD-GRAVITY 1)
-  (:ENABLE-GYROPSCOPIC-FORCE 2))
-(cffi:defcenum POINT->POINT-FLAGS
-  (:P-2-P-FLAGS-ERP 1)
-  (:P-2-P-FLAGS-CFM 2))
-(cffi:defcenum HINGE-FLAGS
-  (:HINGE-FLAGS-CFM-STOP 1)
-  (:HINGE-FLAGS-ERP-STOP 2)
-  (:HINGE-FLAGS-CFM-NORM 4))
-(cffi:defcenum CONE-TWIST-FLAGS
-  (:CONETWIST-FLAGS-LIN-CFM 1)
-  (:CONETWIST-FLAGS-LIN-ERP 2)
-  (:CONETWIST-FLAGS-ANG-CFM 4))
-(cffi:defcenum 6-DOF-FLAGS
-  (:6-DOF-FLAGS-CFM-NORM 1)
-  (:6-DOF-FLAGS-CFM-STOP 2)
-  (:6-DOF-FLAGS-ERP-STOP 4))
-(cffi:defcenum SLIDER-FLAGS
-  (:SLIDER-FLAGS-CFM-DIRLIN #.(ash 1 0))
-  (:SLIDER-FLAGS-ERP-DIRLIN #.(ash 1 1))
-  (:SLIDER-FLAGS-CFM-DIRANG #.(ash 1 2))
-  (:SLIDER-FLAGS-ERP-DIRANG #.(ash 1 3))
-  (:SLIDER-FLAGS-CFM-ORTLIN #.(ash 1 4))
-  (:SLIDER-FLAGS-ERP-ORTLIN #.(ash 1 5))
-  (:SLIDER-FLAGS-CFM-ORTANG #.(ash 1 6))
-  (:SLIDER-FLAGS-ERP-ORTANG #.(ash 1 7))
-  (:SLIDER-FLAGS-CFM-LIMLIN #.(ash 1 8))
-  (:SLIDER-FLAGS-ERP-LIMLIN #.(ash 1 9))
-  (:SLIDER-FLAGS-CFM-LIMANG #.(ash 1 10))
-  (:SLIDER-FLAGS-ERP-LIMANG #.(ash 1 11)))
+  (dynamic-set 0)
+  (fixed-set 1)
+  (stagecount 2))
+(cffi:defcenum debug-draw-modes
+  (:no-debug 0)
+  (:draw-wireframe 1)
+  (:draw-aabb 2)
+  (:draw-features-text 4)
+  (:draw-contact-points 8)
+  (:no-deactivation 16)
+  (:no-help-text #.32)
+  (:draw-text #.64)
+  (:profile-timings 128)
+  (:enable-sat-comparison 256)
+  (:disable-bullet-lcp #.512)
+  (:enable-ccd 1024)
+  (:draw-constraints #.(ash 1 11))
+  (:draw-constraint-limits #.(ash 1 12))
+  (:fast-wireframe #.(ash 1 13))
+  (:draw-normals #.(ash 1 14))
+  :max-debug-draw-mode)
+(cffi:defcenum serialization-flags
+  (:no-bvh 1)
+  (:no-triangleinfomap 2)
+  (:no-duplicate-assert 4))
+(cffi:defcenum rigid-body-flags
+  (:disable-world-gravity 1)
+  (:enable-gyropscopic-force 2))
+(cffi:defcenum point->point-flags
+  (:p-2-p-flags-erp 1)
+  (:p-2-p-flags-cfm 2))
+(cffi:defcenum hinge-flags
+  (:hinge-flags-cfm-stop 1)
+  (:hinge-flags-erp-stop 2)
+  (:hinge-flags-cfm-norm 4))
+(cffi:defcenum cone-twist-flags
+  (:conetwist-flags-lin-cfm 1)
+  (:conetwist-flags-lin-erp 2)
+  (:conetwist-flags-ang-cfm 4))
+(cffi:defcenum 6-dof-flags
+  (:6-dof-flags-cfm-norm 1)
+  (:6-dof-flags-cfm-stop 2)
+  (:6-dof-flags-erp-stop 4))
+(cffi:defcenum slider-flags
+  (:slider-flags-cfm-dirlin #.(ash 1 0))
+  (:slider-flags-erp-dirlin #.(ash 1 1))
+  (:slider-flags-cfm-dirang #.(ash 1 2))
+  (:slider-flags-erp-dirang #.(ash 1 3))
+  (:slider-flags-cfm-ortlin #.(ash 1 4))
+  (:slider-flags-erp-ortlin #.(ash 1 5))
+  (:slider-flags-cfm-ortang #.(ash 1 6))
+  (:slider-flags-erp-ortang #.(ash 1 7))
+  (:slider-flags-cfm-limlin #.(ash 1 8))
+  (:slider-flags-erp-limlin #.(ash 1 9))
+  (:slider-flags-cfm-limang #.(ash 1 10))
+  (:slider-flags-erp-limang #.(ash 1 11)))
 (defmethod initialize-instance :after ((obj collision-world)
-                                       &key dispatcher broadphase-Pair-Cache
-                                         collision-Configuration)
-  (setf (slot-value obj 'ff-pointer) (MAKE-COLLISION-WORLD dispatcher broadphase-Pair-Cache collision-Configuration)))
+                                       &key dispatcher broadphase-pair-cache
+                                         collision-configuration)
+  (setf (slot-value obj 'ff-pointer) (make-collision-world dispatcher
+                                                           broadphase-pair-cache
+                                                           collision-configuration)))
 (defmethod (setf broadphase) (pair-cache (self collision-world))
-  (COLLISION-WORLD/SET-BROADPHASE (ff-pointer self) pair-cache))
+  (collision-world/set-broadphase (ff-pointer self) pair-cache))
 (defmethod broadphase ((self collision-world))
-  (COLLISION-WORLD/GET-BROADPHASE (ff-pointer self)))
+  (collision-world/get-broadphase (ff-pointer self)))
 #+ (or)
 (defmethod broadphase ((self collision-world))
-  (COLLISION-WORLD/GET-BROADPHASE (ff-pointer self)))
+  (collision-world/get-broadphase (ff-pointer self)))
 (defmethod pair-cache ((self collision-world))
-  (COLLISION-WORLD/GET-PAIR-CACHE (ff-pointer self)))
+  (collision-world/get-pair-cache (ff-pointer self)))
 (defmethod dispatcher ((self collision-world))
-  (COLLISION-WORLD/GET-DISPATCHER (ff-pointer self)))
+  (collision-world/get-dispatcher (ff-pointer self)))
 (defmethod dispatcher ((self collision-world))
-  (COLLISION-WORLD/GET-DISPATCHER (ff-pointer self)))
-(defmethod update-single-aabb ((self collision-world) colObj)
-  (COLLISION-WORLD/UPDATE-SINGLE-AABB (ff-pointer self) colObj))
+  (collision-world/get-dispatcher (ff-pointer self)))
+(defmethod update-single-aabb ((self collision-world) colobj)
+  (collision-world/update-single-aabb (ff-pointer self) colobj))
 (defmethod update-aabbs ((self collision-world))
-  (COLLISION-WORLD/UPDATE-AABBS (ff-pointer self)))
+  (collision-world/update-aabbs (ff-pointer self)))
 (defmethod compute-overlapping-pairs ((self collision-world))
-  (COLLISION-WORLD/COMPUTE-OVERLAPPING-PAIRS (ff-pointer self)))
-(defmethod (setf debug-drawer) (debug-Drawer (self collision-world))
-  (COLLISION-WORLD/SET-DEBUG-DRAWER (ff-pointer self) debug-Drawer))
-(defmethod debug-drawer ((self COLLISION-WORLD))
-  (COLLISION-WORLD/GET-DEBUG-DRAWER (ff-pointer self)))
+  (collision-world/compute-overlapping-pairs (ff-pointer self)))
+(defmethod (setf debug-drawer) (debug-drawer (self collision-world))
+  (collision-world/set-debug-drawer (ff-pointer self) debug-drawer))
+(defmethod debug-drawer ((self collision-world))
+  (collision-world/get-debug-drawer (ff-pointer self)))
 (defmethod debug-draw-world ((self collision-world))
-  (COLLISION-WORLD/DEBUG-DRAW-WORLD (ff-pointer self)))
-(defmethod debug-draw-object ((self collision-world) worldTransform shape color)
-  (COLLISION-WORLD/DEBUG-DRAW-OBJECT (ff-pointer self) worldTransform shape color))
+  (collision-world/debug-draw-world (ff-pointer self)))
+(defmethod debug-draw-object ((self collision-world) worldtransform shape color)
+  (collision-world/debug-draw-object (ff-pointer self) worldtransform shape color))
 (defmethod num-collision-objects ((self collision-world))
-  (COLLISION-WORLD/GET-NUM-COLLISION-OBJECTS (ff-pointer self)))
-(defmethod ray-test ((self collision-world) rayFromWorld rayToWorld resultCallback
+  (collision-world/get-num-collision-objects (ff-pointer self)))
+(defmethod ray-test ((self collision-world)
+                     (ray-from-world vector3) (ray-to-world vector3) result-callback
                      &optional _1 _2)
   (declare (ignore _1 _2))
-  (COLLISION-WORLD/RAY-TEST (ff-pointer self) rayFromWorld rayToWorld resultCallback))
+  (collision-world/ray-test (ff-pointer self) ray-from-world ray-to-world result-callback))
 (defmethod convex-sweep-test
     ((self collision-world)
-     castShape from to resultCallback
-     (allowedCcdPenetration number))
-  (COLLISION-WORLD/CONVEX-SWEEP-TEST/with-ccd-penetration
-   (ff-pointer self) castShape from to resultCallback
-   allowedCcdPenetration))
+     castshape from to resultcallback
+     (allowedccdpenetration number))
+  (collision-world/convex-sweep-test/with-ccd-penetration
+   (ff-pointer self) castshape from to resultcallback
+   allowedccdpenetration))
 (defmethod convex-sweep-test
     ((self collision-world)
-     castShape from to resultCallback (allowedCcdPenetration null))
-  (COLLISION-WORLD/CONVEX-SWEEP-TEST/without-ccd-penetration
-   (ff-pointer self) castShape from to resultCallback))
+     castshape from to resultcallback (allowedccdpenetration null))
+  (collision-world/convex-sweep-test/without-ccd-penetration
+   (ff-pointer self) castshape from to resultcallback))
 
 (defmethod contact-test
-    ((self collision-world) colObj resultCallback)
-  (COLLISION-WORLD/CONTACT-TEST (ff-pointer self) colObj resultCallback))
+    ((self collision-world) colobj resultcallback)
+  (collision-world/contact-test (ff-pointer self) colobj resultcallback))
 (defmethod contact-pair-test
-    ((self collision-world) colObjA colObjB resultCallback)
-  (COLLISION-WORLD/CONTACT-PAIR-TEST (ff-pointer self) colObjA colObjB resultCallback))
+    ((self collision-world) colobja colobjb resultcallback)
+  (collision-world/contact-pair-test (ff-pointer self) colobja colobjb resultcallback))
 (defmethod add-collision-object
-    ((self collision-world) collisionObject
+    ((self collision-world) collisionobject
      &optional collision-filter-group collision-filter-mask)
-  (check-type collision-Filter-Group (or null integer))
-  (check-type collision-Filter-Mask (or null integer))
+  (check-type collision-filter-group (or null integer))
+  (check-type collision-filter-mask (or null integer))
   (cond
     ((and collision-filter-group collision-filter-mask)
-     (COLLISION-WORLD/ADD-COLLISION-OBJECT/WITH-FILTER-GROUP&MASK
-      (ff-pointer self) collisionObject
-      collision-Filter-Group collision-Filter-Mask))
+     (collision-world/add-collision-object/with-filter-group&mask
+      (ff-pointer self) collisionobject
+      collision-filter-group collision-filter-mask))
     (collision-filter-group
-     (COLLISION-WORLD/ADD-COLLISION-OBJECT/WITH-FILTER-GROUP
-      (ff-pointer self) collisionObject
-      collision-Filter-Group))
-    (t (COLLISION-WORLD/ADD-COLLISION-OBJECT/simple
-        (ff-pointer self) collisionObject))))
+     (collision-world/add-collision-object/with-filter-group
+      (ff-pointer self) collisionobject
+      collision-filter-group))
+    (t (collision-world/add-collision-object/simple
+        (ff-pointer self) collisionobject))))
 
 (defmethod collision-object-array ((self collision-world))
-  (COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY (ff-pointer self)))
+  (collision-world/get-collision-object-array (ff-pointer self)))
 (defmethod collision-object-array ((self collision-world))
-  (COLLISION-WORLD/GET-COLLISION-OBJECT-ARRAY (ff-pointer self)))
-(defmethod REMOVE-COLLISION-OBJECT ((self COLLISION-WORLD) collisionObject)
-  (COLLISION-WORLD/REMOVE-COLLISION-OBJECT (ff-pointer self) collisionObject))
-(defmethod PERFORM-DISCRETE-COLLISION-DETECTION ((self COLLISION-WORLD))
-  (COLLISION-WORLD/PERFORM-DISCRETE-COLLISION-DETECTION (ff-pointer self)))
-(defmethod DISPATCH-INFO ((self COLLISION-WORLD))
-  (COLLISION-WORLD/GET-DISPATCH-INFO (ff-pointer self)))
-(defmethod DISPATCH-INFO ((self COLLISION-WORLD))
-  (COLLISION-WORLD/GET-DISPATCH-INFO (ff-pointer self)))
-(defmethod FORCE-UPDATE-ALL-AABBS-P ((self COLLISION-WORLD))
-  (COLLISION-WORLD/GET-FORCE-UPDATE-ALL-AABBS (ff-pointer self)))
-(defmethod (SETF FORCE-UPDATE-ALL-AABBS-P) ((forceUpdateAllAabbs t) (self COLLISION-WORLD))
-  (COLLISION-WORLD/SET-FORCE-UPDATE-ALL-AABBS (ff-pointer self) forceUpdateAllAabbs))
+  (collision-world/get-collision-object-array (ff-pointer self)))
+(defmethod remove-collision-object ((self collision-world) collisionobject)
+  (collision-world/remove-collision-object (ff-pointer self) collisionobject))
+(defmethod perform-discrete-collision-detection ((self collision-world))
+  (collision-world/perform-discrete-collision-detection (ff-pointer self)))
+(defmethod dispatch-info ((self collision-world))
+  (collision-world/get-dispatch-info (ff-pointer self)))
+(defmethod dispatch-info ((self collision-world))
+  (collision-world/get-dispatch-info (ff-pointer self)))
+(defmethod force-update-all-aabbs-p ((self collision-world))
+  (collision-world/get-force-update-all-aabbs (ff-pointer self)))
+(defmethod (setf force-update-all-aabbs-p) ((forceupdateallaabbs t) (self collision-world))
+  (collision-world/set-force-update-all-aabbs (ff-pointer self) forceupdateallaabbs))
 (defmethod ->serial ((self collision-world) &key serializer &allow-other-keys)
-  (COLLISION-WORLD/SERIALIZE (ff-pointer self) serializer))
+  (collision-world/serialize (ff-pointer self) serializer))
 
-(define-constant +BULLET-VERSION+ 282)
+(define-constant +bullet-version+ 282)
 
 (defcfun ("_wrap_btGetVersion"
           get-version) :int)
-(define-constant +LARGE-FLOAT+ 1d18)
-(cffi:defcvar ("btInfinityMask"
-               *INFINITY-MASK*)
-    :int)
+(define-constant +large-float+ 1d18)
+(cffi:defcvar ("btInfinityMask" *infinity-mask*) :int)
 
-(defcfun ("_wrap_btGetInfinityMask"
-          get-infinity-mask) :int)
+(defcfun ("_wrap_btGetInfinityMask" get-infinity-mask) :int)
 
-(defcfun ("_wrap_btSqrt"
-          square-root) :float
-  (y :float))
+(defcfun ("_wrap_btSqrt" square-root) :float (y :float))
 
-(defcfun ("_wrap_btFabs"
-          fabs) :float
-  (x :float))
+(defcfun ("_wrap_btFabs" fabs) :float (x :float))
 
-(defcfun ("_wrap_btCos"
-          cosine) :float
-  (x :float))
+(defcfun ("_wrap_btCos" cosine) :float (x :float))
 
-(defcfun ("_wrap_btSin"
-          sine) :float
-  (x :float))
+(defcfun ("_wrap_btSin" sine) :float (x :float))
 
-(defcfun ("_wrap_btTan"
-          tangent) :float
-  (x :float))
+(defcfun ("_wrap_btTan" tangent) :float (x :float))
 
-(defcfun ("_wrap_btAcos"
-          arc-cosine) :float
-  (x :float))
+(defcfun ("_wrap_btAcos" arc-cosine) :float (x :float))
 
-(defcfun ("_wrap_btAsin"
-          arc-sine) :float
-  (x :float))
+(defcfun ("_wrap_btAsin" arc-sine) :float (x :float))
 
-(defcfun ("_wrap_btAtan"
-          arc-tangent) :float
-  (x :float))
+(defcfun ("_wrap_btAtan" arc-tangent) :float (x :float))
 
-(defcfun ("_wrap_btAtan2"
-          atan-2) :float
-  (x :float)
-  (y :float))
+(defcfun ("_wrap_btAtan2" atan-2) :float (x :float) (y :float))
 
-(defcfun ("_wrap_btExp"
-          exponent) :float
-  (x :float))
+(defcfun ("_wrap_btExp" exponent) :float (x :float))
 
-(defcfun ("_wrap_btLog"
-          logarithm) :float
-  (x :float))
+(defcfun ("_wrap_btLog" logarithm) :float (x :float))
 
-(defcfun ("_wrap_btPow"
-          power) :float
-  (x :float)
-  (y :float))
+(defcfun ("_wrap_btPow" power) :float (x :float) (y :float))
 
-(defcfun ("_wrap_btFmod"
-          fmod) :float
-  (x :float)
-  (y :float))
+(defcfun ("_wrap_btFmod" fmod) :float (x :float) (y :float))
 
-(defcfun ("_wrap_btAtan2Fast"
-          atan-2-fast) :float
-  (y :float)
-  (x :float))
+(defcfun ("_wrap_btAtan2Fast" atan-2-fast) :float 
+  (y :float) (x :float))
 
-(defcfun ("_wrap_btFuzzyZero"
-          fuzzy-zero) :pointer
-  (x :float))
+(defcfun ("_wrap_btFuzzyZero" fuzzy-zero) :pointer (x :float))
 
-(defcfun ("_wrap_btEqual"
-          equals) :pointer
+(defcfun ("_wrap_btEqual" equals) :pointer
   (a :float)
   (eps :float))
 
-(defcfun ("_wrap_btGreaterEqual"
-          greater-equal) :pointer
+(defcfun ("_wrap_btGreaterEqual" greater-equal) :pointer
   (a :float)
   (eps :float))
 
-(defcfun ("_wrap_btIsNegative"
-          is-negative) :int
+(defcfun ("_wrap_btIsNegative" negative-p) :boolean
   (x :float))
 
-(defcfun ("_wrap_btRadians"
-          radians) :float
+(defcfun ("_wrap_btRadians" radians) :float
   (x :float))
 
-(defcfun ("_wrap_btDegrees"
-          degrees) :float
+(defcfun ("_wrap_btDegrees" degrees) :float
   (x :float))
 
-(defcfun ("_wrap_btFsel"
-          fsel) :float
+(defcfun ("_wrap_btFsel" fsel) :float
   (a :float)
   (b :float)
   (c :float))
 
-(defcfun ("_wrap_btMachineIsLittleEndian"
-          machine-is-little-endian) :pointer)
+(defcfun ("_wrap_btMachineIsLittleEndian" machine-is-little-endian) :boolean)
 #+ need-funky-select-forms
 (progn
   

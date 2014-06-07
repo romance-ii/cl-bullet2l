@@ -1862,11 +1862,11 @@
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btDiscreteDynamicsWorld"
-          make-discrete-dynamics-world) :pointer
-  (dispatcher :pointer)
-  (pairCache :pointer)
-  (constraintSolver :pointer)
-  (collisionConfiguration :pointer))
+          make-discrete-dynamics-world) discrete-dynamics-world
+  (dispatcher collision-dispatcher)
+  (pair-cache broadphase)
+  (constraint-solver constraint-solver)
+  (collision-configuration collision-configuration))
 
 (defcfun ("_wrap_delete_btDiscreteDynamicsWorld"
           delete/bt-discrete-dynamics-world) :void

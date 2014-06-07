@@ -110,27 +110,26 @@
 
 The `WORLD' is the Dynamics World to be advanced.
 
-The `TIME-STEP' argument is the easy one. It's simply the amount of time
-by which to step the simulation. Typically, you're going to be passing
-it the time since you last called it
+The `TIME-STEP' argument is the easy one. It's simply the amount of
+time by which to step the simulation. Typically, you're going to be
+passing it the time since you last called it
 
 Bullet maintains an internal clock, in order to keep the actual length
 of ticks constant. This is pivotally important for framerate
-independence. The third parameter --- `FIXED-TIME-STEP' --- is the size
-of that internal step.
+independence. The third parameter --- `FIXED-TIME-STEP' --- is the
+size of that internal step.
 
 The second parameter --- `MAX-SUB-STEPS' --- is the maximum number of
 steps that Bullet is allowed to take each time you call it. If you
-pass a very large TIME-STEP as the first parameter (say, five times the
-size of the fixed internal time step), then you must increase the
+pass a very large TIME-STEP as the first parameter (say, five times
+the size of the fixed internal time step), then you must increase the
 number of MAX-SUB-STEPS to compensate for this; otherwise, your
 simulation will ``lose'' time.
 
 @section How do I use this?
 
-It's important that timeStep is always less than
-maxSubSteps*fixedTimeStep, otherwise you are losing
-time. Mathematically,
+It's important that TIME-STEP is always less than \(* MAX-SUB-STEPS
+FIXED-TIME-STEP), otherwise you are losing time. Mathematically,
 
       \( < TIME-STEP  (* MAX-SUB-STEPS FIXED-TIME-STEP) )
 
@@ -198,7 +197,7 @@ physics, and therefore less time on other stuff. If you want twice the
 resolution, you'll need twice the MAX-SUB-STEPS, which could chew up
 twice as much CPU for the same amount of simulation time.
 
-@subsection MAX-SUB-STEPS = 0 ?
+@subsection ZEROP MAX-SUB-STEPS ?
 
 If you pass MAX-SUB-STEPS 0 to the function, then it will assume a
 variable tick rate. Every tick, it will move the simulation along by
@@ -206,28 +205,28 @@ exactly the TIME-STEP you pass, in a single tick, instead of a number
 of ticks equal to FIXED-TIME-STEP.
 
 This is not officially supported, and the death of determinism and
-framerate independence. \emph{Don't do it}.  
+framerate independence. \emph{Don't do it}.
 
 @subsection Bullet interpolates stuff, a.k.a., MAX-SUB-STEPS = 1 ?
 
-When you pass Bullet MAX-SUB-STEPS > 1, it will interpolate movement
-for you. This means that if your FIXED-TIME-STEP is 3/100 units, and
-you pass a TIME-STEP of 4/100, then it will do exactly one tick, and
-estimate the remaining movement by 1/3. This saves you having to do
-interpolation yourself, but keep in mind that MAX-SUB-STEPS needs to
-be greater than 1.
+When you pass Bullet \(> MAX-SUB-STEPS 1), it will interpolate
+movement for you. This means that if your FIXED-TIME-STEP is 3/100
+units, and you pass a TIME-STEP of 4/100, then it will do exactly one
+tick, and estimate the remaining movement by 1/3. This saves you
+having to do interpolation yourself, but keep in mind that
+MAX-SUB-STEPS needs to be greater than 1.
 
 @section Simulation Tick Callbacks
 
 Every time that Bullet does a complete internal tick, it has the
 ability to call a function of your choosing. This callback can happen
 before the simulation step or at the end of the simulation step. Such
-a callback is useful to notify other parts of your application about the
-simulation or to modify velocities of bodies; for example, if you are
-building a spaceship and you want each spaceship to have an individual
-speed cap. No matter how many substeps Bullet will do, your spaceship
-can have its speed limited at the end of every tick, which helps
-framerate independance.
+a callback is useful to notify other parts of your application about
+the simulation or to modify velocities of bodies; for example, if you
+are building a spaceship and you want each spaceship to have an
+individual speed cap. No matter how many substeps Bullet will do, your
+spaceship can have its speed limited at the end of every tick, which
+helps framerate independance.
 
  @subsection How to use
 
@@ -242,7 +241,9 @@ and the appropriate call to add it to the world is
 @example
 void btDynamicsWorld::setInternalTickCallback(btInternalTickCallback cb, 
 void* worldUserInfo=0,bool isPreTick=false);
-@end example"))
+@end example
+
+"))
 (defgeneric synchronize-all-motion-states-p (world))
 (defgeneric synchronize-motion-states (world))
 (defgeneric synchronize-single-motion-state (world body))
