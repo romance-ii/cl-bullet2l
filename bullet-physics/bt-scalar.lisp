@@ -9,10 +9,11 @@ for CFFI."
   (cond
     ((eql 'scalar type) (values `(check-type ,symbol 'double-float)
                                 `(coerce ,symbol 'double-float)))
-    ((ff-class-name-p type) (values `()
+    ((ff-class-name-p type) (values `(check-type ,symbol (or null sb-alien::system-area-pointer))
                                     `(make-instance ',type
                                                     :ff-pointer ,symbol)))
-    (t (values nil symbol))))
+    (t (values `(check-type ,symbol ,(basic-type symbol))
+               symbol))))
 
 (defvar *alien-doubles/pdl*
   (make-array 1 :element-type 'double-float :adjustable t :fill-pointer t)
@@ -22,8 +23,8 @@ for CFFI."
 (defvar *alien-doubles/sp* 0)
 
 (defun pointer->double (double)
-  (check-type double double-float)
-  (let ((e (vector-push-extend double *alien-doubles/pdl*)))
+  (check-type double real)
+  (let ((e (vector-push-extend (coerce double 'double-float) *alien-doubles/pdl*)))
     (sb-alien:alien-sap (elt *alien-doubles/pdl* e))))
 
 (define-condition null-pointer ()
@@ -34,38 +35,47 @@ for CFFI."
           (sb-alien:define-alien-type ,class
               (sb-alien:enum ,class ,@enums))))
 
+(defun check-type-type (type)
+  (case type
+    ((:int :unsigned-int
+           :short :unsigned-short) 'integer)
+    ((scalar :float :double) 'real)
+    ((:char :unsigned-char) t)
+    (otherwise type)))
+
 (defmacro defcfun ((c-name lisp-name) returns &body args)
   (let* ((c++-package (sb-int:find-undeleted-package-or-lose
                        "BULLET-PHYSICS-C++"))
          (sym-name (intern (string lisp-name) c++-package)))
-    (format *trace-output*
-            (concatenate 'string "~2&~@<"
-                         (format nil "~(~S~) ⇐ ƒ ~A (" returns lisp-name)
-                         "~;~{~{~A◦~(~S~)~}~^, ~}~;)~:@>")
-            args)
-    (format *trace-output*
-            "~%~VT C ƒ ~A"
-            (1- (length (format nil "~(~S~)" returns)))
-            c-name)
-    #+ (or)
-    (handler-bind ((bullet-physics::bad-binding
-                    (lambda (c)
-                      (warn "Bad bindings for ƒ ~A; skipping~%~A" sym-name c)
-                      (continue)))))
+    
     (let ((lambda-list (marshall-args args)))
       `(progn
          (declaim (inline ,sym-name))
          (eval-when (:compile-toplevel :load-toplevel)
            (defun ,sym-name (,@(mapcar #'first-or-only args))
+             ,(format nil
+                      "Binding to the C++ ƒ ~(~A~) ~:[~A~;~:*~{~A::~A~}~*~]
+~@<Arguments: ~;~{~{~A (~(~A~))~}~^, ~}~:@>"
+                      returns
+                      (cl-ppcre:register-groups-bind (class method)
+                          ("wrap_(b?t?[A-Z][a-zA-Z0-9]+)_([a-zA-Z0-9]+)" c-name)
+                        (list class method))
+                      c-name args)
+             
              ,@(loop for (arg type) in args
+                  for i from 1
                   collect 
                     (list 'check-type arg 
-                          (case type
-                            ((:int :unsigned-int
-                                   :short :unsigned-short) 'integer)
-                            ((scalar :float :double) 'real)
-                            ((:char :unsigned-char) t)
-                            (otherwise type))))
+                          (check-type-type type)
+                          (format nil "a value of type ~S (for the ~S ~:R arg to ~A)"
+                                  (check-type-type type) type i lisp-name)))
+             (format *trace-output* "~2& Calling ~A (~A)"
+                     ,c-name ',lisp-name)
+             ,@(loop for (arg type) in args
+                  for i from 1
+                  collect 
+                    `(format *trace-output* "~& — ~:R arg: ~A (~S)"
+                             ,i ,arg (type-of ,arg)))
              (sb-alien:alien-funcall
               (sb-alien:extern-alien ,c-name
                                      (function ,(basic-type returns)

@@ -5,7 +5,7 @@
                                       ,@(mapcar (lambda (slot)
                                                   (list (car slot)
                                                         (basic-type (second slot)))) slots))))
-    (format *trace-output* "Class-like structure mapped for ~A~{~% •~{~A~^ ~}~}" class slots)
+    (format *trace-output* "~2&Class-like structure mapped for ~A~{~% •~{~A~^ ~}~}" class slots)
     `(progn
        (sb-alien:define-alien-type ,class ,alien-type)
        (defclass ,class (/c++-class/) ())
@@ -16,9 +16,10 @@
                                                                        (intern (format nil "~A-?" sym)))))
                                                              slots))
                   (let ((alien-struct (sb-alien:make-alien ,alien-type)))
-                    ,@(loop for (sym stuff) in slots
+                    ,@(loop for (sym kind) in slots
                          for sym-provided-p = (intern (format nil "~A-?" sym))
                          collecting `(when ,sym-provided-p
+                                       (check-type ,sym ,(check-type-type kind))
                                        (setf (sb-alien:slot alien-struct ',sym) ,sym)))
                     (setf (ff-pointer object) (sb-alien:alien-sap alien-struct))
                     (sb-ext:finalize object (lambda () (sb-alien:free-alien alien-struct))))) 
@@ -30,8 +31,8 @@
                         (defmethod (setf ,sym) (new-value (object ,class))
                           (setf (sb-alien:slot (ff-pointer object) ',sym) new-value)))))))
 
-;; (define-c-struct vector3-float-data
-;;     (floats (:array :float 4)))
+(define-c-struct vector3-float-data
+  (floats (:array :float 4)))
 
 (define-c-struct vector3-double-data
   (floats (:array :double 4)))
@@ -48,19 +49,19 @@
   (z :double)
   (w :double))
 
-;; (define-c-struct matrix-3x3-float-data
-;;     (el (:array :float 9)))
+(define-c-struct matrix-3x3-float-data
+  (el (:array :float 9)))
 
 (define-c-struct matrix-3x3-double-data
   (el (:array :float 9)))
 
-;; (define-c-struct transform-float-data
-;;     (basis matrix-3x3-float-data)
-;;   (origin vector3-float-data))
+(define-c-struct transform-float-data
+  (basis matrix-3x3-float-data)
+  (origin vector3-float-data))
 
 (define-c-struct transform-double-data
-  (basis (:pointer (:struct matrix-3x3-double-data)))
-  (origin (:pointer (:struct vector3-double-data))))
+  (basis matrix-3x3-double-data)
+  (origin vector3-double-data))
 
 (define-c-struct typed-constraint-data
   (rb-a :pointer)
@@ -78,46 +79,46 @@
   (is-enabled :int))
 
 (define-c-struct generic-6-dof-constraint-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-float-data)))
-  (rb-bframe (:pointer (:struct transform-float-data)))
-  (linear-upper-limit (:pointer (:struct vector3-float-data)))
-  (linear-lower-limit (:pointer (:struct vector3-float-data)))
-  (angular-upper-limit (:pointer (:struct vector3-float-data)))
-  (angular-lower-limit (:pointer (:struct vector3-float-data)))
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-float-data)
+  (rb-bframe transform-float-data)
+  (linear-upper-limit vector3-float-data)
+  (linear-lower-limit vector3-float-data)
+  (angular-upper-limit vector3-float-data)
+  (angular-lower-limit vector3-float-data)
   (use-linear-reference-frame-a :int)
   (use-offset-for-constraint-frame :int))
 
 (define-c-struct compound-shape-child-data
-  (transform (:pointer (:struct transform-float-data)))
+  (transform transform-float-data)
   (child-shape :pointer)
   (child-shape-type :int)
   (child-margin :float))
 
-;; (define-c-struct rigid-body-construction-info
-;;   (motion-state :pointer)
-;;   (start-world-transform transform)
+(define-c-struct rigid-body-construction-info
+  (motion-state :pointer)
+  (start-world-transform transform)
 
-;;   (collision-shape (:pointer collision-shape))
-;;   (local-inertia vector3)
-;;   (linear-damping :double)
-;;   (angular-damping :double)
+  (collision-shape (:pointer collision-shape))
+  (local-inertia vector3)
+  (linear-damping :double)
+  (angular-damping :double)
 
-;;   (friction :double)
-;;   (rolling-friction :double)
-;;   (restitution :double)
+  (friction :double)
+  (rolling-friction :double)
+  (restitution :double)
 
-;;   (linear-sleeping-threshold :double)
-;;   (angular-sleeping-threshold :double)
-;;   ;; additional damping can help avoiding lowpass jitter motion, help
-;;   ;; stability for ragdolls etc.  Such damping is undesirable, so once
-;;   ;; the overall simulation quality of the rigid body dynamics system
-;;   ;; has improved, this should become obsolete
-;;   (additional-damping :boolean)
-;;   (additional-damping-factor :double)
-;;   (additional-linear-damping-threshold-sqr :double)
-;;   (additional-angular-damping-threshold-sqr :double)
-;;   (additional-angular-damping-factor :double))
+  (linear-sleeping-threshold :double)
+  (angular-sleeping-threshold :double)
+  ;; additional damping can help avoiding lowpass jitter motion, help
+  ;; stability for ragdolls etc.  Such damping is undesirable, so once
+  ;; the overall simulation quality of the rigid body dynamics system
+  ;; has improved, this should become obsolete
+  (additional-damping :boolean)
+  (additional-damping-factor :double)
+  (additional-linear-damping-threshold-sqr :double)
+  (additional-angular-damping-threshold-sqr :double)
+  (additional-angular-damping-factor :double))
 
 (define-c-struct default-collision-construction-info
   (persistent-manifold-pool :pointer)
@@ -137,7 +138,8 @@
   (links :pointer)
   (stage :int))
 
-;;(define-c-struct pointer-uid)
+(define-c-struct pointer-uid
+  (_ :pointer))
 
 (define-c-struct dbvt-broadphase
   (sets :pointer)
@@ -204,7 +206,7 @@
   (collision-margin :float))
 
 (define-c-struct position-and-radius
-  (pos (:pointer (:struct vector3-float-data)))
+  (pos vector3-float-data)
   (radius :float))
 
 (define-c-struct multi-sphere-shape-data
@@ -230,8 +232,8 @@
 
 (define-c-struct static-plane-shape-data
   (collision-shape-data :pointer)
-  (local-scaling (:pointer (:struct vector3-float-data)))
-  (plane-normal (:pointer (:struct vector3-float-data)))
+  (local-scaling vector3-float-data)
+  (plane-normal vector3-float-data)
   (plane-constant :float)
   (pad :pointer))
 
@@ -252,8 +254,8 @@
   (pad-3 :pointer))
 
 (define-c-struct scaled-triangle-mesh-shape-data
-  (trimesh-shape-data (:pointer (:struct triangle-mesh-shape-data)))
-  (local-scaling (:pointer (:struct vector3-float-data))))
+  (trimesh-shape-data triangle-mesh-shape-data)
+  (local-scaling vector3-float-data))
 
 (define-c-struct indexed-mesh
   (make-c++-instance~1 :pointer)
@@ -412,17 +414,17 @@
   (padding :pointer))
 
 (define-c-struct rigid-body-double-data
-  (collision-object-data (:pointer (:struct collision-object-double-data)))
-  (inv-inertia-tensor-world (:pointer (:struct matrix-3x3-double-data)))
-  (linear-velocity (:pointer (:struct vector3-double-data)))
-  (angular-velocity (:pointer (:struct vector3-double-data)))
-  (angular-factor (:pointer (:struct vector3-double-data)))
-  (linear-factor (:pointer (:struct vector3-double-data)))
-  (gravity (:pointer (:struct vector3-double-data)))
-  (gravity-acceleration (:pointer (:struct vector3-double-data)))
-  (inv-inertia-local (:pointer (:struct vector3-double-data)))
-  (total-force (:pointer (:struct vector3-double-data)))
-  (total-torque (:pointer (:struct vector3-double-data)))
+  (collision-object-data collision-object-double-data)
+  (inv-inertia-tensor-world matrix-3x3-double-data)
+  (linear-velocity vector3-double-data)
+  (angular-velocity vector3-double-data)
+  (angular-factor vector3-double-data)
+  (linear-factor vector3-double-data)
+  (gravity vector3-double-data)
+  (gravity-acceleration vector3-double-data)
+  (inv-inertia-local vector3-double-data)
+  (total-force vector3-double-data)
+  (total-torque vector3-double-data)
   (inverse-mass :double)
   (linear-damping :double)
   (angular-damping :double)
@@ -478,17 +480,17 @@
   (applied-torque-body-b :pointer))
 
 (define-c-struct rigid-body-float-data
-  (collision-object-data (:pointer (:struct collision-object-float-data)))
-  (inv-inertia-tensor-world (:pointer (:struct matrix-3x3-float-data)))
-  (linear-velocity (:pointer (:struct vector3-float-data)))
-  (angular-velocity (:pointer (:struct vector3-float-data)))
-  (angular-factor (:pointer (:struct vector3-float-data)))
-  (linear-factor (:pointer (:struct vector3-float-data)))
-  (gravity (:pointer (:struct vector3-float-data)))
-  (gravity-acceleration (:pointer (:struct vector3-float-data)))
-  (inv-inertia-local (:pointer (:struct vector3-float-data)))
-  (total-force (:pointer (:struct vector3-float-data)))
-  (total-torque (:pointer (:struct vector3-float-data)))
+  (collision-object-data collision-object-float-data)
+  (inv-inertia-tensor-world matrix-3x3-float-data)
+  (linear-velocity vector3-float-data)
+  (angular-velocity vector3-float-data)
+  (angular-factor vector3-float-data)
+  (linear-factor vector3-float-data)
+  (gravity vector3-float-data)
+  (gravity-acceleration vector3-float-data)
+  (inv-inertia-local vector3-float-data)
+  (total-force vector3-float-data)
+  (total-torque vector3-float-data)
   (inverse-mass :float)
   (linear-damping :float)
   (angular-damping :float)
@@ -501,20 +503,20 @@
   (additional-damping :int))
 
 (define-c-struct generic-6-dof-constraint-double-data-2
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
-  (linear-upper-limit (:pointer (:struct vector3-double-data)))
-  (linear-lower-limit (:pointer (:struct vector3-double-data)))
-  (angular-upper-limit (:pointer (:struct vector3-double-data)))
-  (angular-lower-limit (:pointer (:struct vector3-double-data)))
+  (type-constraint-data typed-constraint-double-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
+  (linear-upper-limit vector3-double-data)
+  (linear-lower-limit vector3-double-data)
+  (angular-upper-limit vector3-double-data)
+  (angular-lower-limit vector3-double-data)
   (use-linear-reference-frame-a :int)
   (use-offset-for-constraint-frame :int))
 
 (define-c-struct slider-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
+  (type-constraint-data typed-constraint-double-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
   (linear-upper-limit :double)
   (linear-lower-limit :double)
   (angular-upper-limit :double)
@@ -523,39 +525,37 @@
   (use-offset-for-constraint-frame :int))
 
 (define-c-struct generic-6-dof-spring-constraint-data
-  (6-dof-data (:pointer (:struct generic-6-dof-constraint-data)))
+  (6-dof-data generic-6-dof-constraint-data)
   (spring-enabled :pointer)
   (equilibrium-point-at :pointer)
   (spring-stiffness :pointer)
   (spring-damping :pointer))
 
 (define-c-struct generic-6-dof-spring-constraint-double-data-2
-  (6-dof-data (:pointer (:struct generic-6-dof-constraint-double-data-2)))
+  (6-dof-data generic-6-dof-constraint-double-data-2)
   (spring-enabled :pointer)
   (equilibrium-point-at :pointer)
   (spring-stiffness :pointer)
   (spring-damping :pointer))
 
 (define-c-struct gear-constraint-float-data
-  (type-constraint-data
-   (:pointer (:struct
-              typed-constraint-float-data)))
-  (axis-in-a (:pointer (:struct vector3-float-data)))
-  (axis-in-b (:pointer (:struct vector3-float-data)))
+  (type-constraint-data typed-constraint-float-data)
+  (axis-in-a vector3-float-data)
+  (axis-in-b vector3-float-data)
   (bullet/ratio :float)
   (padding :pointer))
 
 (define-c-struct gear-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (axis-in-a (:pointer (:struct vector3-double-data)))
-  (axis-in-b (:pointer (:struct vector3-double-data)))
+  (type-constraint-data typed-constraint-double-data)
+  (axis-in-a vector3-double-data)
+  (axis-in-b vector3-double-data)
   (bullet/ratio :double))
 
 
 (define-c-struct slider-constraint-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-float-data)))
-  (rb-bframe (:pointer (:struct transform-float-data)))
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-float-data)
+  (rb-bframe transform-float-data)
   (linear-upper-limit :float)
   (linear-lower-limit :float)
   (angular-upper-limit :float)
@@ -564,24 +564,24 @@
   (use-offset-for-constraint-frame :int))
 
 (define-c-struct point->point-constraint-float-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (pivot-in-a (:pointer (:struct vector3-float-data)))
-  (pivot-in-b (:pointer (:struct vector3-float-data))))
+  (type-constraint-data typed-constraint-data)
+  (pivot-in-a vector3-float-data)
+  (pivot-in-b vector3-float-data))
 
 (define-c-struct point->point-constraint-double-data-2
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (pivot-in-a (:pointer (:struct vector3-double-data)))
-  (pivot-in-b (:pointer (:struct vector3-double-data))))
+  (type-constraint-data typed-constraint-double-data)
+  (pivot-in-a vector3-double-data)
+  (pivot-in-b vector3-double-data))
 
 (define-c-struct point->point-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (pivot-in-a (:pointer (:struct vector3-double-data)))
-  (pivot-in-b (:pointer (:struct vector3-double-data))))
+  (type-constraint-data typed-constraint-data)
+  (pivot-in-a vector3-double-data)
+  (pivot-in-b vector3-double-data))
 
 (define-c-struct hinge-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
   (use-reference-frame-a :int)
   (angular-only-p :int)
   (enable-angular-motor-p :int)
@@ -594,9 +594,9 @@
   (relaxation-factor :float))
 
 (define-c-struct hinge-constraint-float-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-float-data)))
-  (rb-bframe (:pointer (:struct transform-float-data)))
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-float-data)
+  (rb-bframe transform-float-data)
   (use-reference-frame-a :int)
   (angular-only-p :int)
   (enable-angular-motor-p :int)
@@ -609,9 +609,9 @@
   (relaxation-factor :float))
 
 (define-c-struct hinge-constraint-double-data-2
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
+  (type-constraint-data typed-constraint-double-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
   (use-reference-frame-a :int)
   (angular-only-p :int)
   (enable-angular-motor-p :int)
@@ -625,9 +625,9 @@
   (padding-1 :pointer))
 
 (define-c-struct cone-twist-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
+  (type-constraint-data typed-constraint-double-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
   (swing-span-1 :double)
   (swing-span-2 :double)
   (twist-span :double)
@@ -637,9 +637,9 @@
   (damping :double))
 
 (define-c-struct cone-twist-constraint-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-float-data)))
-  (rb-bframe (:pointer (:struct transform-float-data)))
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-float-data)
+  (rb-bframe transform-float-data)
   (swing-span-1 :float)
   (swing-span-2 :float)
   (twist-span :float)

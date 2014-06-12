@@ -1055,7 +1055,7 @@
   (setf (ff-pointer obj) (funcall
                           (etypecase broadphase
                             (broadphase       #'bullet-physics-c++::make-discrete-dynamics-world)
-                            (dbvt-broadphase  #'bullet-physics-c++::make-discrete-dynamics-world+dvbt))
+                            (dbvt-broadphase  #'bullet-physics-c++::make-discrete-dynamics-world+dbvt))
                           dispatcher
                           broadphase 
                           constraint-solver 

@@ -903,10 +903,11 @@
   (arg1 :pointer)
   (arg2 :pointer))
 
+(warn "Guessing at VECTOR3")
 (defcfun ("_wrap_new_btStaticPlaneShape"
-          make-static-plane-shape) :pointer
-  (planeNormal :pointer)
-  (planeConstant :float))
+          make-static-plane-shape) static-plane-shape
+  (plane-Normal vector3)
+  (plane-Constant :float))
 
 (defcfun ("_wrap_delete_btStaticPlaneShape"
           delete/bt-static-plane-shape) :void
