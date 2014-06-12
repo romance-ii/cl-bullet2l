@@ -85,7 +85,7 @@
   (rayToWorld :pointer)
   (resultCallback :pointer))
 (declaim (inline
-          COLLISION-WORLD/CONVEX-SWEEP-TEST/WITH-CCD-PENETRATION))
+          collision-world/convex-sweep-test/with-ccd-penetration))
 (defcfun ("_wrap_btCollisionWorld_convexSweepTest__SWIG_0"
           collision-world/convex-sweep-test/with-ccd-penetration) :void
   (self :pointer)
@@ -95,7 +95,7 @@
   (resultCallback :pointer)
   (allowedCcdPenetration :float))
 (declaim (inline
-          COLLISION-WORLD/CONVEX-SWEEP-TEST/WITHOUT-CCD-PENETRATION))
+          collision-world/convex-sweep-test/without-ccd-penetration))
 (defcfun ("_wrap_btCollisionWorld_convexSweepTest__SWIG_1"
           collision-world/convex-sweep-test/without-ccd-penetration) :void
   (self :pointer)
@@ -103,7 +103,7 @@
   (from :pointer)
   (to :pointer)
   (resultCallback :pointer))
-(defun COLLISION-WORLD/CONVEX-SWEEP-TEST
+(defun collision-world/convex-sweep-test
     (self cast-shape from to result-callback
      &key (allowed-ccd-penetration nil allowed-?))
   (if allowed-?

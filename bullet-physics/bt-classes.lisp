@@ -2,12 +2,12 @@
 
 ;;; Worlds
 
-(defclass /c++-class/ (cffi::enhanced-foreign-type)
+(defclass /c++-class/ ()
   ((ff-pointer :accessor ff-pointer :type system-area-pointer)))
 
-(defmacro bt-class (name &optional (base-class '/c++-class/ ))
+(defmacro bt-class (name &optional (base-class '/c++-class/))
   `(progn 
-     (cffi:define-foreign-type ,name (,base-class)
+     (cffi:define-foreign-type ,name (,base-class cffi::enhanced-foreign-type)
       nil
       (:actual-type :pointer))
     (sb-alien:define-alien-type ,name
@@ -79,9 +79,9 @@
 
 ;;; Vectors, matrices, et al.
 
-(bt-class vector3)
+;; (bt-class vector3)
 
-(bt-class vector4 vector3)
+;; (bt-class vector4 vector3)
 
 (bt-class quaternion)
 

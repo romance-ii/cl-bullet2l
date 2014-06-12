@@ -1043,9 +1043,23 @@
   (bullet-physics-c++::discrete-dynamics-world/delete-c++-array/with-arg1&2 (ff-pointer self) arg1 arg2))
 
 (defmethod initialize-instance :after ((obj discrete-dynamics-world)
-                                       &key dispatcher broadphase constraint-solver collision-configuration)
-  (setf (ff-pointer obj) (bullet-physics-c++::make-discrete-dynamics-world
-                          dispatcher broadphase constraint-solver collision-configuration)))
+                                       &key dispatcher broadphase
+                                         constraint-solver collision-configuration)
+  (format *trace-output* "~&MAKE-DISCRETE-DYNAMICS-WORLD
+•dispatcher ~S
+•broadphase ~S
+•constraint solver ~S
+•collision-configuration ~S"
+          dispatcher broadphase
+          constraint-solver collision-configuration)
+  (setf (ff-pointer obj) (funcall
+                          (etypecase broadphase
+                            (broadphase       #'bullet-physics-c++::make-discrete-dynamics-world)
+                            (dbvt-broadphase  #'bullet-physics-c++::make-discrete-dynamics-world+dvbt))
+                          dispatcher
+                          broadphase 
+                          constraint-solver 
+                          collision-configuration)))
 
 (defmethod step-simulation ((self discrete-dynamics-world) (time-step number)
                             &optional max-sub-steps fixed-time-step)
@@ -1093,6 +1107,6 @@
 (defmethod collision-world ((self discrete-dynamics-world))
   (bullet-physics-c++::discrete-dynamics-world/get-collision-world (ff-pointer self)))
 
-(defmethod (setf gravity) ( (gravity vector3) (self discrete-dynamics-world))
-  (bullet-physics-c++::discrete-dynamics-world/set-gravity (ff-pointer self) gravity))
+(defmethod (setf gravity) ((gravity vector3) (self discrete-dynamics-world))
+  (bullet-physics-c++::discrete-dynamics-world/set-gravity self gravity))
 

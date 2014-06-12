@@ -12,18 +12,19 @@ library.  It's being used to unit-test the Lisp bindings.
 Once I can get this test to run successfully, we'll call it an
 α-quality library and share it with both people who care."
   
-  (let* ((broadphase (make-instance 'axis-sweep3))
+  (let* ((broadphase (make-instance 'bullet:dbvt-broadphase))
          (collision-configuration (make-instance 'default-collision-configuration))
          (dispatcher (make-instance 'collision-dispatcher :collision-configuration collision-configuration))
          (solver (make-instance 'sequential-impulse-constraint-solver))
          (dynamics-world (make-instance 'discrete-dynamics-world
                                         :dispatcher dispatcher
                                         :broadphase broadphase 
-                                        :solver solver 
+                                        :constraint-solver solver 
                                         :collision-configuration collision-configuration)))
     (setf (gravity dynamics-world) (vector3 0 -10 0))
     (let* ((ground-shape (make-instance 'static-plane-shape 
-                                        :thing1 (vector3 0 1 0) :thing2 1))
+                                        :plane-normal (vector3 0 1 0)
+                                        :plane-constant 1))
            (fall-shape (make-instance 'sphere-shape :radius 1))
            (ground-motion-state (make-instance
                                  'default-motion-state 

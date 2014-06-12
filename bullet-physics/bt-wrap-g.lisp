@@ -1241,7 +1241,7 @@
   (generic-6-dof-constraint/set-linear-lower-limit (ff-pointer self) linearlower))
 
 (defmethod linear-lower-limit ((self generic-6-dof-constraint))
-  (cffi:with-foreign-object (linear-lower vector3)
+  (let ((linear-lower (cffi:foreign-alloc '(:struct vector3))))
     (generic-6-dof-constraint/get-linear-lower-limit (ff-pointer self) linear-lower)
     linear-lower))
 
@@ -1249,7 +1249,7 @@
   (generic-6-dof-constraint/set-linear-upper-limit (ff-pointer self) linearupper))
 
 (defmethod linear-upper-limit ((self generic-6-dof-constraint))
-  (cffi:with-foreign-object (linear-upper vector3)
+  (let ((linear-upper (cffi:foreign-alloc '(:struct vector3))))
     (generic-6-dof-constraint/get-linear-upper-limit (ff-pointer self) linear-upper)
     linear-upper))
 
@@ -1257,7 +1257,7 @@
   (generic-6-dof-constraint/set-angular-lower-limit (ff-pointer self) angularlower))
 
 (defmethod angular-lower-limit ((self generic-6-dof-constraint))
-  (cffi:with-foreign-object (angularlower vector3)
+  (let ((angularlower (cffi:foreign-alloc '(:struct vector3))))
     (generic-6-dof-constraint/get-angular-lower-limit (ff-pointer self) angularlower)
     angularlower))
 
@@ -1265,7 +1265,7 @@
   (generic-6-dof-constraint/set-angular-upper-limit (ff-pointer self) angularupper))
 
 (defmethod angular-upper-limit ((self generic-6-dof-constraint))
-  (cffi:with-foreign-object  (angularupper vector3)
+  (let ((angularupper (cffi:foreign-alloc '(:struct vector3))))
     (generic-6-dof-constraint/get-angular-upper-limit (ff-pointer self) angularupper)
     angularupper))
 

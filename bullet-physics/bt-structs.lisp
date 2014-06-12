@@ -5,7 +5,7 @@
                                       ,@(mapcar (lambda (slot)
                                                   (list (car slot)
                                                         (basic-type (second slot)))) slots))))
-    (format *trace-output* "Class-like structure mapped for ~A~{~% •~A~}" class slots)
+    (format *trace-output* "Class-like structure mapped for ~A~{~% •~{~A~^ ~}~}" class slots)
     `(progn
        (sb-alien:define-alien-type ,class ,alien-type)
        (defclass ,class (/c++-class/) ())
@@ -15,12 +15,13 @@
                                                                  (list sym nil
                                                                        (intern (format nil "~A-?" sym)))))
                                                              slots))
-                  (let ((pointer (sb-alien:make-alien ,alien-type)))
+                  (let ((alien-struct (sb-alien:make-alien ,alien-type)))
                     ,@(loop for (sym stuff) in slots
                          for sym-provided-p = (intern (format nil "~A-?" sym))
-                         collecting `(when ,sym-provided-p (setf (sb-alien:slot pointer ',sym) ,sym)))
-                    (setf (ff-pointer object) pointer)
-                    (sb-ext:finalize object (lambda () (sb-alien:free-alien pointer))))) 
+                         collecting `(when ,sym-provided-p
+                                       (setf (sb-alien:slot alien-struct ',sym) ,sym)))
+                    (setf (ff-pointer object) (sb-alien:alien-sap alien-struct))
+                    (sb-ext:finalize object (lambda () (sb-alien:free-alien alien-struct))))) 
        ,@(loop for (sym stuff) in slots
             appending `((ensure-generic-function ',sym :lambda-list '(object))
                         (defmethod ,sym ((object ,class))
@@ -33,7 +34,19 @@
 ;;     (floats (:array :float 4)))
 
 (define-c-struct vector3-double-data
-  (floats (:array :float 4)))
+  (floats (:array :double 4)))
+
+(define-c-struct vector3
+  (x :double)
+  (y :double)
+  (z :double)
+  (w :double))
+
+(define-c-struct vector4
+  (x :double)
+  (y :double)
+  (z :double)
+  (w :double))
 
 ;; (define-c-struct matrix-3x3-float-data
 ;;     (el (:array :float 9)))

@@ -35,6 +35,7 @@
   ((:file "bullet-package")
    (:file "bt-load-libs")
    (:file "bt-classes")
+   (:file "bt-binding-functions")
    (:file "bt-scalar")
    (:file "bt-structs")
    (:file "bt-dvbt-broadphase")
@@ -56,5 +57,7 @@
    (:file "bt-wrap-g"))
   
   :perform (asdf:compile-op :before (op component)
-                            (asdf:run-shell-command "make -C ..")))
+                            (asdf:run-shell-command (format nil "make -C \"~A\""
+                                                            (merge-pathnames "../"
+                                                                             (asdf:system-source-directory :cl-bullet2l))))))
 

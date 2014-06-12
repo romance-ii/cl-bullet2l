@@ -71,7 +71,10 @@
 
 (defun vector3 (&optional (x nil x?) y (z nil z?))
   (cond
-    (z? (make-instance 'vector3 :x x :y y :z z))
+    (z? (make-instance 'vector3 
+                       :x (coerce x 'double-float)
+                       :y (coerce y 'double-float)
+                       :z (coerce z 'double-float)))
     (x? (error "VECTOR3 requires either 0 or 3 arguments"))
     (t  (make-instance 'vector3))))
 
@@ -371,11 +374,11 @@
                make-quaternion/naked) :pointer)
 
 (defcfun ("_wrap_new_btQuaternion__SWIG_1"
-               make-quaternion/x&y&z&w) :pointer
-  (x :pointer)
-  (y :pointer)
-  (z :pointer)
-  (w :pointer))
+          make-quaternion/with-x&y&z&w) :pointer
+  (x :double)
+  (y :double)
+  (z :double)
+  (w :double))
 
 (defcfun ("_wrap_new_btQuaternion__SWIG_2"
                make-quaternion/axis&angle) :pointer
@@ -394,11 +397,11 @@
                            (z/roll nil z?)
                            (w nil w?))
   (cond
-    (w? (make-quaternion/x&y&z&w         x/axis/yaw y/angle/pitch z/roll w))
-    (z? (make-quaternion/yaw&pitch&roll  x/axis/yaw y/angle/pitch z/roll))
-    (y? (make-quaternion/axis&angle      x/axis/yaw y/angle/pitch))
+    (w? (bullet-physics-c++::make-quaternion/x&y&z&w         x/axis/yaw y/angle/pitch z/roll w))
+    (z? (bullet-physics-c++::make-quaternion/yaw&pitch&roll  x/axis/yaw y/angle/pitch z/roll))
+    (y? (bullet-physics-c++::make-quaternion/axis&angle      x/axis/yaw y/angle/pitch))
     (x? (error "MAKE-QUATERNION needs 0 args or 2 (axis&angle) or 3 (yaw&pitch&roll) or 4 (x&y&z&w)"))
-    (t (make-quaternion/naked))))
+    (t (bullet-physics-c++::make-quaternion/naked))))
 
 (defcfun ("_wrap_btQuaternion_setRotation"
                QUATERNION/SET-ROTATION) :void
@@ -581,10 +584,10 @@
 
 
 (defmethod NEW ((self VECTOR3) sizeInBytes)
-  (VECTOR3/MAKE-c++-INSTANCE (ff-pointer self) sizeInBytes))
+  (bullet-physics-c++::VECTOR3/MAKE-c++-INSTANCE (ff-pointer self) sizeInBytes))
 
 (defmethod BULLET/DELETE ((self VECTOR3) ptr)
-  (VECTOR3/DELETE-c++-INSTANCE (ff-pointer self) ptr))
+  (bullet-physics-c++::VECTOR3/DELETE-c++-INSTANCE (ff-pointer self) ptr))
 
 #+ (or)
 (progn
@@ -598,10 +601,10 @@
      (ff-pointer self) arg1 arg2)))
 
 (defmethod NEW[] ((self VECTOR3) sizeInBytes)
-  (VECTOR3/MAKE-c++-ARRAY (ff-pointer self) sizeInBytes))
+  (bullet-physics-c++::VECTOR3/MAKE-c++-ARRAY (ff-pointer self) sizeInBytes))
 
 (defmethod DELETE[] ((self VECTOR3) ptr)
-  (VECTOR3/DELETE-c++-ARRAY (ff-pointer self) ptr))
+  (bullet-physics-c++::VECTOR3/DELETE-c++-ARRAY (ff-pointer self) ptr))
 
 #+ (or)
 (progn
@@ -614,60 +617,61 @@
     (VECTOR3/DELETE-c++-ARRAY (ff-pointer self) arg1 arg2)))
 
 (defmethod (setf FLOATS) (arg0 (obj VECTOR3))
-  (VECTOR3/FLOATS/SET (ff-pointer obj) arg0))
+  (bullet-physics-c++::Vector3/FLOATS/SET (ff-pointer obj) arg0))
 
 (defmethod FLOATS ((obj VECTOR3))
-  (VECTOR3/FLOATS/GET (ff-pointer obj)))
+  (bullet-physics-c++::Vector3/FLOATS/GET (ff-pointer obj)))
 
 #+ (or) (defmethod initialize-instance :after ((obj VECTOR3) &key)
                  (setf (slot-value obj 'ff-pointer) (MAKE-VECTOR3)))
 
 (defmethod initialize-instance :after ((obj VECTOR3) &key (x 0) (y 0) (z 0))
-  (setf (slot-value obj 'ff-pointer) (b2l-make-vector-3 (coerce x 'double-float)
-                                                        (coerce y 'double-float) 
-                                                        (coerce z 'double-float))))
+  (setf (slot-value obj 'ff-pointer) (bullet-physics-c++::b2l-make-vector-3 
+                                      (coerce x 'double-float)
+                                      (coerce y 'double-float) 
+                                      (coerce z 'double-float))))
 
 (defmethod n+ ((self VECTOR3) (v VECTOR3))
-  (VECTOR3/INCREMENT (ff-pointer self) (ff-pointer v)))
+  (bullet-physics-c++::Vector3/INCREMENT (ff-pointer self) (ff-pointer v)))
 
 (defmethod n- ((self VECTOR3) (v VECTOR3))
-  (VECTOR3/DECREMENT (ff-pointer self) (ff-pointer v)))
+  (bullet-physics-c++::Vector3/DECREMENT (ff-pointer self) (ff-pointer v)))
 
 (defmethod n* ((self VECTOR3) s)
-  (VECTOR3/MULTIPLY-AND-ASSIGN (ff-pointer self) s))
+  (bullet-physics-c++::Vector3/MULTIPLY-AND-ASSIGN (ff-pointer self) s))
 
 (defmethod n/ ((self VECTOR3) s)
-  (VECTOR3/DIVIDE-AND-ASSIGN (ff-pointer self) s))
+  (bullet-physics-c++::Vector3/DIVIDE-AND-ASSIGN (ff-pointer self) s))
 
 (defmethod DOT* ((self VECTOR3) (v VECTOR3))
-  (VECTOR3/DOT/self*other (ff-pointer self) (ff-pointer v)))
+  (bullet-physics-c++::Vector3/DOT/self*other (ff-pointer self) (ff-pointer v)))
 
 (defmethod LENGTH-2 ((self VECTOR3))
-  (VECTOR3/LENGTH-2 (ff-pointer self)))
+  (bullet-physics-c++::Vector3/LENGTH-2 (ff-pointer self)))
 
 (defmethod BULLET/LENGTH ((self VECTOR3))
-  (VECTOR3/LENGTH (ff-pointer self)))
+  (bullet-physics-c++::Vector3/LENGTH (ff-pointer self)))
 
 (defmethod NORM ((self VECTOR3))
-  (VECTOR3/NORM (ff-pointer self)))
+  (bullet-physics-c++::Vector3/NORM (ff-pointer self)))
 
 (defmethod VDISTANCE-2 ((self VECTOR3) (v VECTOR3))
-  (VECTOR3/DISTANCE-2 (ff-pointer self) (ff-pointer v)))
+  (bullet-physics-c++::Vector3/DISTANCE-2 (ff-pointer self) (ff-pointer v)))
 
 (defmethod VDISTANCE ((self VECTOR3) (v VECTOR3))
-  (VECTOR3/DISTANCE (ff-pointer self) (ff-pointer v)))
+  (bullet-physics-c++::Vector3/DISTANCE (ff-pointer self) (ff-pointer v)))
 
 (defmethod SAFE-NORMALIZE ((self VECTOR3))
-  (VECTOR3/SAFE-NORMALIZE (ff-pointer self)))
+  (bullet-physics-c++::Vector3/SAFE-NORMALIZE (ff-pointer self)))
 
 (defmethod NORMALIZE ((self VECTOR3))
-  (VECTOR3/NORMALIZE (ff-pointer self)))
+  (bullet-physics-c++::Vector3/NORMALIZE (ff-pointer self)))
 
 (defmethod NORMALIZED ((self VECTOR3))
-  (VECTOR3/NORMALIZED (ff-pointer self)))
+  (bullet-physics-c++::Vector3/NORMALIZED (ff-pointer self)))
 
 (defmethod ROTATE-3D ((self VECTOR3) (wAxis VECTOR3) (angle number))
-  (VECTOR3/ROTATE (ff-pointer self) (ff-pointer wAxis) angle))
+  (bullet-physics-c++::Vector3/ROTATE (ff-pointer self) (ff-pointer wAxis) angle))
 
 
 
@@ -681,126 +685,126 @@
 
 #+ (or)
 (defmethod ANGLE ((self VECTOR3) (v VECTOR3))
-  (VECTOR3/ANGLE (ff-pointer self) (ff-pointer v)))
+  (bullet-physics-c++::Vector3/ANGLE (ff-pointer self) (ff-pointer v)))
 
 (defmethod ABSOLUTE ((self VECTOR3))
-  (VECTOR3/ABSOLUTE (ff-pointer self)))
+  (bullet-physics-c++::Vector3/ABSOLUTE (ff-pointer self)))
 
 (defmethod CROSS* ((self VECTOR3) (v VECTOR3))
-  (VECTOR3/CROSS (ff-pointer self) (ff-pointer v)))
+  (bullet-physics-c++::Vector3/CROSS (ff-pointer self) (ff-pointer v)))
 
 (defmethod TRIPLE* ((self VECTOR3) (v1 VECTOR3) (v2 VECTOR3))
-  (VECTOR3/TRIPLE (ff-pointer self) (ff-pointer v1) (ff-pointer v2)))
+  (bullet-physics-c++::Vector3/TRIPLE (ff-pointer self) (ff-pointer v1) (ff-pointer v2)))
 
 (defmethod MIN-AXIS ((self VECTOR3))
-  (VECTOR3/MIN-AXIS (ff-pointer self)))
+  (bullet-physics-c++::Vector3/MIN-AXIS (ff-pointer self)))
 
 (defmethod MAX-AXIS ((self VECTOR3))
-  (VECTOR3/MAX-AXIS (ff-pointer self)))
+  (bullet-physics-c++::Vector3/MAX-AXIS (ff-pointer self)))
 
 (defmethod FURTHEST-AXIS ((self VECTOR3))
-  (VECTOR3/FURTHEST-AXIS (ff-pointer self)))
+  (bullet-physics-c++::Vector3/FURTHEST-AXIS (ff-pointer self)))
 
 (defmethod CLOSEST-AXIS ((self VECTOR3))
-  (VECTOR3/CLOSEST-AXIS (ff-pointer self)))
+  (bullet-physics-c++::Vector3/CLOSEST-AXIS (ff-pointer self)))
 
 (defmethod (SETF INTERPOLATE-3) (triplet (self VECTOR3) )
   (destructuring-bind (v0 v1 rt) triplet
     (check-type v0 VECTOR3) (check-type v1 VECTOR3) (check-type rt number)
-    (VECTOR3/SET-INTERPOLATE-3 (ff-pointer self) (ff-pointer v0) (ff-pointer v1) rt)))
+    (bullet-physics-c++::Vector3/SET-INTERPOLATE-3 (ff-pointer self) (ff-pointer v0) (ff-pointer v1) rt)))
 
 (defmethod VLERP ((self VECTOR3) (v VECTOR3) t-arg2)
-  (VECTOR3/LERP (ff-pointer self) (ff-pointer v) t-arg2))
+  (bullet-physics-c++::Vector3/LERP (ff-pointer self) (ff-pointer v) t-arg2))
 
 (defmethod n* ((self VECTOR3) (v VECTOR3))
-  (VECTOR3/MULTIPLY-AND-ASSIGN (ff-pointer self) (ff-pointer v)))
+  (bullet-physics-c++::Vector3/MULTIPLY-AND-ASSIGN (ff-pointer self) (ff-pointer v)))
 
 (defmethod X ((self VECTOR3))
-  (VECTOR3/GET-X (ff-pointer self)))
+  (bullet-physics-c++::Vector3/GET-X (ff-pointer self)))
 
 (defmethod Y ((self VECTOR3))
-  (VECTOR3/GET-Y (ff-pointer self)))
+  (bullet-physics-c++::Vector3/GET-Y (ff-pointer self)))
 
 (defmethod Z ((self VECTOR3))
-  (VECTOR3/GET-Z (ff-pointer self)))
+  (bullet-physics-c++::Vector3/GET-Z (ff-pointer self)))
 
 (defmethod (SETF X) ( (x number) (self VECTOR3))
-  (VECTOR3/SET-X (ff-pointer self) x))
+  (bullet-physics-c++::Vector3/SET-X (ff-pointer self) x))
 
 (defmethod (SETF Y) ( (y number) (self VECTOR3))
-  (VECTOR3/SET-Y (ff-pointer self) y))
+  (bullet-physics-c++::Vector3/SET-Y (ff-pointer self) y))
 
 (defmethod (SETF Z) ( (z number) (self VECTOR3))
-  (VECTOR3/SET-Z (ff-pointer self) z))
+  (bullet-physics-c++::Vector3/SET-Z (ff-pointer self) z))
 
 (defmethod (SETF W) ( (w number) (self VECTOR3))
-  (VECTOR3/SET-W (ff-pointer self) w))
+  (bullet-physics-c++::Vector3/SET-W (ff-pointer self) w))
 
 (defmethod X ((self VECTOR3))
-  (VECTOR3/X (ff-pointer self)))
+  (bullet-physics-c++::Vector3/X (ff-pointer self)))
 
 (defmethod Y ((self VECTOR3))
-  (VECTOR3/Y (ff-pointer self)))
+  (bullet-physics-c++::Vector3/Y (ff-pointer self)))
 
 (defmethod Z ((self VECTOR3))
-  (VECTOR3/Z (ff-pointer self)))
+  (bullet-physics-c++::Vector3/Z (ff-pointer self)))
 
 (defmethod W ((self VECTOR3))
-  (VECTOR3/W (ff-pointer self)))
+  (bullet-physics-c++::Vector3/W (ff-pointer self)))
 
 (defmethod vector= ((self VECTOR3) (other VECTOR3))
-  (VECTOR3/IS-EQUAL (ff-pointer self) (ff-pointer other)))
+  (bullet-physics-c++::Vector3/IS-EQUAL (ff-pointer self) (ff-pointer other)))
 
 (defmethod vector/= ((self VECTOR3) (other VECTOR3))
-  (VECTOR3/NOT-EQUALS (ff-pointer self) (ff-pointer other)))
+  (bullet-physics-c++::Vector3/NOT-EQUALS (ff-pointer self) (ff-pointer other)))
 
 (defmethod (SETF BULLET/MAX) ( (other VECTOR3) (self VECTOR3))
-  (VECTOR3/SET-MAX (ff-pointer self) (ff-pointer other)))
+  (bullet-physics-c++::Vector3/SET-MAX (ff-pointer self) (ff-pointer other)))
 
 (defmethod (SETF BULLET/MIN) ( (other VECTOR3) (self VECTOR3))
-  (VECTOR3/SET-MIN (ff-pointer self) (ff-pointer other)))
+  (bullet-physics-c++::Vector3/SET-MIN (ff-pointer self) (ff-pointer other)))
 
 (defmethod (SETF xyz) (x&y&z (self VECTOR3))
   (destructuring-bind (x y z) x&y&z
     (check-type x number) (check-type y number) (check-type z number)
     (warn "FIXME: check proper types for x, y, z here")
-  (VECTOR3/SET-VALUE (ff-pointer self)
+  (bullet-physics-c++::Vector3/SET-VALUE (ff-pointer self)
                      (coerce x '(signed-byte 64))
                      (coerce y '(signed-byte 64)) 
                      (coerce z '(signed-byte 64)))))
 
 (defmethod nzero ((self VECTOR3))
-  (VECTOR3/SET-ZERO (ff-pointer self)))
+  (bullet-physics-c++::Vector3/SET-ZERO (ff-pointer self)))
 
 (defmethod vector-ZERO-P ((self VECTOR3))
-  (VECTOR3/IS-ZERO (ff-pointer self)))
+  (bullet-physics-c++::Vector3/IS-ZERO (ff-pointer self)))
 
 (defmethod vector-near-ZERO-p ((self VECTOR3))
-  (VECTOR3/FUZZY-ZERO (ff-pointer self)))
+  (bullet-physics-c++::Vector3/FUZZY-ZERO (ff-pointer self)))
 
 (defmethod SKEW-SYMMETRIC-MATRIX ((self VECTOR3) (v0 VECTOR3) (v1 VECTOR3) (v2 VECTOR3))
-  (VECTOR3/GET-SKEW-SYMMETRIC-MATRIX (ff-pointer self) (ff-pointer v0) (ff-pointer v1) (ff-pointer v2)))
+  (bullet-physics-c++::Vector3/GET-SKEW-SYMMETRIC-MATRIX (ff-pointer self) (ff-pointer v0) (ff-pointer v1) (ff-pointer v2)))
 
 (defmethod ->serial ((self VECTOR3) &key data-Out (format :default) &allow-other-keys)
   (ecase format
-    (:default (VECTOR3/SERIALIZE (ff-pointer self) data-Out))
-    (:single-float (VECTOR3/SERIALIZE-FLOAT (ff-pointer self) data-Out))
-    (:double-float (VECTOR3/SERIALIZE-DOUBLE (ff-pointer self) data-Out))))
+    (:default (bullet-physics-c++::Vector3/SERIALIZE (ff-pointer self) data-Out))
+    (:single-float (bullet-physics-c++::Vector3/SERIALIZE-FLOAT (ff-pointer self) data-Out))
+    (:double-float (bullet-physics-c++::Vector3/SERIALIZE-DOUBLE (ff-pointer self) data-Out))))
 
 (defmethod <-serial ((self VECTOR3) &key data-In (format :default) &allow-other-keys)
   (ecase format
-    (:default (VECTOR3/DE-SERIALIZE (ff-pointer self) data-In))
-    (:single-float (VECTOR3/DE-SERIALIZE-FLOAT (ff-pointer self) data-In))
-    (:double-float (VECTOR3/DE-SERIALIZE-DOUBLE (ff-pointer self) data-In))))
+    (:default (bullet-physics-c++::Vector3/DE-SERIALIZE (ff-pointer self) data-In))
+    (:single-float (bullet-physics-c++::Vector3/DE-SERIALIZE-FLOAT (ff-pointer self) data-In))
+    (:double-float (bullet-physics-c++::Vector3/DE-SERIALIZE-DOUBLE (ff-pointer self) data-In))))
 
 (defmethod MAX-DOT ((self VECTOR3) (array VECTOR3) (array_count integer) dotOut)
-  (VECTOR3/MAX-DOT (ff-pointer self) (ff-pointer array) array_count dotOut))
+  (bullet-physics-c++::Vector3/MAX-DOT (ff-pointer self) (ff-pointer array) array_count dotOut))
 
 (defmethod MIN-DOT ((self VECTOR3) (array VECTOR3) (array_count integer) dotOut)
-  (VECTOR3/MIN-DOT (ff-pointer self) (ff-pointer array) array_count dotOut))
+  (bullet-physics-c++::Vector3/MIN-DOT (ff-pointer self) (ff-pointer array) array_count dotOut))
 
 (defmethod DOT-3 ((self VECTOR3) (v0 VECTOR3) (v1 VECTOR3) (v2 VECTOR3))
-  (VECTOR3/DOT-3 (ff-pointer self) (ff-pointer v0) (ff-pointer v1) (ff-pointer v2)))
+  (bullet-physics-c++::Vector3/DOT-3 (ff-pointer self) (ff-pointer v0) (ff-pointer v1) (ff-pointer v2)))
 
 
 (defcfun ("_wrap_btAlignedAllocInternal"
@@ -858,28 +862,28 @@
   (setf (slot-value obj 'ff-pointer)
         (cond
           ((and x y z w)
-           (MAKE-VECTOR4/with-x&y&z&w x y z w))
+           (bullet-physics-c++::MAKE-VECTOR4/with-x&y&z&w x y z w))
           ((not (or x y z w))
-           (make-vector4/naked)))))
+           (bullet-physics-c++::make-vector4/naked)))))
 
 (defmethod ABSOLUTE-4 ((self VECTOR4))
-  (VECTOR4/ABSOLUTE-4 (ff-pointer self)))
+  (bullet-physics-c++::Vector4/ABSOLUTE-4 (ff-pointer self)))
 
 (defmethod W ((self VECTOR4))
-  (VECTOR4/GET-W (ff-pointer self)))
+  (bullet-physics-c++::Vector4/GET-W (ff-pointer self)))
 
 (defmethod MAX-AXIS-4 ((self VECTOR4))
-  (VECTOR4/MAX-AXIS-4 (ff-pointer self)))
+  (bullet-physics-c++::Vector4/MAX-AXIS-4 (ff-pointer self)))
 
 (defmethod MIN-AXIS-4 ((self VECTOR4))
-  (VECTOR4/MIN-AXIS-4 (ff-pointer self)))
+  (bullet-physics-c++::Vector4/MIN-AXIS-4 (ff-pointer self)))
 
 (defmethod CLOSEST-AXIS-4 ((self VECTOR4))
-  (VECTOR4/CLOSEST-AXIS-4 (ff-pointer self)))
+  (bullet-physics-c++::Vector4/CLOSEST-AXIS-4 (ff-pointer self)))
 
 (defmethod (SETF xyzw) (x&y&z&w (self VECTOR4))
   (destructuring-bind (x y z w) x&y&z&w
-    (VECTOR4/SET-VALUE (ff-pointer self) x y z w)))
+    (bullet-physics-c++::Vector4/SET-VALUE (ff-pointer self) x y z w)))
 
 
 (defmethod initialize-instance :after ((obj QUATERNION)
@@ -889,101 +893,105 @@
   (setf (slot-value obj 'ff-pointer) 
         (cond
           ((or x? y? z? w? (not axis?) (not angle?) (not yaw?) (not pitch?) (not roll?))
-           (MAKE-QUATERNION/with-x&y&z&w x y z w))
+           (bullet-physics-c++::MAKE-QUATERNION/with-x&y&z&w x y z w))
           ((and axis? angle? (not yaw?) (not pitch?) (not roll?))
-           (MAKE-QUATERNION/with-axis&angle (ff-pointer axis) angle))
+           (bullet-physics-c++::MAKE-QUATERNION/with-axis&angle (ff-pointer axis) angle))
           ((or yaw? pitch? roll?)
-           (MAKE-QUATERNION/with-yaw&pitch&roll yaw pitch roll)))))
+           (bullet-physics-c++::MAKE-QUATERNION/with-yaw&pitch&roll yaw pitch roll)))))
 
 (defmethod (SETF ROTATION) (axis&angle (self QUATERNION))
   (destructuring-bind (axis angle) axis&angle
-    (QUATERNION/SET-ROTATION (ff-pointer self) axis angle)))
+    (bullet-physics-c++::QUATERNION/SET-ROTATION (ff-pointer self) axis angle)))
 
 (defmethod (SETF EULER) (yaw&pitch&roll (self QUATERNION))
   (destructuring-bind (yaw pitch roll) yaw&pitch&roll
-    (QUATERNION/SET-EULER (ff-pointer self) yaw pitch roll)))
+    (bullet-physics-c++::QUATERNION/SET-EULER (ff-pointer self) yaw pitch roll)))
 
 (defmethod (SETF EULER-ZYX) (yaw&pitch&roll (self QUATERNION))
   (destructuring-bind (yaw pitch roll) yaw&pitch&roll
-    (QUATERNION/SET-EULER-ZYX (ff-pointer self) yaw pitch roll)))
+    (bullet-physics-c++::QUATERNION/SET-EULER-ZYX (ff-pointer self) yaw pitch roll)))
 
 (defmethod n+ ((self QUATERNION) (q QUATERNION))
-  (QUATERNION/INCREMENT (ff-pointer self) (ff-pointer q)))
+  (bullet-physics-c++::QUATERNION/INCREMENT (ff-pointer self) (ff-pointer q)))
 
 
 (defmethod n- ((self QUATERNION) (q QUATERNION))
-  (QUATERNION/DECREMENT (ff-pointer self) (ff-pointer q)))
+  (bullet-physics-c++::Quaternion/DECREMENT (ff-pointer self) (ff-pointer q)))
 
 (defmethod n* ((self QUATERNION) s)
-  (QUATERNION/MULTIPLY-AND-ASSIGN/s (ff-pointer self) s))
+  (bullet-physics-c++::Quaternion/MULTIPLY-AND-ASSIGN/s (ff-pointer self) s))
 
 (defmethod n* ((self QUATERNION) (q QUATERNION))
-  (QUATERNION/MULTIPLY-AND-ASSIGN/q (ff-pointer self) (ff-pointer q)))
+  (bullet-physics-c++::Quaternion/MULTIPLY-AND-ASSIGN/q (ff-pointer self) (ff-pointer q)))
 
 (defmethod DOT* ((self QUATERNION) (q QUATERNION))
-  (QUATERNION/DOT (ff-pointer self) (ff-pointer q)))
+  (bullet-physics-c++::Quaternion/DOT (ff-pointer self) (ff-pointer q)))
 
 (defmethod LENGTH-2 ((self QUATERNION))
-  (QUATERNION/LENGTH-2 (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/LENGTH-2 (ff-pointer self)))
 
 (defmethod BULLET/LENGTH ((self QUATERNION))
-  (QUATERNION/LENGTH (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/LENGTH (ff-pointer self)))
 
 (defmethod NORMALIZE ((self QUATERNION))
-  (QUATERNION/NORMALIZE (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/NORMALIZE (ff-pointer self)))
 
 (defmethod BULLET/* ((self QUATERNION) s)
-  (QUATERNION/MULTIPLY (ff-pointer self) s))
+  (bullet-physics-c++::Quaternion/MULTIPLY (ff-pointer self) s))
 
 (defmethod BULLET/divide ((self QUATERNION) s)
-  (QUATERNION/DIVIDE (ff-pointer self) s))
+  (bullet-physics-c++::Quaternion/DIVIDE (ff-pointer self) s))
 
 (defmethod n/ ((self QUATERNION) s)
-  (QUATERNION/DIVIDE-AND-ASSIGN (ff-pointer self) s))
+  (bullet-physics-c++::Quaternion/DIVIDE-AND-ASSIGN (ff-pointer self) s))
 
 (defmethod NORMALIZED ((self QUATERNION))
-  (QUATERNION/NORMALIZED (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/NORMALIZED (ff-pointer self)))
 
 (defmethod ANGLE ((self QUATERNION) (q QUATERNION))
-  (QUATERNION/ANGLE (ff-pointer self) (ff-pointer q)))
+  (bullet-physics-c++::Quaternion/ANGLE (ff-pointer self) (ff-pointer q)))
 
 (defmethod ANGLE-SHORTEST-PATH ((self QUATERNION) (q QUATERNION))
-  (QUATERNION/ANGLE-SHORTEST-PATH (ff-pointer self) (ff-pointer q)))
+  (bullet-physics-c++::Quaternion/ANGLE-SHORTEST-PATH (ff-pointer self) (ff-pointer q)))
 
 (defmethod ANGLE ((self QUATERNION) (other null))
-  (QUATERNION/GET-ANGLE (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/GET-ANGLE (ff-pointer self)))
 
 (defmethod ANGLE-SHORTEST-PATH ((self QUATERNION) (other null))
-  (QUATERNION/GET-ANGLE-SHORTEST-PATH (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/GET-ANGLE-SHORTEST-PATH (ff-pointer self)))
 
 (defmethod AXIS ((self QUATERNION))
-  (QUATERNION/GET-AXIS (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/GET-AXIS (ff-pointer self)))
 
 (defmethod quaternion-INVERSE ((self QUATERNION))
-  (QUATERNION/INVERSE (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/INVERSE (ff-pointer self)))
 
 (defmethod BULLET/+ ((self QUATERNION) (q2 QUATERNION))
-  (QUATERNION/ADD (ff-pointer self) (ff-pointer q2)))
+  (bullet-physics-c++::Quaternion/ADD (ff-pointer self) (ff-pointer q2)))
 
 (defmethod bullet/- ((self QUATERNION) (q2 QUATERNION))
-  (QUATERNION/SUBTRACT (ff-pointer self) (ff-pointer q2)))
+  (bullet-physics-c++::Quaternion/SUBTRACT (ff-pointer self) (ff-pointer q2)))
 
 (defmethod negate ((self QUATERNION))
-  (QUATERNION///NEG// (ff-pointer self)))
+  (bullet-physics-c++::Quaternion///NEG// (ff-pointer self)))
 
 (defmethod FARTHEST ((self QUATERNION) (qd QUATERNION))
-  (QUATERNION/FARTHEST (ff-pointer self) (ff-pointer qd)))
+  (bullet-physics-c++::Quaternion/FARTHEST (ff-pointer self) (ff-pointer qd)))
 
 (defmethod NEAREST ((self QUATERNION) (qd QUATERNION))
-  (QUATERNION/NEAREST (ff-pointer self) (ff-pointer qd)))
+  (bullet-physics-c++::Quaternion/NEAREST (ff-pointer self) (ff-pointer qd)))
 
 (defmethod SLERP ((self QUATERNION) (q QUATERNION) t-arg2)
-  (QUATERNION/SLERP (ff-pointer self) (ff-pointer q) t-arg2))
+  (bullet-physics-c++::Quaternion/SLERP (ff-pointer self) (ff-pointer q) t-arg2))
 
 (defmethod W ((self QUATERNION))
-  (QUATERNION/GET-W (ff-pointer self)))
+  (bullet-physics-c++::Quaternion/GET-W (ff-pointer self)))
 
 
+(defcfun ("b2l_makeVector3" b2l/make-vector3) vector3
+  (x scalar)
+  (y scalar)
+  (z scalar))
 
 
 

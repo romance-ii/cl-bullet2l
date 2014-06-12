@@ -63,7 +63,7 @@ for CFFI."
                           (case type
                             ((:int :unsigned-int
                                    :short :unsigned-short) 'integer)
-                            ((:float :double) 'real)
+                            ((scalar :float :double) 'real)
                             ((:char :unsigned-char) t)
                             (otherwise type))))
              (sb-alien:alien-funcall
