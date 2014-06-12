@@ -1,9 +1,5 @@
 (in-package :bullet-physics)
 
-;;; This *assumes* that Bullet is compiled with double-precision.
-
-(cffi:defctype scalar :double)
-
 (defun coercion-to-lisp (symbol type)
   "Given a Lisp symbol and a CFFI-style type or a wrapped C++ object,
 returns multiple values as evaluatable forms for checking the value of
@@ -33,91 +29,6 @@ for CFFI."
 (define-condition null-pointer ()
   ())
 
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (define-condition bad-binding ()
-    ())
-  (define-condition bad-binding-pointer (bad-binding)
-    () (:report ":POINTER is not a basic type. Change this declaration to a (:POINTER target-type) list."))
-  (define-condition bad-binding-type (bad-binding)
-    ((type :initarg :type :reader bad-binding-type))
-    (:report (lambda (c s)
-               (format s "~S is not a basic type and is not FF-CLASS-NAME-P" 
-                       (bad-binding-type c)))))
-  
-  
-  (defun first-or-only (thing)
-    (if (consp thing) (first thing) thing))
-  (let ((c++-metaclass (find-class '/c++-class/)))
-    (defun ff-class-name-p (symbol)
-      ;; TODO: Look for FF-POINTER specialization
-      (when-let ((class (ignore-errors (find-class symbol))))
-        (closer-mop:subclassp class c++-metaclass))))
-  (defun basic-type (type)
-    (cond 
-      ((consp type) (ecase (car type)
-                      (:array `(sb-alien:array ,(basic-type (second type)) ,@(nthcdr 2 type)))
-                      (:struct `(sb-alien:struct ,@(cdr type)))
-                      (:enum '(integer 32)) ;; ?
-                      (:pointer (case (second type)
-                                  (:void :pointer)
-                                  (otherwise (list '* (basic-type (second type))))))))
-      ((ff-class-name-p type) (list '* type))
-      (t (case type
-           ((scalar :double :float) 'double-float)
-           (:long    '(integer 64))
-           (:int     '(integer 32))
-           (:short   '(integer 16))
-           (:char    '(sb-alien:unsigned 8))
-           (:byte    '(sb-alien:unsigned 8))
-           (:unsigned-short  '(sb-alien:unsigned 16))
-           (:unsigned-int    '(sb-alien:unsigned 32))
-           (:unsigned-long   '(sb-alien:unsigned 64))
-           (:bytes   '(array (unsigned 8)))
-           (:string  'sb-alien:c-string)
-           (:void    'sb-alien:void)
-           (:boolean 'sb-alien:boolean)
-           (:pointer (format *trace-output* "~&A void pointer is defined; it will not be considered a match for any Lisp type.")
-                     '(* t))
-           (otherwise (error 'bad-binding-type :type type))))))
-  (defun coercion-to-c++ (symbol type)
-    "Given a Lisp symbol and a CFFI-style type or a wrapped C++ object,
-returns multiple values as evaluatable forms for checking the value of
-SYMBOL is of type TYPE, and the evaluatable form for casting form the
-Lisp type to the C++ type in the correct way for CFFI."
-    (let ((pointer-p (and (consp type)
-                          (eql :pointer (car type)))))
-      (cond
-        ((ff-class-name-p type) (values (list 'check-type symbol (basic-type type))
-                                        `(ff-pointer ,symbol)))
-        ((and pointer-p
-              (ff-class-name-p (second type))) (values '() `(ff-pointer ,symbol)))
-        ((and pointer-p (eql :void (second type))) (values '() symbol))
-        ((and pointer-p
-              (eql 'scalar (second type))) (values `(check-type ,symbol 'number)
-              `(pointer->double (coerce ,symbol
-                                        'double-float))))
-        (t (values `(check-type ,symbol ,(basic-type type))
-                   ;; `(coerce ,symbol ',(basic-type type))
-                   symbol)))))
-  
-  (defun marshall-args (args) 
-    "Given a set of arguments and their types like this:
-
- \((arg0 :int) (arg1 :int))
-
-remarshalls them like this:
-
-  \(( (conversion arg0) . integer ) ( (conversion arg1) . integer ))
-"
-    (mapcar (lambda (arg) 
-              (cons (multiple-value-call 
-                        (lambda (check cast)
-                          (declare (ignore check))
-                          cast)
-                      (coercion-to-c++ (first arg) (second arg)))
-                    (basic-type (second arg))))
-            args)))
-
 (defmacro defcenum (class &rest enums)
   `(progn (cffi:defcenum ,class ,@enums)
           (sb-alien:define-alien-type ,class
@@ -131,9 +42,9 @@ remarshalls them like this:
             (concatenate 'string "~2&~@<"
                          (format nil "~(~S~) ⇐ ƒ ~A (" returns lisp-name)
                          "~;~{~{~A◦~(~S~)~}~^, ~}~;)~:@>")
-            args )
+            args)
     (format *trace-output*
-            "~%~VT C* ƒ ~A"
+            "~%~VT C ƒ ~A"
             (1- (length (format nil "~(~S~)" returns)))
             c-name)
     #+ (or)
@@ -146,6 +57,15 @@ remarshalls them like this:
          (declaim (inline ,sym-name))
          (eval-when (:compile-toplevel :load-toplevel)
            (defun ,sym-name (,@(mapcar #'first-or-only args))
+             ,@(loop for (arg type) in args
+                  collect 
+                    (list 'check-type arg 
+                          (case type
+                            ((:int :unsigned-int
+                                   :short :unsigned-short) 'integer)
+                            ((:float :double) 'real)
+                            ((:char :unsigned-char) t)
+                            (otherwise type))))
              (sb-alien:alien-funcall
               (sb-alien:extern-alien ,c-name
                                      (function ,(basic-type returns)
@@ -187,10 +107,7 @@ remarshalls them like this:
 (defcfun ("b2l_poke" b2l/poke) (:pointer scalar)
   (btscalar scalar))
 
-(defcfun ("b2l_makeVector3" b2l/make-vector3) vector3
-  (x scalar)
-  (y scalar)
-  (z scalar))
+
 
 
 
