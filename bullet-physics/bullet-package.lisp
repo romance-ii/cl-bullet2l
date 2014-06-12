@@ -24,9 +24,9 @@ This package was hand-edited to save time over learning
 Swig properly.")
   (:export
    #:angular-limit
-   #:axis-sweep3
+   #:axis-sweep-3
    #:box-shape
-   #:bt-32-bit-axis-sweep3
+   #:bt-32-bit-axis-sweep-3
    #:bu-simplex1to4
    #:bvh-triangle-mesh-shape
    #:capsule-shape

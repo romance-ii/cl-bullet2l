@@ -1,26 +1,69 @@
 (in-package :bullet-physics)
 
-(cffi:defcstruct vector3-float-data
-  (floats :pointer))
+(defmacro define-c-struct (class &body slots)
+  (let ((alien-type `(sb-alien:struct ,class
+                                      ,@(mapcar (lambda (slot)
+                                                  (list (car slot)
+                                                        (basic-type (second slot)))) slots))))
+    (format *trace-output* "~2&Class-like structure mapped for ~A~{~% •~{~A~^ ~}~}" class slots)
+    `(progn
+       (sb-alien:define-alien-type ,class ,alien-type)
+       (defclass ,class (/c++-class/) ())
+       (defmethod initialize-instance :after ((object ,class)
+                                              &key ,@(mapcar (lambda (slot)
+                                                               (let ((sym (car slot)))
+                                                                 (list sym nil
+                                                                       (intern (format nil "~A-?" sym)))))
+                                                             slots))
+                  (let ((alien-struct (sb-alien:make-alien ,alien-type)))
+                    ,@(loop for (sym kind) in slots
+                         for sym-provided-p = (intern (format nil "~A-?" sym))
+                         collecting `(when ,sym-provided-p
+                                       (check-type ,sym ,(check-type-type kind))
+                                       (setf (sb-alien:slot alien-struct ',sym) ,sym)))
+                    (setf (ff-pointer object) (sb-alien:alien-sap alien-struct))
+                    (sb-ext:finalize object (lambda () (sb-alien:free-alien alien-struct))))) 
+       ,@(loop for (sym stuff) in slots
+            appending `((ensure-generic-function ',sym :lambda-list '(object))
+                        (defmethod ,sym ((object ,class))
+                          (sb-alien:slot (ff-pointer object) ',sym))
+                        (ensure-generic-function '(setf ,sym) :lambda-list '(new-value object))
+                        (defmethod (setf ,sym) (new-value (object ,class))
+                          (setf (sb-alien:slot (ff-pointer object) ',sym) new-value)))))))
 
-(cffi:defcstruct vector3-double-data
-  (floats :pointer))
+(define-c-struct vector3-float-data
+  (floats (:array :float 4)))
 
-(cffi:defcstruct matrix-3x3-float-data
-  (el :pointer))
+(define-c-struct vector3-double-data
+  (floats (:array :double 4)))
 
-(cffi:defcstruct matrix-3x3-double-data
-  (el :pointer))
+(define-c-struct vector3
+  (x :double)
+  (y :double)
+  (z :double)
+  (w :double))
 
-(cffi:defcstruct transform-float-data
-  (basis (:pointer (:struct matrix-3x3-float-data)))
-  (origin (:pointer (:struct vector3-float-data))))
+(define-c-struct vector4
+  (x :double)
+  (y :double)
+  (z :double)
+  (w :double))
 
-(cffi:defcstruct transform-double-data
-  (basis (:pointer (:struct matrix-3x3-double-data)))
-  (origin (:pointer (:struct vector3-double-data))))
+(define-c-struct matrix-3x3-float-data
+  (el (:array :float 9)))
 
-(cffi:defcstruct typed-constraint-data
+(define-c-struct matrix-3x3-double-data
+  (el (:array :float 9)))
+
+(define-c-struct transform-float-data
+  (basis matrix-3x3-float-data)
+  (origin vector3-float-data))
+
+(define-c-struct transform-double-data
+  (basis matrix-3x3-double-data)
+  (origin vector3-double-data))
+
+(define-c-struct typed-constraint-data
   (rb-a :pointer)
   (rb-b :pointer)
   (name :string)
@@ -35,49 +78,49 @@
   (breaking-impulse-threshold :float)
   (is-enabled :int))
 
-(cffi:defcstruct generic-6-dof-constraint-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-float-data)))
-  (rb-bframe (:pointer (:struct transform-float-data)))
-  (linear-upper-limit (:pointer (:struct vector3-float-data)))
-  (linear-lower-limit (:pointer (:struct vector3-float-data)))
-  (angular-upper-limit (:pointer (:struct vector3-float-data)))
-  (angular-lower-limit (:pointer (:struct vector3-float-data)))
+(define-c-struct generic-6-dof-constraint-data
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-float-data)
+  (rb-bframe transform-float-data)
+  (linear-upper-limit vector3-float-data)
+  (linear-lower-limit vector3-float-data)
+  (angular-upper-limit vector3-float-data)
+  (angular-lower-limit vector3-float-data)
   (use-linear-reference-frame-a :int)
   (use-offset-for-constraint-frame :int))
 
-(cffi:defcstruct compound-shape-child-data
-  (transform (:pointer (:struct transform-float-data)))
+(define-c-struct compound-shape-child-data
+  (transform transform-float-data)
   (child-shape :pointer)
   (child-shape-type :int)
   (child-margin :float))
 
-;; (cffi:defcstruct rigid-body-construction-info
-;;   (motion-state :pointer)
-;;   (start-world-transform transform)
-  
-;;   (collision-shape (:pointer collision-shape))
-;;   (local-inertia vector3)
-;;   (linear-damping :double)
-;;   (angular-damping :double)
-  
-;;   (friction :double)
-;;   (rolling-friction :double)
-;;   (restitution :double)
-  
-;;   (linear-sleeping-threshold :double)
-;;   (angular-sleeping-threshold :double)
-;;   ;; additional damping can help avoiding lowpass jitter motion, help
-;;   ;; stability for ragdolls etc.  Such damping is undesirable, so once
-;;   ;; the overall simulation quality of the rigid body dynamics system
-;;   ;; has improved, this should become obsolete
-;;   (additional-damping :boolean)
-;;   (additional-damping-factor :double)
-;;   (additional-linear-damping-threshold-sqr :double)
-;;   (additional-angular-damping-threshold-sqr :double)
-;;   (additional-angular-damping-factor :double))
+(define-c-struct rigid-body-construction-info
+  (motion-state :pointer)
+  (start-world-transform transform)
 
-(cffi:defcstruct default-collision-construction-info
+  (collision-shape (:pointer collision-shape))
+  (local-inertia vector3)
+  (linear-damping :double)
+  (angular-damping :double)
+
+  (friction :double)
+  (rolling-friction :double)
+  (restitution :double)
+
+  (linear-sleeping-threshold :double)
+  (angular-sleeping-threshold :double)
+  ;; additional damping can help avoiding lowpass jitter motion, help
+  ;; stability for ragdolls etc.  Such damping is undesirable, so once
+  ;; the overall simulation quality of the rigid body dynamics system
+  ;; has improved, this should become obsolete
+  (additional-damping :boolean)
+  (additional-damping-factor :double)
+  (additional-linear-damping-threshold-sqr :double)
+  (additional-angular-damping-threshold-sqr :double)
+  (additional-angular-damping-factor :double))
+
+(define-c-struct default-collision-construction-info
   (persistent-manifold-pool :pointer)
   (collision-algorithm-pool :pointer)
   (default-max-persistent-manifold-pool-size :int)
@@ -85,19 +128,20 @@
   (custom-collision-algorithm-max-element-size :int)
   (use-epa-penetration-algorithm :int))
 
-(cffi:defcstruct simple-broadphase-proxy
+(define-c-struct simple-broadphase-proxy
   (next-free :int)
   (set-next-free :pointer)
   (get-next-free :pointer))
 
-(cffi:defcstruct dbvt-proxy
+(define-c-struct dbvt-proxy
   (leaf :pointer)
   (links :pointer)
   (stage :int))
 
-(cffi:defcstruct pointer-uid)
+(define-c-struct pointer-uid
+  (_ :pointer))
 
-(cffi:defcstruct dbvt-broadphase
+(define-c-struct dbvt-broadphase
   (sets :pointer)
   (stage-roots :pointer)
   (paircache :pointer)
@@ -119,88 +163,88 @@
   (needcleanup :pointer)
   (collide :pointer)
   (bullet/optimize :pointer)
-  (create-proxy :pointer)
-  (destroy-proxy :pointer)
+  (create-proxy-with :pointer)
+  (destroy-proxy-with :pointer)
   (set-aabb :pointer)
-  (ray-test :pointer)
-  (ray-test :pointer)
-  (ray-test :pointer)
+  (ray-test-1 :pointer)
+  (ray-test-2 :pointer)
+  (ray-test-3 :pointer)
   (aabb-test :pointer)
   (get-aabb :pointer)
-  (calculate-overlapping-pairs :pointer)
+  (calculate-overlapping-pairs-with :pointer)
   (get-overlapping-pair-cache :pointer)
-  (get-overlapping-pair-cache :pointer)
+  (get-overlapping-pair-cache+1 :pointer)
   (get-broadphase-aabb :pointer)
   (print-stats :pointer)
-  (reset-pool :pointer)
+  (reset-pool-with :pointer)
   (perform-deferred-removal :pointer)
   (set-velocity-prediction :pointer)
   (get-velocity-prediction :pointer)
   (set-aabb-force-update :pointer)
   (benchmark :pointer))
 
-(cffi:defcstruct default-motion-state
+(define-c-struct default-motion-state
   (graphics-world-trans :pointer)
   (center-of-mass-offset :pointer)
   (start-world-trans :pointer)
   (user-pointer :pointer)
-  (make-c++-instance :pointer)
-  (delete-c++-instance :pointer)
-  (make-c++-instance :pointer)
-  (delete-c++-instance :pointer)
-  (make-c++-array :pointer)
-  (delete-c++-array :pointer)
-  (make-c++-array :pointer)
-  (delete-c++-array :pointer)
+  (make-c++-instance~1 :pointer)
+  (delete-c++-instance~1 :pointer)
+  (make-c++-instance~2 :pointer)
+  (delete-c++-instance~2 :pointer)
+  (make-c++-array~3 :pointer)
+  (delete-c++-array~3 :pointer)
+  (make-c++-array~4 :pointer)
+  (delete-c++-array~4 :pointer)
   (get-world-transform :pointer)
   (set-world-transform :pointer))
 
-(cffi:defcstruct compound-shape-data
+(define-c-struct compound-shape-data
   (collision-shape-data :pointer)
   (child-shape-ptr :pointer)
   (num-child-shapes :int)
   (collision-margin :float))
 
-(cffi:defcstruct position-and-radius
-  (pos (:pointer (:struct vector3-float-data)))
+(define-c-struct position-and-radius
+  (pos vector3-float-data)
   (radius :float))
 
-(cffi:defcstruct multi-sphere-shape-data
+(define-c-struct multi-sphere-shape-data
   (convex-internal-shape-data :pointer)
   (local-position-array-ptr :pointer)
   (local-position-array-size :int)
   (padding :pointer))
 
-(cffi:defcstruct capsule-shape-data
+(define-c-struct capsule-shape-data
   (convex-internal-shape-data :pointer)
   (up-axis :int)
   (padding :pointer))
 
-(cffi:defcstruct cylinder-shape-data
+(define-c-struct cylinder-shape-data
   (convex-internal-shape-data :pointer)
   (up-axis :int)
   (padding :pointer))
 
-(cffi:defcstruct cone-shape-data
+(define-c-struct cone-shape-data
   (convex-internal-shape-data :pointer)
   (up-index :int)
   (padding :pointer))
 
-(cffi:defcstruct static-plane-shape-data
+(define-c-struct static-plane-shape-data
   (collision-shape-data :pointer)
-  (local-scaling (:pointer (:struct vector3-float-data)))
-  (plane-normal (:pointer (:struct vector3-float-data)))
+  (local-scaling vector3-float-data)
+  (plane-normal vector3-float-data)
   (plane-constant :float)
   (pad :pointer))
 
-(cffi:defcstruct convex-hull-shape-data
+(define-c-struct convex-hull-shape-data
   (convex-internal-shape-data :pointer)
   (unscaled-points-float-ptr :pointer)
   (unscaled-points-double-ptr :pointer)
   (num-unscaled-points :int)
   (padding-3 :pointer))
 
-(cffi:defcstruct triangle-mesh-shape-data
+(define-c-struct triangle-mesh-shape-data
   (collision-shape-data :pointer)
   (mesh-interface :pointer)
   (quantized-float-bvh :pointer)
@@ -209,19 +253,19 @@
   (collision-margin :float)
   (pad-3 :pointer))
 
-(cffi:defcstruct scaled-triangle-mesh-shape-data
-  (trimesh-shape-data (:pointer (:struct triangle-mesh-shape-data)))
-  (local-scaling (:pointer (:struct vector3-float-data))))
+(define-c-struct scaled-triangle-mesh-shape-data
+  (trimesh-shape-data triangle-mesh-shape-data)
+  (local-scaling vector3-float-data))
 
-(cffi:defcstruct indexed-mesh
-  (make-c++-instance :pointer)
-  (delete-c++-instance :pointer)
-  (make-c++-instance :pointer)
-  (delete-c++-instance :pointer)
-  (make-c++-array :pointer)
-  (delete-c++-array :pointer)
-  (make-c++-array :pointer)
-  (delete-c++-array :pointer)
+(define-c-struct indexed-mesh
+  (make-c++-instance~1 :pointer)
+  (delete-c++-instance~1 :pointer)
+  (make-c++-instance~2 :pointer)
+  (delete-c++-instance~2 :pointer)
+  (make-c++-array~3 :pointer)
+  (delete-c++-array~3 :pointer)
+  (make-c++-array~4 :pointer)
+  (delete-c++-array~4 :pointer)
   (num-triangles :int)
   (triangle-index-base :pointer)
   (triangle-index-stride :int)
@@ -231,49 +275,49 @@
   (index-type :pointer)
   (vertex-type :pointer))
 
-(cffi:defcstruct compound-shape-child
-  (make-c++-instance :pointer)
-  (delete-c++-instance :pointer)
-  (make-c++-instance :pointer)
-  (delete-c++-instance :pointer)
-  (make-c++-array :pointer)
-  (delete-c++-array :pointer)
-  (make-c++-array :pointer)
-  (delete-c++-array :pointer)
+(define-c-struct compound-shape-child
+  (make-c++-instance~1 :pointer)
+  (delete-c++-instance~1 :pointer)
+  (make-c++-instance~2 :pointer)
+  (delete-c++-instance~2 :pointer)
+  (make-c++-array~3 :pointer)
+  (delete-c++-array~3 :pointer)
+  (make-c++-array~4 :pointer)
+  (delete-c++-array~4 :pointer)
   (transform :pointer)
   (child-shape :pointer)
   (child-shape-type :int)
   (child-margin :float)
   (node :pointer))
 
-(cffi:defcstruct local-shape-info
+(define-c-struct local-shape-info
   (shape-part :int)
   (triangle-index :int))
 
-(cffi:defcstruct local-ray-result
+(define-c-struct local-ray-result
   (collision-object :pointer)
   (local-shape-info :pointer)
   (hit-normal-local :pointer)
   (hit-fraction :float))
 
-(cffi:defcstruct ray-result-callback
+(define-c-struct ray-result-callback
   (closest-hit-fraction :float)
   (collision-object :pointer)
   (collision-filter-group :short)
   (collision-filter-mask :short)
   (flags :unsigned-int)
   (has-hit :pointer)
-  (needs-collision :pointer)
+  (needs-collision-p :pointer)
   (add-single-result :pointer))
 
-(cffi:defcstruct closest-ray-result-callback
+(define-c-struct closest-ray-result-callback
   (ray<-world :pointer)
   (ray->world :pointer)
   (hit-normal-world :pointer)
   (hit-point-world :pointer)
   (add-single-result :pointer))
 
-(cffi:defcstruct all-hits-ray-result-callback
+(define-c-struct all-hits-ray-result-callback
   (collision-objects :pointer)
   (ray<-world :pointer)
   (ray->world :pointer)
@@ -282,26 +326,26 @@
   (hit-fractions :pointer)
   (add-single-result :pointer))
 
-(cffi:defcstruct local-convex-result
+(define-c-struct local-convex-result
   (hit-collision-object :pointer)
   (local-shape-info :pointer)
   (hit-normal-local :pointer)
   (hit-point-local :pointer)
   (hit-fraction :float))
 
-(cffi:defcstruct convex-result-callback
+(define-c-struct convex-result-callback
   (closest-hit-fraction :float)
   (collision-filter-group :short)
   (collision-filter-mask :short)
   (has-hit :pointer)
-  (needs-collision :pointer)
+  (needs-collision-p :pointer)
   (add-single-result :pointer))
 
-(cffi:defcstruct typed-object
+(define-c-struct typed-object
   (object-type :int)
   (get-object-type :pointer))
 
-(cffi:defcstruct closest-convex-result-callback
+(define-c-struct closest-convex-result-callback
   (convex<-world :pointer)
   (convex->world :pointer)
   (hit-normal-world :pointer)
@@ -309,13 +353,13 @@
   (hit-collision-object :pointer)
   (add-single-result :pointer))
 
-(cffi:defcstruct contact-result-callback
+(define-c-struct contact-result-callback
   (collision-filter-group :short)
   (collision-filter-mask :short)
-  (needs-collision :pointer)
+  (needs-collision-p :pointer)
   (add-single-result :pointer))
 
-(cffi:defcstruct collision-object-float-data
+(define-c-struct collision-object-float-data
   (broadphase-handle :pointer)
   (collision-shape :pointer)
   (root-collision-shape :pointer)
@@ -339,10 +383,10 @@
   (companion-id :int)
   (activation-state-1 :int)
   (internal-type :int)
-  (check-collide-with :int)
+  (check-collide-with-num :int)
   (padding :pointer))
 
-(cffi:defcstruct collision-object-double-data
+(define-c-struct collision-object-double-data
   (broadphase-handle :pointer)
   (collision-shape :pointer)
   (root-collision-shape :pointer)
@@ -366,21 +410,21 @@
   (companion-id :int)
   (activation-state-1 :int)
   (internal-type :int)
-  (check-collide-with :int)
+  (check-collide-with-num :int)
   (padding :pointer))
 
-(cffi:defcstruct rigid-body-double-data
-  (collision-object-data (:pointer (:struct collision-object-double-data)))
-  (inv-inertia-tensor-world (:pointer (:struct matrix-3x3-double-data)))
-  (linear-velocity (:pointer (:struct vector3-double-data)))
-  (angular-velocity (:pointer (:struct vector3-double-data)))
-  (angular-factor (:pointer (:struct vector3-double-data)))
-  (linear-factor (:pointer (:struct vector3-double-data)))
-  (gravity (:pointer (:struct vector3-double-data)))
-  (gravity-acceleration (:pointer (:struct vector3-double-data)))
-  (inv-inertia-local (:pointer (:struct vector3-double-data)))
-  (total-force (:pointer (:struct vector3-double-data)))
-  (total-torque (:pointer (:struct vector3-double-data)))
+(define-c-struct rigid-body-double-data
+  (collision-object-data collision-object-double-data)
+  (inv-inertia-tensor-world matrix-3x3-double-data)
+  (linear-velocity vector3-double-data)
+  (angular-velocity vector3-double-data)
+  (angular-factor vector3-double-data)
+  (linear-factor vector3-double-data)
+  (gravity vector3-double-data)
+  (gravity-acceleration vector3-double-data)
+  (inv-inertia-local vector3-double-data)
+  (total-force vector3-double-data)
+  (total-torque vector3-double-data)
   (inverse-mass :double)
   (linear-damping :double)
   (angular-damping :double)
@@ -393,7 +437,7 @@
   (additional-damping :int)
   (padding :pointer))
 
-(cffi:defcstruct typed-constraint-float-data
+(define-c-struct typed-constraint-float-data
   (rb-a :pointer)
   (rb-b :pointer)
   (name :string)
@@ -408,7 +452,7 @@
   (breaking-impulse-threshold :float)
   (is-enabled :int))
 
-(cffi:defcstruct typed-constraint-double-data
+(define-c-struct typed-constraint-double-data
   (rb-a :pointer)
   (rb-b :pointer)
   (name :string)
@@ -424,29 +468,29 @@
   (is-enabled :int)
   (padding :pointer))
 
-(cffi:defcstruct constraint-setting
+(define-c-struct constraint-setting
   (tau :float)
   (damping :float)
   (impulse-clamp :float))
 
-(cffi:defcstruct joint-feedback
+(define-c-struct joint-feedback
   (applied-force-body-a :pointer)
   (applied-torque-body-a :pointer)
   (applied-force-body-b :pointer)
   (applied-torque-body-b :pointer))
 
-(cffi:defcstruct rigid-body-float-data
-  (collision-object-data (:pointer (:struct collision-object-float-data)))
-  (inv-inertia-tensor-world (:pointer (:struct matrix-3x3-float-data)))
-  (linear-velocity (:pointer (:struct vector3-float-data)))
-  (angular-velocity (:pointer (:struct vector3-float-data)))
-  (angular-factor (:pointer (:struct vector3-float-data)))
-  (linear-factor (:pointer (:struct vector3-float-data)))
-  (gravity (:pointer (:struct vector3-float-data)))
-  (gravity-acceleration (:pointer (:struct vector3-float-data)))
-  (inv-inertia-local (:pointer (:struct vector3-float-data)))
-  (total-force (:pointer (:struct vector3-float-data)))
-  (total-torque (:pointer (:struct vector3-float-data)))
+(define-c-struct rigid-body-float-data
+  (collision-object-data collision-object-float-data)
+  (inv-inertia-tensor-world matrix-3x3-float-data)
+  (linear-velocity vector3-float-data)
+  (angular-velocity vector3-float-data)
+  (angular-factor vector3-float-data)
+  (linear-factor vector3-float-data)
+  (gravity vector3-float-data)
+  (gravity-acceleration vector3-float-data)
+  (inv-inertia-local vector3-float-data)
+  (total-force vector3-float-data)
+  (total-torque vector3-float-data)
   (inverse-mass :float)
   (linear-damping :float)
   (angular-damping :float)
@@ -458,21 +502,21 @@
   (angular-sleeping-threshold :float)
   (additional-damping :int))
 
-(cffi:defcstruct generic-6-dof-constraint-double-data-2
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
-  (linear-upper-limit (:pointer (:struct vector3-double-data)))
-  (linear-lower-limit (:pointer (:struct vector3-double-data)))
-  (angular-upper-limit (:pointer (:struct vector3-double-data)))
-  (angular-lower-limit (:pointer (:struct vector3-double-data)))
+(define-c-struct generic-6-dof-constraint-double-data-2
+  (type-constraint-data typed-constraint-double-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
+  (linear-upper-limit vector3-double-data)
+  (linear-lower-limit vector3-double-data)
+  (angular-upper-limit vector3-double-data)
+  (angular-lower-limit vector3-double-data)
   (use-linear-reference-frame-a :int)
   (use-offset-for-constraint-frame :int))
 
-(cffi:defcstruct slider-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
+(define-c-struct slider-constraint-double-data
+  (type-constraint-data typed-constraint-double-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
   (linear-upper-limit :double)
   (linear-lower-limit :double)
   (angular-upper-limit :double)
@@ -480,40 +524,38 @@
   (use-linear-reference-frame-a :int)
   (use-offset-for-constraint-frame :int))
 
-(cffi:defcstruct generic-6-dof-spring-constraint-data
-  (6-dof-data (:pointer (:struct generic-6-dof-constraint-data)))
+(define-c-struct generic-6-dof-spring-constraint-data
+  (6-dof-data generic-6-dof-constraint-data)
   (spring-enabled :pointer)
-  (equilibrium-point :pointer)
+  (equilibrium-point-at :pointer)
   (spring-stiffness :pointer)
   (spring-damping :pointer))
 
-(cffi:defcstruct generic-6-dof-spring-constraint-double-data-2
-  (6-dof-data (:pointer (:struct generic-6-dof-constraint-double-data-2)))
+(define-c-struct generic-6-dof-spring-constraint-double-data-2
+  (6-dof-data generic-6-dof-constraint-double-data-2)
   (spring-enabled :pointer)
-  (equilibrium-point :pointer)
+  (equilibrium-point-at :pointer)
   (spring-stiffness :pointer)
   (spring-damping :pointer))
 
-(cffi:defcstruct gear-constraint-float-data
-  (type-constraint-data 
-   (:pointer (:struct
-              typed-constraint-float-data)))
-  (axis-in-a (:pointer (:struct vector3-float-data)))
-  (axis-in-b (:pointer (:struct vector3-float-data)))
+(define-c-struct gear-constraint-float-data
+  (type-constraint-data typed-constraint-float-data)
+  (axis-in-a vector3-float-data)
+  (axis-in-b vector3-float-data)
   (bullet/ratio :float)
   (padding :pointer))
 
-(cffi:defcstruct gear-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (axis-in-a (:pointer (:struct vector3-double-data)))
-  (axis-in-b (:pointer (:struct vector3-double-data)))
+(define-c-struct gear-constraint-double-data
+  (type-constraint-data typed-constraint-double-data)
+  (axis-in-a vector3-double-data)
+  (axis-in-b vector3-double-data)
   (bullet/ratio :double))
 
 
-(cffi:defcstruct slider-constraint-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-float-data)))
-  (rb-bframe (:pointer (:struct transform-float-data)))
+(define-c-struct slider-constraint-data
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-float-data)
+  (rb-bframe transform-float-data)
   (linear-upper-limit :float)
   (linear-lower-limit :float)
   (angular-upper-limit :float)
@@ -521,28 +563,28 @@
   (use-linear-reference-frame-a :int)
   (use-offset-for-constraint-frame :int))
 
-(cffi:defcstruct point->point-constraint-float-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (pivot-in-a (:pointer (:struct vector3-float-data)))
-  (pivot-in-b (:pointer (:struct vector3-float-data))))
+(define-c-struct point->point-constraint-float-data
+  (type-constraint-data typed-constraint-data)
+  (pivot-in-a vector3-float-data)
+  (pivot-in-b vector3-float-data))
 
-(cffi:defcstruct point->point-constraint-double-data-2
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (pivot-in-a (:pointer (:struct vector3-double-data)))
-  (pivot-in-b (:pointer (:struct vector3-double-data))))
+(define-c-struct point->point-constraint-double-data-2
+  (type-constraint-data typed-constraint-double-data)
+  (pivot-in-a vector3-double-data)
+  (pivot-in-b vector3-double-data))
 
-(cffi:defcstruct point->point-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (pivot-in-a (:pointer (:struct vector3-double-data)))
-  (pivot-in-b (:pointer (:struct vector3-double-data))))
+(define-c-struct point->point-constraint-double-data
+  (type-constraint-data typed-constraint-data)
+  (pivot-in-a vector3-double-data)
+  (pivot-in-b vector3-double-data))
 
-(cffi:defcstruct hinge-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
+(define-c-struct hinge-constraint-double-data
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
   (use-reference-frame-a :int)
-  (angular-only :int)
-  (enable-angular-motor :int)
+  (angular-only-p :int)
+  (enable-angular-motor-p :int)
   (motor-target-velocity :float)
   (max-motor-impulse :float)
   (lower-limit :float)
@@ -551,13 +593,13 @@
   (bias-factor :float)
   (relaxation-factor :float))
 
-(cffi:defcstruct hinge-constraint-float-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-float-data)))
-  (rb-bframe (:pointer (:struct transform-float-data)))
+(define-c-struct hinge-constraint-float-data
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-float-data)
+  (rb-bframe transform-float-data)
   (use-reference-frame-a :int)
-  (angular-only :int)
-  (enable-angular-motor :int)
+  (angular-only-p :int)
+  (enable-angular-motor-p :int)
   (motor-target-velocity :float)
   (max-motor-impulse :float)
   (lower-limit :float)
@@ -566,13 +608,13 @@
   (bias-factor :float)
   (relaxation-factor :float))
 
-(cffi:defcstruct hinge-constraint-double-data-2
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
+(define-c-struct hinge-constraint-double-data-2
+  (type-constraint-data typed-constraint-double-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
   (use-reference-frame-a :int)
-  (angular-only :int)
-  (enable-angular-motor :int)
+  (angular-only-p :int)
+  (enable-angular-motor-p :int)
   (motor-target-velocity :double)
   (max-motor-impulse :double)
   (lower-limit :double)
@@ -582,10 +624,10 @@
   (relaxation-factor :double)
   (padding-1 :pointer))
 
-(cffi:defcstruct cone-twist-constraint-double-data
-  (type-constraint-data (:pointer (:struct typed-constraint-double-data)))
-  (rb-aframe (:pointer (:struct transform-double-data)))
-  (rb-bframe (:pointer (:struct transform-double-data)))
+(define-c-struct cone-twist-constraint-double-data
+  (type-constraint-data typed-constraint-double-data)
+  (rb-aframe transform-double-data)
+  (rb-bframe transform-double-data)
   (swing-span-1 :double)
   (swing-span-2 :double)
   (twist-span :double)
@@ -594,10 +636,10 @@
   (relaxation-factor :double)
   (damping :double))
 
-(cffi:defcstruct cone-twist-constraint-data
-  (type-constraint-data (:pointer (:struct typed-constraint-data)))
-  (rb-aframe (:pointer (:struct transform-float-data)))
-  (rb-bframe (:pointer (:struct transform-float-data)))
+(define-c-struct cone-twist-constraint-data
+  (type-constraint-data typed-constraint-data)
+  (rb-aframe transform-float-data)
+  (rb-bframe transform-float-data)
   (swing-span-1 :float)
   (swing-span-2 :float)
   (twist-span :float)

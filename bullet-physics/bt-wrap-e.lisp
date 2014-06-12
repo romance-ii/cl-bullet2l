@@ -1982,10 +1982,11 @@
                               shape (color vector3))
   (collision-world/debug-draw-object (ff-pointer self) worldtransform shape color))
 
-(defmethod ray-test ((self collision-world) (rayfromworld vector3) (raytoworld vector3) resultcallback
+(defmethod ray-test ((self collision-world) 
+                     (ray-from-world vector3) (ray-to-world vector3) result-callback
                      &optional _ __)
   (declare (ignore _ __))
-  (collision-world/ray-test (ff-pointer self) rayfromworld raytoworld resultcallback))
+  (collision-world/ray-test (ff-pointer self) ray-from-world ray-to-world result-callback))
 #+(or) (defmethod new~size ((self collision-object) sizeinbytes)
          (collision-object/make-c++-instance (ff-pointer self) sizeinbytes))
 #+(or) (defmethod delete ((self collision-object) ptr)

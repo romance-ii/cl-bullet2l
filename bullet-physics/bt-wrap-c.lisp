@@ -5,56 +5,56 @@
   (enable-dynamic-aabb-tree :pointer))
 
 (defcfun ("_wrap_new_btCompoundShape__SWIG_1"
-          make-compound-shape) :pointer)
+          make-compound-shape) compound-shape)
 
 (defcfun ("_wrap_delete_btCompoundShape"
           delete/bt-compound-shape) :void
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_addChildShape"
           compound-shape/add-child-shape) :void
-  (self :pointer)
+  (self compound-shape)
   (local-Transform :pointer)
   (shape :pointer))
 
 (defcfun ("_wrap_btCompoundShape_removeChildShape"
           compound-shape/remove-child-shape) :void
-  (self :pointer)
+  (self compound-shape)
   (shape :pointer))
 
 (defcfun ("_wrap_btCompoundShape_removeChildShapeByIndex"
           compound-shape/remove-child-shape-by-index) :void
-  (self :pointer)
+  (self compound-shape)
   (childShapeindex :int))
 
 (defcfun ("_wrap_btCompoundShape_getNumChildShapes"
           compound-shape/get-num-child-shapes) :int
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_getChildShape__SWIG_0"
           compound-shape/get-child-shape) :pointer
-  (self :pointer)
+  (self compound-shape)
   (index :int))
 #+ (or)
 (defcfun ("_wrap_btCompoundShape_getChildShape__SWIG_1"
           compound-shape/get-child-shape) :pointer
-  (self :pointer)
+  (self compound-shape)
   (index :int))
 
 (defcfun ("_wrap_btCompoundShape_getChildTransform__SWIG_0"
           compound-shape/get-child-transform) :pointer
-  (self :pointer)
+  (self compound-shape)
   (index :int))
 #+ (or)
 (defcfun ("_wrap_btCompoundShape_getChildTransform__SWIG_1"
           compound-shape/get-child-transform) :pointer
-  (self :pointer)
+  (self compound-shape)
   (index :int))
 
 (defcfun ("_wrap_btCompoundShape_updateChildTransform__SWIG_0"
           compound-shape/update-child-transform/with-child-index&new-child-transform&should-recalculate-local-aabb)
     :void
-  (self :pointer)
+  (self compound-shape)
   (childIndex :int)
   (newChildTransform :pointer)
   (shouldRecalculateLocalAabb :pointer))
@@ -62,83 +62,83 @@
 (defcfun ("_wrap_btCompoundShape_updateChildTransform__SWIG_1"
           compound-shape/update-child-transform/with-child-index&new-child-transform)
     :void
-  (self :pointer)
+  (self compound-shape)
   (childIndex :int)
   (newChildTransform :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getChildList"
           compound-shape/get-child-list) :pointer
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_getAabb"
           compound-shape/get-aabb) :void
-  (self :pointer)
+  (self compound-shape)
   (t_arg1 :pointer)
   (aabbMin :pointer)
   (aabbMax :pointer))
 
 (defcfun ("_wrap_btCompoundShape_recalculateLocalAabb"
           compound-shape/recalculate-local-aabb) :void
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_setLocalScaling"
           compound-shape/set-local-scaling) :void
-  (self :pointer)
+  (self compound-shape)
   (scaling :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getLocalScaling"
           compound-shape/get-local-scaling) :pointer
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_calculateLocalInertia"
           compound-shape/calculate-local-inertia) :void
-  (self :pointer)
+  (self compound-shape)
   (mass :float)
   (inertia :pointer))
 
 (defcfun ("_wrap_btCompoundShape_setMargin"
           compound-shape/set-margin) :void
-  (self :pointer)
+  (self compound-shape)
   (margin :float))
 
 (defcfun ("_wrap_btCompoundShape_getMargin"
           compound-shape/get-margin) :float
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_getName"
           compound-shape/get-name) :string
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_getDynamicAabbTree__SWIG_0"
           compound-shape/get-dynamic-aabb-tree) :pointer
-  (self :pointer))
+  (self compound-shape))
 #+ (or)
 (defcfun ("_wrap_btCompoundShape_getDynamicAabbTree__SWIG_1"
           compound-shape/get-dynamic-aabb-tree) :pointer
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_createAabbTreeFromChildren"
           compound-shape/create-aabb-tree-from-children) :void
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_calculatePrincipalAxisTransform"
           compound-shape/calculate-principal-axis-transform) :void
-  (self :pointer)
+  (self compound-shape)
   (masses :pointer)
   (principal :pointer)
   (inertia :pointer))
 
 (defcfun ("_wrap_btCompoundShape_getUpdateRevision"
           compound-shape/get-update-revision) :int
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_calculateSerializeBufferSize"
           compound-shape/calculate-serialize-buffer-size) :int
-  (self :pointer))
+  (self compound-shape))
 
 (defcfun ("_wrap_btCompoundShape_serialize"
           compound-shape/serialize) :string
-  (self :pointer)
+  (self compound-shape)
   (dataBuffer :pointer)
   (serializer :pointer))
 
@@ -1317,8 +1317,7 @@
 (defcfun ("_wrap_CProfileManager_CleanupMemory"
           cprofile-manager/cleanup-memory) :void)
 
-(defcfun ("_wrap_CProfileManager_Reset"
-          cprofile-manager/reset) :void)
+(defcfun ("_wrap_CProfileManager_Reset" cprofile-manager/reset) :void)
 
 (defcfun ("_wrap_CProfileManager_Increment_Frame_Counter"
           cprofile-manager/increment/frame/counter) :void)
@@ -1341,41 +1340,37 @@
   (profileIterator :pointer)
   (spacing :int))
 
-(defcfun ("_wrap_CProfileManager_dumpAll"
+(defcfun ("_wrap_CProfileManager_dumpAll" 
           cprofile-manager/dump-all) :void)
 
-(defcfun ("_wrap_new_CProfileManager"
-          make-cprofile-manager) :pointer)
+(defcfun ("_wrap_new_CProfileManager" make-cprofile-manager) :pointer)
 
-(defcfun ("_wrap_delete_CProfileManager"
-          delete/cprofile-manager) :void
+(defcfun ("_wrap_delete_CProfileManager" delete/cprofile-manager) :void
   (self :pointer))
 
-(defcfun ("_wrap_new_CProfileSample"
-          make-cprofile-sample) :pointer
+(defcfun ("_wrap_new_CProfileSample" make-cprofile-sample) :pointer
   (name :string))
 
-(defcfun ("_wrap_delete_CProfileSample"
-          delete/cprofile-sample) :void
+(defcfun ("_wrap_delete_CProfileSample" delete/cprofile-sample) :void
   (self :pointer))
-(cffi:defcenum DEBUG-DRAW-MODES
-  (:DBG-NO-DEBUG 0)
-  (:DBG-DRAW-WIREFRAME 1)
-  (:DBG-DRAW-AABB 2)
-  (:DBG-DRAW-FEATURES-TEXT 4)
-  (:DBG-DRAW-CONTACT-POINTS 8)
-  (:DBG-NO-DEACTIVATION 16)
-  (:DBG-NO-HELP-TEXT #.32)
-  (:DBG-DRAW-TEXT #.64)
-  (:DBG-PROFILE-TIMINGS 128)
-  (:DBG-ENABLE-SAT-COMPARISON 256)
-  (:DBG-DISABLE-BULLET-LCP #.512)
-  (:DBG-ENABLE-CCD 1024)
-  (:DBG-DRAW-CONSTRAINTS #.(ash 1 11))
-  (:DBG-DRAW-CONSTRAINT-LIMITS #.(ash 1 12))
-  (:DBG-FAST-WIREFRAME #.(ash 1 13))
-  (:DBG-DRAW-NORMALS #.(ash 1 14))
-  :DBG-MAX-DEBUG-DRAW-MODE)
+(cffi:defcenum debug-draw-modes
+  (:dbg-no-debug 0)
+  (:dbg-draw-wireframe 1)
+  (:dbg-draw-aabb 2)
+  (:dbg-draw-features-text 4)
+  (:dbg-draw-contact-points 8)
+  (:dbg-no-deactivation 16)
+  (:dbg-no-help-text #.32)
+  (:dbg-draw-text #.64)
+  (:dbg-profile-timings 128)
+  (:dbg-enable-sat-comparison 256)
+  (:dbg-disable-bullet-lcp #.512)
+  (:dbg-enable-ccd 1024)
+  (:dbg-draw-constraints #.(ash 1 11))
+  (:dbg-draw-constraint-limits #.(ash 1 12))
+  (:dbg-fast-wireframe #.(ash 1 13))
+  (:dbg-draw-normals #.(ash 1 14))
+  :dbg-max-debug-draw-mode)
 
 (defcfun ("_wrap_delete_btIDebugDraw"
           delete/bt-idebug-draw) :void
@@ -1660,10 +1655,10 @@
 (defcfun ("_wrap_delete_btChunk"
           delete/bt-chunk) :void
   (self :pointer))
-(cffi:defcenum SERIALIZATION-FLAGS
-  (:SERIALIZE-NO-BVH 1)
-  (:SERIALIZE-NO-TRIANGLEINFOMAP 2)
-  (:SERIALIZE-NO-DUPLICATE-ASSERT 4))
+(cffi:defcenum serialization-flags
+  (:serialize-no-bvh 1)
+  (:serialize-no-triangleinfomap 2)
+  (:serialize-no-duplicate-assert 4))
 
 (defcfun ("_wrap_delete_btSerializer"
           delete/bt-serializer) :void
@@ -1862,20 +1857,27 @@
   (arg2 :pointer))
 
 (defcfun ("_wrap_new_btDiscreteDynamicsWorld"
-          make-discrete-dynamics-world) :pointer
-  (dispatcher :pointer)
-  (pairCache :pointer)
-  (constraintSolver :pointer)
-  (collisionConfiguration :pointer))
+          make-discrete-dynamics-world) discrete-dynamics-world
+  (dispatcher collision-dispatcher)
+  (pair-cache broadphase)
+  (constraint-solver constraint-solver)
+  (collision-configuration collision-configuration))
+
+(defcfun ("_wrap_new_btDiscreteDynamicsWorld"
+          make-discrete-dynamics-world+dbvt) discrete-dynamics-world
+  (dispatcher collision-dispatcher)
+  (pair-cache dbvt-broadphase)
+  (constraint-solver constraint-solver)
+  (collision-configuration collision-configuration))
 
 (defcfun ("_wrap_delete_btDiscreteDynamicsWorld"
           delete/bt-discrete-dynamics-world) :void
-  (self :pointer))
+  (self discrete-dynamics-world))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_stepSimulation__SWIG_0"
           discrete-dynamics-world/step-simulation/with-time-step&max-sub-steps&fixed-time-step)
     :int
-  (self :pointer)
+  (self discrete-dynamics-world)
   (timeStep :float)
   (maxSubSteps :int)
   (fixedTimeStep :float))
@@ -1942,8 +1944,8 @@
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_setGravity"
           discrete-dynamics-world/set-gravity) :void
-  (self :pointer)
-  (gravity :pointer))
+  (self discrete-dynamics-world)
+  (gravity vector3))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_getGravity"
           discrete-dynamics-world/get-gravity) :pointer
@@ -1951,43 +1953,43 @@
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_0"
           discrete-dynamics-world/add-collision-object/with-filter-group&mask) :void
-  (self :pointer)
-  (collisionObject :pointer)
+  (self discrete-dynamics-world)
+  (collisionObject collision-object)
   (collisionFilterGroup :short)
   (collisionFilterMask :short))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_1"
           discrete-dynamics-world/add-collision-object/with-filter-group) :void
-  (self :pointer)
-  (collisionObject :pointer)
+  (self discrete-dynamics-world)
+  (collisionObject collision-object)
   (collisionFilterGroup :short))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addCollisionObject__SWIG_2"
           discrete-dynamics-world/add-collision-object) :void
-  (self :pointer)
-  (collisionObject :pointer))
+  (self discrete-dynamics-world)
+  (collisionObject collision-object))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addRigidBody__SWIG_0"
           discrete-dynamics-world/add-rigid-body) :void
-  (self :pointer)
+  (self discrete-dynamics-world)
   (body :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_addRigidBody__SWIG_1"
           discrete-dynamics-world/add-rigid-body/with-group&mask) :void
-  (self :pointer)
-  (body :pointer)
+  (self discrete-dynamics-world)
+  (body rigid-body)
   (group :short)
   (mask :short))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_removeRigidBody"
           discrete-dynamics-world/remove-rigid-body) :void
-  (self :pointer)
+  (self discrete-dynamics-world)
   (body :pointer))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_removeCollisionObject"
           discrete-dynamics-world/remove-collision-object) :void
-  (self :pointer)
-  (collisionObject :pointer))
+  (self discrete-dynamics-world)
+  (collisionObject collision-object))
 
 (defcfun ("_wrap_btDiscreteDynamicsWorld_debugDrawConstraint"
           discrete-dynamics-world/debug-draw-constraint) :void

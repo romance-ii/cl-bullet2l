@@ -2,16 +2,20 @@
 
 ;;; Worlds
 
-(defclass /c++-class/ (cffi::enhanced-foreign-type)
-  ((ff-pointer :accessor ff-pointer)))
+(defclass /c++-class/ ()
+  ((ff-pointer :accessor ff-pointer :type system-area-pointer)))
 
-(defmacro bt-class (name &optional (base-class '/c++-class/ ))
+(defmacro bt-class (name &optional (base-class '/c++-class/))
   `(progn 
-     (cffi:define-foreign-type ,name (,base-class)
+     (cffi:define-foreign-type ,name (,base-class cffi::enhanced-foreign-type)
       nil
       (:actual-type :pointer))
     (sb-alien:define-alien-type ,name
-        (sb-alien:struct ,name (binary-data (* sb-alien:char))))))
+        (sb-alien:struct ,name (binary-data (* sb-alien:char))))
+    (defmethod ff-pointer ((object ,name))
+      (or (sb-alien-internals:alien-value-sap (or (slot-value object 'ff-pointer)
+                                                  (error 'null-pointer)))
+          (error 'null-pointer)))))
 
 (bt-class collision-world)
 
@@ -75,9 +79,9 @@
 
 ;;; Vectors, matrices, et al.
 
-(bt-class vector3)
+;; (bt-class vector3)
 
-(bt-class vector4 vector3)
+;; (bt-class vector4 vector3)
 
 (bt-class quaternion)
 
@@ -109,9 +113,9 @@
 
 (bt-class simple-broadphase broadphase)
 
-(bt-class axis-sweep3 broadphase)
+(bt-class axis-sweep-3 broadphase)
 
-(bt-class bt-32-bit-axis-sweep3 broadphase)
+(bt-class bt-32-bit-axis-sweep-3 broadphase)
 
 (bt-class multi-sap-broadphase broadphase)
 
@@ -170,5 +174,7 @@
 
 (bt-class fixed-constraint typed-constraint)
 
-(bt-class sequential-impulse-constraint-solver)
+(bt-class constraint-solver)
+
+(bt-class sequential-impulse-constraint-solver constraint-solver)
 
