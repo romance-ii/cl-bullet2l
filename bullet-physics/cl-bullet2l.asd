@@ -3,7 +3,7 @@
   :author "Bruce-Robert Fenn Pocock"
   :licence "CC-0 (Public Domain)"
 
-  :depends-on (:alexandria :cffi :closer-mop)
+  :depends-on (:alexandria :cffi :closer-mop :cl-ppcre)
 
   :encoding :utf-8
 
