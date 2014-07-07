@@ -1,3 +1,6 @@
 [submodule "bullet2"]
 	path = bullet2
 	url = git@github.com:romance-ii/bullet2.git
+[submodule "verrazano"]
+	path = verrazano
+	url = git@github.com:romance-ii/verrazano.git
